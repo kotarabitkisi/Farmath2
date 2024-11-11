@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67272740604a2b042b735c86f5a66905, type: 3}
   m_Name: Crop
   m_EditorClassIdentifier: 
-  Base: 0
+  base_: 0
+  multiplier_: 0
   id: 0
   cropName: Grass
   reqDayToGrow: 0
   CropSprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   Cost: 0
+  DefBaseRevenue: 0
+  Rev: []
+  RevOperation: 
+  reqConnectedIds: 
+  reqNeighbourCount: 

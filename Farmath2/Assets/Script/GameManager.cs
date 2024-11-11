@@ -1,29 +1,45 @@
 using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
-    const int maxCardCountOnShop=6;
+    public GameObject cropCardUsing;
+    [Header("MainStats")]
+    public CropStats[] crops;
+    public float money;
+    public int Day;
+    const float pageAnimTime=0.5f;
+    const int reqDay = 365;
+    const int maxCardCountOnShop = 6;
+    const int maxExploreCount=6;
+    public bool pageopened;
+    [Space(10)]
+
     public ShopManager ShopManagement;
     public DeckPlacing deckPlacing;
-    Queue<int> cards = new();//listeleme için kullan
+
     public GameObject WinPanel;
     public GameObject LosePanel;
     public int[] HarvestedCropCount;
     public int HoeCount;
     public int[] HoeCost;
     public GameObject ShopImage;
-    public CropStats[] crops;
+    public GameObject PageParent;
+
     public Farms farmsScr;
     public TextMeshProUGUI MoneyText, Daytext;
-    public float money;
-    public int Day;
-    const int reqDay = 365;
-    public bool pageopened;
+    [Header("Explore")]
+    public float ColorSpeed;
+    public Color textColor,textColor2;
+    
+    public bool[] isExplored;
+    public string[] ExploreText;
+    public TextMeshProUGUI[] ExploreTexts;
+    public bool[] isTextColorful;
+    public GameObject ExplorePage;
     private void Start()
     {
         InitializeMoneyText();
@@ -35,56 +51,193 @@ public class GameManager : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.CompareTag("Farm"))
             {
                 farmsScr.ChosenFarm = hit.collider.gameObject.GetComponent<FarmInfo>();
                 FarmInfo farm = hit.collider.gameObject.GetComponent<FarmInfo>();
+                if (farm.Id == 1 && cropCardUsing)
+                {
+                    CardScr card = cropCardUsing.GetComponent<CardData>().Card;
+                    if (card is CropScr CropCard)
+                    {
+                        SeedCrop(CropCard.id);
+                    }
+                    for (int i = 0; i < deckPlacing.openedCards.Count; i++)
+                    {
+                        if (deckPlacing.openedCards[i] == cropCardUsing) { deckPlacing.openedCards.RemoveAt(i); }
+                    }
+                    Destroy(cropCardUsing);
+                }
                 if (farm.Id == 0) { farm.HoeImage.SetActive(true); pageopened = true; }
-                else if (farm.Id == 1) { OpenShopUIvoid(); }
+
                 else if (farm.curDay >= farm.reqDay)
                 {
                     HarvestCrop(farm);
                 }
             }
+            else
+            {
+
+            }
+        }
+        else if (Input.GetMouseButtonDown(1) && cropCardUsing)
+        {
+            cropCardUsing = null;
+            deckPlacing.chosenCard.transform.parent = deckPlacing.transform;
         }
         #endregion
+        for (int i = 0; i < isTextColorful.Length; i++)
+        {
+            if (isTextColorful[i])
+            {
+                ExploreTexts[i].color = Color.Lerp(textColor,textColor2,(Mathf.Sin(Time.time* ColorSpeed) +1)/2);
+            }
+        }
     }
     public void InitializeMoneyText()
     {
         switch (money)
         {
-            case < 1000: MoneyText.text = "Money: " + money; break;
-            case < 1000000: MoneyText.text = "Money: " + (money / 1000).ToString("F2") + "K"; break;
-            case < 1000000000: MoneyText.text = "Money: " + (money / 1000000).ToString("F2") + "M"; break;
+            case < 1000: MoneyText.text = money.ToString("F2"); break;
+            case < 1000000: MoneyText.text = (money / 1000).ToString("F2") + "K"; break;
+            case < 1000000000: MoneyText.text = (money / 1000000).ToString("F2") + "M"; break;
         }
     }
     public void HarvestCrop(FarmInfo farm)
     {
-        switch (farm.Id)
+        CropStats cropStats = crops[farm.Id];
+        float baseRev = cropStats.DefBaseRevenue;
+        float MultipleRev = 1;
+
+
+
+        if (cropStats.IsNeighbour(farm.connectedFarmIds))
         {
-            case 2: money += (float)(50 + ((365 - Day) * 10.0f) + farmsScr.totalConnectedIds.Sum() * (5f + 0.5f * HarvestedCropCount.Sum())); HarvestedCropCount[2]++; break;
-            case 3: money += (float)(100 + ((365 - Day) * 10.0f * (3f - 0.75f * HarvestedCropCount.Sum())) + 100 * farmsScr.totalConnectedIds.Sum()); HarvestedCropCount[3]++; break;
-            case 4: money += (float)(150 + money * 0.01f); HarvestedCropCount[4]++; break;
-            case 5: money += (float)(100 + money * (0.01f * HarvestedCropCount.Sum()) * (0.05f - 0.01f * farmsScr.totalConnectedIds.Sum())); HarvestedCropCount[5]++; break;
-            case 6: money += (float)(150 + (Day * 10) + 40 * farmsScr.totalConnectedIds.Sum() * (1 + 0.02f * HarvestedCropCount.Sum())); HarvestedCropCount[6]++; break;
-            case 7: money += (float)(200 + (Day * 30) + 10 * farmsScr.totalConnectedIds.Sum() * (1 + 0.1f * HarvestedCropCount.Sum())); HarvestedCropCount[7]++; break;
+            int id = (farm.Id - 2) * maxExploreCount;
+            if (!isExplored[id])
+            {
+                isExplored[id] = true;
+                ExploreTexts[id].text = ExploreText[id];
+                isTextColorful[id] = true;
+            }
+
+            switch (cropStats.RevOperation[0])
+            {
+                case 0:
+                    baseRev += cropStats.Rev[0];
+                    break;
+                case 1:
+                    MultipleRev += cropStats.Rev[0];
+                    break;
+            }
         }
+        if (cropStats.IsHarvestDayPassed(farm))
+        {
+            int id = (farm.Id - 2) * maxExploreCount+1;
+            if (!isExplored[id])
+            {
+                isExplored[id] = true;
+                ExploreTexts[id].text = ExploreText[id];
+                isTextColorful[id] = true;
+            }
+            switch (cropStats.RevOperation[1])
+            {
+                case 0:
+                    baseRev += cropStats.Rev[1];
+                    break;
+                case 1:
+                    MultipleRev += cropStats.Rev[1];
+                    break;
+            }
+        }
+        if (cropStats.IsMoneyBetweenTheseNum(money))
+        {
+            int id = (farm.Id - 2) * maxExploreCount + 2;
+            if (!isExplored[id])
+            {
+                isExplored[id] = true;
+                ExploreTexts[id].text = ExploreText[id];
+                isTextColorful[id] = true;
+            }
+            switch (cropStats.RevOperation[2])
+            {
+                case 0:
+                    baseRev += cropStats.Rev[2];
+                    break;
+                case 1:
+                    MultipleRev += cropStats.Rev[2];
+                    break;
+            }
+        }
+        if (cropStats.IsDayBetweenTheseNum(Day))
+        {
+            int id = (farm.Id - 2) * maxExploreCount + 3;
+            if (!isExplored[id])
+            {
+                isExplored[id] = true;
+                ExploreTexts[id].text = ExploreText[id];
+                isTextColorful[id] = true;
+            }
+            switch (cropStats.RevOperation[3])
+            {
+                case 0:
+                    baseRev += cropStats.Rev[3];
+                    break;
+                case 1:
+                    MultipleRev += cropStats.Rev[3];
+                    break;
+            }
+        }
+        if (cropStats.IsHarvestCount(true,Day))
+        {
+            int id = (farm.Id - 2) * maxExploreCount + 4;
+            if (!isExplored[id])
+            {
+                isExplored[id] = true;
+                ExploreTexts[id].text = ExploreText[id];
+                isTextColorful[id] = true;
+            }
+            switch (cropStats.RevOperation[4])
+            {
+                case 0:
+                    baseRev += cropStats.Rev[4];
+                    break;
+                case 1:
+                    MultipleRev += cropStats.Rev[4];
+                    break;
+            }
+        }
+        if (cropStats.IsHarvestCount(false, Day))
+        {
+            int id = (farm.Id - 2) * maxExploreCount + 5;
+            if (!isExplored[id])
+            {
+                isExplored[id] = true;
+                ExploreTexts[id].text = ExploreText[id];
+                isTextColorful[id] = true;
+            }
+            switch (cropStats.RevOperation[5])
+            {
+                case 0:
+                    baseRev += cropStats.Rev[5];
+                    break;
+                case 1:
+                    MultipleRev += cropStats.Rev[5];
+                    break;
+            }
+        }
+
         farm.Id = 1;
         farm.curDay = 0;
         farm.reqDay = 0;
+        money += baseRev * MultipleRev;
         InitializeMoneyText();
     }
-    public void BuyCrop(int id)
+    public void SeedCrop(int id)
     {
-        if (money >= crops[id].Cost)
-        {
-            farmsScr.ChosenFarm.Id = id;
-            farmsScr.ChosenFarm.curDay = 0;
-            farmsScr.ChosenFarm.reqDay = crops[id].reqDayToGrow;
-            money -= crops[id].Cost;
-        }
-
-        CloseShopUIvoid();
+        farmsScr.ChosenFarm.Id = id;
+        farmsScr.ChosenFarm.curDay = 0;
+        farmsScr.ChosenFarm.reqDay = crops[id].reqDayToGrow;
         InitializeMoneyText();
     }
     public void Hoe(FarmInfo farm)
@@ -105,36 +258,40 @@ public class GameManager : MonoBehaviour
         farm.HoeImage.SetActive(false);
         pageopened = false;
     }
-    public void OpenShopUIvoid()
+    public void UIPageAnimVoid(GameObject Obj)
     {
-        StartCoroutine(OpenShopUI());
+        
+        StartCoroutine(UIPageAnim(Obj,pageopened));
     }
-    public IEnumerator OpenShopUI()
+    public IEnumerator UIPageAnim(GameObject Obj,bool pageopened)
     {
-        ShopImage.SetActive(true);
-        ShopImage.transform.DOScale(new Vector3(1, 1, 1) * 1, 0.5f);
-        yield return new WaitForSecondsRealtime(0.5f);
-        pageopened = true;
-    }
-    public void CloseShopUIvoid()
-    {
-        StartCoroutine(CloseShopUI());
-    }
-    public IEnumerator CloseShopUI()
-    {
-        ShopImage.transform.DOScale(Vector3.zero, 0.5f);
-        yield return new WaitForSecondsRealtime(0.5f);
-        ShopImage.SetActive(true);
-        pageopened = false;
+        if (!pageopened)
+        {
+            Obj.SetActive(true);
+            PageParent.GetComponent<RectTransform>().DOMoveX(Screen.width/2, pageAnimTime);
+            yield return new WaitForSecondsRealtime(pageAnimTime);
+            this.pageopened = true;
+        }
+        else
+        {
+            PageParent.GetComponent<RectTransform>().DOMoveX(-Obj.GetComponent<RectTransform>().rect.width/2, pageAnimTime);
+            yield return new WaitForSecondsRealtime(pageAnimTime);
+            Obj.SetActive(false);
+            this.pageopened = false;
+            TurnOffColor();
+        }
+
     }
     public void NextDay()
     {
         Day++;
         Daytext.text = "Day: " + Day + "/" + reqDay;
         StartCoroutine(deckPlacing.DayPassedTakeCard());
+        ShopManagement.cardsOnShop.Clear();
+        ShopManagement.cardCosts.Clear();
         for (int i = 0; i < maxCardCountOnShop; i++)
         {
-            ShopManagement.AddCardToShop(i,Random.Range(0,deckPlacing.allCardScr.Length));
+            ShopManagement.AddCardToShop(i, Random.Range(0, deckPlacing.allCardScr.Length));
         }
         if (reqDay <= Day)
         {
@@ -156,12 +313,21 @@ public class GameManager : MonoBehaviour
     {
         WinPanel.SetActive(true);
         pageopened = true;
-        WinPanel.transform.DOScale(new Vector3(1, 1, 1) * 1, 0.5f);
+        WinPanel.transform.DOScale(new Vector3(1, 1, 1) * 1, pageAnimTime);
     }
     public void Lose()
     {
         LosePanel.SetActive(true);
         pageopened = true;
-        LosePanel.transform.DOScale(new Vector3(1, 1, 1) * 1, 0.5f);
+        LosePanel.transform.DOScale(new Vector3(1, 1, 1) * 1, pageAnimTime);
+    }
+    public void TurnOffColor()
+    {
+        for (int i = 0; i < ExploreText.Length; i++)
+        {
+            isTextColorful[i] = false;
+            ExploreTexts[i].color = Color.white;
+        }
+       
     }
 }

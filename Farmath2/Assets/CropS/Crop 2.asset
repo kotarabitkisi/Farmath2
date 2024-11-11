@@ -12,9 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67272740604a2b042b735c86f5a66905, type: 3}
   m_Name: Crop 2
   m_EditorClassIdentifier: 
-  Base: 0
+  base_: 0
+  multiplier_: 0
   id: 2
   cropName: Wheat
   reqDayToGrow: 20
   CropSprite: {fileID: 0}
   Cost: 50
+  DefBaseRevenue: 100
+  Rev:
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  RevOperation: 000000000000000000000000000000000000000000000000
+  reqConnectedIds: 02000000020000000200000002000000
+  reqHarvestDaymin: 0
+  reqHarvestDaymax: 100
+  reqMoneyMin: 0
+  reqMoneyMax: 1000000
+  reqdayMin: 0
+  reqdayMax: 100
+  reqHarvestCountmin: 0
+  reqHarvestCountmax: 100
+  reqHarvestCountOnSameTypemin: 0
+  reqHarvestCountOnSameTypemax: 100

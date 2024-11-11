@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Farms : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Farms : MonoBehaviour
     public FarmInfo[,] FarmList = new FarmInfo[height, width];
     public int[] totalConnectedIds = new int[8];
     public FarmInfo ChosenFarm;
+    public GameManager GameManager;
     private void Awake()
     {
         for (int i = 0; i < height; i++)
@@ -23,6 +25,7 @@ public class Farms : MonoBehaviour
     {
         CalculateConnectedCount();
         CalculateTotalConnectedIds();
+        
     }
     public void CalculateTotalConnectedIds()
     {
@@ -55,16 +58,16 @@ public class Farms : MonoBehaviour
             for (int j = 0; j < width; j++)
             {
                 if (i != 0) { GetConnected(FarmList[i, j], i - 1, j, 0); }
-                else if (i != height - 1) { GetConnected(FarmList[i, j], i + 1, j, 1); }
+                if (i != height - 1) { GetConnected(FarmList[i, j], i + 1, j, 1); }
                 if (j != 0) { GetConnected(FarmList[i, j], i, j - 1, 2); }
-                else if (j != width - 1) { GetConnected(FarmList[i, j], i, j + 1, 3); }
+                if (j != width - 1) { GetConnected(FarmList[i, j], i, j + 1, 3); }
             }
         }
     }
 
     public void GetConnected(FarmInfo farm, int i, int j, int direction)
     {
-        if (farm.Id >= 2&& FarmList[i, j].Id>=2) { farm.connectedFarmIds[direction] = FarmList[i, j].Id; }
+        if (farm.Id >= 2 && FarmList[i, j].Id>=2) { farm.connectedFarmIds[direction] = FarmList[i, j].Id; }
         else { farm.connectedFarmIds[direction] = 0; }
     }
     public void ChangeId(FarmInfo ChosenFarm, int id)

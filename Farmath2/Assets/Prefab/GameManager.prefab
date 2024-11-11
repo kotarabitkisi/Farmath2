@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &910084559847793297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6193985710840211711}
+  - component: {fileID: 5797987359591885181}
+  - component: {fileID: 3030820063569021284}
+  - component: {fileID: 6272556741260567682}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6193985710840211711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910084559847793297}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.41136664, y: 1.8005266, z: 0.04508781}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5797987359591885181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910084559847793297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11378f15b9e1be04e96c7e48d7680e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  totalConnectedIds: 0000000000000000000000000000000000000000000000000000000000000000
+  ChosenFarm: {fileID: 0}
+--- !u!114 &3030820063569021284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910084559847793297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b4570af4272cb4e8c9e40dc5c035df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cropCardUsing: 0
+  chosenId: 0
+  ShopManagement: {fileID: 6272556741260567682}
+  deckPlacing: {fileID: 0}
+  WinPanel: {fileID: 0}
+  LosePanel: {fileID: 0}
+  HarvestedCropCount: 0000000000000000000000000000000000000000000000000000000000000000
+  HoeCount: 0
+  HoeCost: 64000000e8030000c4090000102700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ShopImage: {fileID: 0}
+  crops:
+  - {fileID: 11400000, guid: 523b28f86d8a87a49b90f81b12a3f9ee, type: 2}
+  - {fileID: 11400000, guid: eca0238b87fb2274cb1bc1c52418c693, type: 2}
+  - {fileID: 11400000, guid: 91e9a752fde5d7449a1c5bb33d230e36, type: 2}
+  - {fileID: 11400000, guid: b2906154d23004e4d9dc5e7887090fd3, type: 2}
+  - {fileID: 11400000, guid: 7b58ea647c2b558458b5cfd2b00bf859, type: 2}
+  - {fileID: 11400000, guid: cd3e37678dc979d4c9f2b81c581f239c, type: 2}
+  - {fileID: 11400000, guid: 965c723d2a7349647950fe1106316309, type: 2}
+  - {fileID: 11400000, guid: 47ad91ba0113d394a873f13a493bbe76, type: 2}
+  farmsScr: {fileID: 5797987359591885181}
+  MoneyText: {fileID: 0}
+  Daytext: {fileID: 0}
+  money: 100
+  Day: 1
+  pageopened: 0
+--- !u!114 &6272556741260567682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910084559847793297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88559fe443bf4f94ca37109962759d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManag: {fileID: 3030820063569021284}
+  DP: {fileID: 0}
+  cardsOnShop: []
+  cardCosts: []
+  allIcons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  allShopNameTxt:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  allShopCostTxt:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

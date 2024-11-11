@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,23 +19,25 @@ public class ShopManager : MonoBehaviour
         if (GameManag.money >= cardCosts[ShopIndex])
         {
             GameManag.money -= cardCosts[ShopIndex];
+            GameManag.InitializeMoneyText();
             DP.AddCardToDiscard(cardsOnShop[ShopIndex]);
             DeleteCard(ShopIndex);
         }
         else { print("fakir"); }
     }
-    public void AddCardToShop(int ShopIndex,int CardID)
+    public void AddCardToShop(int ShopIndex, int CardID)
     {
         allIcons[ShopIndex].GetComponent<Button>().interactable = true;
         CardScr chosenCard = DP.allCardScr[CardID];
         allIcons[ShopIndex].sprite = chosenCard.Icon;
         allShopNameTxt[ShopIndex].text = chosenCard.CardName;
         allShopCostTxt[ShopIndex].text = chosenCard.CardCost.ToString("0");
-        cardsOnShop.Add(DP.allCardScr[ShopIndex]);
+        cardsOnShop.Add(chosenCard);
         cardCosts.Add(chosenCard.CardCost);
     }
-    public void DeleteCard(int ShopIndex) {
-        cardsOnShop[ShopIndex]=null;
+    public void DeleteCard(int ShopIndex)
+    {
+        cardsOnShop[ShopIndex] = null;
         cardCosts[ShopIndex] = 0;
         allIcons[ShopIndex].GetComponent<Button>().interactable = false;
     }
