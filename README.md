@@ -1,6 +1,6 @@
 # FARMATH
 
-**Farmath** is a farming game where your earnings is determined by the **mathamatical expressions** and **your strategy**
+**Farmath** is a farming game where your earnings is determined by the **mathematical expressions** and **your strategy**
 
   ## Gameplay
 
