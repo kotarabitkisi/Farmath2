@@ -4,14 +4,11 @@ using UnityEngine;
 public class CropStats : ScriptableObject
 {
     public float base_;
-    public float multiplier_;
     public int id;
     public string cropName;
     public int reqDayToGrow;
     public Sprite CropSprite;
-    public float Cost;
 
-    public float DefBaseRevenue;
     public float[] Rev;
     public int[] RevOperation;
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "Card", menuName = "ScriptableObjects/Card")]
+[CreateAssetMenu(fileName = "DefCard", menuName = "Cards/DefCard")]
 public class CardScr : ScriptableObject
 {
     public string CardName;
@@ -9,5 +9,9 @@ public class CardScr : ScriptableObject
     public float CardCost;
     public virtual void Use() { 
     
+    }
+    public virtual void Use(int ItemIcon)
+    {
+
     }
 }

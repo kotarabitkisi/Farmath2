@@ -12,9 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67272740604a2b042b735c86f5a66905, type: 3}
   m_Name: Crop 4
   m_EditorClassIdentifier: 
-  Base: 0
-  id: 4
-  cropName: Corn
-  reqDayToGrow: 30
+  base_: 500
+  id: 7
+  cropName: Tomato
+  reqDayToGrow: 10
   CropSprite: {fileID: 0}
-  Cost: 500
+  Rev:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  RevOperation: 000000000000000000000000000000000000000000000000
+  reqConnectedIds: 
+  reqHarvestDaymin: 10
+  reqHarvestDaymax: 100
+  reqMoneyMin: 500000
+  reqMoneyMax: 2147483647
+  reqdayMin: 0
+  reqdayMax: 140
+  reqHarvestCountmin: 0
+  reqHarvestCountmax: 100
+  reqHarvestCountOnSameTypemin: 20
+  reqHarvestCountOnSameTypemax: 2147483647

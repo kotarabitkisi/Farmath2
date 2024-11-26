@@ -12,6 +12,9 @@ public class FarmInfo : MonoBehaviour
     public SpriteRenderer farmImages;
     public GameObject HoeImage;
     public GameManager GameManager;
+
+    public bool HolyHoed;
+    public bool Watered;
     private void Awake()
     {
         farmImages = GetComponent<SpriteRenderer>();

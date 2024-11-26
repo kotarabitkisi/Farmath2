@@ -24,7 +24,7 @@ public class DeckPlacing : MonoBehaviour
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Collider2D collider = Physics2D.OverlapPoint(mousePosition);
-        if (!GManager.cropCardUsing)
+        if (!GManager.cropCardUsing || !GManager.itemCardUsing)
         {
             if (chosenCard != null)
             {
@@ -48,9 +48,37 @@ public class DeckPlacing : MonoBehaviour
                         chosenCard.transform.parent = null;
                         InitializeAllCardsPositions();
                     }
-                    else if (cardData is CropScr)
+                    else if (cardData is ItemScr ItemCardData)
                     {
+                        GManager.itemCardUsing = chosenCard;
+                        cardData.Use();
+                        switch (ItemCardData.itemId)
+                        {
 
+                            case 1:
+                                for (int i = 0; i < 3; i++)
+                                {
+                                    GManager.farmsScr.water(0, 0, true); Destroy(GManager.itemCardUsing);
+                                }
+                                for (int i = 0; i < openedCards.Count; i++)
+                                {
+                                    if (openedCards[i] == GManager.itemCardUsing) { openedCards.RemoveAt(i); break; }
+                                }
+                                break;
+                            case 4:
+                                for (int i = 0; i < 3; i++)
+                                {
+                                    TakeCardFromDiscard(); 
+                                }
+                                for (int i = 0; i < openedCards.Count; i++)
+                                {
+                                    if (openedCards[i] == GManager.itemCardUsing) { openedCards.RemoveAt(i); break; }
+                                }
+                                Destroy(GManager.itemCardUsing);
+                                break;
+                        }
+                        chosenCard.transform.parent = null;
+                        InitializeAllCardsPositions();
                     }
 
                 }
@@ -93,7 +121,7 @@ public class DeckPlacing : MonoBehaviour
         for (int i = 0; i < OpenedCardLimit; i++)
         {
             TakeCardFromDiscard();
-            yield return new WaitForSecondsRealtime(0.25f);
+            yield return new WaitForSecondsRealtime(0.1f);
         }
     }
     public void TakeCardFromDiscard()
@@ -109,7 +137,11 @@ public class DeckPlacing : MonoBehaviour
 
             CardScr Card = discardedCards[cardIndex];
             discardedCards.RemoveAt(cardIndex);
-            GameObject newOpenedCard = Instantiate(cardPrefab, new Vector2(6.75f, -3.2f), Quaternion.identity);
+
+            Vector2 cardSpawnPosition;
+            RaycastHit2D hit = Physics2D.Raycast(closedCardPrefab.transform.position, Vector2.zero);
+            print(Camera.main.ScreenToWorldPoint(closedCardPrefab.transform.position));
+            GameObject newOpenedCard = Instantiate(cardPrefab, hit.point, Quaternion.identity);
             newOpenedCard.transform.SetParent(transform, true);
             GameObject newOpenedCardCanvas = newOpenedCard.transform.GetChild(0).gameObject;
             newOpenedCardCanvas.transform.GetChild(0).GetComponent<Image>().sprite = Card.Icon;

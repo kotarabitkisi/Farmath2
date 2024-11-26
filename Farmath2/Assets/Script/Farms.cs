@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Farms : MonoBehaviour
 {
     const int direction = 4;
-    const int width = 6;
-    const int height = 4;
+    public const int width = 6;
+    public const int height = 4;
     public FarmInfo[] frams;
     public FarmInfo[,] FarmList = new FarmInfo[height, width];
     public int[] totalConnectedIds = new int[8];
@@ -25,7 +24,7 @@ public class Farms : MonoBehaviour
     {
         CalculateConnectedCount();
         CalculateTotalConnectedIds();
-        
+
     }
     public void CalculateTotalConnectedIds()
     {
@@ -42,7 +41,7 @@ public class Farms : MonoBehaviour
                     }
                 }
             }
-            totalConnectedIds[i] = totalConnectedId/2;
+            totalConnectedIds[i] = totalConnectedId / 2;
 
 
 
@@ -67,11 +66,19 @@ public class Farms : MonoBehaviour
 
     public void GetConnected(FarmInfo farm, int i, int j, int direction)
     {
-        if (farm.Id >= 2 && FarmList[i, j].Id>=2) { farm.connectedFarmIds[direction] = FarmList[i, j].Id; }
+        if (farm.Id >= 2 && FarmList[i, j].Id >= 2) { farm.connectedFarmIds[direction] = FarmList[i, j].Id; }
         else { farm.connectedFarmIds[direction] = 0; }
     }
     public void ChangeId(FarmInfo ChosenFarm, int id)
     {
         ChosenFarm.Id = id;
+    }
+    public void water(int width, int height, bool IsRandom)
+    {
+        if (IsRandom)
+        {
+            FarmList[Random.Range(0, height), Random.Range(0, width)].Watered = true;
+        }
+        else { FarmList[height, width].Watered = true; }
     }
 }

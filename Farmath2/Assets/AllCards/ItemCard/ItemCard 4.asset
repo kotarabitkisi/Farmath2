@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67272740604a2b042b735c86f5a66905, type: 3}
-  m_Name: Crop 7
+  m_Script: {fileID: 11500000, guid: 0ee0309a618b17347b865f992fbad77d, type: 3}
+  m_Name: ItemCard 4
   m_EditorClassIdentifier: 
-  Base: 0
-  id: 7
-  cropName: Eggplant
-  reqDayToGrow: 30
-  CropSprite: {fileID: 0}
-  Cost: 1500
+  CardName: ThatClock
+  Icon: {fileID: 0}
+  CardCost: 500
+  itemId: 4
