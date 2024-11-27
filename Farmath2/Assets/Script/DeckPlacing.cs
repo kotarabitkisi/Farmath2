@@ -20,11 +20,13 @@ public class DeckPlacing : MonoBehaviour
     const int OpenedCardLimit = 3;
     public GameObject chosenCard;
     public GameManager GManager;
+    public bool discardactivated;
+
     void Update()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Collider2D collider = Physics2D.OverlapPoint(mousePosition);
-        if (!GManager.cropCardUsing || !GManager.itemCardUsing)
+        if (!GManager.cropCardUsing && !GManager.itemCardUsing)
         {
             if (chosenCard != null)
             {
@@ -39,8 +41,16 @@ public class DeckPlacing : MonoBehaviour
                 }
                 if (Input.GetMouseButtonDown(0))
                 {
-                    chosenCard.transform.DOMove(new Vector3(6, 0.5f, 0), 0.25f);
                     CardScr cardData = chosenCard.GetComponent<CardData>().Card;
+                    if (discardactivated) { PutDiscardThisCard(chosenCard); }
+                    else
+                    {
+                        chosenCard.transform.DOMove(new Vector3(6, 0.5f, 0), 0.25f);
+                        chosenCard.transform.parent = null;
+                        InitializeAllCardsPositions();
+                    }
+
+
                     if (cardData is CropScr)
                     {
                         cardData.Use();
@@ -68,7 +78,7 @@ public class DeckPlacing : MonoBehaviour
                             case 4:
                                 for (int i = 0; i < 3; i++)
                                 {
-                                    TakeCardFromDiscard(); 
+                                    TakeCardFromDiscard();
                                 }
                                 for (int i = 0; i < openedCards.Count; i++)
                                 {
@@ -166,6 +176,27 @@ public class DeckPlacing : MonoBehaviour
             Card.GetComponent<SpriteRenderer>().sortingOrder = 2 * (CardCount - i);
             Card.transform.GetChild(0).GetComponent<Canvas>().sortingOrder = 2 * (CardCount - i) + 1;
             Card.transform.DOLocalMove(new Vector3(startingXpos + xPos * i, yPos, 0), 0.2f).SetEase(Ease.Linear);
+        }
+    }
+
+    public void ActivatePutDiscard()
+    {
+        discardactivated = !discardactivated;
+    }
+    public void PutDiscardThisCard(GameObject ChosenCardToDiscard)
+    {
+        for (int i = 0; i < openedCards.Count; i++)
+        {
+
+            if (ChosenCardToDiscard == openedCards[i])
+            {
+                discardedCards.Add(openedCards[i].GetComponent<CardData>().Card);
+                openedCards.RemoveAt(i);
+                Destroy(ChosenCardToDiscard);
+                //GManager.money -=**;
+
+                break;
+            }
         }
     }
 }

@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
                     Destroy(itemCardUsing);
                 }
                 if (farm.Id == 0) { farm.HoeImage.SetActive(true); pageopened = true; }
-                else if (farm.curDay >= farm.reqDay&&farm.Id>=3)
+                else if (farm.curDay >= farm.reqDay && farm.Id >= 2)
                 {
                     HarvestCrop(farm);
                 }
@@ -336,6 +336,17 @@ public class GameManager : MonoBehaviour
     {
         Day++;
         Daytext.text = "Day: " + Day + "/" + reqDay;
+
+        for (int i = 0; i < farmsScr.frams.Length; i++)
+        {
+            FarmInfo farm = farmsScr.frams[i];
+            float probality = 5;
+            for (int l = 0; l < farm.connectedFarmIds.Length; l++)
+            {
+                if (farm.connectedFarmIds[l] == 8) { probality += 2.5f; }
+            }
+            if (farm.Id == 1 && Random.Range(0f, 100) <= probality) { farm.Id = 8; }
+        }
         StartCoroutine(deckPlacing.DayPassedTakeCard());
         ShopManagement.cardsOnShop.Clear();
         ShopManagement.cardCosts.Clear();

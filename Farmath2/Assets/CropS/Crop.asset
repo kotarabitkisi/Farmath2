@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crop
   m_EditorClassIdentifier: 
   base_: 500
-  id: 3
+  id: 2
   cropName: Wheat
   reqDayToGrow: 10
   CropSprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
@@ -25,7 +25,7 @@ MonoBehaviour:
   - 0
   - 0
   RevOperation: 000000000000000000000000000000000000000000000000
-  reqConnectedIds: 02000000020000000200000002000000
+  reqConnectedIds: 02000000040000000200000003000000
   reqHarvestDaymin: 4
   reqHarvestDaymax: 2147483647
   reqMoneyMin: 0

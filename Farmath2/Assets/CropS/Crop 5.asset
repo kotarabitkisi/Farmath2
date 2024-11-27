@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crop 5
   m_EditorClassIdentifier: 
   base_: 500
-  id: 8
+  id: 7
   cropName: Eggplant
   reqDayToGrow: 10
   CropSprite: {fileID: 0}

@@ -13,13 +13,10 @@ MonoBehaviour:
   m_Name: EnemyVeins
   m_EditorClassIdentifier: 
   base_: 0
-  multiplier_: 0
-  id: 0
+  id: 8
   cropName: 
   reqDayToGrow: 0
   CropSprite: {fileID: 0}
-  Cost: 0
-  DefBaseRevenue: 0
   Rev: []
   RevOperation: 
   reqConnectedIds: 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crop 3
   m_EditorClassIdentifier: 
   base_: 500
-  id: 6
+  id: 5
   cropName: Lettuce
   reqDayToGrow: 10
   CropSprite: {fileID: 0}

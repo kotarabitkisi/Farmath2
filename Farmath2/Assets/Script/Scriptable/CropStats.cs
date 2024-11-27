@@ -28,7 +28,7 @@ public class CropStats : ScriptableObject
     public bool IsNeighbour(int[] connectedFarmIds)
     {
         bool[] conIds = new bool[] { false, false, false, false };
-
+        
 
         for (int i = 0; i < connectedFarmIds.Length; i++)
         {
@@ -39,7 +39,7 @@ public class CropStats : ScriptableObject
                     conIds[i] = true;
                     break;
                 }
-                if (connectedFarmIds[i] == reqConnectedIds[j])
+                else if (connectedFarmIds[i] == reqConnectedIds[j])
                 {
                     conIds[i] = true;
                     break;
@@ -48,9 +48,9 @@ public class CropStats : ScriptableObject
         }
         for (int i = 0; i < conIds.Length; i++)
         {
-            if (!conIds[i]) { Debug.Log("false"); return false; }
+            if (!conIds[i]) { Debug.Log(""+ conIds[0]+ conIds[1]+ conIds[2]+conIds[3] + "False"); return false; }
         }
-        Debug.Log("true");
+        Debug.Log("" + conIds[0] + conIds[1] + conIds[2] + conIds[3]+"True");
         return true;
     }
     public bool IsHarvestDayPassed(FarmInfo farmI)
