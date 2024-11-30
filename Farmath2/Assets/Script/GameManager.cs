@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,10 +12,13 @@ public class GameManager : MonoBehaviour
     public CropStats[] crops;
     public float money;
     public int Day;
+    public int Month;
     const float pageAnimTime = 0.5f;
-    const int reqDay = 365;
+    const int reqDay = 30;
+    const int reqMonth = 30;
     const int maxCardCountOnShop = 6;
     const int maxExploreCount = 6;
+    const int moneyBound = 100;
     public bool pageopened;
     [Space(10)]
 
@@ -28,6 +32,7 @@ public class GameManager : MonoBehaviour
     public int[] HoeCost;
     public GameObject ShopImage;
     public GameObject PageParent;
+    public GameObject DebuffPage;
 
     public Farms farmsScr;
     public TextMeshProUGUI MoneyText, Daytext;
@@ -41,6 +46,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI[] ExploreTexts;
     public bool[] isTextColorful;
     public GameObject ExplorePage;
+    [Header("Debuffs")]
+    public string[] DebuffTitle;
+    public Sprite[] DebuffIcon;
+    public string[] DebuffDesc;
+
+    public bool[] debuffs;
+    //0:inflation
+
+
     private void Start()
     {
         InitializeMoneyText();
@@ -52,69 +66,57 @@ public class GameManager : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-            print(hit.collider.gameObject);
             if (hit.collider != null && hit.collider.CompareTag("Farm"))
             {
                 farmsScr.ChosenFarm = hit.collider.gameObject.GetComponent<FarmInfo>();
                 FarmInfo farm = hit.collider.gameObject.GetComponent<FarmInfo>();
-                if (farm.Id == 1 && cropCardUsing)
-                {
-                    CardScr card = cropCardUsing.GetComponent<CardData>().Card;
-                    if (card is CropScr CropCard)
-                    {
-                        SeedCrop(CropCard.id);
-                    }
-                    for (int i = 0; i < deckPlacing.openedCards.Count; i++)
-                    {
-                        if (deckPlacing.openedCards[i] == cropCardUsing) { deckPlacing.openedCards.RemoveAt(i); }
-                    }
-                    Destroy(cropCardUsing);
-                }
-                else if (itemCardUsing)
-                {
-                    CardScr card = itemCardUsing.GetComponent<CardData>().Card;
-                    if (card is ItemScr ItemCard)
-                    {
-                        switch (ItemCard.itemId)
-                        {
-                            case 0: farm.reqDay /= 2; break;
-                            case 2:
-                                if (farm.Id < 2)
-                                {
-                                    farm.HolyHoed = true;
-                                }
-                                else { }
-                                break;
-                            case 3:
-                                farm.Id = 1;
-                                farm.curDay = 0;
-                                farm.reqDay = 0;
-                                break;
+                if (itemCardUsing != null || cropCardUsing != null) { StartCoroutine(UseThisCard(farm)); }
 
-
-                        }
-                    }
-                    for (int i = 0; i < deckPlacing.openedCards.Count; i++)
-                    {
-                        if (deckPlacing.openedCards[i] == itemCardUsing) { deckPlacing.openedCards.RemoveAt(i); }
-                    }
-                    Destroy(itemCardUsing);
-                }
-                if (farm.Id == 0) { farm.HoeImage.SetActive(true); pageopened = true; }
+                else if (farm.Id == 0) { farm.HoeImage.SetActive(true); pageopened = true; }
                 else if (farm.curDay >= farm.reqDay && farm.Id >= 2)
                 {
                     HarvestCrop(farm);
                 }
             }
-            else
+            else if (hit.collider != null && hit.collider.CompareTag("Card"))
             {
+                if (hit.collider.gameObject == itemCardUsing || hit.collider.gameObject == cropCardUsing)
+                {
+                    if (itemCardUsing != null)
+                    {
+                        deckPlacing.MakeThisCardUsingCard(false, itemCardUsing);
+                    }
+                    else if (cropCardUsing != null)
+                    {
+                        deckPlacing.MakeThisCardUsingCard(false, cropCardUsing);
+                    }
+                }
+                else
+                {
+                    if (itemCardUsing != null)
+                    {
+                        deckPlacing.MakeThisCardUsingCard(false, itemCardUsing);
+                        deckPlacing.MakeThisCardUsingCard(true, hit.collider.gameObject);
+                    }
+                    if (cropCardUsing != null)
+                    {
+                        deckPlacing.MakeThisCardUsingCard(false, cropCardUsing);
+                        deckPlacing.MakeThisCardUsingCard(true, hit.collider.gameObject);
+                    }
 
+                }
             }
         }
-        else if (Input.GetMouseButtonDown(1) && cropCardUsing)
+        else if (Input.GetMouseButtonDown(1) && (cropCardUsing || itemCardUsing))
         {
-            cropCardUsing = null;
-            deckPlacing.chosenCard.transform.parent = deckPlacing.transform;
+            if (itemCardUsing != null)
+            {
+                deckPlacing.MakeThisCardUsingCard(false, itemCardUsing);
+            }
+            else if (cropCardUsing != null)
+            {
+                deckPlacing.MakeThisCardUsingCard(false, cropCardUsing);
+            }
         }
         #endregion
         for (int i = 0; i < isTextColorful.Length; i++)
@@ -283,11 +285,11 @@ public class GameManager : MonoBehaviour
         money += baseRev * MultipleRev;
         InitializeMoneyText();
     }
-    public void SeedCrop(int id)
+    public void SeedCrop(int id,FarmInfo ChosenFarm)
     {
-        farmsScr.ChosenFarm.Id = id;
-        farmsScr.ChosenFarm.curDay = 0;
-        farmsScr.ChosenFarm.reqDay = crops[id].reqDayToGrow;
+        ChosenFarm.Id = id;
+        ChosenFarm.curDay = 0;
+        ChosenFarm.reqDay = crops[id].reqDayToGrow;
         InitializeMoneyText();
     }
     public void Hoe(FarmInfo farm)
@@ -310,7 +312,6 @@ public class GameManager : MonoBehaviour
     }
     public void UIPageAnimVoid(GameObject Obj)
     {
-
         StartCoroutine(UIPageAnim(Obj, pageopened));
     }
     public IEnumerator UIPageAnim(GameObject Obj, bool pageopened)
@@ -337,6 +338,17 @@ public class GameManager : MonoBehaviour
         Day++;
         Daytext.text = "Day: " + Day + "/" + reqDay;
 
+        int isthecrop = 0;
+        for (int i = 0; i < farmsScr.frams.Length; i++)
+        {
+            if (farmsScr.frams[i].Id >= 2 && farmsScr.frams[i].Id <= 7) { isthecrop++; }
+        }
+        if (money <= 0 && isthecrop == 0 && deckPlacing.openedCards.Count == 0 && money < moneyBound)
+        {
+            Lose();
+        }
+
+
         for (int i = 0; i < farmsScr.frams.Length; i++)
         {
             FarmInfo farm = farmsScr.frams[i];
@@ -354,12 +366,26 @@ public class GameManager : MonoBehaviour
         {
             ShopManagement.AddCardToShop(i, Random.Range(0, deckPlacing.allCardScr.Length));
         }
-        if (reqDay <= Day)
+        if (reqDay < Day)
         {
-            if (money >= 1000000) { Win(); }
+            Month++;
+            Day = 1;
+            Daytext.text = "Day: " + Day + "/" + reqDay;
+            StartDebuff(0);
+            if (reqMonth < Month)
+            {
+                if (money >= 1000000) { Win(); }
+                else
+                {
+                    Lose();
+                }
+            }
             else
             {
-                Lose();
+                foreach (FarmInfo farmland in farmsScr.FarmList)
+                {
+                    farmland.curDay++;
+                }
             }
         }
         else
@@ -369,6 +395,7 @@ public class GameManager : MonoBehaviour
                 farmland.curDay++;
             }
         }
+
     }
     public void Win()
     {
@@ -392,4 +419,72 @@ public class GameManager : MonoBehaviour
         }
 
     }
+    public IEnumerator UseThisCard(FarmInfo farm)
+    {
+        float cardAnimTime = 0.5f;
+        if (farm.Id == 1 && cropCardUsing)
+        {
+            CardScr card = cropCardUsing.GetComponent<CardData>().Card;
+            cropCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
+            cropCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
+            yield return new WaitForSecondsRealtime(cardAnimTime);
+            yield return new WaitForSecondsRealtime(0.2f);
+            if (card is CropScr CropCard)
+            {
+                SeedCrop(CropCard.id,farm);
+            }
+
+            for (int i = 0; i < deckPlacing.openedCards.Count; i++)
+            {
+                if (deckPlacing.openedCards[i] == cropCardUsing) { deckPlacing.openedCards.RemoveAt(i); }
+            }
+
+            Destroy(cropCardUsing);
+        }
+        else if (itemCardUsing)
+        {
+            CardScr card = itemCardUsing.GetComponent<CardData>().Card;
+            itemCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
+            itemCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
+            yield return new WaitForSecondsRealtime(cardAnimTime);
+            if (card is ItemScr ItemCard)
+            {
+                switch (ItemCard.itemId)
+                {
+                    case 0: farm.reqDay /= 2; break;
+                    case 2:
+                        if (farm.Id < 2)
+                        {
+                            farm.HolyHoed = true;
+                            farm.Id = 1;
+                        }
+                        break;
+                    case 3:
+                        farm.Id = 1;
+                        farm.curDay = 0;
+                        farm.reqDay = 0;
+                        break;
+                }
+            }
+            for (int i = 0; i < deckPlacing.openedCards.Count; i++)
+            {
+                if (deckPlacing.openedCards[i] == itemCardUsing) { deckPlacing.openedCards.RemoveAt(i); }
+            }
+            Destroy(itemCardUsing);
+        }
+    }
+
+    public void StartDebuff(int DebuffType)
+    {
+        UIPageAnimVoid(DebuffPage);
+        DebuffPage.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = DebuffTitle[DebuffType];
+        DebuffPage.transform.GetChild(1).GetComponent<Image>().sprite = DebuffIcon[DebuffType];
+        DebuffPage.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = DebuffDesc[DebuffType];
+        for (int i = 0; i < debuffs.Length; i++)
+        {
+            debuffs[i] = false;
+        }
+        debuffs[DebuffType] = true;
+    }
+
 }

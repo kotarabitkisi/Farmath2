@@ -30,10 +30,13 @@ public class ShopManager : MonoBehaviour
         allIcons[ShopIndex].GetComponent<Button>().interactable = true;
         CardScr chosenCard = DP.allCardScr[CardID];
         allIcons[ShopIndex].sprite = chosenCard.Icon;
+        float CardCost;
+        if (GameManag.debuffs[0]) { CardCost = chosenCard.CardCost*(1+GameManag.Day*0.05f); }
+        else { CardCost = chosenCard.CardCost; }
         allShopNameTxt[ShopIndex].text = chosenCard.CardName;
-        allShopCostTxt[ShopIndex].text = chosenCard.CardCost.ToString("0");
+        allShopCostTxt[ShopIndex].text = CardCost.ToString("0");
         cardsOnShop.Add(chosenCard);
-        cardCosts.Add(chosenCard.CardCost);
+        cardCosts.Add(CardCost);
     }
     public void DeleteCard(int ShopIndex)
     {

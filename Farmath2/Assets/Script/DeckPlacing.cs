@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class DeckPlacing : MonoBehaviour
 {
     [ExecuteInEditMode]
+
     public TextMeshProUGUI cardCountTxt;
     public GameObject closedCardPrefab;
     public GameObject cardPrefab;
@@ -16,9 +17,11 @@ public class DeckPlacing : MonoBehaviour
     public List<CardScr> discardedCards;
     public List<GameObject> openedCards;
     public bool cardCollected;
+    public float Ypos2;
     const float xPos = 1, yPos = 1;
     const int OpenedCardLimit = 3;
-    public GameObject chosenCard;
+    public float rotationValue;
+    public GameObject chosenMovingCard;
     public GameManager GManager;
     public bool discardactivated;
 
@@ -28,83 +31,36 @@ public class DeckPlacing : MonoBehaviour
         Collider2D collider = Physics2D.OverlapPoint(mousePosition);
         if (!GManager.cropCardUsing && !GManager.itemCardUsing)
         {
-            if (chosenCard != null)
+            if (chosenMovingCard != null)
             {
-                if ((collider != null && collider.gameObject != chosenCard) || (collider == null))
+                if ((collider != null && collider.gameObject != chosenMovingCard) || (collider == null))
                 {
-                    chosenCard.transform.DOScale(cardPrefab.transform.lossyScale, 0.25f);
-                    chosenCard.transform.DOLocalMoveY(yPos, 0.25f);
-                    chosenCard.GetComponent<BoxCollider2D>().offset = new Vector2(0, 0);
-                    chosenCard.GetComponent<BoxCollider2D>().size = new Vector2(1, 1f);
+                    chosenMovingCard.transform.DOScale(cardPrefab.transform.lossyScale, 0.25f);
+                    chosenMovingCard.transform.DOLocalMoveY(yPos, 0.25f);
+                    //chosenCard.transform.DORotate(new Vector3(0, 0, 0), 0.2f).SetEase(Ease.Linear);
+                    chosenMovingCard.GetComponent<BoxCollider2D>().offset = new Vector2(0, 0);
+                    chosenMovingCard.GetComponent<BoxCollider2D>().size = new Vector2(1, 1f);
+                    chosenMovingCard = null;
                     InitializeAllCardsPositions();
-                    chosenCard = null;
                 }
                 if (Input.GetMouseButtonDown(0))
                 {
-                    CardScr cardData = chosenCard.GetComponent<CardData>().Card;
-                    if (discardactivated) { PutDiscardThisCard(chosenCard); }
-                    else
-                    {
-                        chosenCard.transform.DOMove(new Vector3(6, 0.5f, 0), 0.25f);
-                        chosenCard.transform.parent = null;
-                        InitializeAllCardsPositions();
-                    }
-
-
-                    if (cardData is CropScr)
-                    {
-                        cardData.Use();
-                        GManager.cropCardUsing = chosenCard;
-                        chosenCard.transform.parent = null;
-                        InitializeAllCardsPositions();
-                    }
-                    else if (cardData is ItemScr ItemCardData)
-                    {
-                        GManager.itemCardUsing = chosenCard;
-                        cardData.Use();
-                        switch (ItemCardData.itemId)
-                        {
-
-                            case 1:
-                                for (int i = 0; i < 3; i++)
-                                {
-                                    GManager.farmsScr.water(0, 0, true); Destroy(GManager.itemCardUsing);
-                                }
-                                for (int i = 0; i < openedCards.Count; i++)
-                                {
-                                    if (openedCards[i] == GManager.itemCardUsing) { openedCards.RemoveAt(i); break; }
-                                }
-                                break;
-                            case 4:
-                                for (int i = 0; i < 3; i++)
-                                {
-                                    TakeCardFromDiscard();
-                                }
-                                for (int i = 0; i < openedCards.Count; i++)
-                                {
-                                    if (openedCards[i] == GManager.itemCardUsing) { openedCards.RemoveAt(i); break; }
-                                }
-                                Destroy(GManager.itemCardUsing);
-                                break;
-                        }
-                        chosenCard.transform.parent = null;
-                        InitializeAllCardsPositions();
-                    }
-
+                    MakeThisCardUsingCard(true, chosenMovingCard);
+                    chosenMovingCard = null;
                 }
             }
             else
             {
                 if (collider != null && collider.gameObject.CompareTag("Card"))
                 {
-                    chosenCard = collider.gameObject;
-                    chosenCard.transform.DOLocalMoveY(yPos + 1.5f, 0.25f);
-                    chosenCard.transform.DOScale(cardPrefab.transform.lossyScale * 1.5f, 0.25f);
-                    chosenCard.GetComponent<SpriteRenderer>().sortingOrder = 50;
-                    chosenCard.transform.GetChild(0).GetComponent<Canvas>().sortingOrder = 51;
-                    chosenCard.GetComponent<BoxCollider2D>().offset = new Vector2(0, -0.165f);
-                    chosenCard.GetComponent<BoxCollider2D>().size = new Vector2(1, 1.35f);
-
+                    chosenMovingCard = collider.gameObject;
+                    chosenMovingCard.transform.DOLocalMoveY(yPos + Ypos2, 0.25f);
+                    chosenMovingCard.transform.DOScale(cardPrefab.transform.lossyScale * 1.5f, 0.25f);
+                    //chosenCard.transform.DORotate(new Vector3(0, 0, 0), 0.2f).SetEase(Ease.Linear);
+                    chosenMovingCard.GetComponent<SpriteRenderer>().sortingOrder = 50;
+                    chosenMovingCard.transform.GetChild(0).GetComponent<Canvas>().sortingOrder = 51;
+                    chosenMovingCard.GetComponent<BoxCollider2D>().offset = new Vector2(0, -0.165f);
+                    chosenMovingCard.GetComponent<BoxCollider2D>().size = new Vector2(1, 1.35f);
                 }
             }
         }
@@ -147,8 +103,6 @@ public class DeckPlacing : MonoBehaviour
 
             CardScr Card = discardedCards[cardIndex];
             discardedCards.RemoveAt(cardIndex);
-
-            Vector2 cardSpawnPosition;
             RaycastHit2D hit = Physics2D.Raycast(closedCardPrefab.transform.position, Vector2.zero);
             print(Camera.main.ScreenToWorldPoint(closedCardPrefab.transform.position));
             GameObject newOpenedCard = Instantiate(cardPrefab, hit.point, Quaternion.identity);
@@ -176,27 +130,97 @@ public class DeckPlacing : MonoBehaviour
             Card.GetComponent<SpriteRenderer>().sortingOrder = 2 * (CardCount - i);
             Card.transform.GetChild(0).GetComponent<Canvas>().sortingOrder = 2 * (CardCount - i) + 1;
             Card.transform.DOLocalMove(new Vector3(startingXpos + xPos * i, yPos, 0), 0.2f).SetEase(Ease.Linear);
+            //Card.transform.DORotate(new Vector3(0, 0, rotationValue * (i - CardCount / 2) / CardCount), 0.2f).SetEase(Ease.Linear);
+
         }
+
     }
 
     public void ActivatePutDiscard()
     {
         discardactivated = !discardactivated;
     }
-    public void PutDiscardThisCard(GameObject ChosenCardToDiscard)
+    public IEnumerator PutDiscardThisCard(GameObject ChosenCardToDiscard)
     {
         for (int i = 0; i < openedCards.Count; i++)
         {
 
             if (ChosenCardToDiscard == openedCards[i])
             {
-                discardedCards.Add(openedCards[i].GetComponent<CardData>().Card);
                 openedCards.RemoveAt(i);
+                RaycastHit2D hit = Physics2D.Raycast(closedCardPrefab.transform.position, Vector2.zero);
+                ChosenCardToDiscard.transform.parent = null;
+                ChosenCardToDiscard.transform.DOMove(hit.point, 0.2f).SetEase(Ease.Linear);
+                ChosenCardToDiscard.transform.DOScale(new Vector3(1, 1, 1), 0.2f).SetEase(Ease.Linear);
+                InitializeAllCardsPositions();
+                yield return new WaitForSecondsRealtime(0.2f);
+                discardedCards.Add(ChosenCardToDiscard.GetComponent<CardData>().Card);
                 Destroy(ChosenCardToDiscard);
                 //GManager.money -=**;
-
                 break;
             }
         }
+    }
+    public void MakeThisCardUsingCard(bool trueorfalse, GameObject ChosenObject)
+    {
+        if (trueorfalse)
+        {
+            CardScr cardData = ChosenObject.GetComponent<CardData>().Card;
+            if (discardactivated) { StartCoroutine(PutDiscardThisCard(ChosenObject)); }
+            else
+            {
+                ChosenObject.transform.DOMove(new Vector3(6, 0.5f, 0), 0.25f);
+                //chosenCard.transform.DORotate(new Vector3(0, 0, 0), 0.2f).SetEase(Ease.Linear);
+                ChosenObject.transform.parent = null;
+                InitializeAllCardsPositions();
+            }
+            if (cardData is CropScr)
+            {
+                cardData.Use();
+                GManager.cropCardUsing = ChosenObject;
+                ChosenObject.transform.parent = null;
+                InitializeAllCardsPositions();
+            }
+            else if (cardData is ItemScr ItemCardData)
+            {
+                GManager.itemCardUsing = ChosenObject;
+                cardData.Use();
+                switch (ItemCardData.itemId)
+                {
+
+                    case 1:
+                        for (int i = 0; i < 3; i++)
+                        {
+                            GManager.farmsScr.water(0, 0, true); Destroy(GManager.itemCardUsing);
+                        }
+                        for (int i = 0; i < openedCards.Count; i++)
+                        {
+                            if (openedCards[i] == GManager.itemCardUsing) { openedCards.RemoveAt(i); break; }
+                        }
+                        break;
+                    case 4:
+                        for (int i = 0; i < 3; i++)
+                        {
+                            TakeCardFromDiscard();
+                        }
+                        for (int i = 0; i < openedCards.Count; i++)
+                        {
+                            if (openedCards[i] == GManager.itemCardUsing) { openedCards.RemoveAt(i); break; }
+                        }
+                        Destroy(GManager.itemCardUsing);
+                        break;
+                }
+                ChosenObject.transform.parent = null;
+            }
+
+        }
+        else
+        {
+            GManager.itemCardUsing = null;
+            GManager.cropCardUsing = null;
+            ChosenObject.transform.parent = transform;
+            ChosenObject.transform.DOScale(cardPrefab.transform.lossyScale, 0.2f);
+        }
+        InitializeAllCardsPositions();
     }
 }
