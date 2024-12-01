@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
 {
     public GameObject cropCardUsing;
     public GameObject itemCardUsing;
+
+
+
+    public QuestionScr[] Questions;
     [Header("MainStats")]
     public CropStats[] crops;
     public float money;
@@ -27,12 +31,19 @@ public class GameManager : MonoBehaviour
 
     public GameObject WinPanel;
     public GameObject LosePanel;
+    public TMP_InputField QuestionTextArea;
     public int[] HarvestedCropCount;
     public int HoeCount;
     public int[] HoeCost;
     public GameObject ShopImage;
     public GameObject PageParent;
-    public GameObject DebuffPage;
+    public GameObject debuffPage;
+    public GameObject[] debuffChilds;
+    public GameObject questionPage;
+    public GameObject[] questionChilds;
+
+
+
 
     public Farms farmsScr;
     public TextMeshProUGUI MoneyText, Daytext;
@@ -285,7 +296,7 @@ public class GameManager : MonoBehaviour
         money += baseRev * MultipleRev;
         InitializeMoneyText();
     }
-    public void SeedCrop(int id,FarmInfo ChosenFarm)
+    public void SeedCrop(int id, FarmInfo ChosenFarm)
     {
         ChosenFarm.Id = id;
         ChosenFarm.curDay = 0;
@@ -431,7 +442,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.2f);
             if (card is CropScr CropCard)
             {
-                SeedCrop(CropCard.id,farm);
+                SeedCrop(CropCard.id, farm);
             }
 
             for (int i = 0; i < deckPlacing.openedCards.Count; i++)
@@ -476,10 +487,10 @@ public class GameManager : MonoBehaviour
 
     public void StartDebuff(int DebuffType)
     {
-        UIPageAnimVoid(DebuffPage);
-        DebuffPage.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = DebuffTitle[DebuffType];
-        DebuffPage.transform.GetChild(1).GetComponent<Image>().sprite = DebuffIcon[DebuffType];
-        DebuffPage.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = DebuffDesc[DebuffType];
+        UIPageAnimVoid(debuffPage);
+        debuffChilds[0].GetComponent<TextMeshProUGUI>().text = DebuffTitle[DebuffType];
+        debuffChilds[1].GetComponent<Image>().sprite = DebuffIcon[DebuffType];
+        debuffChilds[2].GetComponent<TextMeshProUGUI>().text = DebuffDesc[DebuffType];
         for (int i = 0; i < debuffs.Length; i++)
         {
             debuffs[i] = false;
@@ -487,4 +498,35 @@ public class GameManager : MonoBehaviour
         debuffs[DebuffType] = true;
     }
 
+    public void QuestionStart(ItemScr cardData)
+    {
+        QuestionScr ChosenQuestion = Questions[Random.Range(0, Questions.Length)];
+        UIPageAnimVoid(questionPage);
+        questionChilds[0].GetComponent<TextMeshProUGUI>().text = ChosenQuestion.questionTitle;
+        questionChilds[1].GetComponent<Image>().sprite = ChosenQuestion.QuestionIcon;
+        questionChilds[2].GetComponent<TextMeshProUGUI>().text = ChosenQuestion.questionText;
+        Button btn = questionChilds[3].gameObject.GetComponent<Button>();
+
+        btn.onClick.RemoveAllListeners();
+        btn.onClick.AddListener(() =>
+        {
+            if (debuffs[0]) { SolutionIsTrueOrNot(ChosenQuestion, cardData.CardCost * (1 + Day * 0.05f)); }
+            else { SolutionIsTrueOrNot(ChosenQuestion, cardData.CardCost); }
+        }
+        );
+    }
+
+
+
+
+    public void SolutionIsTrueOrNot(QuestionScr question, float reward)
+    {
+        print(question.Solution  +" "+ QuestionTextArea.text);
+        if (question.Solution == QuestionTextArea.text)
+        {
+            money += reward;
+            InitializeMoneyText();
+        }
+        UIPageAnimVoid(questionPage);
+    }
 }

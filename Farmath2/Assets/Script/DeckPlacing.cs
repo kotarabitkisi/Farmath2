@@ -209,6 +209,10 @@ public class DeckPlacing : MonoBehaviour
                         }
                         Destroy(GManager.itemCardUsing);
                         break;
+                    case 5:
+                        GManager.QuestionStart(ItemCardData);
+
+                        break;
                 }
                 ChosenObject.transform.parent = null;
             }
