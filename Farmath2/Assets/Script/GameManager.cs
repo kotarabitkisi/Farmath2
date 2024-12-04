@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject cropCardUsing;
     public GameObject itemCardUsing;
-
+    public GameObject[] farmers;
 
 
     public QuestionScr[] Questions;
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     const int maxExploreCount = 6;
     const int moneyBound = 100;
     public bool pageopened;
+    public bool heropageopened;
     [Space(10)]
 
     public ShopManager ShopManagement;
@@ -73,49 +74,60 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         #region TýklamaKontrolleri
-        if (Input.GetMouseButtonDown(0) && !pageopened)
+        if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-            if (hit.collider != null && hit.collider.CompareTag("Farm"))
+            if (!pageopened)
             {
-                farmsScr.ChosenFarm = hit.collider.gameObject.GetComponent<FarmInfo>();
-                FarmInfo farm = hit.collider.gameObject.GetComponent<FarmInfo>();
-                if (itemCardUsing != null || cropCardUsing != null) { StartCoroutine(UseThisCard(farm)); }
-
-                else if (farm.Id == 0) { farm.HoeImage.SetActive(true); pageopened = true; }
-                else if (farm.curDay >= farm.reqDay && farm.Id >= 2)
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+                if (hit.collider != null && hit.collider.CompareTag("Farm"))
                 {
-                    HarvestCrop(farm);
+                    farmsScr.ChosenFarm = hit.collider.gameObject.GetComponent<FarmInfo>();
+                    FarmInfo farm = hit.collider.gameObject.GetComponent<FarmInfo>();
+                    if (itemCardUsing != null || cropCardUsing != null) { StartCoroutine(UseThisCard(farm)); }
+
+                    else if (farm.Id == 0) { farm.HoeImage.SetActive(true); pageopened = true; }
+                    else if (farm.curDay >= farm.reqDay && farm.Id >= 2 && farm.Id <= 7)
+                    {
+                        HarvestCrop(farm);
+                    }
                 }
+                else if (hit.collider != null && hit.collider.CompareTag("Card"))
+                {
+                    if (hit.collider.gameObject == itemCardUsing || hit.collider.gameObject == cropCardUsing)
+                    {
+                        if (itemCardUsing != null)
+                        {
+                            deckPlacing.MakeThisCardUsingCard(false, itemCardUsing);
+                        }
+                        else if (cropCardUsing != null)
+                        {
+                            deckPlacing.MakeThisCardUsingCard(false, cropCardUsing);
+                        }
+                    }
+                    else
+                    {
+                        if (itemCardUsing != null)
+                        {
+                            deckPlacing.MakeThisCardUsingCard(false, itemCardUsing);
+                            deckPlacing.MakeThisCardUsingCard(true, hit.collider.gameObject);
+                        }
+                        if (cropCardUsing != null)
+                        {
+                            deckPlacing.MakeThisCardUsingCard(false, cropCardUsing);
+                            deckPlacing.MakeThisCardUsingCard(true, hit.collider.gameObject);
+                        }
+
+                    }
+                }
+
+
+
             }
-            else if (hit.collider != null && hit.collider.CompareTag("Card"))
-            {
-                if (hit.collider.gameObject == itemCardUsing || hit.collider.gameObject == cropCardUsing)
-                {
-                    if (itemCardUsing != null)
-                    {
-                        deckPlacing.MakeThisCardUsingCard(false, itemCardUsing);
-                    }
-                    else if (cropCardUsing != null)
-                    {
-                        deckPlacing.MakeThisCardUsingCard(false, cropCardUsing);
-                    }
-                }
-                else
-                {
-                    if (itemCardUsing != null)
-                    {
-                        deckPlacing.MakeThisCardUsingCard(false, itemCardUsing);
-                        deckPlacing.MakeThisCardUsingCard(true, hit.collider.gameObject);
-                    }
-                    if (cropCardUsing != null)
-                    {
-                        deckPlacing.MakeThisCardUsingCard(false, cropCardUsing);
-                        deckPlacing.MakeThisCardUsingCard(true, hit.collider.gameObject);
-                    }
-
-                }
+            else if (heropageopened) {
+            
+            
+            
             }
         }
         else if (Input.GetMouseButtonDown(1) && (cropCardUsing || itemCardUsing))
@@ -364,12 +376,18 @@ public class GameManager : MonoBehaviour
         {
             FarmInfo farm = farmsScr.frams[i];
             float probality = 5;
+            if (debuffs[1])
+            {
+                probality += 5;
+            }
             for (int l = 0; l < farm.connectedFarmIds.Length; l++)
             {
                 if (farm.connectedFarmIds[l] == 8) { probality += 2.5f; }
             }
             if (farm.Id == 1 && Random.Range(0f, 100) <= probality) { farm.Id = 8; }
         }
+
+
         StartCoroutine(deckPlacing.DayPassedTakeCard());
         ShopManagement.cardsOnShop.Clear();
         ShopManagement.cardCosts.Clear();
@@ -382,7 +400,7 @@ public class GameManager : MonoBehaviour
             Month++;
             Day = 1;
             Daytext.text = "Day: " + Day + "/" + reqDay;
-            StartDebuff(0);
+            StartDebuff(Month - 1);
             if (reqMonth < Month)
             {
                 if (money >= 1000000) { Win(); }
@@ -406,7 +424,6 @@ public class GameManager : MonoBehaviour
                 farmland.curDay++;
             }
         }
-
     }
     public void Win()
     {
@@ -484,7 +501,6 @@ public class GameManager : MonoBehaviour
             Destroy(itemCardUsing);
         }
     }
-
     public void StartDebuff(int DebuffType)
     {
         UIPageAnimVoid(debuffPage);
@@ -516,12 +532,9 @@ public class GameManager : MonoBehaviour
         );
     }
 
-
-
-
     public void SolutionIsTrueOrNot(QuestionScr question, float reward)
     {
-        print(question.Solution  +" "+ QuestionTextArea.text);
+        print(question.Solution + " " + QuestionTextArea.text);
         if (question.Solution == QuestionTextArea.text)
         {
             money += reward;

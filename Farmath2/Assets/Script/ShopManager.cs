@@ -31,8 +31,9 @@ public class ShopManager : MonoBehaviour
         CardScr chosenCard = DP.allCardScr[CardID];
         allIcons[ShopIndex].sprite = chosenCard.Icon;
         float CardCost;
-        if (GameManag.debuffs[0]) { CardCost = chosenCard.CardCost*(1+GameManag.Day*0.05f); }
-        else { CardCost = chosenCard.CardCost; }
+        CardCost = chosenCard.CardCost;
+        if (GameManag.debuffs[0]) { CardCost = chosenCard.CardCost * (1 + GameManag.Day * 0.05f); }
+        if (GameManag.farmers[1].GetComponent<FarmerInfo>().choosed) { CardCost *= 0.9f; }
         allShopNameTxt[ShopIndex].text = chosenCard.CardName;
         allShopCostTxt[ShopIndex].text = CardCost.ToString("0");
         cardsOnShop.Add(chosenCard);

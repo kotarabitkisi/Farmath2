@@ -24,6 +24,7 @@ public class DeckPlacing : MonoBehaviour
     public GameObject chosenMovingCard;
     public GameManager GManager;
     public bool discardactivated;
+    public int chooseCardToDestroy;
 
     void Update()
     {
@@ -45,8 +46,24 @@ public class DeckPlacing : MonoBehaviour
                 }
                 if (Input.GetMouseButtonDown(0))
                 {
-                    MakeThisCardUsingCard(true, chosenMovingCard);
-                    chosenMovingCard = null;
+                    if (chooseCardToDestroy > 0)
+                    {
+                        for (int i = 0; i < openedCards.Count; i++)
+                        {
+                            if (chosenMovingCard == openedCards[i])
+                            {
+                                openedCards.RemoveAt(i);
+                                Destroy(chosenMovingCard);
+                                chooseCardToDestroy--;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MakeThisCardUsingCard(true, chosenMovingCard);
+                        chosenMovingCard = null;
+                    }
+
                 }
             }
             else
@@ -84,8 +101,25 @@ public class DeckPlacing : MonoBehaviour
     {
 
         DeleteAllOfOpenedCards();
-        for (int i = 0; i < OpenedCardLimit; i++)
+
+        if (GManager.debuffs[2])
         {
+            for (int i = 0; i < 6; i++)
+            {
+                TakeCardFromDiscard();
+                yield return new WaitForSecondsRealtime(0.1f);
+            }
+            chooseCardToDestroy = 3;
+        }
+        else
+        {
+            for (int i = 0; i < OpenedCardLimit; i++)
+            {
+                TakeCardFromDiscard();
+                yield return new WaitForSecondsRealtime(0.1f);
+            }
+        }
+        if (GManager.farmers[0].GetComponent<FarmerInfo>().choosed) {
             TakeCardFromDiscard();
             yield return new WaitForSecondsRealtime(0.1f);
         }
@@ -144,7 +178,6 @@ public class DeckPlacing : MonoBehaviour
     {
         for (int i = 0; i < openedCards.Count; i++)
         {
-
             if (ChosenCardToDiscard == openedCards[i])
             {
                 openedCards.RemoveAt(i);
@@ -185,35 +218,39 @@ public class DeckPlacing : MonoBehaviour
             {
                 GManager.itemCardUsing = ChosenObject;
                 cardData.Use();
-                switch (ItemCardData.itemId)
+
+
+
+
+
+                for (int i = 0; i < openedCards.Count; i++)
                 {
+                    if (openedCards[i] == GManager.itemCardUsing)
+                    {
+                        switch (ItemCardData.itemId)
+                        {
 
-                    case 1:
-                        for (int i = 0; i < 3; i++)
-                        {
-                            GManager.farmsScr.water(0, 0, true); Destroy(GManager.itemCardUsing);
+                            case 1:
+                                for (int j = 0; j < 3; j++)
+                                {
+                                    GManager.farmsScr.water(0, 0, true);
+                                }
+                                break;
+                            case 4:
+                                for (int j = 0; j < 3; j++)
+                                {
+                                    TakeCardFromDiscard();
+                                }
+                                break;
+                            case 5:
+                                GManager.QuestionStart(ItemCardData);
+                                break;
                         }
-                        for (int i = 0; i < openedCards.Count; i++)
-                        {
-                            if (openedCards[i] == GManager.itemCardUsing) { openedCards.RemoveAt(i); break; }
-                        }
-                        break;
-                    case 4:
-                        for (int i = 0; i < 3; i++)
-                        {
-                            TakeCardFromDiscard();
-                        }
-                        for (int i = 0; i < openedCards.Count; i++)
-                        {
-                            if (openedCards[i] == GManager.itemCardUsing) { openedCards.RemoveAt(i); break; }
-                        }
+                        openedCards.RemoveAt(i);
                         Destroy(GManager.itemCardUsing);
-                        break;
-                    case 5:
-                        GManager.QuestionStart(ItemCardData);
-
-                        break;
+                    }
                 }
+
                 ChosenObject.transform.parent = null;
             }
 
