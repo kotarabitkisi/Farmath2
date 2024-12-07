@@ -20,7 +20,8 @@
 
 ### Market
 - Everything you bought will be sent to the under of the deck
-- There is a daily limit of purchase (4)
+- 6 items displayed at the market
+- Each item can be bought only once in a day (and that creates a daily purchase limit)
 
 ### Cards
 - Main card type is crops (you can't sow a crop if you don't have a card for it)
@@ -32,15 +33,16 @@
 - these conditions allow for strategic gameplay
   |Crop|
   |-|
-  |wheat|
+  |wheat| 
   |corn|
   |carrot|
   |lettuce|
   |tomato|
   |egglant|
 
-|Items|Effect|
+|Item|Effect|
 |-|-|
+|Challenger| Asks a math question if you guess correctly you earn a reward |
 |||
 
 ### Conditions
@@ -49,16 +51,22 @@
 
 ### Discoveries (side mechanic)
 - **Undiscovered** conditions will be hidden from player
+- Discovered conditions will be 
 
 ### Stage Challenges
   #### Idea
-  |Challenge|Effect|
-  |-|-|
-  |Festival   | increases card draw, allows to select cards, non selected cards will be sent to trash|
-  |Infilation | reduces the market puchase limit|
-  |Weed Frenzy| increases weed spawn rate |
-  |Bird attack| random crops will be eaten by birds|
-  |Drought    | reduces the gains from harvesting |
+  |Challenge|Effect|alternative|
+  |-|-|-|
+  |Festival   | increases card draw, allows to select cards, non selected cards will be sent to trash | excess cards do not dissappear but sent to bottom of the deck (Drawback: limits player to single type of crop) |
+  |Infilation | reduces the market puchase limit     ||
+  |Weed Frenzy| increases weed spawn rate            ||
+  |Bird attack| random crops will be eaten by birds  ||
+  |Drought    | reduces the gains from harvesting    ||
+  |Storm      | halves the gain from wheat and corn  ||
+
+  ##### Rewarding Events (idea)
+  - Boosts certain crops
+  
   #### Accepted Challences
   |Challenge|Effect|
   |-|-|
@@ -66,9 +74,19 @@
   #### Discarded challenges
   |Challenge|Effect|
   |-|-|
-  |hoppers| deletes all crops (one time)|
+  |hoppers| deletes all crops (one time) |
+
+## Quality Of Life
+- New discoveries could be shown to player
+- Next months challenge could be shown to player
+### Ideas
+- lock item in the market
+- re-roll
 
 ## Story
 - We are a smart farmer who inherited a mobile farm from our family
 - Because our family got lost
 - And we are trying to solve the mystery by travelling different lands
+
+### Ekstra Thoughts
+- should we make used cards usefull again?
