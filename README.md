@@ -31,14 +31,15 @@
 - **6** types of crops
 - each crop has some conditions attached to them
 - these conditions allow for strategic gameplay
-  |Crop|
-  |-|
-  |wheat| 
-  |corn|
-  |carrot|
-  |lettuce|
-  |tomato|
-  |egglant|
+
+  |Crop|       |Daily Harvest|   Money   |Day|Total Harvest|Same Kind Harvest|Neighbour|
+  |----|-------|-------------|-----------|---|-------------|-----------------|---------|
+  |carrot   |\||-4..         |+..50k     |-   |-          |+                 |+   |
+  |wheat    |\||+15..        |-..100k    |+   |-          |+                 |+   |
+  |corn     |\||+10..        |+100k..600k|-   |+          |+                 |+   |
+  |lettuce  |\||+5..         |+300k..750k|-   |-          |-                 |-   |
+  |tomato   |\||-10..        |+500k..    |-   |-          |+                 |+   |
+  |egglant  |\||+4..         |+600k..    |+   |+          |-                 |-   |
 
 |Item|Effect|
 |-|-|
