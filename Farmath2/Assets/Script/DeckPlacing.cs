@@ -217,37 +217,35 @@ public class DeckPlacing : MonoBehaviour
             else if (cardData is ItemScr ItemCardData)
             {
                 GManager.itemCardUsing = ChosenObject;
-                cardData.Use();
-
-
-
-
-
                 for (int i = 0; i < openedCards.Count; i++)
                 {
                     if (openedCards[i] == GManager.itemCardUsing)
                     {
                         switch (ItemCardData.itemId)
                         {
-
                             case 1:
                                 for (int j = 0; j < 3; j++)
                                 {
                                     GManager.farmsScr.water(0, 0, true);
                                 }
+                                openedCards.RemoveAt(i);
+                                Destroy(GManager.itemCardUsing);
                                 break;
                             case 4:
                                 for (int j = 0; j < 3; j++)
                                 {
                                     TakeCardFromDiscard();
                                 }
+                                openedCards.RemoveAt(i);
+                                Destroy(GManager.itemCardUsing);
                                 break;
                             case 5:
                                 GManager.QuestionStart(ItemCardData);
+
+                                openedCards.RemoveAt(i);
+                                Destroy(GManager.itemCardUsing);
                                 break;
                         }
-                        openedCards.RemoveAt(i);
-                        Destroy(GManager.itemCardUsing);
                     }
                 }
 

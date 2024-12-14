@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] debuffChilds;
     public GameObject questionPage;
     public GameObject[] questionChilds;
-
+    public GameObject moneyObjPool;
 
 
 
@@ -120,14 +120,9 @@ public class GameManager : MonoBehaviour
 
                     }
                 }
-
-
-
             }
-            else if (heropageopened) {
-            
-            
-            
+            else if (heropageopened)
+            {
             }
         }
         else if (Input.GetMouseButtonDown(1) && (cropCardUsing || itemCardUsing))
@@ -184,7 +179,7 @@ public class GameManager : MonoBehaviour
                     baseRev += cropStats.Rev[0];
                     break;
                 case 1:
-                    MultipleRev += cropStats.Rev[0];
+                    MultipleRev *= cropStats.Rev[0];
                     break;
             }
         }
@@ -205,7 +200,7 @@ public class GameManager : MonoBehaviour
                     baseRev += cropStats.Rev[1];
                     break;
                 case 1:
-                    MultipleRev += cropStats.Rev[1];
+                    MultipleRev *= cropStats.Rev[1];
                     break;
             }
         }
@@ -225,7 +220,7 @@ public class GameManager : MonoBehaviour
                     baseRev += cropStats.Rev[2];
                     break;
                 case 1:
-                    MultipleRev += cropStats.Rev[2];
+                    MultipleRev *= cropStats.Rev[2];
                     break;
             }
         }
@@ -245,7 +240,7 @@ public class GameManager : MonoBehaviour
                     baseRev += cropStats.Rev[3];
                     break;
                 case 1:
-                    MultipleRev += cropStats.Rev[3];
+                    MultipleRev *= cropStats.Rev[3];
                     break;
             }
         }
@@ -265,7 +260,7 @@ public class GameManager : MonoBehaviour
                     baseRev += cropStats.Rev[4];
                     break;
                 case 1:
-                    MultipleRev += cropStats.Rev[4];
+                    MultipleRev *= cropStats.Rev[4];
                     break;
             }
         }
@@ -285,7 +280,7 @@ public class GameManager : MonoBehaviour
                     baseRev += cropStats.Rev[5];
                     break;
                 case 1:
-                    MultipleRev += cropStats.Rev[5];
+                    MultipleRev *= cropStats.Rev[5];
                     break;
             }
         }
@@ -542,4 +537,15 @@ public class GameManager : MonoBehaviour
         }
         UIPageAnimVoid(questionPage);
     }
+
+    //public IEnumerator MoneyAnimPlay(GameObject MoneyObj,float money,GameObject farmObj,float animTime)
+    //{
+
+    //    MoneyObj.SetActive(true);
+    //    MoneyObj.transform.position = farmObj.transform.position;
+    //    MoneyObj.transform.parent = null;
+    //    MoneyObj.transform.DOMoveY(farmObj.transform.position.y+1.5f,animTime);
+    //    MoneyObj.transform.GetChild(0).gameObject.SetActive(true);
+    //}
+
 }
