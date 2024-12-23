@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -119,7 +120,8 @@ public class DeckPlacing : MonoBehaviour
                 yield return new WaitForSecondsRealtime(0.1f);
             }
         }
-        if (GManager.farmers[0].GetComponent<FarmerInfo>().choosed) {
+        if (GManager.farmers[0].GetComponent<FarmerInfo>().choosed)
+        {
             TakeCardFromDiscard();
             yield return new WaitForSecondsRealtime(0.1f);
         }
@@ -262,4 +264,20 @@ public class DeckPlacing : MonoBehaviour
         }
         InitializeAllCardsPositions();
     }
+
+    public void DestroyThisCard(GameObject card)
+    {
+
+        for (int i = 0; i < openedCards.Count; i++)
+        {
+            if (openedCards[i]== card) { 
+                openedCards.RemoveAt(i); Destroy(card); }
+
+
+
+        }
+    }
+
+
+
 }

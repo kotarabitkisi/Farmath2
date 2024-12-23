@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject cropCardUsing;
     public GameObject itemCardUsing;
     public GameObject[] farmers;
-
+    public Color colorNone;
 
     public QuestionScr[] Questions;
     [Header("MainStats")]
@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         InitializeMoneyText();
+        NextDay();
     }
     private void Update()
     {
@@ -84,7 +85,14 @@ public class GameManager : MonoBehaviour
                 {
                     farmsScr.ChosenFarm = hit.collider.gameObject.GetComponent<FarmInfo>();
                     FarmInfo farm = hit.collider.gameObject.GetComponent<FarmInfo>();
-                    if (itemCardUsing != null || cropCardUsing != null) { StartCoroutine(UseThisCard(farm)); }
+                    if (itemCardUsing != null || cropCardUsing != null)
+                    {
+
+                        StartCoroutine(UseThisCard(farm));
+                    }
+
+
+
 
                     else if (farm.Id == 0) { farm.HoeImage.SetActive(true); pageopened = true; }
                     else if (farm.curDay >= farm.reqDay && farm.Id >= 2 && farm.Id <= 7)
@@ -284,7 +292,7 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
-        if (farm.Watered) { MultipleRev *= 2; }
+        if (farm.Watered) { MultipleRev *= 2; farm.Watered = false; }
         if (farm.HolyHoed) { MultipleRev *= 2; }
         #region explorebildirimi
         int ExploreNotificationTextCount = 0;
@@ -301,6 +309,7 @@ public class GameManager : MonoBehaviour
         farm.curDay = 0;
         farm.reqDay = 0;
         money += baseRev * MultipleRev;
+        StartCoroutine(MoneyAnimPlay(moneyObjPool.transform.GetChild(0).gameObject, baseRev * MultipleRev, farm.gameObject, 1));
         InitializeMoneyText();
     }
     public void SeedCrop(int id, FarmInfo ChosenFarm)
@@ -334,14 +343,14 @@ public class GameManager : MonoBehaviour
     }
     public IEnumerator UIPageAnim(GameObject Obj, bool pageopened)
     {
-        if (!pageopened)
+        if (!pageopened && !Obj.activeSelf)
         {
             Obj.SetActive(true);
             PageParent.GetComponent<RectTransform>().DOMoveX(Screen.width / 2, pageAnimTime);
             yield return new WaitForSecondsRealtime(pageAnimTime);
             this.pageopened = true;
         }
-        else
+        else if (Obj.activeSelf)
         {
             PageParent.GetComponent<RectTransform>().DOMoveX(-Obj.GetComponent<RectTransform>().rect.width / 2, pageAnimTime);
             yield return new WaitForSecondsRealtime(pageAnimTime);
@@ -353,55 +362,68 @@ public class GameManager : MonoBehaviour
     }
     public void NextDay()
     {
-        Day++;
-        Daytext.text = "Day: " + Day + "/" + reqDay;
-
-        int isthecrop = 0;
-        for (int i = 0; i < farmsScr.frams.Length; i++)
+        if (itemCardUsing || cropCardUsing)
+        { print("you cant pass day you choosed an item"); }
+        else if (pageopened) { print("turn off the pages before day pass"); }
+        else
         {
-            if (farmsScr.frams[i].Id >= 2 && farmsScr.frams[i].Id <= 7) { isthecrop++; }
-        }
-        if (money <= 0 && isthecrop == 0 && deckPlacing.openedCards.Count == 0 && money < moneyBound)
-        {
-            Lose();
-        }
-
-
-        for (int i = 0; i < farmsScr.frams.Length; i++)
-        {
-            FarmInfo farm = farmsScr.frams[i];
-            float probality = 5;
-            if (debuffs[1])
-            {
-                probality += 5;
-            }
-            for (int l = 0; l < farm.connectedFarmIds.Length; l++)
-            {
-                if (farm.connectedFarmIds[l] == 8) { probality += 2.5f; }
-            }
-            if (farm.Id == 1 && Random.Range(0f, 100) <= probality) { farm.Id = 8; }
-        }
-
-
-        StartCoroutine(deckPlacing.DayPassedTakeCard());
-        ShopManagement.cardsOnShop.Clear();
-        ShopManagement.cardCosts.Clear();
-        for (int i = 0; i < maxCardCountOnShop; i++)
-        {
-            ShopManagement.AddCardToShop(i, Random.Range(0, deckPlacing.allCardScr.Length));
-        }
-        if (reqDay < Day)
-        {
-            Month++;
-            Day = 1;
+            Day++;
             Daytext.text = "Day: " + Day + "/" + reqDay;
-            StartDebuff(Month - 1);
-            if (reqMonth < Month)
+
+            int isthecrop = 0;
+            for (int i = 0; i < farmsScr.frams.Length; i++)
             {
-                if (money >= 1000000) { Win(); }
+                if (farmsScr.frams[i].Id >= 2 && farmsScr.frams[i].Id <= 7) { isthecrop++; }
+            }
+            if (money <= 0 && isthecrop == 0 && deckPlacing.openedCards.Count == 0 && money < moneyBound)
+            {
+                Lose();
+            }
+
+
+            for (int i = 0; i < farmsScr.frams.Length; i++)
+            {
+                FarmInfo farm = farmsScr.frams[i];
+                float probality = 5;
+                if (debuffs[1])
+                {
+                    probality += 5;
+                }
+                for (int l = 0; l < farm.connectedFarmIds.Length; l++)
+                {
+                    if (farm.connectedFarmIds[l] == 8) { probality += 2.5f; }
+                }
+                if (farm.Id == 1 && Random.Range(0f, 100) <= probality) { farm.Id = 8; }
+            }
+
+
+            StartCoroutine(deckPlacing.DayPassedTakeCard());
+            ShopManagement.cardsOnShop.Clear();
+            ShopManagement.cardCosts.Clear();
+            for (int i = 0; i < maxCardCountOnShop; i++)
+            {
+                ShopManagement.AddCardToShop(i, Random.Range(0, deckPlacing.allCardScr.Length));
+            }
+            if (reqDay < Day)
+            {
+                Month++;
+                Day = 1;
+                Daytext.text = "Day: " + Day + "/" + reqDay;
+                StartDebuff(Month - 1);
+                if (reqMonth < Month)
+                {
+                    if (money >= 1000000) { Win(); }
+                    else
+                    {
+                        Lose();
+                    }
+                }
                 else
                 {
-                    Lose();
+                    foreach (FarmInfo farmland in farmsScr.FarmList)
+                    {
+                        farmland.curDay++;
+                    }
                 }
             }
             else
@@ -412,13 +434,8 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            foreach (FarmInfo farmland in farmsScr.FarmList)
-            {
-                farmland.curDay++;
-            }
-        }
+
+
     }
     public void Win()
     {
@@ -455,45 +472,50 @@ public class GameManager : MonoBehaviour
             if (card is CropScr CropCard)
             {
                 SeedCrop(CropCard.id, farm);
+                deckPlacing.DestroyThisCard(cropCardUsing);
             }
 
-            for (int i = 0; i < deckPlacing.openedCards.Count; i++)
-            {
-                if (deckPlacing.openedCards[i] == cropCardUsing) { deckPlacing.openedCards.RemoveAt(i); }
-            }
 
-            Destroy(cropCardUsing);
         }
         else if (itemCardUsing)
         {
             CardScr card = itemCardUsing.GetComponent<CardData>().Card;
-            itemCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
-            itemCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
-            yield return new WaitForSecondsRealtime(cardAnimTime);
             if (card is ItemScr ItemCard)
             {
                 switch (ItemCard.itemId)
                 {
-                    case 0: farm.reqDay /= 2; break;
+                    case 0:
+                        farm.reqDay /= 2;
+                        itemCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
+                        itemCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
+                        yield return new WaitForSecondsRealtime(cardAnimTime);
+                        deckPlacing.DestroyThisCard(itemCardUsing);
+                        break;
                     case 2:
                         if (farm.Id < 2)
                         {
+                            itemCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
+                            itemCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
+                            yield return new WaitForSecondsRealtime(cardAnimTime);
                             farm.HolyHoed = true;
                             farm.Id = 1;
+                            deckPlacing.DestroyThisCard(itemCardUsing);
                         }
                         break;
                     case 3:
+                        
+                        itemCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
+                        itemCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
+                        yield return new WaitForSecondsRealtime(cardAnimTime);
                         farm.Id = 1;
                         farm.curDay = 0;
                         farm.reqDay = 0;
+                        deckPlacing.DestroyThisCard(itemCardUsing);
+
                         break;
                 }
             }
-            for (int i = 0; i < deckPlacing.openedCards.Count; i++)
-            {
-                if (deckPlacing.openedCards[i] == itemCardUsing) { deckPlacing.openedCards.RemoveAt(i); }
-            }
-            Destroy(itemCardUsing);
+
         }
     }
     public void StartDebuff(int DebuffType)
@@ -538,14 +560,26 @@ public class GameManager : MonoBehaviour
         UIPageAnimVoid(questionPage);
     }
 
-    //public IEnumerator MoneyAnimPlay(GameObject MoneyObj,float money,GameObject farmObj,float animTime)
-    //{
+    public IEnumerator MoneyAnimPlay(GameObject MoneyObj, float money, GameObject farmObj, float animTime)
+    {
+        MoneyObj.SetActive(true);
+        MoneyObj.transform.position = farmObj.transform.position;
+        MoneyObj.transform.parent = null;
+        MoneyObj.transform.DOMoveY(farmObj.transform.position.y + 0.5f, animTime).SetEase(Ease.Linear);
+        TextMeshProUGUI txt = MoneyObj.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        Image ýmage = MoneyObj.transform.GetChild(1).GetComponent<Image>();
+        txt.text = money.ToString("F2");
+        for (int i = 0; i < 101; i++)
+        {
+            txt.color = Color.Lerp(Color.yellow, colorNone, (float)i / 100);
+            ýmage.color = Color.Lerp(Color.white, colorNone, (float)i / 100);
+            yield return new WaitForSecondsRealtime(animTime / 101);
+        }
+        MoneyObj.transform.parent = moneyObjPool.transform;
+        MoneyObj.transform.localPosition = Vector3.zero;
+        MoneyObj.SetActive(false);
+    }
 
-    //    MoneyObj.SetActive(true);
-    //    MoneyObj.transform.position = farmObj.transform.position;
-    //    MoneyObj.transform.parent = null;
-    //    MoneyObj.transform.DOMoveY(farmObj.transform.position.y+1.5f,animTime);
-    //    MoneyObj.transform.GetChild(0).gameObject.SetActive(true);
-    //}
+
 
 }

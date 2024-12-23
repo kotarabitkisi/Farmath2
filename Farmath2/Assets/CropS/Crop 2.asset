@@ -18,21 +18,21 @@ MonoBehaviour:
   reqDayToGrow: 10
   CropSprite: {fileID: 0}
   Rev:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  RevOperation: 000000000000000000000000000000000000000000000000
+  - 0.5
+  - 500
+  - 0.5
+  - 500
+  - 2
+  - 500
+  RevOperation: 010000000000000001000000000000000100000000000000
   reqConnectedIds: 
   reqHarvestDaymin: 10
-  reqHarvestDaymax: 30
+  reqHarvestDaymax: 2147483647
   reqMoneyMin: 100000
   reqMoneyMax: 600000
   reqdayMin: 250
   reqdayMax: 2147483647
   reqHarvestCountmin: 150
   reqHarvestCountmax: 200
-  reqHarvestCountOnSameTypemin: 50
+  reqHarvestCountOnSameTypemin: 10
   reqHarvestCountOnSameTypemax: 2147483647

@@ -12,24 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67272740604a2b042b735c86f5a66905, type: 3}
   m_Name: Crop 1
   m_EditorClassIdentifier: 
-  base_: 500
+  base_: 1000
   id: 3
   cropName: Carrot
   reqDayToGrow: 10
   CropSprite: {fileID: 0}
   Rev:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  RevOperation: 000000000000000000000000000000000000000000000000
+  - -100
+  - 100
+  - 7
+  - 0.3
+  - -1
+  - 1.5
+  RevOperation: 000000000000000001000000010000000100000001000000
   reqConnectedIds: 
   reqHarvestDaymin: 15
-  reqHarvestDaymax: 25
-  reqMoneyMin: 0
-  reqMoneyMax: 100000
+  reqHarvestDaymax: 2147483647
+  reqMoneyMin: 100000
+  reqMoneyMax: 2147483647
   reqdayMin: 70
   reqdayMax: 140
   reqHarvestCountmin: 60
