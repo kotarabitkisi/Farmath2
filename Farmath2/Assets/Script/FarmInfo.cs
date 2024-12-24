@@ -1,9 +1,10 @@
+using TMPro;
 using UnityEngine;
 
 public class FarmInfo : MonoBehaviour
 {
 
-    Color Color=new Color(0,1,0,5);
+    Color Color = new Color(0, 1, 0, 5);
     public int Id;
     public int curDay, reqDay;
     public int[] connectedFarmIds = new int[4];//0:L 1:R 2:U 3:D
@@ -12,6 +13,7 @@ public class FarmInfo : MonoBehaviour
     public SpriteRenderer farmImages;
     public GameObject HoeImage;
     public GameManager GameManager;
+    public TextMeshProUGUI HoeCost;
 
     public bool HolyHoed;
     public bool Watered;

@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public enum ActiveCardState
+    {
+        NONE,
+        IN_HAND,
+        USING
+    };
+    public ActiveCardState activeCardState;
     public GameObject cropCardUsing;
     public GameObject itemCardUsing;
     public GameObject[] farmers;
@@ -87,14 +94,9 @@ public class GameManager : MonoBehaviour
                     FarmInfo farm = hit.collider.gameObject.GetComponent<FarmInfo>();
                     if (itemCardUsing != null || cropCardUsing != null)
                     {
-
                         StartCoroutine(UseThisCard(farm));
                     }
-
-
-
-
-                    else if (farm.Id == 0) { farm.HoeImage.SetActive(true); pageopened = true; }
+                    else if (farm.Id == 0) { farm.HoeImage.SetActive(true); farm.HoeCost.text = (10 * Mathf.Pow(1.45f, HoeCount)).ToString("F2"); pageopened = true; }
                     else if (farm.curDay >= farm.reqDay && farm.Id >= 2 && farm.Id <= 7)
                     {
                         HarvestCrop(farm);
@@ -115,25 +117,25 @@ public class GameManager : MonoBehaviour
                     }
                     else
                     {
-                        if (itemCardUsing != null)
+                        if (itemCardUsing != null && activeCardState == ActiveCardState.IN_HAND)
                         {
                             deckPlacing.MakeThisCardUsingCard(false, itemCardUsing);
                             deckPlacing.MakeThisCardUsingCard(true, hit.collider.gameObject);
                         }
-                        if (cropCardUsing != null)
+                        else if (cropCardUsing != null && activeCardState == ActiveCardState.IN_HAND)
                         {
                             deckPlacing.MakeThisCardUsingCard(false, cropCardUsing);
                             deckPlacing.MakeThisCardUsingCard(true, hit.collider.gameObject);
                         }
-
                     }
                 }
             }
             else if (heropageopened)
             {
+
             }
         }
-        else if (Input.GetMouseButtonDown(1) && (cropCardUsing || itemCardUsing))
+        else if (Input.GetMouseButtonDown(1) && activeCardState==ActiveCardState.IN_HAND)
         {
             if (itemCardUsing != null)
             {
@@ -143,6 +145,7 @@ public class GameManager : MonoBehaviour
             {
                 deckPlacing.MakeThisCardUsingCard(false, cropCardUsing);
             }
+            activeCardState = ActiveCardState.NONE;
         }
         #endregion
         for (int i = 0; i < isTextColorful.Length; i++)
@@ -464,54 +467,63 @@ public class GameManager : MonoBehaviour
         float cardAnimTime = 0.5f;
         if (farm.Id == 1 && cropCardUsing)
         {
+            GameObject chosenCardUsing = cropCardUsing;
+            activeCardState = ActiveCardState.USING;
             CardScr card = cropCardUsing.GetComponent<CardData>().Card;
-            cropCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
-            cropCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
+            chosenCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
+            chosenCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
             yield return new WaitForSecondsRealtime(cardAnimTime);
             yield return new WaitForSecondsRealtime(0.2f);
             if (card is CropScr CropCard)
             {
                 SeedCrop(CropCard.id, farm);
-                deckPlacing.DestroyThisCard(cropCardUsing);
+                deckPlacing.DestroyThisCard(chosenCardUsing);
+                activeCardState = ActiveCardState.NONE;
             }
-
-
         }
         else if (itemCardUsing)
         {
             CardScr card = itemCardUsing.GetComponent<CardData>().Card;
             if (card is ItemScr ItemCard)
             {
+                GameObject chosenCardUsing;
                 switch (ItemCard.itemId)
                 {
                     case 0:
+                        activeCardState = ActiveCardState.USING;
+                        chosenCardUsing = itemCardUsing;
                         farm.reqDay /= 2;
-                        itemCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
-                        itemCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
+                        chosenCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
+                        chosenCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
                         yield return new WaitForSecondsRealtime(cardAnimTime);
-                        deckPlacing.DestroyThisCard(itemCardUsing);
+                        deckPlacing.DestroyThisCard(chosenCardUsing);
+                        activeCardState = ActiveCardState.NONE;
                         break;
                     case 2:
                         if (farm.Id < 2)
                         {
-                            itemCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
-                            itemCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
+                            activeCardState = ActiveCardState.USING;
+                            chosenCardUsing = itemCardUsing;
+                            chosenCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
+                            chosenCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
                             yield return new WaitForSecondsRealtime(cardAnimTime);
                             farm.HolyHoed = true;
                             farm.Id = 1;
-                            deckPlacing.DestroyThisCard(itemCardUsing);
+                            deckPlacing.DestroyThisCard(chosenCardUsing);
+                            activeCardState = ActiveCardState.NONE;
                         }
                         break;
                     case 3:
-                        
-                        itemCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
-                        itemCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
+                        activeCardState = ActiveCardState.USING;
+                        chosenCardUsing = itemCardUsing;
+                        chosenCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
+                        chosenCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
                         yield return new WaitForSecondsRealtime(cardAnimTime);
                         farm.Id = 1;
                         farm.curDay = 0;
                         farm.reqDay = 0;
-                        deckPlacing.DestroyThisCard(itemCardUsing);
-
+                        deckPlacing.DestroyThisCard(chosenCardUsing);
+                        activeCardState = ActiveCardState.NONE;
                         break;
                 }
             }
@@ -543,8 +555,8 @@ public class GameManager : MonoBehaviour
         btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(() =>
         {
-            if (debuffs[0]) { SolutionIsTrueOrNot(ChosenQuestion, cardData.CardCost * (1 + Day * 0.05f)); }
-            else { SolutionIsTrueOrNot(ChosenQuestion, cardData.CardCost); }
+            if (debuffs[0]) { SolutionIsTrueOrNot(ChosenQuestion, 2 * cardData.CardCost * (1 + Day * 0.05f)); }
+            else { SolutionIsTrueOrNot(ChosenQuestion, cardData.CardCost * 2); }
         }
         );
     }
@@ -558,6 +570,7 @@ public class GameManager : MonoBehaviour
             InitializeMoneyText();
         }
         UIPageAnimVoid(questionPage);
+        activeCardState = ActiveCardState.USING;
     }
 
     public IEnumerator MoneyAnimPlay(GameObject MoneyObj, float money, GameObject farmObj, float animTime)
@@ -573,7 +586,7 @@ public class GameManager : MonoBehaviour
         {
             txt.color = Color.Lerp(Color.yellow, colorNone, (float)i / 100);
             ýmage.color = Color.Lerp(Color.white, colorNone, (float)i / 100);
-            yield return new WaitForSecondsRealtime(animTime / 101);
+            yield return new WaitForSecondsRealtime(animTime / 202);
         }
         MoneyObj.transform.parent = moneyObjPool.transform;
         MoneyObj.transform.localPosition = Vector3.zero;

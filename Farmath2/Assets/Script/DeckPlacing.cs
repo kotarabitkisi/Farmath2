@@ -2,9 +2,9 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static GameManager;
 
 public class DeckPlacing : MonoBehaviour
 {
@@ -29,9 +29,26 @@ public class DeckPlacing : MonoBehaviour
 
     void Update()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Collider2D collider = Physics2D.OverlapPoint(mousePosition);
-        if (!GManager.cropCardUsing && !GManager.itemCardUsing)
+
+        Vector2 mousePosition;
+        Collider2D collider;
+        if (Application.platform == RuntimePlatform.Android && Input.touchCount >= 1)
+        {
+            Touch touch = Input.GetTouch(0);
+            mousePosition = Camera.main.ScreenToWorldPoint(touch.position);
+            collider = Physics2D.OverlapPoint(mousePosition);
+        }
+        else
+        {
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            collider = Physics2D.OverlapPoint(mousePosition);
+        }
+
+
+
+
+
+        if (GManager.activeCardState == ActiveCardState.NONE)
         {
             if (chosenMovingCard != null)
             {
@@ -74,7 +91,6 @@ public class DeckPlacing : MonoBehaviour
                     chosenMovingCard = collider.gameObject;
                     chosenMovingCard.transform.DOLocalMoveY(yPos + Ypos2, 0.25f);
                     chosenMovingCard.transform.DOScale(cardPrefab.transform.lossyScale * 1.5f, 0.25f);
-                    //chosenCard.transform.DORotate(new Vector3(0, 0, 0), 0.2f).SetEase(Ease.Linear);
                     chosenMovingCard.GetComponent<SpriteRenderer>().sortingOrder = 50;
                     chosenMovingCard.transform.GetChild(0).GetComponent<Canvas>().sortingOrder = 51;
                     chosenMovingCard.GetComponent<BoxCollider2D>().offset = new Vector2(0, -0.165f);
@@ -166,8 +182,6 @@ public class DeckPlacing : MonoBehaviour
             Card.GetComponent<SpriteRenderer>().sortingOrder = 2 * (CardCount - i);
             Card.transform.GetChild(0).GetComponent<Canvas>().sortingOrder = 2 * (CardCount - i) + 1;
             Card.transform.DOLocalMove(new Vector3(startingXpos + xPos * i, yPos, 0), 0.2f).SetEase(Ease.Linear);
-            //Card.transform.DORotate(new Vector3(0, 0, rotationValue * (i - CardCount / 2) / CardCount), 0.2f).SetEase(Ease.Linear);
-
         }
 
     }
@@ -208,6 +222,7 @@ public class DeckPlacing : MonoBehaviour
                 //chosenCard.transform.DORotate(new Vector3(0, 0, 0), 0.2f).SetEase(Ease.Linear);
                 ChosenObject.transform.parent = null;
                 InitializeAllCardsPositions();
+                GManager.activeCardState = GameManager.ActiveCardState.IN_HAND;
             }
             if (cardData is CropScr)
             {
@@ -243,7 +258,7 @@ public class DeckPlacing : MonoBehaviour
                                 break;
                             case 5:
                                 GManager.QuestionStart(ItemCardData);
-
+                                GManager.activeCardState = ActiveCardState.USING;
                                 openedCards.RemoveAt(i);
                                 Destroy(GManager.itemCardUsing);
                                 break;
@@ -267,15 +282,15 @@ public class DeckPlacing : MonoBehaviour
 
     public void DestroyThisCard(GameObject card)
     {
-
         for (int i = 0; i < openedCards.Count; i++)
         {
-            if (openedCards[i]== card) { 
-                openedCards.RemoveAt(i); Destroy(card); }
-
-
+            if (openedCards[i] == card)
+            {
+                openedCards.RemoveAt(i); Destroy(card);
+            }
 
         }
+        GManager.activeCardState = GameManager.ActiveCardState.NONE;
     }
 
 
