@@ -2,6 +2,8 @@ using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject itemCardUsing;
     public GameObject[] farmers;
     public Color colorNone;
+    public EffectColorChanging ColorScr;
 
     public QuestionScr[] Questions;
     [Header("MainStats")]
@@ -39,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject WinPanel;
     public GameObject LosePanel;
-    public TMP_InputField QuestionTextArea;
+
     public int[] HarvestedCropCount;
     public int HoeCount;
     public int[] HoeCost;
@@ -47,8 +50,12 @@ public class GameManager : MonoBehaviour
     public GameObject PageParent;
     public GameObject debuffPage;
     public GameObject[] debuffChilds;
+    [Header("Question")]
     public GameObject questionPage;
     public GameObject[] questionChilds;
+    public TMP_InputField questionTextArea;
+    public TextMeshProUGUI questionTimeTxt;
+    public float questionTime;
     public GameObject moneyObjPool;
 
 
@@ -81,6 +88,16 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+        if (questionTime > 0 && questionPage.activeSelf)
+        {
+
+            questionTime -= Time.deltaTime; 
+            questionTimeTxt.text = "Süre: " + questionTime.ToString("F1");
+
+            if (questionTime <= 0) { questionTextArea.text = ""; questionTime = 0; questionTimeTxt.text = "Süre: 0"; SolutionIsTrueOrNot(Questions[0], 0); }
+        }
+
+
         #region TýklamaKontrolleri
         if (Input.GetMouseButtonDown(0))
         {
@@ -135,7 +152,7 @@ public class GameManager : MonoBehaviour
 
             }
         }
-        else if (Input.GetMouseButtonDown(1) && activeCardState==ActiveCardState.IN_HAND)
+        else if (Input.GetMouseButtonDown(1) && activeCardState == ActiveCardState.IN_HAND)
         {
             if (itemCardUsing != null)
             {
@@ -255,7 +272,7 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
-        if (cropStats.IsHarvestCount(true, Day))
+        if (cropStats.IsHarvestCount(true, HarvestedCropCount[farm.Id]))
         {
             int id = (farm.Id - 2) * maxExploreCount + 4;
             if (!isExplored[id])
@@ -275,7 +292,12 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
-        if (cropStats.IsHarvestCount(false, Day))
+        int totalHarvest = 0;
+        for (int i = 0; i < HarvestedCropCount.Length; i++)
+        {
+            totalHarvest += HarvestedCropCount[i];
+        }
+        if (cropStats.IsHarvestCount(false, totalHarvest))
         {
             int id = (farm.Id - 2) * maxExploreCount + 5;
             if (!isExplored[id])
@@ -546,31 +568,35 @@ public class GameManager : MonoBehaviour
     public void QuestionStart(ItemScr cardData)
     {
         QuestionScr ChosenQuestion = Questions[Random.Range(0, Questions.Length)];
+        StartCoroutine(ColorScr.ChangeColor(Color.black,1));
         UIPageAnimVoid(questionPage);
+        questionTime = ChosenQuestion.timeOfQuestion;
         questionChilds[0].GetComponent<TextMeshProUGUI>().text = ChosenQuestion.questionTitle;
         questionChilds[1].GetComponent<Image>().sprite = ChosenQuestion.QuestionIcon;
-        questionChilds[2].GetComponent<TextMeshProUGUI>().text = ChosenQuestion.questionText;
-        Button btn = questionChilds[3].gameObject.GetComponent<Button>();
+        Button btn = questionChilds[2].gameObject.GetComponent<Button>();
 
         btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(() =>
         {
-            if (debuffs[0]) { SolutionIsTrueOrNot(ChosenQuestion, 2 * cardData.CardCost * (1 + Day * 0.05f)); }
-            else { SolutionIsTrueOrNot(ChosenQuestion, cardData.CardCost * 2); }
+            float reward = cardData.CardCost;
+            if (debuffs[0]) { reward *= 1 + Day * 0.05f; }
+            SolutionIsTrueOrNot(ChosenQuestion, reward);
         }
         );
     }
 
     public void SolutionIsTrueOrNot(QuestionScr question, float reward)
     {
-        print(question.Solution + " " + QuestionTextArea.text);
-        if (question.Solution == QuestionTextArea.text)
+        StartCoroutine(ColorScr.ChangeColor(Color.white, 1));
+        print(question.Solution + " " + questionTextArea.text);
+        if (question.Solution == questionTextArea.text)
         {
-            money += reward;
+            money += reward*question.moneyMultiple;
             InitializeMoneyText();
         }
         UIPageAnimVoid(questionPage);
-        activeCardState = ActiveCardState.USING;
+        questionTextArea.text = "";
+        activeCardState = ActiveCardState.NONE;
     }
 
     public IEnumerator MoneyAnimPlay(GameObject MoneyObj, float money, GameObject farmObj, float animTime)

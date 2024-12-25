@@ -9,23 +9,28 @@ using static GameManager;
 public class DeckPlacing : MonoBehaviour
 {
     [ExecuteInEditMode]
-
+    public EffectColorChanging ColorScr;
     public TextMeshProUGUI cardCountTxt;
     public GameObject closedCardPrefab;
     public GameObject cardPrefab;
     public CardScr[] allCardScr;
     public bool takeRandomized;
-    public List<CardScr> discardedCards;
+
     public List<GameObject> openedCards;
     public bool cardCollected;
     public float Ypos2;
-    const float xPos = 1, yPos = 1;
+    const float xPos = 1.25f, yPos = 1;
     const int OpenedCardLimit = 3;
     public float rotationValue;
+    public int chooseCardToDestroy;
     public GameObject chosenMovingCard;
     public GameManager GManager;
+    [Header("Discard")]
     public bool discardactivated;
-    public int chooseCardToDestroy;
+    public List<CardScr> discardedCards;
+    public Color DiscardColor1, DiscardColor2;
+
+
 
     void Update()
     {
@@ -43,7 +48,6 @@ public class DeckPlacing : MonoBehaviour
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             collider = Physics2D.OverlapPoint(mousePosition);
         }
-
 
 
 
@@ -188,7 +192,12 @@ public class DeckPlacing : MonoBehaviour
 
     public void ActivatePutDiscard()
     {
-        discardactivated = !discardactivated;
+        if (discardactivated)
+        {
+            StartCoroutine(ColorScr.ChangeColor(Color.white, 0.25f)); discardactivated = false;
+        }
+        else { StartCoroutine(ColorScr.ChangeColor(DiscardColor1, 0.25f)); discardactivated = true; }
+
     }
     public IEnumerator PutDiscardThisCard(GameObject ChosenCardToDiscard)
     {
@@ -222,52 +231,51 @@ public class DeckPlacing : MonoBehaviour
                 //chosenCard.transform.DORotate(new Vector3(0, 0, 0), 0.2f).SetEase(Ease.Linear);
                 ChosenObject.transform.parent = null;
                 InitializeAllCardsPositions();
-                GManager.activeCardState = GameManager.ActiveCardState.IN_HAND;
-            }
-            if (cardData is CropScr)
-            {
-                cardData.Use();
-                GManager.cropCardUsing = ChosenObject;
-                ChosenObject.transform.parent = null;
-                InitializeAllCardsPositions();
-            }
-            else if (cardData is ItemScr ItemCardData)
-            {
-                GManager.itemCardUsing = ChosenObject;
-                for (int i = 0; i < openedCards.Count; i++)
+                if (cardData is CropScr)
                 {
-                    if (openedCards[i] == GManager.itemCardUsing)
+                    GManager.cropCardUsing = ChosenObject;
+                    GManager.activeCardState = ActiveCardState.IN_HAND;
+                    InitializeAllCardsPositions();
+                }
+                else if (cardData is ItemScr ItemCardData)
+                {
+                    GManager.itemCardUsing = ChosenObject;
+                    for (int i = 0; i < openedCards.Count; i++)
                     {
-                        switch (ItemCardData.itemId)
+                        if (openedCards[i] == GManager.itemCardUsing)
                         {
-                            case 1:
-                                for (int j = 0; j < 3; j++)
-                                {
-                                    GManager.farmsScr.water(0, 0, true);
-                                }
-                                openedCards.RemoveAt(i);
-                                Destroy(GManager.itemCardUsing);
-                                break;
-                            case 4:
-                                for (int j = 0; j < 3; j++)
-                                {
-                                    TakeCardFromDiscard();
-                                }
-                                openedCards.RemoveAt(i);
-                                Destroy(GManager.itemCardUsing);
-                                break;
-                            case 5:
-                                GManager.QuestionStart(ItemCardData);
-                                GManager.activeCardState = ActiveCardState.USING;
-                                openedCards.RemoveAt(i);
-                                Destroy(GManager.itemCardUsing);
-                                break;
+                            switch (ItemCardData.itemId)
+                            {
+                                case 1:
+                                    for (int j = 0; j < 3; j++)
+                                    {
+                                        GManager.farmsScr.water(0, 0, true);
+                                    }
+                                    openedCards.RemoveAt(i);
+                                    Destroy(GManager.itemCardUsing);
+                                    break;
+                                case 4:
+                                    for (int j = 0; j < 3; j++)
+                                    {
+                                        TakeCardFromDiscard();
+                                    }
+                                    openedCards.RemoveAt(i);
+                                    Destroy(GManager.itemCardUsing);
+                                    break;
+                                case 5:
+                                    GManager.QuestionStart(ItemCardData);
+                                    GManager.activeCardState = ActiveCardState.USING;
+                                    openedCards.RemoveAt(i);
+                                    Destroy(GManager.itemCardUsing);
+                                    break;
+                            }
                         }
                     }
-                }
 
-                ChosenObject.transform.parent = null;
+                    ChosenObject.transform.parent = null;
+                }
             }
+
 
         }
         else
