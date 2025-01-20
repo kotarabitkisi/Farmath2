@@ -206,18 +206,23 @@ public class DeckPlacing : MonoBehaviour
             if (ChosenCardToDiscard == openedCards[i])
             {
                 openedCards.RemoveAt(i);
-                RaycastHit2D hit = Physics2D.Raycast(closedCardPrefab.transform.position, Vector2.zero);
-                ChosenCardToDiscard.transform.parent = null;
-                ChosenCardToDiscard.transform.DOMove(hit.point, 0.2f).SetEase(Ease.Linear);
-                ChosenCardToDiscard.transform.DOScale(new Vector3(1, 1, 1), 0.2f).SetEase(Ease.Linear);
-                InitializeAllCardsPositions();
-                yield return new WaitForSecondsRealtime(0.2f);
-                discardedCards.Add(ChosenCardToDiscard.GetComponent<CardData>().Card);
-                Destroy(ChosenCardToDiscard);
-                //GManager.money -=**;
                 break;
             }
+
         }
+        ChosenCardToDiscard.transform.parent = null;
+
+        RaycastHit2D hit = Physics2D.Raycast(closedCardPrefab.transform.position, Vector2.zero);
+        print(hit.collider);
+        print(hit.point);
+
+        ChosenCardToDiscard.transform.position = hit.point;
+        ChosenCardToDiscard.transform.DOMove(hit.point, 0.2f).SetEase(Ease.Linear);
+        InitializeAllCardsPositions();
+        yield return new WaitForSecondsRealtime(0.2f);
+        discardedCards.Add(ChosenCardToDiscard.GetComponent<CardData>().Card);
+        Destroy(ChosenCardToDiscard);
+
     }
     public void MakeThisCardUsingCard(bool trueorfalse, GameObject ChosenObject)
     {
@@ -273,6 +278,7 @@ public class DeckPlacing : MonoBehaviour
                     }
 
                     ChosenObject.transform.parent = null;
+                    InitializeAllCardsPositions();
                 }
             }
 
@@ -284,8 +290,9 @@ public class DeckPlacing : MonoBehaviour
             GManager.cropCardUsing = null;
             ChosenObject.transform.parent = transform;
             ChosenObject.transform.DOScale(cardPrefab.transform.lossyScale, 0.2f);
+            InitializeAllCardsPositions();
         }
-        InitializeAllCardsPositions();
+
     }
 
     public void DestroyThisCard(GameObject card)

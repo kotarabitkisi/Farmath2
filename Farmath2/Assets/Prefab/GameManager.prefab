@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 5797987359591885181}
   - component: {fileID: 3030820063569021284}
   - component: {fileID: 6272556741260567682}
+  - component: {fileID: 9063147203254948491}
+  - component: {fileID: 4477584678974648747}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,6 +75,7 @@ MonoBehaviour:
   - {fileID: 0}
   totalConnectedIds: 0000000000000000000000000000000000000000000000000000000000000000
   ChosenFarm: {fileID: 0}
+  GameManager: {fileID: 3030820063569021284}
 --- !u!114 &3030820063569021284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,8 +88,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b4570af4272cb4e8c9e40dc5c035df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cropCardUsing: 0
-  chosenId: 0
+  activeCardState: 0
+  cropCardUsing: {fileID: 0}
+  itemCardUsing: {fileID: 0}
+  farmers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  colorNone: {r: 0, g: 0, b: 0, a: 0}
+  ColorScr: {fileID: 9063147203254948491}
+  farmsScr: {fileID: 5797987359591885181}
+  MoneyText: {fileID: 0}
+  Daytext: {fileID: 0}
+  crops:
+  - {fileID: 11400000, guid: 5d3bf55e80e784349924bdf68ed4a4fe, type: 2}
+  - {fileID: 11400000, guid: 23a8afce15166624988d33bc4a5cf084, type: 2}
+  - {fileID: 11400000, guid: 523b28f86d8a87a49b90f81b12a3f9ee, type: 2}
+  - {fileID: 11400000, guid: eca0238b87fb2274cb1bc1c52418c693, type: 2}
+  - {fileID: 11400000, guid: 91e9a752fde5d7449a1c5bb33d230e36, type: 2}
+  - {fileID: 11400000, guid: b2906154d23004e4d9dc5e7887090fd3, type: 2}
+  - {fileID: 11400000, guid: 7b58ea647c2b558458b5cfd2b00bf859, type: 2}
+  - {fileID: 11400000, guid: cd3e37678dc979d4c9f2b81c581f239c, type: 2}
+  - {fileID: 11400000, guid: dee881cf892fe38489c8f072b38759b0, type: 2}
+  money: 5000
+  Day: 1
+  Month: 0
+  pageopened: 0
   ShopManagement: {fileID: 6272556741260567682}
   deckPlacing: {fileID: 0}
   WinPanel: {fileID: 0}
@@ -95,21 +123,148 @@ MonoBehaviour:
   HoeCount: 0
   HoeCost: 64000000e8030000c4090000102700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   ShopImage: {fileID: 0}
-  crops:
-  - {fileID: 11400000, guid: 523b28f86d8a87a49b90f81b12a3f9ee, type: 2}
-  - {fileID: 11400000, guid: eca0238b87fb2274cb1bc1c52418c693, type: 2}
-  - {fileID: 11400000, guid: 91e9a752fde5d7449a1c5bb33d230e36, type: 2}
-  - {fileID: 11400000, guid: b2906154d23004e4d9dc5e7887090fd3, type: 2}
-  - {fileID: 11400000, guid: 7b58ea647c2b558458b5cfd2b00bf859, type: 2}
-  - {fileID: 11400000, guid: cd3e37678dc979d4c9f2b81c581f239c, type: 2}
-  - {fileID: 11400000, guid: 965c723d2a7349647950fe1106316309, type: 2}
-  - {fileID: 11400000, guid: 47ad91ba0113d394a873f13a493bbe76, type: 2}
-  farmsScr: {fileID: 5797987359591885181}
-  MoneyText: {fileID: 0}
-  Daytext: {fileID: 0}
-  money: 100
-  Day: 1
-  pageopened: 0
+  PageParent: {fileID: 0}
+  debuffPage: {fileID: 0}
+  debuffChilds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Questions:
+  - {fileID: 11400000, guid: 07642913fe6942341bd99454a6659d88, type: 2}
+  - {fileID: 11400000, guid: d97b67cc3f9fa9845ac68f43475ea55e, type: 2}
+  - {fileID: 11400000, guid: d1a6e4b863c09654682d3412573a4077, type: 2}
+  - {fileID: 11400000, guid: 9fef5e956366f7d4cbac67568a0410ac, type: 2}
+  - {fileID: 11400000, guid: 1b4d137b438905b4f98bdc383c5ef6e4, type: 2}
+  - {fileID: 11400000, guid: 629c60e7b9954394ca9623376a1aa913, type: 2}
+  - {fileID: 11400000, guid: 1c0252d212e0f5549bd42de36fdc152a, type: 2}
+  - {fileID: 11400000, guid: 6a8e795748a02dd479d360eb64e1abba, type: 2}
+  - {fileID: 11400000, guid: 37b96ddb004d9c44b827e5037e1d4fce, type: 2}
+  - {fileID: 11400000, guid: f60c716ae49e28c488f493255a5b4608, type: 2}
+  - {fileID: 11400000, guid: 1e9e36f9dec2c62499a0027d8ed3662c, type: 2}
+  - {fileID: 11400000, guid: e675b3a04688daa4f86fecae4e3df92c, type: 2}
+  - {fileID: 11400000, guid: a55942772efd31a44b0819a1a68e56af, type: 2}
+  - {fileID: 11400000, guid: 709194e3e95fcb24e91eedd794e5a55b, type: 2}
+  - {fileID: 11400000, guid: fcd93f75dae579142b77cc07b696b5a1, type: 2}
+  - {fileID: 11400000, guid: ebd7d87dc8774794c9f86f2adc259b63, type: 2}
+  - {fileID: 11400000, guid: 651ecf7695b598d4b86c5e14db90a5d1, type: 2}
+  - {fileID: 11400000, guid: 2e80699d800082143a4de836602ab880, type: 2}
+  - {fileID: 11400000, guid: f3674f9f8ca74f34fbcb4a8d34d9c3e5, type: 2}
+  - {fileID: 11400000, guid: bb7b04fe5c0086c4b9894a20e5f0f3c9, type: 2}
+  - {fileID: 11400000, guid: 6df7c8a43d61a094ebe782c95d6f3ee6, type: 2}
+  - {fileID: 11400000, guid: d215f2d325a8f8545b8f8f67327a7e2c, type: 2}
+  - {fileID: 11400000, guid: 501e6983028d4634988026dc92b95515, type: 2}
+  - {fileID: 11400000, guid: d66b7b9e31d23c4458a38c0f0305a4eb, type: 2}
+  - {fileID: 11400000, guid: fc0d6d20261fc6b4dbb562bf681c28e4, type: 2}
+  questionPage: {fileID: 0}
+  questionChilds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  questionTextArea: {fileID: 0}
+  questionTimeTxt: {fileID: 0}
+  questionTime: 0
+  moneyObjPool: {fileID: 0}
+  ColorSpeed: 2
+  textColor: {r: 1, g: 0.82701385, b: 0, a: 1}
+  textColor2: {r: 0.346122, g: 1, b: 0.26226407, a: 1}
+  ExploreNotification: {fileID: 0}
+  ExploreNotificationTxt: {fileID: 0}
+  isExplored: 000000000000000000000000000000000000000000000000000000000000000000000000
+  ExploreText:
+  - "- 1 kom\u015Fu bu\u011Fday var ise: gelir \xE7arpan\u0131 x 2"
+  - "- olgunla\u015Ft\u0131ktan sonra 15 g\xFCn ge\xE7erse: ana gelir + 700"
+  - "-e\u011Fer 100.000 den fazla paran varsa: gelir \xE7arpan\u0131 x 2"
+  - "-ana g\xFCn\xFCn 70-140 aras\u0131ndaysa: gelir \xE7arpan\u0131 x 2 "
+  - "-ayn\u0131 t\xFCr 15 kere hasat edildiyse: gelir \xE7arpan\u0131 x 1.5"
+  - "-toplam 60 hasat yap\u0131ld\u0131ysa: ana gelir-100"
+  - "- 1 kom\u015Fu bu\u011Fday var ise: 2/"
+  - "- olgunla\u015Ft\u0131ktan sonra 4 g\xFCn ge\xE7erse: ana gelir - 100"
+  - "-e\u011Fer 50.000 den fazla paran varsa: b+100"
+  - "-ana g\xFCn\xFCn 70 den b\xFCy\xFCk ise: gelir \xE7arpan\u0131 x 2 "
+  - "-ayn\u0131 t\xFCr 4 kere hasat edildiyse: gelir \xE7arpan\u0131 x (-0.75)"
+  - "-toplam 20-30 aras\u0131 hasat yap\u0131ld\u0131ysa: ana gelir-100"
+  - "-kom\u015Fu"
+  - "-olgunla\u015Ft\u0131ktan sonra 10 g\xFCn ge\xE7erse: gelir \xE7arpan\u0131/2"
+  - "-e\u011Fer 100.000-600.000 aras\u0131 paran varsa: b+500"
+  - "-ana g\xFCn\xFCn 250 den b\xFCy\xFCk ise: gelir \xE7arpan\u0131 / 2"
+  - "-ayn\u0131 t\xFCr 10 kere hasat edildiyse: gelir \xE7arpan\u0131 x 2"
+  - "-toplam 150-200 aras\u0131 hasat yap\u0131ld\u0131ysa: ana gelir+500"
+  - "-kom\u015Fu"
+  - "-olgunla\u015Ft\u0131ktan sonra 5 g\xFCn ge\xE7erse: gelir \xE7arpan\u0131 x
+    3 "
+  - "-e\u011Fer 300.000-750.000 aras\u0131 paran varsa: b+500"
+  - "-ana g\xFCn\xFCn 100-150 aras\u0131 ise: ana gelir - 200"
+  - "-ayn\u0131 t\xFCr 5 kere hasat edildiyse: gelir \xE7arpan\u0131 x 3"
+  - "-toplam 20-30 aras\u0131 hasat yap\u0131ld\u0131ysa: ana gelir+500"
+  - "-kom\u015Fu"
+  - "-olgunla\u015Ft\u0131ktan sonra 10 g\xFCn ge\xE7erse: ana gelir - 70"
+  - "-e\u011Fer 500.000 den fazla paran varsa: m*4"
+  - "-ana g\xFCn\xFCn 140 dan az ise: ana gelir - 10"
+  - "-ayn\u0131 t\xFCr 50 kere hasat edildiyse: gelir \xE7arpan\u0131 x 3"
+  - "-toplam 100 den fazla hasat yap\u0131ld\u0131ysa: gelir \xE7arpan\u0131 x 0.7"
+  - "-kom\u015Fu"
+  - "-olgunla\u015Ft\u0131ktan sonra 4 g\xFCn ge\xE7erse: ana gelir + 1000"
+  - "-e\u011Fer 600.000 den fazla paran varsa: ana gelir + 400"
+  - "-ana g\xFCn\xFCn 300 den fazla ise: gelir \xE7arpan\u0131 x 1.1"
+  - "-ayn\u0131 t\xFCr 4 kere hasat edildiyse: ana gelir + 100"
+  - "-toplam 250 den fazla hasat yap\u0131ld\u0131ysa: gelir \xE7arpan\u0131 x 1.1"
+  ExploreTexts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  isTextColorful: 000000000000000000000000000000000000000000000000000000000000000000000000
+  ExplorePage: {fileID: 0}
+  DebuffTitle:
+  - Inflation
+  - Invasion
+  - Festival
+  - Birds
+  DebuffIcon:
+  - {fileID: 21300000, guid: 3229ef338ac7f1444a4da838f9b4a16e, type: 3}
+  - {fileID: 1946530583, guid: 65015f5f838dc1c48bdf67b81dc739ba, type: 3}
+  - {fileID: 21300000, guid: f19bc5d321b821e4a9601e320349a1a2, type: 3}
+  - {fileID: 21300000, guid: caf5b85a109d44a49b933634d6f71019, type: 3}
+  DebuffDesc:
+  - just inflation
+  - Increases the percent of spawn veins for %5 possibilty
+  - You can pick 6 card from discard but 3 you should destroy 3 of opened cards
+  - birds will take your seeds the crops that not growed will be destroyed for %3
+    possibility
+  debuffs: 00000000
 --- !u!114 &6272556741260567682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,3 +302,30 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &9063147203254948491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910084559847793297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3842fe6af3e55bf4aacf6b32e282acb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalVol: {fileID: 0}
+  colorAdjustments: {fileID: 0}
+--- !u!114 &4477584678974648747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910084559847793297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc3cfc86a553404eb17bc1ed9878d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GManager: {fileID: 3030820063569021284}

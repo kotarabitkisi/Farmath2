@@ -15,8 +15,7 @@ MonoBehaviour:
   base_: 700
   id: 5
   cropName: Lettuce
-  reqDayToGrow: 10
-  CropSprite: {fileID: 0}
+  reqDayToGrow: 6
   Rev:
   - 3
   - 500

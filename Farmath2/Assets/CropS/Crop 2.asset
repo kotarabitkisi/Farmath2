@@ -15,8 +15,7 @@ MonoBehaviour:
   base_: 500
   id: 4
   cropName: Corn
-  reqDayToGrow: 10
-  CropSprite: {fileID: 0}
+  reqDayToGrow: 6
   Rev:
   - 0.5
   - 500

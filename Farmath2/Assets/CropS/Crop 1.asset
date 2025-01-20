@@ -15,8 +15,7 @@ MonoBehaviour:
   base_: 1000
   id: 3
   cropName: Carrot
-  reqDayToGrow: 10
-  CropSprite: {fileID: 0}
+  reqDayToGrow: 6
   Rev:
   - -100
   - 100

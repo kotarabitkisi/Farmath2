@@ -2,10 +2,8 @@ using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
-
+[System.Serializable]
 public class GameManager : MonoBehaviour
 {
     public enum ActiveCardState
@@ -21,20 +19,24 @@ public class GameManager : MonoBehaviour
     public Color colorNone;
     public EffectColorChanging ColorScr;
 
-    public QuestionScr[] Questions;
+    public Farms farmsScr;
+    public TextMeshProUGUI MoneyText, Daytext;
+
     [Header("MainStats")]
     public CropStats[] crops;
     public float money;
     public int Day;
     public int Month;
     const float pageAnimTime = 0.5f;
-    const int reqDay = 30;
-    const int reqMonth = 30;
+    const int reqDay = 20;
+    const int reqMonth = 5;
     const int maxCardCountOnShop = 6;
     const int maxExploreCount = 6;
     const int moneyBound = 100;
     public bool pageopened;
-    public bool heropageopened;
+    public int[] HarvestedCropCount;
+    public int HoeCount;
+    public int[] HoeCost;
     [Space(10)]
 
     public ShopManager ShopManagement;
@@ -43,14 +45,13 @@ public class GameManager : MonoBehaviour
     public GameObject WinPanel;
     public GameObject LosePanel;
 
-    public int[] HarvestedCropCount;
-    public int HoeCount;
-    public int[] HoeCost;
+
     public GameObject ShopImage;
     public GameObject PageParent;
     public GameObject debuffPage;
     public GameObject[] debuffChilds;
     [Header("Question")]
+    public QuestionScr[] Questions;
     public GameObject questionPage;
     public GameObject[] questionChilds;
     public TMP_InputField questionTextArea;
@@ -60,8 +61,6 @@ public class GameManager : MonoBehaviour
 
 
 
-    public Farms farmsScr;
-    public TextMeshProUGUI MoneyText, Daytext;
     [Header("Explore")]
     public float ColorSpeed;
     public Color textColor, textColor2;
@@ -91,7 +90,7 @@ public class GameManager : MonoBehaviour
         if (questionTime > 0 && questionPage.activeSelf)
         {
 
-            questionTime -= Time.deltaTime; 
+            questionTime -= Time.deltaTime;
             questionTimeTxt.text = "Süre: " + questionTime.ToString("F1");
 
             if (questionTime <= 0) { questionTextArea.text = ""; questionTime = 0; questionTimeTxt.text = "Süre: 0"; SolutionIsTrueOrNot(Questions[0], 0); }
@@ -105,6 +104,7 @@ public class GameManager : MonoBehaviour
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+                print(hit.collider);
                 if (hit.collider != null && hit.collider.CompareTag("Farm"))
                 {
                     farmsScr.ChosenFarm = hit.collider.gameObject.GetComponent<FarmInfo>();
@@ -146,10 +146,6 @@ public class GameManager : MonoBehaviour
                         }
                     }
                 }
-            }
-            else if (heropageopened)
-            {
-
             }
         }
         else if (Input.GetMouseButtonDown(1) && activeCardState == ActiveCardState.IN_HAND)
@@ -252,7 +248,7 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
-        if (cropStats.IsDayBetweenTheseNum(Day))
+        if (cropStats.IsDayBetweenTheseNum(Day + (reqDay * Month)))
         {
             int id = (farm.Id - 2) * maxExploreCount + 3;
             if (!isExplored[id])
@@ -568,7 +564,7 @@ public class GameManager : MonoBehaviour
     public void QuestionStart(ItemScr cardData)
     {
         QuestionScr ChosenQuestion = Questions[Random.Range(0, Questions.Length)];
-        StartCoroutine(ColorScr.ChangeColor(Color.black,1));
+        StartCoroutine(ColorScr.ChangeColor(Color.black, 1));
         UIPageAnimVoid(questionPage);
         questionTime = ChosenQuestion.timeOfQuestion;
         questionChilds[0].GetComponent<TextMeshProUGUI>().text = ChosenQuestion.questionTitle;
@@ -591,7 +587,7 @@ public class GameManager : MonoBehaviour
         print(question.Solution + " " + questionTextArea.text);
         if (question.Solution == questionTextArea.text)
         {
-            money += reward*question.moneyMultiple;
+            money += reward * question.moneyMultiple;
             InitializeMoneyText();
         }
         UIPageAnimVoid(questionPage);

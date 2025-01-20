@@ -102,6 +102,90 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &1136642808701252710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2696488941115485967}
+  - component: {fileID: 9068401540725154878}
+  m_Layer: 0
+  m_Name: CropImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2696488941115485967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136642808701252710}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.28125, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1120020435833156824}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &9068401540725154878
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136642808701252710}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: a3960d79a58639d45a762887ede55998, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &2030670519044084649
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +195,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1120020435833156824}
-  - component: {fileID: 1504933825294313017}
   - component: {fileID: 7213186430965612344}
   - component: {fileID: -4550025895396284921}
   - component: {fileID: 8874044711382940566}
@@ -136,61 +219,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1870200389285794785}
-  - {fileID: 2188750665935468325}
+  - {fileID: 2696488941115485967}
+  - {fileID: 5076543953160434252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1504933825294313017
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030670519044084649}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 762880885, guid: 20c99960203326547bdc331230a30f67, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 1
-  m_SpriteSortPoint: 0
 --- !u!114 &7213186430965612344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,26 +240,47 @@ MonoBehaviour:
   reqDay: 0
   connectedFarmIds: 00000000000000000000000000000000
   farmSprites:
-  - {fileID: -1100574409, guid: 65015f5f838dc1c48bdf67b81dc739ba, type: 3}
+  - {fileID: 762880885, guid: 20c99960203326547bdc331230a30f67, type: 3}
   - {fileID: 21300000, guid: 81cf5bdf99f16a745af8a6368552625e, type: 3}
-  - {fileID: -958390227, guid: 0993a67fcfcd5bf4c845d3d563b0b3fe, type: 3}
-  - {fileID: -958390227, guid: 0993a67fcfcd5bf4c845d3d563b0b3fe, type: 3}
-  - {fileID: -958390227, guid: 0993a67fcfcd5bf4c845d3d563b0b3fe, type: 3}
-  - {fileID: -958390227, guid: 0993a67fcfcd5bf4c845d3d563b0b3fe, type: 3}
-  - {fileID: -958390227, guid: 0993a67fcfcd5bf4c845d3d563b0b3fe, type: 3}
-  - {fileID: -958390227, guid: 0993a67fcfcd5bf4c845d3d563b0b3fe, type: 3}
+  - {fileID: 21300000, guid: 6ab2b94653c22bd4d93de36eb5a35528, type: 3}
+  - {fileID: 21300000, guid: 44c05869ea08d6e45a56d05b9c18ac92, type: 3}
+  - {fileID: 21300000, guid: 95acf29aa59c7e6408ffbb672ea91982, type: 3}
+  - {fileID: 21300000, guid: 9a7b5ec81726a62439c20ffdc691e42c, type: 3}
+  - {fileID: 21300000, guid: 1a34401c80c864b479e7b435faa3bf7d, type: 3}
+  - {fileID: 21300000, guid: d5b60a25a2f46a94d847e1f9404f029c, type: 3}
   - {fileID: 1946530583, guid: 65015f5f838dc1c48bdf67b81dc739ba, type: 3}
+  farmPeriodSprite1:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 7f066b86d5ee7594b9b408cdbc15e072, type: 3}
+  - {fileID: 21300000, guid: 3d311636141f7884081e689a968efc78, type: 3}
+  - {fileID: 21300000, guid: e0e2b828f0c30584787710944b6f5dd6, type: 3}
+  - {fileID: 21300000, guid: dad5b5cd0ad4c6e4ab02999f4d581c41, type: 3}
+  - {fileID: 21300000, guid: b232bdcbf44410b458ad51675110e845, type: 3}
+  - {fileID: 21300000, guid: c53d4079e06271a4c90599c11dcaee7c, type: 3}
+  - {fileID: 0}
+  farmPeriodSprite2:
+  - {fileID: 21300000, guid: ab58ce805aab468478d7062fadc16a2b, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: ab58ce805aab468478d7062fadc16a2b, type: 3}
+  - {fileID: 21300000, guid: 1e1d7fc985cfcaa42b67cf5d54392aca, type: 3}
+  - {fileID: 21300000, guid: 6b059478177e86844987737ec4481ff9, type: 3}
+  - {fileID: 21300000, guid: f89a72371092af045aeb82563edb5451, type: 3}
+  - {fileID: 21300000, guid: 332f45497fa38004ba37d53d77a654f8, type: 3}
+  - {fileID: 21300000, guid: 046ff3e0a28c79743a5f307bb502080a, type: 3}
+  - {fileID: 0}
   GrowedfarmSprites:
   - {fileID: -1100574409, guid: 65015f5f838dc1c48bdf67b81dc739ba, type: 3}
   - {fileID: 21300000, guid: 81cf5bdf99f16a745af8a6368552625e, type: 3}
-  - {fileID: -231819895, guid: 0993a67fcfcd5bf4c845d3d563b0b3fe, type: 3}
-  - {fileID: -1721159547, guid: 0993a67fcfcd5bf4c845d3d563b0b3fe, type: 3}
-  - {fileID: -1321353857, guid: 0993a67fcfcd5bf4c845d3d563b0b3fe, type: 3}
-  - {fileID: 220034054, guid: 0993a67fcfcd5bf4c845d3d563b0b3fe, type: 3}
-  - {fileID: -2020097961, guid: 0993a67fcfcd5bf4c845d3d563b0b3fe, type: 3}
-  - {fileID: 1992262200, guid: 0993a67fcfcd5bf4c845d3d563b0b3fe, type: 3}
+  - {fileID: 21300000, guid: 71b93f8429b4dba42abfa8a3f426bd0f, type: 3}
+  - {fileID: 21300000, guid: 399a67f7334f94f43b4d785066a3a5d6, type: 3}
+  - {fileID: 21300000, guid: 140135bc0cd5b4c48a9b5e4338465904, type: 3}
+  - {fileID: 21300000, guid: 3d0866cf2af898b459f195df1598d71f, type: 3}
+  - {fileID: 21300000, guid: a6d54e3e7cf13724b97a57347c935d1a, type: 3}
+  - {fileID: 21300000, guid: 758953d6dce031a4a8d5effe870c9616, type: 3}
   - {fileID: 1946530583, guid: 65015f5f838dc1c48bdf67b81dc739ba, type: 3}
-  farmImages: {fileID: 1504933825294313017}
+  farmImage: {fileID: 7818291845260850521}
+  SeededfarmImage: {fileID: 9068401540725154878}
   HoeImage: {fileID: 321838897599318684}
   GameManager: {fileID: 3030820063569021284, guid: e0cca7db3497d0046993540a7a1b3c12, type: 3}
   HoeCost: {fileID: 6946774793631046259}
@@ -304,11 +357,11 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 291592
+  m_InstanceId: 497862
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
---- !u!1 &2465176555414310927
+--- !u!1 &2962369944227259176
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -316,40 +369,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2188750665935468325}
-  - component: {fileID: 5392835220177458546}
+  - component: {fileID: 5076543953160434252}
+  - component: {fileID: 7818291845260850521}
   m_Layer: 0
-  m_Name: Sprite Mask
+  m_Name: NotseededCropImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2188750665935468325
+--- !u!4 &5076543953160434252
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2465176555414310927}
+  m_GameObject: {fileID: 2962369944227259176}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.001, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1120020435833156824}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!331 &5392835220177458546
-SpriteMask:
+--- !u!212 &7818291845260850521
+SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2465176555414310927}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_GameObject: {fileID: 2962369944227259176}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -360,7 +413,7 @@ SpriteMask:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 15d0c3709176029428a0da2f8cecf0b5, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -373,23 +426,24 @@ SpriteMask:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_MaskAlphaCutoff: 0
-  m_FrontSortingLayerID: 0
-  m_BackSortingLayerID: 0
-  m_FrontSortingLayer: 0
-  m_BackSortingLayer: 0
-  m_FrontSortingOrder: 0
-  m_BackSortingOrder: 0
-  m_IsCustomRangeActive: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6134140486131758824
 GameObject:
@@ -590,7 +644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5e92f3295f1707846a22308033b0a10b, type: 3}
+  m_Sprite: {fileID: 1119107384, guid: 15567e5cf4e7f244e89492e102e24d41, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ItemCard 3
   m_EditorClassIdentifier: 
   CardName: Remover
-  Icon: {fileID: 0}
+  Icon: {fileID: 200194164, guid: 15567e5cf4e7f244e89492e102e24d41, type: 3}
   CardCost: 500
   itemId: 3

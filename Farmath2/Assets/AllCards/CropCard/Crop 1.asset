@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crop 1
   m_EditorClassIdentifier: 
   CardName: Carrot
-  Icon: {fileID: 21300000, guid: 5e92f3295f1707846a22308033b0a10b, type: 3}
+  Icon: {fileID: -1753093689, guid: 4d12e77a331d5b7428fc366a0dabf77b, type: 3}
   CardCost: 100
   id: 3
   cropName: Carrot

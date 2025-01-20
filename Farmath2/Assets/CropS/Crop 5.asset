@@ -15,8 +15,7 @@ MonoBehaviour:
   base_: 1000
   id: 7
   cropName: Eggplant
-  reqDayToGrow: 10
-  CropSprite: {fileID: 0}
+  reqDayToGrow: 6
   Rev:
   - 1000
   - 400

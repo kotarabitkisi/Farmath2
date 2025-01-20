@@ -15,8 +15,7 @@ MonoBehaviour:
   base_: 300
   id: 2
   cropName: Wheat
-  reqDayToGrow: 10
-  CropSprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  reqDayToGrow: 6
   Rev:
   - 700
   - -100

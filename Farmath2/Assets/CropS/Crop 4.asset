@@ -15,8 +15,7 @@ MonoBehaviour:
   base_: 100
   id: 6
   cropName: Tomato
-  reqDayToGrow: 10
-  CropSprite: {fileID: 0}
+  reqDayToGrow: 6
   Rev:
   - -70
   - 4

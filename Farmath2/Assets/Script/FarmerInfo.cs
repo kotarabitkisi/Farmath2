@@ -36,13 +36,13 @@ public class FarmerInfo : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public void OnPointerUp(PointerEventData eventData)
     {
         touched = false;
-        
-        if (eventData.pointerEnter!=null&&eventData.pointerEnter.CompareTag("HeroPlace"))
-        { 
-            GameObject hittedHeroPlace= eventData.pointerEnter.gameObject;
+
+        if (eventData.pointerEnter != null && eventData.pointerEnter.CompareTag("HeroPlace"))
+        {
+            GameObject hittedHeroPlace = eventData.pointerEnter.gameObject;
             this.transform.position = hittedHeroPlace.transform.position; choosed = true; hittedHeroPlace.GetComponent<Image>().raycastTarget = false;
         }
-        else {this.transform.position = firstPosition;GetComponent<Image>().raycastTarget = true; }
+        else { this.transform.position = firstPosition; GetComponent<Image>().raycastTarget = true; }
 
     }
 }

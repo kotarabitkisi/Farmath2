@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ItemCard
   m_EditorClassIdentifier: 
   CardName: Fertilizer
-  Icon: {fileID: 0}
+  Icon: {fileID: 1758565813, guid: 15567e5cf4e7f244e89492e102e24d41, type: 3}
   CardCost: 500
   itemId: 0

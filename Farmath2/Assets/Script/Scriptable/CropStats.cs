@@ -7,8 +7,6 @@ public class CropStats : ScriptableObject
     public int id;
     public string cropName;
     public int reqDayToGrow;
-    public Sprite CropSprite;
-
     public float[] Rev;
     public int[] RevOperation;
 

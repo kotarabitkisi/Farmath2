@@ -7,7 +7,7 @@ public class CropScr : CardScr
 {
     public int id;
     public string cropName;
-    public Sprite CropSprite;
+    public Sprite CropSprite;//kullanýlmýyor?
     public GameManager GManager;
     public override void Use()
     {
