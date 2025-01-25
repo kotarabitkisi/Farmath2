@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 [System.Serializable]
 public class GameManager : MonoBehaviour
 {
@@ -85,6 +86,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+            DOTween.Init();
+        
         if (Boss == 1)
         {
             bossManager.BossStart();
@@ -111,7 +114,6 @@ public class GameManager : MonoBehaviour
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-                print(hit.collider);
                 if (hit.collider != null && hit.collider.CompareTag("Farm"))
                 {
                     farmsScr.ChosenFarm = hit.collider.gameObject.GetComponent<FarmInfo>();
@@ -128,19 +130,19 @@ public class GameManager : MonoBehaviour
                 }
                 else if (hit.collider != null && hit.collider.CompareTag("Card"))
                 {
-                    if (hit.collider.gameObject == itemCardUsing || hit.collider.gameObject == cropCardUsing)
-                    {
-                        if (itemCardUsing != null)
-                        {
-                            deckPlacing.MakeThisCardUsingCard(false, itemCardUsing);
-                        }
-                        else if (cropCardUsing != null)
-                        {
-                            deckPlacing.MakeThisCardUsingCard(false, cropCardUsing);
-                        }
-                    }
-                    else
-                    {
+                    //if (hit.collider.gameObject == itemCardUsing || hit.collider.gameObject == cropCardUsing)
+                    //{
+                    //    if (itemCardUsing != null && activeCardState == ActiveCardState.IN_HAND)
+                    //    {
+                    //        deckPlacing.MakeThisCardUsingCard(false, itemCardUsing);
+                    //    }
+                    //    else if (cropCardUsing != null && activeCardState == ActiveCardState.IN_HAND)
+                    //    {
+                    //        deckPlacing.MakeThisCardUsingCard(false, cropCardUsing);
+                    //    }
+                    //}
+                    //else
+                    //{
                         if (itemCardUsing != null && activeCardState == ActiveCardState.IN_HAND)
                         {
                             deckPlacing.MakeThisCardUsingCard(false, itemCardUsing);
@@ -151,7 +153,7 @@ public class GameManager : MonoBehaviour
                             deckPlacing.MakeThisCardUsingCard(false, cropCardUsing);
                             deckPlacing.MakeThisCardUsingCard(true, hit.collider.gameObject);
                         }
-                    }
+                    //}
                 }
             }
         }
