@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Crop", menuName = "ScriptableObjects/Crops")]
@@ -26,29 +28,45 @@ public class CropStats : ScriptableObject
     public bool IsNeighbour(int[] connectedFarmIds)
     {
         bool[] conIds = new bool[] { false, false, false, false };
-        
-
-        for (int i = 0; i < connectedFarmIds.Length; i++)
+        List<int> AllconnectedIds= new List<int> { };
+        for (int  i = 0;  i <connectedFarmIds.Length;  i++)
         {
-            for (int j = 0; j < reqConnectedIds.Length; j++)
+            AllconnectedIds.Add(connectedFarmIds[i]);
+        }
+
+        for (int i = 0; i < reqConnectedIds.Length; i++)
+        {
+            if (reqConnectedIds[i] == 0)
             {
-                if (reqConnectedIds[j] == 0)
+                conIds[i] = true;
+                Debug.Log("empty");
+            }
+            else
+            {
+                for (int j = 0; j < AllconnectedIds.Count; j++)
                 {
-                    conIds[i] = true;
-                    break;
-                }
-                else if (connectedFarmIds[i] == reqConnectedIds[j])
-                {
-                    conIds[i] = true;
-                    break;
+
+                    if (AllconnectedIds[j] == reqConnectedIds[i])
+                    {
+                        Debug.Log("true");
+                        conIds[i] = true;
+                        AllconnectedIds.Remove(j);
+                        break;
+
+                    }
+                    else
+                    {
+                        Debug.Log("false");
+                    }
                 }
             }
+
         }
         for (int i = 0; i < conIds.Length; i++)
         {
-            if (!conIds[i]) { Debug.Log(""+ conIds[0]+ conIds[1]+ conIds[2]+conIds[3] + "False"); return false; }
+            if (!conIds[i]) { Debug.Log("" + conIds[0] + conIds[1] + conIds[2] + conIds[3] + "False"); return false; }
         }
-        Debug.Log("" + conIds[0] + conIds[1] + conIds[2] + conIds[3]+"True");
+        Debug.Log("" + conIds[0] + conIds[1] + conIds[2] + conIds[3] + "True");
         return true;
     }
     public bool IsHarvestDayPassed(FarmInfo farmI)

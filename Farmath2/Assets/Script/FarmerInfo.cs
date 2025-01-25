@@ -40,9 +40,14 @@ public class FarmerInfo : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         if (eventData.pointerEnter != null && eventData.pointerEnter.CompareTag("HeroPlace"))
         {
             GameObject hittedHeroPlace = eventData.pointerEnter.gameObject;
-            this.transform.position = hittedHeroPlace.transform.position; choosed = true; hittedHeroPlace.GetComponent<Image>().raycastTarget = false;
+            HireHero(this.gameObject,hittedHeroPlace);
+            
         }
         else { this.transform.position = firstPosition; GetComponent<Image>().raycastTarget = true; }
 
+    }
+    public void HireHero(GameObject Hero,GameObject Par)
+    {
+        Hero.transform.position = Par.transform.position; choosed = true; Par.GetComponent<Image>().raycastTarget = false;
     }
 }

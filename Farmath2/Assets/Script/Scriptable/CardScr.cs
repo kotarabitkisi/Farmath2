@@ -7,6 +7,7 @@ public class CardScr : ScriptableObject
     public string CardName;
     public Sprite Icon;
     public float CardCost;
+    public bool IsThatBossCard;
     public virtual void Use() { 
     
     }

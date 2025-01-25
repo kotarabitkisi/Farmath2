@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6193985710840211711}
-  - component: {fileID: 5797987359591885181}
   - component: {fileID: 3030820063569021284}
-  - component: {fileID: 6272556741260567682}
   - component: {fileID: 9063147203254948491}
   - component: {fileID: 4477584678974648747}
+  - component: {fileID: 5005151705105454088}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -36,46 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5797987359591885181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910084559847793297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11378f15b9e1be04e96c7e48d7680e9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frams:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  totalConnectedIds: 0000000000000000000000000000000000000000000000000000000000000000
-  ChosenFarm: {fileID: 0}
-  GameManager: {fileID: 3030820063569021284}
 --- !u!114 &3030820063569021284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b4570af4272cb4e8c9e40dc5c035df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossManager: {fileID: 5005151705105454088}
+  Boss: 0
   activeCardState: 0
   cropCardUsing: {fileID: 0}
   itemCardUsing: {fileID: 0}
@@ -98,7 +59,7 @@ MonoBehaviour:
   - {fileID: 0}
   colorNone: {r: 0, g: 0, b: 0, a: 0}
   ColorScr: {fileID: 9063147203254948491}
-  farmsScr: {fileID: 5797987359591885181}
+  farmsScr: {fileID: 0}
   MoneyText: {fileID: 0}
   Daytext: {fileID: 0}
   crops:
@@ -111,17 +72,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b58ea647c2b558458b5cfd2b00bf859, type: 2}
   - {fileID: 11400000, guid: cd3e37678dc979d4c9f2b81c581f239c, type: 2}
   - {fileID: 11400000, guid: dee881cf892fe38489c8f072b38759b0, type: 2}
-  money: 5000
-  Day: 1
+  money: 500
+  Day: 0
   Month: 0
   pageopened: 0
-  ShopManagement: {fileID: 6272556741260567682}
-  deckPlacing: {fileID: 0}
-  WinPanel: {fileID: 0}
-  LosePanel: {fileID: 0}
   HarvestedCropCount: 0000000000000000000000000000000000000000000000000000000000000000
   HoeCount: 0
   HoeCost: 64000000e8030000c4090000102700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ShopManagement: {fileID: 0}
+  deckPlacing: {fileID: 0}
+  WinPanel: {fileID: 0}
+  LosePanel: {fileID: 0}
   ShopImage: {fileID: 0}
   PageParent: {fileID: 0}
   debuffPage: {fileID: 0}
@@ -202,7 +163,7 @@ MonoBehaviour:
   - "-e\u011Fer 500.000 den fazla paran varsa: m*4"
   - "-ana g\xFCn\xFCn 140 dan az ise: ana gelir - 10"
   - "-ayn\u0131 t\xFCr 50 kere hasat edildiyse: gelir \xE7arpan\u0131 x 3"
-  - "-toplam 100 den fazla hasat yap\u0131ld\u0131ysa: gelir \xE7arpan\u0131 x 0.7"
+  - "-toplam en fazla 100 hasat yap\u0131ld\u0131ysa: gelir \xE7arpan\u0131 x 0.7"
   - "-kom\u015Fu"
   - "-olgunla\u015Ft\u0131ktan sonra 4 g\xFCn ge\xE7erse: ana gelir + 1000"
   - "-e\u011Fer 600.000 den fazla paran varsa: ana gelir + 400"
@@ -265,43 +226,6 @@ MonoBehaviour:
   - birds will take your seeds the crops that not growed will be destroyed for %3
     possibility
   debuffs: 00000000
---- !u!114 &6272556741260567682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910084559847793297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88559fe443bf4f94ca37109962759d87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameManag: {fileID: 3030820063569021284}
-  DP: {fileID: 0}
-  cardsOnShop: []
-  cardCosts: []
-  allIcons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  allShopNameTxt:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  allShopCostTxt:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &9063147203254948491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,3 +253,117 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GManager: {fileID: 3030820063569021284}
+  OpenedDeck: {fileID: 0}
+  data:
+    money: 0
+    Day: 0
+    Month: 0
+    debuffs: 00000000
+    isExplored: 000000000000000000000000000000000000000000000000000000000000000000000000
+    HarvestedCropCount: 0000000000000000000000000000000000000000000000000000000000000000
+    HoeCount: 0
+    Boss: 0
+    farmId: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    curDay: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    reqDay: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    Watered: 000000000000000000000000000000000000000000000000
+    holyHoed: 000000000000000000000000000000000000000000000000
+    negatived: 000000000000000000000000000000000000000000000000
+    OpenedCardIds: 
+    DiscardedCardIds: 
+    OpenedCardType: 
+    DiscardedCardType: 
+    farmerChoosed: 
+  FarmInfos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  FarmerPlace:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ItemCards:
+  - {fileID: 11400000, guid: d950a878793bdb548b7180131154d72f, type: 2}
+  - {fileID: 11400000, guid: 3cf91d8ce77d3294a8e258cef159ddfb, type: 2}
+  - {fileID: 11400000, guid: ee19874e238d7324ab7e715d08e509f8, type: 2}
+  - {fileID: 11400000, guid: 81ed7dd2ea0677c4a87d6ebc2f6f8005, type: 2}
+  - {fileID: 11400000, guid: d11085088dfbfd44483df6608e26a762, type: 2}
+  - {fileID: 11400000, guid: d4c6397aad08b6844adba992fa6a5730, type: 2}
+  CropCards:
+  - {fileID: 11400000, guid: 34206a99f463545449824326945cd094, type: 2}
+  - {fileID: 11400000, guid: 34206a99f463545449824326945cd094, type: 2}
+  - {fileID: 11400000, guid: b6d8e4d75d68bc241b9e2fbf8d107212, type: 2}
+  - {fileID: 11400000, guid: 962c5aa9681442643b7c4ed6fdea1274, type: 2}
+  - {fileID: 11400000, guid: 03717c8ec990c284aa23a7cc21bc7198, type: 2}
+  - {fileID: 11400000, guid: 2dd83a9164d2c6e428ee416eb98d14fb, type: 2}
+  - {fileID: 11400000, guid: 10a554834532bea4ea6bf7f49d1a759a, type: 2}
+  - {fileID: 11400000, guid: 34206a99f463545449824326945cd094, type: 2}
+--- !u!114 &5005151705105454088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910084559847793297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69fc7ada4008a3540851f053f8514c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 0}
+  DeckPlacing: {fileID: 0}
+  gameManager: {fileID: 3030820063569021284}
+  ECC: {fileID: 9063147203254948491}
+  AllBossCards:
+  - {fileID: 11400000, guid: 927ae85dd4976f548afce8cec5a166ae, type: 2}
+  - {fileID: 11400000, guid: 1450e9fc6fa1d544aaf332b332b02c20, type: 2}
+  - {fileID: 11400000, guid: ab75d46c40ca3544382c5c4ee17e5647, type: 2}
+  - {fileID: 11400000, guid: 3386f94923d50834b8b92c1468d2a759, type: 2}
+  - {fileID: 11400000, guid: f18ae7c43b7418145a0a5c2adfa712d3, type: 2}
+  - {fileID: 11400000, guid: bdd4c818043da6c4496dda2d1d8bc81a, type: 2}
+  AllFarms:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

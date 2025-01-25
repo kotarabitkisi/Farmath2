@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67272740604a2b042b735c86f5a66905, type: 3}
   m_Name: Crop 4
   m_EditorClassIdentifier: 
-  base_: 100
+  base_: 500
   id: 6
   cropName: Tomato
   reqDayToGrow: 6
@@ -24,7 +24,7 @@ MonoBehaviour:
   - -70
   - 300
   RevOperation: 000000000100000000000000010000000000000000000000
-  reqConnectedIds: 
+  reqConnectedIds: 06000000000000000000000000000000
   reqHarvestDaymin: 10
   reqHarvestDaymax: 2147483647
   reqMoneyMin: 500000
@@ -33,5 +33,5 @@ MonoBehaviour:
   reqdayMax: 140
   reqHarvestCountmin: 0
   reqHarvestCountmax: 100
-  reqHarvestCountOnSameTypemin: 50
+  reqHarvestCountOnSameTypemin: 10
   reqHarvestCountOnSameTypemax: 2147483647

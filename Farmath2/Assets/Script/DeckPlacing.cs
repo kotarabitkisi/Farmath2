@@ -9,6 +9,7 @@ using static GameManager;
 public class DeckPlacing : MonoBehaviour
 {
     [ExecuteInEditMode]
+    public BossManager BossManager;
     public EffectColorChanging ColorScr;
     public TextMeshProUGUI cardCountTxt;
     public GameObject closedCardPrefab;
@@ -28,7 +29,7 @@ public class DeckPlacing : MonoBehaviour
     [Header("Discard")]
     public bool discardactivated;
     public List<CardScr> discardedCards;
-    public Color DiscardColor1, DiscardColor2;
+    public Color DiscardColor1, DiscardColor2, BossSoytariColor;
 
 
 
@@ -160,7 +161,6 @@ public class DeckPlacing : MonoBehaviour
             CardScr Card = discardedCards[cardIndex];
             discardedCards.RemoveAt(cardIndex);
             RaycastHit2D hit = Physics2D.Raycast(closedCardPrefab.transform.position, Vector2.zero);
-            print(Camera.main.ScreenToWorldPoint(closedCardPrefab.transform.position));
             GameObject newOpenedCard = Instantiate(cardPrefab, hit.point, Quaternion.identity);
             newOpenedCard.transform.SetParent(transform, true);
             GameObject newOpenedCardCanvas = newOpenedCard.transform.GetChild(0).gameObject;
@@ -194,7 +194,15 @@ public class DeckPlacing : MonoBehaviour
     {
         if (discardactivated)
         {
-            StartCoroutine(ColorScr.ChangeColor(Color.white, 0.25f)); discardactivated = false;
+            if (GManager.Boss == 1)
+            {
+                StartCoroutine(ColorScr.ChangeColor(BossSoytariColor, 0.25f)); discardactivated = false;
+            }
+            else
+            {
+                StartCoroutine(ColorScr.ChangeColor(Color.white, 0.25f)); discardactivated = false;
+
+            }
         }
         else { StartCoroutine(ColorScr.ChangeColor(DiscardColor1, 0.25f)); discardactivated = true; }
 
@@ -210,16 +218,17 @@ public class DeckPlacing : MonoBehaviour
             }
 
         }
-        ChosenCardToDiscard.transform.parent = null;
 
         RaycastHit2D hit = Physics2D.Raycast(closedCardPrefab.transform.position, Vector2.zero);
-        print(hit.collider);
-        print(hit.point);
-
-        ChosenCardToDiscard.transform.position = hit.point;
-        ChosenCardToDiscard.transform.DOMove(hit.point, 0.2f).SetEase(Ease.Linear);
-        InitializeAllCardsPositions();
+        Vector2 targetPosition = hit.point;
+        ChosenCardToDiscard.transform.parent = null;
+        ChosenCardToDiscard.tag ="Untagged";
+        ChosenCardToDiscard.transform.DOMove(hit.point,0.2f);
+        ChosenCardToDiscard.transform.DOScale(Vector3.one, 0.2f);
+        
         yield return new WaitForSecondsRealtime(0.2f);
+        InitializeAllCardsPositions();
+        print(ChosenCardToDiscard.transform.position);
         discardedCards.Add(ChosenCardToDiscard.GetComponent<CardData>().Card);
         Destroy(ChosenCardToDiscard);
 
@@ -230,10 +239,10 @@ public class DeckPlacing : MonoBehaviour
         {
             CardScr cardData = ChosenObject.GetComponent<CardData>().Card;
             if (discardactivated) { StartCoroutine(PutDiscardThisCard(ChosenObject)); }
+            else if (cardData.IsThatBossCard) { BossManager.BossCardUsed(); DestroyThisCard(ChosenObject); }
             else
             {
-                ChosenObject.transform.DOMove(new Vector3(6, 0.5f, 0), 0.25f);
-                //chosenCard.transform.DORotate(new Vector3(0, 0, 0), 0.2f).SetEase(Ease.Linear);
+                ChosenObject.transform.DOMove(new Vector3(6, 0.5f, 0), 0.25f).SetEase(Ease.Linear);
                 ChosenObject.transform.parent = null;
                 InitializeAllCardsPositions();
                 if (cardData is CropScr)
@@ -245,6 +254,7 @@ public class DeckPlacing : MonoBehaviour
                 else if (cardData is ItemScr ItemCardData)
                 {
                     GManager.itemCardUsing = ChosenObject;
+                    GManager.activeCardState = ActiveCardState.IN_HAND;
                     for (int i = 0; i < openedCards.Count; i++)
                     {
                         if (openedCards[i] == GManager.itemCardUsing)
@@ -254,8 +264,9 @@ public class DeckPlacing : MonoBehaviour
                                 case 1:
                                     for (int j = 0; j < 3; j++)
                                     {
-                                        GManager.farmsScr.water(0, 0, true);
+                                        GManager.farmsScr.water(6, 4, true);
                                     }
+                                    GManager.activeCardState = ActiveCardState.NONE;
                                     openedCards.RemoveAt(i);
                                     Destroy(GManager.itemCardUsing);
                                     break;
@@ -264,6 +275,7 @@ public class DeckPlacing : MonoBehaviour
                                     {
                                         TakeCardFromDiscard();
                                     }
+                                    GManager.activeCardState = ActiveCardState.NONE;
                                     openedCards.RemoveAt(i);
                                     Destroy(GManager.itemCardUsing);
                                     break;
@@ -276,13 +288,9 @@ public class DeckPlacing : MonoBehaviour
                             }
                         }
                     }
-
-                    ChosenObject.transform.parent = null;
                     InitializeAllCardsPositions();
                 }
             }
-
-
         }
         else
         {
@@ -290,9 +298,10 @@ public class DeckPlacing : MonoBehaviour
             GManager.cropCardUsing = null;
             ChosenObject.transform.parent = transform;
             ChosenObject.transform.DOScale(cardPrefab.transform.lossyScale, 0.2f);
+            GManager.activeCardState = ActiveCardState.NONE;
             InitializeAllCardsPositions();
         }
-
+        InitializeAllCardsPositions();
     }
 
     public void DestroyThisCard(GameObject card)

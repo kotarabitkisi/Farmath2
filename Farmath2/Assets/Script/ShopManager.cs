@@ -10,6 +10,7 @@ public class ShopManager : MonoBehaviour
     public List<CardScr> cardsOnShop = new List<CardScr>();
     public List<float> cardCosts;
     public Image[] allIcons;
+    public GameObject[] ShopCardObj;
     public TextMeshProUGUI[] allShopNameTxt;
     public TextMeshProUGUI[] allShopCostTxt;
 
@@ -23,7 +24,10 @@ public class ShopManager : MonoBehaviour
             DP.AddCardToDiscard(cardsOnShop[ShopIndex]);
             DeleteCard(ShopIndex);
         }
-        else { print("fakir"); }
+        else
+        {
+            StartCoroutine(GameManag.ShakeTheObj(ShopCardObj[ShopIndex], 0.25f, 10f, 10f,true));
+        }
     }
     public void AddCardToShop(int ShopIndex, int CardID)
     {
@@ -40,7 +44,7 @@ public class ShopManager : MonoBehaviour
 
 
         allShopNameTxt[ShopIndex].text = chosenCard.CardName;
-        allShopCostTxt[ShopIndex].text = CardCost.ToString("0")+"$";
+        allShopCostTxt[ShopIndex].text = CardCost.ToString("0") + "$";
         cardsOnShop.Add(chosenCard);
         cardCosts.Add(CardCost);
     }
@@ -49,5 +53,15 @@ public class ShopManager : MonoBehaviour
         cardsOnShop[ShopIndex] = null;
         cardCosts[ShopIndex] = 0;
         allIcons[ShopIndex].GetComponent<Button>().interactable = false;
+    }
+
+    public void DayPassedAddCard()
+    {
+        cardsOnShop.Clear();
+        cardCosts.Clear();
+        for (int i = 0; i < 6; i++)
+        {
+            AddCardToShop(i, Random.Range(0, GameManag.deckPlacing.allCardScr.Length));
+        }
     }
 }

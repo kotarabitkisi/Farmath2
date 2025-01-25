@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
         IN_HAND,
         USING
     };
+    public BossManager bossManager;
+    public int Boss;//0=boss yok 1=soytarý
     public ActiveCardState activeCardState;
     public GameObject cropCardUsing;
     public GameObject itemCardUsing;
@@ -29,10 +31,11 @@ public class GameManager : MonoBehaviour
     public int Month;
     const float pageAnimTime = 0.5f;
     const int reqDay = 20;
-    const int reqMonth = 5;
-    const int maxCardCountOnShop = 6;
+    const int reqMonth = 3;
+    public const int maxCardCountOnShop = 6;
     const int maxExploreCount = 6;
     const int moneyBound = 100;
+    const int reqMoneyToWin = 1000000;
     public bool pageopened;
     public int[] HarvestedCropCount;
     public int HoeCount;
@@ -82,8 +85,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (Boss == 1)
+        {
+            bossManager.BossStart();
+        }
+        ShopManagement.DayPassedAddCard();
         InitializeMoneyText();
-        NextDay();
     }
     private void Update()
     {
@@ -98,7 +105,7 @@ public class GameManager : MonoBehaviour
 
 
         #region TýklamaKontrolleri
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && activeCardState != ActiveCardState.USING)
         {
             if (!pageopened)
             {
@@ -315,6 +322,8 @@ public class GameManager : MonoBehaviour
         }
         if (farm.Watered) { MultipleRev *= 2; farm.Watered = false; }
         if (farm.HolyHoed) { MultipleRev *= 2; }
+        if (farm.Negatived) { MultipleRev *= -1; }
+        HarvestedCropCount[farm.Id]++;
         #region explorebildirimi
         int ExploreNotificationTextCount = 0;
         for (int i = 0; i < ExploreTexts.Length; i++)
@@ -417,30 +426,39 @@ public class GameManager : MonoBehaviour
                 if (farm.Id == 1 && Random.Range(0f, 100) <= probality) { farm.Id = 8; }
             }
 
-
-            StartCoroutine(deckPlacing.DayPassedTakeCard());
-            ShopManagement.cardsOnShop.Clear();
-            ShopManagement.cardCosts.Clear();
-            for (int i = 0; i < maxCardCountOnShop; i++)
+            if (Boss == 1)
             {
-                ShopManagement.AddCardToShop(i, Random.Range(0, deckPlacing.allCardScr.Length));
+                bossManager.AddBossCard();
+                bossManager.BossPutVein();
             }
+            StartCoroutine(deckPlacing.DayPassedTakeCard());
+            ShopManagement.DayPassedAddCard();
+            
             if (reqDay < Day)
             {
+
+
                 Month++;
                 Day = 1;
                 Daytext.text = "Day: " + Day + "/" + reqDay;
-                StartDebuff(Month - 1);
+
                 if (reqMonth < Month)
                 {
-                    if (money >= 1000000) { Win(); }
-                    else
+                    if (Boss != 0)
                     {
-                        Lose();
+                        if (money >= reqMoneyToWin) { Win(); }
+                        else
+                        {
+                            Lose();
+                        }
                     }
+                    bossManager.BossStart();
+                    Boss = 1;
+
                 }
                 else
                 {
+                    StartDebuff(Month - 1);
                     foreach (FarmInfo farmland in farmsScr.FarmList)
                     {
                         farmland.curDay++;
@@ -510,10 +528,10 @@ public class GameManager : MonoBehaviour
                     case 0:
                         activeCardState = ActiveCardState.USING;
                         chosenCardUsing = itemCardUsing;
-                        farm.reqDay /= 2;
                         chosenCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
                         chosenCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
                         yield return new WaitForSecondsRealtime(cardAnimTime);
+                        farm.reqDay /= 2;
                         deckPlacing.DestroyThisCard(chosenCardUsing);
                         activeCardState = ActiveCardState.NONE;
                         break;
@@ -583,7 +601,16 @@ public class GameManager : MonoBehaviour
 
     public void SolutionIsTrueOrNot(QuestionScr question, float reward)
     {
-        StartCoroutine(ColorScr.ChangeColor(Color.white, 1));
+        switch (Boss)
+        {
+            case 0:
+                StartCoroutine(ColorScr.ChangeColor(Color.white, 1));
+                break;
+            case 1:
+                StartCoroutine(ColorScr.ChangeColor(deckPlacing.BossSoytariColor, 1));
+                break;
+        }
+
         print(question.Solution + " " + questionTextArea.text);
         if (question.Solution == questionTextArea.text)
         {
@@ -615,6 +642,46 @@ public class GameManager : MonoBehaviour
         MoneyObj.SetActive(false);
     }
 
+    public IEnumerator ShakeTheObj(GameObject Obj, float duration, float magnitudeX, float magnitudeY, bool IsInCanvas)
+    {
+        if (IsInCanvas)
+        {
+            RectTransform transformm = Obj.GetComponent<RectTransform>();
+            Vector3 originalPosition = transformm.position;
+            float elapsed = 0.0f;
 
+            while (elapsed < duration)
+            {
+                float offsetX = Random.Range(-1f, 1f) * magnitudeX;
+                float offsetY = Random.Range(-1f, 1f) * magnitudeY;
+
+                transformm.position = new Vector3(originalPosition.x + offsetX, originalPosition.y + offsetY, originalPosition.z);
+
+                elapsed += Time.deltaTime;
+
+                yield return null;
+            }
+            transformm.position = originalPosition;
+        }
+        else
+        {
+            Vector3 originalPosition = Obj.transform.position;
+            float elapsed = 0.0f;
+
+            while (elapsed < duration)
+            {
+                float offsetX = Random.Range(-1f, 1f) * magnitudeX;
+                float offsetY = Random.Range(-1f, 1f) * magnitudeY;
+
+                Obj.transform.position = new Vector3(originalPosition.x + offsetX, originalPosition.y + offsetY, originalPosition.z);
+
+                elapsed += Time.deltaTime;
+
+                yield return null;
+            }
+            Obj.transform.position = originalPosition;
+        }
+
+    }
 
 }

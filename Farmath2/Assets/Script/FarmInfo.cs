@@ -22,8 +22,32 @@ public class FarmInfo : MonoBehaviour
 
     public bool HolyHoed;
     public bool Watered;
+    public bool Negatived;
+
+    public SpriteRenderer Renderer;
+    public Material HolyMat,NormalMat;
+
+    public GameObject NegativeEffect,HolyEffect;
+    public Color WateredColor;
     private void Update()
     {
+        if (Id != 0)
+        {
+            if (HolyHoed)
+            {
+                Renderer.material = HolyMat;
+                HolyEffect.SetActive(true);
+            }
+            else { Renderer.material = NormalMat; HolyEffect.SetActive(false); }
+            if (Negatived) { NegativeEffect.SetActive(true); }
+            else { NegativeEffect.SetActive(false); }
+            if (Watered)
+            {
+                Renderer.color = WateredColor;
+            }
+            else { Renderer.color = Color.white; }
+        }
+       
         if (Id >= 2)
         {
             farmImage.enabled = false;
