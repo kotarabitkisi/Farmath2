@@ -24,14 +24,14 @@ MonoBehaviour:
   - 3
   - -100
   RevOperation: 010000000000000000000000010000000100000000000000
-  reqConnectedIds: 05000000050000000000000000000000
+  reqConnectedIds: 05000000000000000000000000000000
   reqHarvestDaymin: 5
   reqHarvestDaymax: 2147483647
   reqMoneyMin: 300000
   reqMoneyMax: 750000
-  reqdayMin: 100
-  reqdayMax: 150
+  reqdayMin: 40
+  reqdayMax: 60
   reqHarvestCountmin: 20
   reqHarvestCountmax: 30
-  reqHarvestCountOnSameTypemin: 5
+  reqHarvestCountOnSameTypemin: 15
   reqHarvestCountOnSameTypemax: 2147483647

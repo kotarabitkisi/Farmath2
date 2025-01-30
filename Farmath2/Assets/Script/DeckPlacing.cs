@@ -4,26 +4,32 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static GameManager;
 
 public class DeckPlacing : MonoBehaviour
 {
+
+    [Header("AnotherScripts")]
+    public GameManager GManager;
     public BossManager BossManager;
     public EffectColorChanging ColorScr;
+    [Header("GameObjects")]
     public TextMeshProUGUI cardCountTxt;
     public GameObject closedCardPrefab;
     public GameObject cardPrefab;
+    public GameObject cropCardUsing;
+    public GameObject itemCardUsing;
+    public List<GameObject> openedCards;
+    public GameObject chosenMovingCard;
+    [Header("MainStats")]
     public CardScr[] allCardScr;
     public bool takeRandomized;
-
-    public List<GameObject> openedCards;
     public bool cardCollected;
     public float Ypos2;
     const float xPos = 1.25f, yPos = 1;
     const int OpenedCardLimit = 3;
     public float rotationValue;
     public int chooseCardToDestroy;
-    public GameObject chosenMovingCard;
-    public GameManager GManager;
     [Header("Discard")]
     public bool discardactivated;
     public List<CardScr> discardedCards;
@@ -44,14 +50,14 @@ public class DeckPlacing : MonoBehaviour
         //}
         //else
         //{
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            collider = Physics2D.OverlapPoint(mousePosition);
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        collider = Physics2D.OverlapPoint(mousePosition);
         //}
 
 
 
 
-        if (GManager.activeCardState == GameManager.ActiveCardState.NONE)
+        if (GManager.activeCardState == ActiveCardState.NONE)
         {
             if (chosenMovingCard != null)
             {
@@ -101,6 +107,58 @@ public class DeckPlacing : MonoBehaviour
                 }
             }
         }
+
+        else if (GManager.activeCardState == ActiveCardState.IN_HAND)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (collider != null && collider.CompareTag("Card"))
+                {
+                    if (collider.gameObject == itemCardUsing || collider.gameObject == cropCardUsing)
+                    {
+                        if (itemCardUsing != null && GManager.activeCardState == ActiveCardState.IN_HAND)
+                        {
+                            MakeThisCardUsingCard(false, itemCardUsing);
+                        }
+                        else if (cropCardUsing != null && GManager.activeCardState == ActiveCardState.IN_HAND)
+                        {
+                            MakeThisCardUsingCard(false, cropCardUsing);
+                        }
+                    }
+                    else
+                    {
+
+                        if (itemCardUsing != null && GManager.activeCardState == ActiveCardState.IN_HAND)
+                        {
+                            MakeThisCardUsingCard(false, itemCardUsing);
+                            MakeThisCardUsingCard(true, collider.gameObject);
+                        }
+                        else if (cropCardUsing != null && GManager.activeCardState == ActiveCardState.IN_HAND)
+                        {
+                            MakeThisCardUsingCard(false, cropCardUsing);
+                            MakeThisCardUsingCard(true, collider.gameObject);
+                        }
+
+                    }
+
+
+                }
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                if (itemCardUsing != null)
+                {
+                    MakeThisCardUsingCard(false, itemCardUsing);
+                }
+                else if (cropCardUsing != null)
+                {
+                    MakeThisCardUsingCard(false, cropCardUsing);
+                }
+                GManager.activeCardState = ActiveCardState.NONE;
+            }
+
+        }
+
         closedCardPrefab.SetActive(discardedCards.Count > 0);
         cardCountTxt.text = "Card: " + discardedCards.Count.ToString();
     }
@@ -129,7 +187,7 @@ public class DeckPlacing : MonoBehaviour
                 TakeCardFromDiscard();
                 yield return new WaitForSecondsRealtime(0.1f);
             }
-            chooseCardToDestroy = 3;
+            chooseCardToDestroy = 2;
         }
         else
         {
@@ -220,10 +278,10 @@ public class DeckPlacing : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(closedCardPrefab.transform.position, Vector2.zero);
         Vector2 targetPosition = hit.point;
         ChosenCardToDiscard.transform.parent = null;
-        ChosenCardToDiscard.tag ="Untagged";
-        ChosenCardToDiscard.transform.DOMove(hit.point,0.2f);
+        ChosenCardToDiscard.tag = "Untagged";
+        ChosenCardToDiscard.transform.DOMove(hit.point, 0.2f);
         ChosenCardToDiscard.transform.DOScale(Vector3.one, 0.2f);
-        
+
         yield return new WaitForSecondsRealtime(0.2f);
         InitializeAllCardsPositions();
         print(ChosenCardToDiscard.transform.position);
@@ -244,20 +302,20 @@ public class DeckPlacing : MonoBehaviour
                 ChosenObject.transform.parent = null;
                 print(ChosenObject.transform.parent);
                 ChosenObject.transform.DOMove(new Vector3(6, 0.5f, 0), 0.25f).SetEase(Ease.Linear);
-                ChosenObject.transform.DOScale(cardPrefab.transform.lossyScale*1.5f, 0.25f);
+                ChosenObject.transform.DOScale(cardPrefab.transform.lossyScale * 1.5f, 0.25f);
                 InitializeAllCardsPositions();
                 if (cardData is CropScr)
                 {
-                    GManager.cropCardUsing = ChosenObject;
-                    GManager.activeCardState = GameManager.ActiveCardState.IN_HAND;
+                    cropCardUsing = ChosenObject;
+                    GManager.activeCardState = ActiveCardState.IN_HAND;
                 }
                 else if (cardData is ItemScr ItemCardData)
                 {
-                    GManager.itemCardUsing = ChosenObject;
-                    GManager.activeCardState = GameManager.ActiveCardState.IN_HAND;
+                    itemCardUsing = ChosenObject;
+                    GManager.activeCardState = ActiveCardState.IN_HAND;
                     for (int i = 0; i < openedCards.Count; i++)
                     {
-                        if (openedCards[i] == GManager.itemCardUsing)
+                        if (openedCards[i] == itemCardUsing)
                         {
                             switch (ItemCardData.itemId)
                             {
@@ -266,24 +324,24 @@ public class DeckPlacing : MonoBehaviour
                                     {
                                         GManager.farmsScr.water(6, 4, true);
                                     }
-                                    GManager.activeCardState = GameManager.ActiveCardState.NONE;
+                                    GManager.activeCardState = ActiveCardState.NONE;
                                     openedCards.RemoveAt(i);
-                                    Destroy(GManager.itemCardUsing);
+                                    Destroy(itemCardUsing);
                                     break;
                                 case 4:
                                     for (int j = 0; j < 3; j++)
                                     {
                                         TakeCardFromDiscard();
                                     }
-                                    GManager.activeCardState = GameManager.ActiveCardState.NONE;
+                                    GManager.activeCardState = ActiveCardState.NONE;
                                     openedCards.RemoveAt(i);
-                                    Destroy(GManager.itemCardUsing);
+                                    Destroy(itemCardUsing);
                                     break;
                                 case 5:
                                     GManager.QuestionStart(ItemCardData);
-                                    GManager.activeCardState = GameManager.ActiveCardState.USING;
+                                    GManager.activeCardState = ActiveCardState.USING;
                                     openedCards.RemoveAt(i);
-                                    Destroy(GManager.itemCardUsing);
+                                    Destroy(itemCardUsing);
                                     break;
                             }
                         }
@@ -293,11 +351,18 @@ public class DeckPlacing : MonoBehaviour
         }
         else
         {
-            GManager.itemCardUsing = null;
-            GManager.cropCardUsing = null;
+            if (itemCardUsing != null) { itemCardUsing = null; }
+            if (cropCardUsing != null)
+            {
+                cropCardUsing = null;
+                for (int i = 0; i < GManager.farmsScr.frams.Length; i++)
+                {
+                    GManager.farmsScr.frams[i].farmImage.color = Color.white;
+                }
+            }
             ChosenObject.transform.parent = transform;
             ChosenObject.transform.DOScale(cardPrefab.transform.lossyScale, 0.2f);
-            GManager.activeCardState = GameManager.ActiveCardState.NONE;
+            GManager.activeCardState = ActiveCardState.NONE;
             InitializeAllCardsPositions();
         }
     }
@@ -315,6 +380,77 @@ public class DeckPlacing : MonoBehaviour
         GManager.activeCardState = GameManager.ActiveCardState.NONE;
     }
 
+    public IEnumerator UseThisCard(FarmInfo farm)
+    {
+        float cardAnimTime = 0.5f;
+        if (farm.Id == 1 && cropCardUsing)
+        {
+            GameObject chosenCardUsing = cropCardUsing;
+            GManager.activeCardState = ActiveCardState.USING;
+            CardScr card = cropCardUsing.GetComponent<CardData>().Card;
+            chosenCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
+            chosenCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
+            yield return new WaitForSecondsRealtime(cardAnimTime);
+            yield return new WaitForSecondsRealtime(0.2f);
+            if (card is CropScr CropCard)
+            {
+                GManager.SeedCrop(CropCard.id, farm);
+                DestroyThisCard(chosenCardUsing);
+                for (int i = 0; i < GManager.farmsScr.frams.Length; i++)
+                {
+                    GManager.farmsScr.frams[i].farmImage.color = Color.white;
+                }
+                GManager.activeCardState = ActiveCardState.NONE;
+            }
+        }
+        else if (itemCardUsing)
+        {
+            CardScr card = itemCardUsing.GetComponent<CardData>().Card;
+            if (card is ItemScr ItemCard)
+            {
+                GameObject chosenCardUsing;
+                switch (ItemCard.itemId)
+                {
+                    case 0:
+                        GManager.activeCardState = ActiveCardState.USING;
+                        chosenCardUsing = itemCardUsing;
+                        chosenCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
+                        chosenCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
+                        yield return new WaitForSecondsRealtime(cardAnimTime);
+                        farm.reqDay /= 2;
+                        DestroyThisCard(chosenCardUsing);
+                        GManager.activeCardState = ActiveCardState.NONE;
+                        break;
+                    case 2:
+                        if (farm.Id < 2)
+                        {
+                            GManager.activeCardState = ActiveCardState.USING;
+                            chosenCardUsing = itemCardUsing;
+                            chosenCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
+                            chosenCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
+                            yield return new WaitForSecondsRealtime(cardAnimTime);
+                            farm.HolyHoed = true;
+                            farm.Id = 1;
+                            DestroyThisCard(chosenCardUsing);
+                            GManager.activeCardState = ActiveCardState.NONE;
+                        }
+                        break;
+                    case 3:
+                        GManager.activeCardState = ActiveCardState.USING;
+                        chosenCardUsing = itemCardUsing;
+                        chosenCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
+                        chosenCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
+                        yield return new WaitForSecondsRealtime(cardAnimTime);
+                        farm.Id = 1;
+                        farm.curDay = 0;
+                        farm.reqDay = 0;
+                        DestroyThisCard(chosenCardUsing);
+                        GManager.activeCardState = ActiveCardState.NONE;
+                        break;
+                }
+            }
 
+        }
+    }
 
 }

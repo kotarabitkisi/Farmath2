@@ -5,12 +5,12 @@ public class saveAndLoad : MonoBehaviour
 {
     public GameManager GManager;
     public DeckPlacing OpenedDeck;
-    public Data data;
     public FarmInfo[] FarmInfos;
     public GameObject[] FarmerPlace;
-
     public CardScr[] ItemCards;
     public CardScr[] CropCards;
+    public Data data;
+    public ExplorationData exploration;
     private void Start()
     {
         Load();
@@ -18,6 +18,7 @@ public class saveAndLoad : MonoBehaviour
     private void OnApplicationQuit()
     {
         Save();
+        SaveExploration();
     }
 
     public void Save()
@@ -73,10 +74,7 @@ public class saveAndLoad : MonoBehaviour
         {
             data.debuffs[i] = GManager.debuffs[i];
         }
-        for (int i = 0; i < data.isExplored.Length; i++)
-        {
-            data.isExplored[i] = GManager.isExplored[i];
-        }
+
         for (int i = 0; i < data.HarvestedCropCount.Length; i++)
         {
             data.HarvestedCropCount[i] = GManager.HarvestedCropCount[i];
@@ -94,26 +92,38 @@ public class saveAndLoad : MonoBehaviour
         #endregion
 
         string json = JsonUtility.ToJson(data, true);
+
         string path = Application.persistentDataPath + "/playerData.json";
+
         File.WriteAllText(path, json);
+
         Debug.Log("Data saved to: " + path);
+    }
+    public void SaveExploration()
+    {
+        for (int i = 0; i < exploration.isExplored.Length; i++)
+        {
+            exploration.isExplored[i] = GManager.isExplored[i];
+        }
+        string json2 = JsonUtility.ToJson(exploration, true);
+        string Explorationpath = Application.persistentDataPath + "/playerExplorations.json";
+        File.WriteAllText(Explorationpath, json2);
     }
     public void Load()
     {
-
-
-
-
         string path = Application.persistentDataPath + "/playerData.json";
+        string Explorationpath = Application.persistentDataPath + "/playerExplorations.json";
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
+
             Data data = JsonUtility.FromJson<Data>(json);
 
             int choosedCount = 0;
             for (int i = 0; i < data.farmerChoosed.Count; i++)
             {
-                if (data.farmerChoosed[i] &&choosedCount<3) {
+                if (data.farmerChoosed[i] && choosedCount < 3)
+                {
                     GManager.farmers[i].GetComponent<FarmerInfo>().HireHero(GManager.farmers[i], FarmerPlace[i]);
                 }
                 GManager.farmers[i].GetComponent<FarmerInfo>().choosed = data.farmerChoosed[i];
@@ -125,7 +135,7 @@ public class saveAndLoad : MonoBehaviour
             {
                 int cardId = data.DiscardedCardIds[i];
                 int CardType = data.DiscardedCardType[i];
-                print("type=" + CardType + "\nCardId="+cardId);
+                print("type=" + CardType + "\nCardId=" + cardId);
                 if (CardType == 0)
                 {
                     OpenedDeck.AddCardToDiscard(CropCards[cardId]);
@@ -157,7 +167,7 @@ public class saveAndLoad : MonoBehaviour
 
 
 
-            GManager.HoeCount=data.HoeCount;
+            GManager.HoeCount = data.HoeCount;
             GManager.money = data.money;
             GManager.Day = data.Day;
             GManager.Month = data.Month;
@@ -166,10 +176,7 @@ public class saveAndLoad : MonoBehaviour
             {
                 GManager.debuffs[i] = data.debuffs[i];
             }
-            for (int i = 0; i < data.isExplored.Length; i++)
-            {
-                GManager.isExplored[i] = data.isExplored[i];
-            }
+
             for (int i = 0; i < data.HarvestedCropCount.Length; i++)
             {
                 GManager.HarvestedCropCount[i] = data.HarvestedCropCount[i];
@@ -186,6 +193,19 @@ public class saveAndLoad : MonoBehaviour
 
             return;
         }
+        if (File.Exists(Explorationpath))
+        {
+            string json2 = File.ReadAllText(Explorationpath);
+            ExplorationData exploration = JsonUtility.FromJson<ExplorationData>(json2);
+            for (int i = 0; i < exploration.isExplored.Length; i++)
+            {
+                GManager.isExplored[i] = exploration.isExplored[i];
+                if (GManager.isExplored[i])
+                {
+                    GManager.OpenExplore(i, false);
+                }
+            }
+        }
         else
         {
             Debug.LogError("Save file not found!");
@@ -201,7 +221,6 @@ public class Data
     public int Day;
     public int Month;
     public bool[] debuffs;
-    public bool[] isExplored;
     public int[] HarvestedCropCount;
     public int HoeCount;
     public int Boss;
@@ -222,6 +241,11 @@ public class Data
     [Space(3)]
     [Header("FarmerInfo")]
     public List<bool> farmerChoosed;
+}
+[System.Serializable]
+public class ExplorationData
+{
+    public bool[] isExplored;
 }
 
 

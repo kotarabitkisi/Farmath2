@@ -41,8 +41,6 @@ public class ShopManager : MonoBehaviour
         if (GameManag.debuffs[0]) { CardCost = chosenCard.CardCost * (1 + GameManag.Day * 0.05f); }
         if (GameManag.farmers[1].GetComponent<FarmerInfo>().choosed) { CardCost *= 0.9f; }
         #endregion
-
-
         allShopNameTxt[ShopIndex].text = chosenCard.CardName;
         allShopCostTxt[ShopIndex].text = CardCost.ToString("0") + "$";
         cardsOnShop.Add(chosenCard);

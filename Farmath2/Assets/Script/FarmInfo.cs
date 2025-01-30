@@ -3,31 +3,29 @@ using UnityEngine;
 
 public class FarmInfo : MonoBehaviour
 {
-
+    [Header("MainStats")]
     Color Color = new Color(0, 1, 0, 5);
     public int Id;
     public int curDay, reqDay;
     public int[] connectedFarmIds = new int[4];//0:L 1:R 2:U 3:D
-     
+    public bool HolyHoed;
+    public bool Watered;
+    public bool Negatived;
+    [Header("Sprites")]
     public Sprite[] farmSprites;
     public Sprite[] farmPeriodSprite1;
     public Sprite[] farmPeriodSprite2;
     public Sprite[] GrowedfarmSprites;
     public SpriteRenderer farmImage;
-    public SpriteRenderer SeededfarmImage; 
-
+    public SpriteRenderer SeededfarmImage;
+    [Header("HoeObjects")]
     public GameObject HoeImage;
     public GameManager GameManager;
     public TextMeshProUGUI HoeCost;
-
-    public bool HolyHoed;
-    public bool Watered;
-    public bool Negatived;
-
+    [Header("Effects")]
     public SpriteRenderer Renderer;
-    public Material HolyMat,NormalMat;
-
-    public GameObject NegativeEffect,HolyEffect;
+    public Material HolyMat, NormalMat;
+    public GameObject NegativeEffect, HolyEffect;
     public Color WateredColor;
     private void Update()
     {
@@ -47,7 +45,7 @@ public class FarmInfo : MonoBehaviour
             }
             else { Renderer.color = Color.white; }
         }
-       
+
         if (Id >= 2)
         {
             farmImage.enabled = false;
@@ -67,14 +65,14 @@ public class FarmInfo : MonoBehaviour
             else if (curDay >= reqDay) { SeededfarmImage.sprite = GrowedfarmSprites[Id]; }
         }
         else { farmImage.enabled = true; SeededfarmImage.enabled = false; farmImage.sprite = farmSprites[Id]; }
-    
-        
 
 
 
-        if (GameManager.cropCardUsing)
+
+
+        if (GameManager.deckPlacing.cropCardUsing && Id == 1)
         {
-            farmImage.color = Color.Lerp(Color.white, Color, (1 - Mathf.Sin(Time.time)) / 2);
+            farmImage.color = Color.Lerp(Color.white, Color, (1 - Mathf.Sin(Time.time*2.5f)) / 2);
         }
     }
 
