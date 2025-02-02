@@ -17,13 +17,13 @@ MonoBehaviour:
   cropName: Wheat
   reqDayToGrow: 6
   Rev:
+  - 2
   - 700
   - -100
   - 2
   - -200
   - 1.5
-  - 2
-  RevOperation: 000000000000000001000000000000000100000001000000
+  RevOperation: 010000000000000000000000010000000000000001000000
   reqConnectedIds: 02000000000000000000000000000000
   reqHarvestDaymin: 10
   reqHarvestDaymax: 2147483647

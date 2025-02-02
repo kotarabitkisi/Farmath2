@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: "Mant\u0131k - Zor"
   QuestionIcon: {fileID: 21300000, guid: bf7d2e8d83c576b4e99aaba9a93c9835, type: 3}
   Solution: 1
-  moneyMultiple: 5
+  moneyMultiple: 2
   timeOfQuestion: 300

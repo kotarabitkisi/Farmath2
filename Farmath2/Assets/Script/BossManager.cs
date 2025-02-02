@@ -8,6 +8,7 @@ public class BossManager : MonoBehaviour
     public EffectColorChanging ECC;
     public CardScr[] AllBossCards;
     public FarmInfo[] AllFarms;
+    public int BossEffectCount;
     public void BossStart()
     {
         StartCoroutine(ECC.ChangeColor(gameManager.deckPlacing.BossSoytariColor, 5));
@@ -32,11 +33,10 @@ public class BossManager : MonoBehaviour
     {
         DeckPlacing.AddCardToDiscard(AllBossCards[Random.Range(0, AllBossCards.Length)]);
     }
-    
+
     public void BossIsTalkingAboutSomething() { }
     public void BossPutVein()
     {
-        print("a");
         for (int i = 0; i < AllFarms.Length; i++)
         {
             AllFarms[i].Negatived = false;
@@ -46,10 +46,18 @@ public class BossManager : MonoBehaviour
             bool worked = false;
             while (!worked)
             {
-                FarmInfo chosenFarm = AllFarms[Random.Range(0,24)];
+                FarmInfo chosenFarm = AllFarms[Random.Range(0, 24)];
                 print("b");
-                if (!chosenFarm.Negatived) {chosenFarm.Negatived = true; worked = true; }
+                if (!chosenFarm.Negatived)
+                {
+                    chosenFarm.Negatived = true;
+                    worked = true;
+                }
             }
+        }
+        for (int i = 0; i < 24; i++)
+        {
+            if (AllFarms[i].firstBossEffected && AllFarms[i].Negatived) { AllFarms[i].Negatived = false; }
         }
     }
 }

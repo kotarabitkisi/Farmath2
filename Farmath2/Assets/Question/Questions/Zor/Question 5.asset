@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: "\u0130\u015Flem \xD6nceli\u011Fi - Zor"
   QuestionIcon: {fileID: 21300000, guid: 9d65d33b73871614aa7ac24071158003, type: 3}
   Solution: -3
-  moneyMultiple: 5
+  moneyMultiple: 2
   timeOfQuestion: 300

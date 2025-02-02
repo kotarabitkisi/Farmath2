@@ -17,14 +17,14 @@ MonoBehaviour:
   cropName: Lettuce
   reqDayToGrow: 6
   Rev:
+  - -100
   - 3
   - 500
   - -200
-  - 0.5
   - 3
-  - -100
-  RevOperation: 010000000000000000000000010000000100000000000000
-  reqConnectedIds: 05000000000000000000000000000000
+  - 0.5
+  RevOperation: 000000000100000000000000000000000100000001000000
+  reqConnectedIds: 03000000000000000000000000000000
   reqHarvestDaymin: 5
   reqHarvestDaymax: 2147483647
   reqMoneyMin: 300000

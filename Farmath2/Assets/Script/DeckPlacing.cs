@@ -57,7 +57,7 @@ public class DeckPlacing : MonoBehaviour
 
 
 
-        if (GManager.activeCardState == ActiveCardState.NONE)
+        if (GManager.activeCardState == ActiveCardState.NONE&&!GManager.pageopened)
         {
             if (chosenMovingCard != null)
             {
@@ -82,6 +82,7 @@ public class DeckPlacing : MonoBehaviour
                                 openedCards.RemoveAt(i);
                                 Destroy(chosenMovingCard);
                                 chooseCardToDestroy--;
+                                InitializeAllCardsPositions();
                             }
                         }
                     }
@@ -108,7 +109,7 @@ public class DeckPlacing : MonoBehaviour
             }
         }
 
-        else if (GManager.activeCardState == ActiveCardState.IN_HAND)
+        else if (GManager.activeCardState == ActiveCardState.IN_HAND && !GManager.pageopened)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -301,6 +302,7 @@ public class DeckPlacing : MonoBehaviour
 
                 ChosenObject.transform.parent = null;
                 print(ChosenObject.transform.parent);
+                ChosenObject.transform.DOKill();
                 ChosenObject.transform.DOMove(new Vector3(6, 0.5f, 0), 0.25f).SetEase(Ease.Linear);
                 ChosenObject.transform.DOScale(cardPrefab.transform.lossyScale * 1.5f, 0.25f);
                 InitializeAllCardsPositions();

@@ -348,10 +348,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630e6475c8fd2ce4f971428be72b862f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Col: {fileID: -4550025895396284921}
   Id: 0
   curDay: 0
   reqDay: 0
   connectedFarmIds: 00000000000000000000000000000000
+  HolyHoed: 0
+  Watered: 0
+  Negatived: 0
+  FirstBossEffected: 0
   farmSprites:
   - {fileID: 762880885, guid: 20c99960203326547bdc331230a30f67, type: 3}
   - {fileID: 21300000, guid: 81cf5bdf99f16a745af8a6368552625e, type: 3}
@@ -392,14 +397,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a6d54e3e7cf13724b97a57347c935d1a, type: 3}
   - {fileID: 21300000, guid: 758953d6dce031a4a8d5effe870c9616, type: 3}
   - {fileID: 1946530583, guid: 65015f5f838dc1c48bdf67b81dc739ba, type: 3}
+  ThatDisgustingBossImage: {fileID: 21300000, guid: 1b1123d5dabd9a24b958dbc56dd36b14, type: 3}
   farmImage: {fileID: 7818291845260850521}
   SeededfarmImage: {fileID: 9068401540725154878}
   HoeImage: {fileID: 321838897599318684}
   GameManager: {fileID: 3030820063569021284, guid: e0cca7db3497d0046993540a7a1b3c12, type: 3}
   HoeCost: {fileID: 6946774793631046259}
-  HolyHoed: 0
-  Watered: 0
-  Negatived: 0
   Renderer: {fileID: 9068401540725154878}
   HolyMat: {fileID: 2100000, guid: 45ae7aa16ed95c54fa589ece239dd3df, type: 2}
   NormalMat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
@@ -477,7 +480,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 147722
+  m_InstanceId: 49222
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}

@@ -17,19 +17,19 @@ MonoBehaviour:
   cropName: Eggplant
   reqDayToGrow: 6
   Rev:
+  - 2
   - -1000
   - 500
-  - 2.25
   - 2
   - 1000
   - 2
-  RevOperation: 000000000000000001000000010000000000000001000000
+  RevOperation: 010000000000000000000000010000000000000001000000
   reqConnectedIds: 03000000000000000000000000000000
   reqHarvestDaymin: 4
   reqHarvestDaymax: 2147483647
   reqMoneyMin: 600000
   reqMoneyMax: 2147483647
-  reqdayMin: 100
+  reqdayMin: 75
   reqdayMax: 2147483647
   reqHarvestCountmin: 250
   reqHarvestCountmax: 2147483647

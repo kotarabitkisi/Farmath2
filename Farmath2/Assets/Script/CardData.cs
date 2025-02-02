@@ -5,4 +5,5 @@ using UnityEngine;
 public class CardData : MonoBehaviour
 {
    public CardScr Card;
+   public float TheRewardifQuestion;
 }

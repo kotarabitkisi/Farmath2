@@ -48,12 +48,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorNone: {r: 0, g: 0, b: 0, a: 0}
+  logger: {fileID: 0}
   farmsScr: {fileID: 0}
   ColorScr: {fileID: 9063147203254948491}
   bossManager: {fileID: 5005151705105454088}
   ShopManagement: {fileID: 0}
   deckPlacing: {fileID: 0}
-  saveAndLoad: {fileID: 0}
+  saveAndLoad: {fileID: 4477584678974648747}
   crops:
   - {fileID: 11400000, guid: 5d3bf55e80e784349924bdf68ed4a4fe, type: 2}
   - {fileID: 11400000, guid: 23a8afce15166624988d33bc4a5cf084, type: 2}
@@ -64,7 +65,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b58ea647c2b558458b5cfd2b00bf859, type: 2}
   - {fileID: 11400000, guid: cd3e37678dc979d4c9f2b81c581f239c, type: 2}
   - {fileID: 11400000, guid: dee881cf892fe38489c8f072b38759b0, type: 2}
-  money: 500
+  money: 750
   Day: 0
   Month: 0
   pageopened: 0
@@ -79,8 +80,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  MoneyText: {fileID: 0}
-  Daytext: {fileID: 0}
+  moneyText: {fileID: 0}
+  dayText: {fileID: 0}
+  totalHarvestText: {fileID: 0}
   WinPanel: {fileID: 0}
   LosePanel: {fileID: 0}
   ShopImage: {fileID: 0}
@@ -135,7 +137,7 @@ MonoBehaviour:
   - "-toplam 60 hasat yap\u0131ld\u0131ysa: ana gelir - 200"
   - "-1 kom\u015Fu Lahana var ise: gelir \xE7arpan\u0131 x 1.5"
   - "-olgunla\u015Ft\u0131ktan sonra 3 g\xFCn ge\xE7erse: ana gelir - 100"
-  - "-e\u011Fer 50.000 den fazla paran varsa: ana gelir +100"
+  - "-e\u011Fer 50.000 den az paran varsa: ana gelir +100"
   - "-ana g\xFCn\xFCn 15 den b\xFCy\xFCk ise: gelir \xE7arpan\u0131 x 5 "
   - "-ayn\u0131 t\xFCr 4 kere hasat edildiyse: gelir \xE7arpan\u0131 x (-0.5)"
   - "-toplam 20-30 aras\u0131 hasat yap\u0131ld\u0131ysa: gelir \xE7arpan\u0131 x
@@ -211,18 +213,15 @@ MonoBehaviour:
   - Inflation
   - Invasion
   - Festival
-  - Birds
   DebuffIcon:
   - {fileID: 21300000, guid: 3229ef338ac7f1444a4da838f9b4a16e, type: 3}
   - {fileID: 1946530583, guid: 65015f5f838dc1c48bdf67b81dc739ba, type: 3}
   - {fileID: 21300000, guid: f19bc5d321b821e4a9601e320349a1a2, type: 3}
-  - {fileID: 21300000, guid: caf5b85a109d44a49b933634d6f71019, type: 3}
   DebuffDesc:
-  - just inflation
-  - Increases the percent of spawn veins for %5 possibilty
-  - You can pick 6 card from discard but 3 you should destroy 3 of opened cards
-  - birds will take your seeds the crops that not growed will be destroyed for %3
-    possibility
+  - "her g\xFCn \xFCr\xFCn fiyatlar\u0131 %5 zamlan\u0131r"
+  - "yabani otlar\u0131n \xE7\u0131kma olas\u0131l\u0131\u011F\u0131 %5 artar"
+  - "discarddan 3 fazla kart alabilirsin ama se\xE7ti\u011Fin ilk 2 kart\u0131 yok
+    etmek zorundas\u0131n."
   debuffPage: {fileID: 0}
   debuffChilds:
   - {fileID: 0}
@@ -309,14 +308,17 @@ MonoBehaviour:
     Month: 0
     debuffs: 00000000
     HarvestedCropCount: 0000000000000000000000000000000000000000000000000000000000000000
-    HoeCount: 0
+    hoeCount: 0
     Boss: 0
+    firstBossEffectCount: 0
+    Qreward: []
     farmId: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     curDay: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     reqDay: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    Watered: 000000000000000000000000000000000000000000000000
+    watered: 000000000000000000000000000000000000000000000000
     holyHoed: 000000000000000000000000000000000000000000000000
     negatived: 000000000000000000000000000000000000000000000000
+    firstBossEffected: 000000000000000000000000000000000000000000000000
     OpenedCardIds: 
     DiscardedCardIds: 
     OpenedCardType: 
@@ -372,3 +374,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  BossEffectCount: 0

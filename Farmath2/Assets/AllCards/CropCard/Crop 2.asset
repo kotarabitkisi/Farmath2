@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: Corn
   Icon: {fileID: -345116089, guid: 8d8f7a764e7b4c14aa5b7bf1c715daa3, type: 3}
-  CardCost: 100
+  CardCost: 200
+  IsThatBossCard: 0
   id: 4
   cropName: Corn
-  CropSprite: {fileID: 21300000, guid: e35befd966dbb754680197db9c141c70, type: 3}
   GManager: {fileID: 3030820063569021284, guid: e0cca7db3497d0046993540a7a1b3c12, type: 3}

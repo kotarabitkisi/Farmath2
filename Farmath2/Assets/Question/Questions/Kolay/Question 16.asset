@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: "K\xFCmeler - Kolay"
   QuestionIcon: {fileID: 21300000, guid: 9a02a78db82206344bf53babf6f1c658, type: 3}
   Solution: 12
-  moneyMultiple: 1.5
+  moneyMultiple: 1.25
   timeOfQuestion: 60

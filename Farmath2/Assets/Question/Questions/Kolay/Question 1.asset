@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: "\u0130\u015Flem \xD6nceli\u011Fi - Kolay"
   QuestionIcon: {fileID: 21300000, guid: 97ff2e4a64f155149a4423e4bbe136cf, type: 3}
   Solution: 14
-  moneyMultiple: 1.5
-  timeOfQuestion: 60
+  moneyMultiple: 1.25
+  timeOfQuestion: 30

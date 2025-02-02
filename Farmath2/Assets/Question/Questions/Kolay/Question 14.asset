@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: "Mant\u0131k - Kolay"
   QuestionIcon: {fileID: 21300000, guid: 284de3b791bd4a64e8bb7536f7143f1a, type: 3}
   Solution: 0
-  moneyMultiple: 1.5
-  timeOfQuestion: 60
+  moneyMultiple: 1.25
+  timeOfQuestion: 30

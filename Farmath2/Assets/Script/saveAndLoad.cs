@@ -60,9 +60,10 @@ public class saveAndLoad : MonoBehaviour
             data.farmId[i] = FarmInfos[i].Id;
             data.curDay[i] = FarmInfos[i].curDay;
             data.reqDay[i] = FarmInfos[i].reqDay;
-            data.Watered[i] = FarmInfos[i].Watered;
+            data.watered[i] = FarmInfos[i].Watered;
             data.holyHoed[i] = FarmInfos[i].HolyHoed;
             data.negatived[i] = FarmInfos[i].Negatived;
+            data.firstBossEffected[i] = FarmInfos[i].firstBossEffected;
         }
         #endregion
         #region genel datalar
@@ -70,6 +71,12 @@ public class saveAndLoad : MonoBehaviour
         data.money = GManager.money;
         data.Day = GManager.Day;
         data.Month = GManager.Month;
+        data.firstBossEffectCount=GManager.bossManager.BossEffectCount;
+        List<float> Qrewards = GManager.ShopManagement.Qreward;
+        for (int i = 0; i < Qrewards.Count; i++)
+        {
+            data.Qreward.Add(Qrewards[i]);
+        }
         for (int i = 0; i < data.debuffs.Length; i++)
         {
             data.debuffs[i] = GManager.debuffs[i];
@@ -79,7 +86,7 @@ public class saveAndLoad : MonoBehaviour
         {
             data.HarvestedCropCount[i] = GManager.HarvestedCropCount[i];
         }
-        data.HoeCount = GManager.HoeCount;
+        data.hoeCount = GManager.HoeCount;
         #endregion
         #region Çiftçiler
         for (int i = 0; i < GManager.farmers.Length; i++)
@@ -108,6 +115,7 @@ public class saveAndLoad : MonoBehaviour
         string json2 = JsonUtility.ToJson(exploration, true);
         string Explorationpath = Application.persistentDataPath + "/playerExplorations.json";
         File.WriteAllText(Explorationpath, json2);
+        print("Exploration Saved");
     }
     public void Load()
     {
@@ -166,12 +174,16 @@ public class saveAndLoad : MonoBehaviour
 
 
 
-
-            GManager.HoeCount = data.HoeCount;
+            GManager.bossManager.BossEffectCount=data.firstBossEffectCount;
+            GManager.HoeCount = data.hoeCount;
             GManager.money = data.money;
             GManager.Day = data.Day;
             GManager.Month = data.Month;
             GManager.Boss = data.Boss;
+            for (int i = 0; i < data.Qreward.Count; i++)
+            {
+                GManager.ShopManagement.Qreward.Add(data.Qreward[i]);
+            }
             for (int i = 0; i < data.debuffs.Length; i++)
             {
                 GManager.debuffs[i] = data.debuffs[i];
@@ -186,13 +198,15 @@ public class saveAndLoad : MonoBehaviour
                 FarmInfos[i].Id = data.farmId[i];
                 FarmInfos[i].curDay = data.curDay[i];
                 FarmInfos[i].reqDay = data.reqDay[i];
-                FarmInfos[i].Watered = data.Watered[i];
+                FarmInfos[i].Watered = data.watered[i];
                 FarmInfos[i].HolyHoed = data.holyHoed[i];
                 FarmInfos[i].Negatived = data.negatived[i];
+                FarmInfos[i].firstBossEffected = data.firstBossEffected[i];
             }
 
-            return;
+            
         }
+        print(File.Exists(Explorationpath));
         if (File.Exists(Explorationpath))
         {
             string json2 = File.ReadAllText(Explorationpath);
@@ -202,14 +216,39 @@ public class saveAndLoad : MonoBehaviour
                 GManager.isExplored[i] = exploration.isExplored[i];
                 if (GManager.isExplored[i])
                 {
-                    GManager.OpenExplore(i, false);
+                    GManager.OpenExplore(i, true);
                 }
             }
         }
         else
         {
             Debug.LogError("Save file not found!");
-            return;
+            
+        }
+        GManager.InitializeLoad();
+    }
+    public void EraseSaves()
+    {
+        string dosyaYolu = Application.persistentDataPath + "/playerData.json";
+        string dosyaYolu2 = Application.persistentDataPath + "/playerExplorations.json";
+
+        if (System.IO.File.Exists(dosyaYolu))
+        {
+            System.IO.File.Delete(dosyaYolu);
+            Debug.Log("Kayýt dosyasý baþarýyla silindi.");
+        }
+        else
+        {
+            Debug.LogError("Silinecek dosya bulunamadý.");
+        }
+        if (System.IO.File.Exists(dosyaYolu2))
+        {
+            System.IO.File.Delete(dosyaYolu);
+            Debug.Log("Kayýt dosyasý baþarýyla silindi.");
+        }
+        else
+        {
+            Debug.LogError("Silinecek dosya bulunamadý.");
         }
     }
 }
@@ -222,16 +261,19 @@ public class Data
     public int Month;
     public bool[] debuffs;
     public int[] HarvestedCropCount;
-    public int HoeCount;
+    public int hoeCount;
     public int Boss;
+    public int firstBossEffectCount;
+    public List<float> Qreward;
     [Space(3)]
     [Header("FarmInfo")]
     public int[] farmId;
     public int[] curDay;
     public int[] reqDay;
-    public bool[] Watered;
+    public bool[] watered;
     public bool[] holyHoed;
     public bool[] negatived;
+    public bool[] firstBossEffected;
     [Space(3)]
     [Header("CardInfo")]
     public List<int> OpenedCardIds;

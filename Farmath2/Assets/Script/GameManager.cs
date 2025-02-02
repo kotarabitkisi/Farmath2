@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     public Color colorNone;
 
     [Header("AnotherScripts")]
+    public Logger logger;
     public Farms farmsScr;
     public EffectColorChanging ColorScr;
     public BossManager bossManager;
@@ -43,7 +45,7 @@ public class GameManager : MonoBehaviour
     [Header("CanvasObjects")]
     public TextMeshProUGUI WarningText;
     public GameObject[] farmers;
-    public TextMeshProUGUI MoneyText, Daytext;
+    public TextMeshProUGUI moneyText, dayText, totalHarvestText;
     public GameObject WinPanel;
     public GameObject LosePanel;
     public GameObject ShopImage;
@@ -73,13 +75,20 @@ public class GameManager : MonoBehaviour
     public GameObject debuffPage;
     public GameObject[] debuffChilds;
     public bool[] debuffs;
-    //0:inflation
+    //0:inflation 1:invasion 2:festival
 
 
-    private void Start()
+
+    public void InitializeLoad()
     {
         DOTween.Init();
-
+        int totalHarvest = 0;
+        for (int i = 0; i < HarvestedCropCount.Length; i++)
+        {
+            totalHarvest += HarvestedCropCount[i];
+        }
+        totalHarvestText.text = "Toplam Hasat:" + totalHarvest;
+        dayText.text = "Time: " + Day + "/" + Month;
         if (Boss == 1)
         {
             bossManager.BossStart();
@@ -99,7 +108,7 @@ public class GameManager : MonoBehaviour
 
 
         #region TýklamaKontrolleri
-        if (Input.GetMouseButtonDown(0) && activeCardState != ActiveCardState.USING)
+        if (Input.GetMouseButtonDown(0) && activeCardState != ActiveCardState.USING && !pageopened)
         {
             if (!pageopened)
             {
@@ -118,7 +127,7 @@ public class GameManager : MonoBehaviour
 
             }
         }
-        else if (Input.GetMouseButton(0) && activeCardState != ActiveCardState.USING)
+        else if (Input.GetMouseButton(0) && activeCardState != ActiveCardState.USING && !pageopened)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
@@ -145,9 +154,9 @@ public class GameManager : MonoBehaviour
     {
         switch (money)
         {
-            case < 1000: MoneyText.text = money.ToString("F2"); break;
-            case < 1000000: MoneyText.text = (money / 1000).ToString("F2") + "K"; break;
-            case < 1000000000: MoneyText.text = (money / 1000000).ToString("F2") + "M"; break;
+            case < 1000: moneyText.text = money.ToString("F2"); break;
+            case < 1000000: moneyText.text = (money / 1000).ToString("F2") + "K"; break;
+            case < 1000000000: moneyText.text = (money / 1000000).ToString("F2") + "M"; break;
         }
     }
     public void HarvestCrop(FarmInfo farm)
@@ -163,6 +172,7 @@ public class GameManager : MonoBehaviour
             int id = (farm.Id - 2) * maxExploreCount;
             if (!isExplored[id])
             {
+                logger.Addlog("Yeni Koþul Keþfedildi: " + ExploreText[id]);
                 OpenExplore(id, true);
             }
 
@@ -181,8 +191,8 @@ public class GameManager : MonoBehaviour
             int id = (farm.Id - 2) * maxExploreCount + 1;
             if (!isExplored[id])
             {
+                logger.Addlog("Yeni Koþul Keþfedildi: " + ExploreText[id]);
                 OpenExplore(id, true);
-
             }
             switch (cropStats.RevOperation[1])
             {
@@ -199,6 +209,7 @@ public class GameManager : MonoBehaviour
             int id = (farm.Id - 2) * maxExploreCount + 2;
             if (!isExplored[id])
             {
+                logger.Addlog("Yeni Koþul Keþfedildi: " + ExploreText[id]);
                 OpenExplore(id, true);
             }
             switch (cropStats.RevOperation[2])
@@ -216,6 +227,7 @@ public class GameManager : MonoBehaviour
             int id = (farm.Id - 2) * maxExploreCount + 3;
             if (!isExplored[id])
             {
+                logger.Addlog("Yeni Koþul Keþfedildi: " + ExploreText[id]);
                 OpenExplore(id, true);
             }
             switch (cropStats.RevOperation[3])
@@ -233,6 +245,7 @@ public class GameManager : MonoBehaviour
             int id = (farm.Id - 2) * maxExploreCount + 4;
             if (!isExplored[id])
             {
+                logger.Addlog("Yeni Koþul Keþfedildi: " + ExploreText[id]);
                 OpenExplore(id, true);
             }
             switch (cropStats.RevOperation[4])
@@ -250,12 +263,14 @@ public class GameManager : MonoBehaviour
         {
             totalHarvest += HarvestedCropCount[i];
         }
+        totalHarvestText.text = "Toplam Hasat:" + totalHarvest;
         if (cropStats.IsHarvestCount(false, totalHarvest))
         {
             int id = (farm.Id - 2) * maxExploreCount + 5;
             if (!isExplored[id])
             {
-                OpenExplore(id,true);
+                logger.Addlog("Yeni Koþul Keþfedildi: " + ExploreText[id]);
+                OpenExplore(id, true);
             }
             switch (cropStats.RevOperation[5])
             {
@@ -271,6 +286,11 @@ public class GameManager : MonoBehaviour
         if (farm.HolyHoed) { MultipleRev *= 2; }
         if (farm.Negatived) { MultipleRev *= -1; }
         HarvestedCropCount[farm.Id]++;
+        if (Boss == 1 && bossManager.BossEffectCount>0)
+        {
+            bossManager.BossEffectCount--;
+            farm.firstBossEffected = true;
+        }
         #region explorebildirimi
         int ExploreNotificationTextCount = 0;
         for (int i = 0; i < ExploreTexts.Length; i++)
@@ -285,8 +305,10 @@ public class GameManager : MonoBehaviour
         farm.Id = 1;
         farm.curDay = 0;
         farm.reqDay = 0;
-        money += baseRev * MultipleRev;
-        StartCoroutine(MoneyAnimPlay(moneyObjPool.transform.GetChild(0).gameObject, baseRev * MultipleRev, farm.gameObject, 1));
+        float Revenue = baseRev * MultipleRev;
+        money += Revenue;
+        logger.Addlog("Hasat edildi Gelir: " + Revenue);
+        StartCoroutine(MoneyAnimPlay(moneyObjPool.transform.GetChild(0).gameObject, Revenue, farm.gameObject, 1));
         InitializeMoneyText();
     }
     public void SeedCrop(int id, FarmInfo ChosenFarm)
@@ -348,7 +370,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Day++;
-            Daytext.text = "Day: " + Day + "/" + reqDay;
+            dayText.text = "Day: " + Day + "/" + reqDay;
 
             int isthecrop = 0;
             for (int i = 0; i < farmsScr.frams.Length; i++)
@@ -380,6 +402,7 @@ public class GameManager : MonoBehaviour
             {
                 bossManager.AddBossCard();
                 bossManager.BossPutVein();
+                bossManager.BossEffectCount = 1;
             }
             StartCoroutine(deckPlacing.DayPassedTakeCard());
             ShopManagement.DayPassedAddCard();
@@ -390,7 +413,7 @@ public class GameManager : MonoBehaviour
 
                 Month++;
                 Day = 1;
-                Daytext.text = "Day: " + Day + "/" + reqDay;
+                dayText.text = "Time: " + Day + "/" + Month;
 
                 if (reqMonth < Month)
                 {
@@ -436,6 +459,7 @@ public class GameManager : MonoBehaviour
         WinPanel.SetActive(true);
         pageopened = true;
         WinPanel.transform.DOScale(new Vector3(1, 1, 1) * 1, pageAnimTime);
+        saveAndLoad.EraseSaves();
     }
     public void Lose()
     {
@@ -443,6 +467,7 @@ public class GameManager : MonoBehaviour
         LosePanel.SetActive(true);
         pageopened = true;
         LosePanel.transform.DOScale(new Vector3(1, 1, 1) * 1, pageAnimTime);
+        saveAndLoad.EraseSaves();
     }
     public void TurnOffColor()
     {
@@ -481,8 +506,8 @@ public class GameManager : MonoBehaviour
         btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(() =>
         {
-            float reward = cardData.CardCost;
-            if (debuffs[0]) { reward *= 1 + Day * 0.05f; }
+            float reward = ShopManagement.Qreward[ShopManagement.Qreward.Count-1];
+            ShopManagement.Qreward.RemoveAt(ShopManagement.Qreward.Count - 1);
             SolutionIsTrueOrNot(ChosenQuestion, reward);
         }
         );
@@ -490,6 +515,7 @@ public class GameManager : MonoBehaviour
 
     public void SolutionIsTrueOrNot(QuestionScr question, float reward)
     {
+        
         switch (Boss)
         {
             case 0:
@@ -580,9 +606,18 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(cooldown);
         WarningText.gameObject.SetActive(false);
     }
-    public void OpenExplore(int id,bool iscolorful)
+    public void OpenExplore(int id, bool iscolorful)
     {
         isExplored[id] = true;
+        int a = 0;
+        for (int i = 0; i < isExplored.Length; i++)
+        {
+            if (isExplored[i])
+            {
+                a++;
+            }
+        }
+        ExploreNotificationTxt.GetComponent<TextMeshProUGUI>().text = a.ToString();
         ExploreTexts[id].text = ExploreText[id];
         isTextColorful[id] = iscolorful;
         ExploreNotification.SetActive(iscolorful);

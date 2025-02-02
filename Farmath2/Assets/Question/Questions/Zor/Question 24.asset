@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: Problemler - Zor
   QuestionIcon: {fileID: 21300000, guid: b4f170fb082252e43b5bc6612658369a, type: 3}
   Solution: 210
-  moneyMultiple: 5
+  moneyMultiple: 2
   timeOfQuestion: 300

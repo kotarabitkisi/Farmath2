@@ -13,10 +13,14 @@ public class ShopManager : MonoBehaviour
     public GameObject[] ShopCardObj;
     public TextMeshProUGUI[] allShopNameTxt;
     public TextMeshProUGUI[] allShopCostTxt;
-
+    public List<float> Qreward;
 
     public void BuyCard(int ShopIndex)
     {
+        if (cardsOnShop[ShopIndex] == DP.allCardScr[11])
+        {
+            Qreward.Add(cardCosts[ShopIndex]);
+        }
         if (GameManag.money >= cardCosts[ShopIndex])
         {
             GameManag.money -= cardCosts[ShopIndex];
@@ -31,14 +35,30 @@ public class ShopManager : MonoBehaviour
     }
     public void AddCardToShop(int ShopIndex, int CardID)
     {
+        bool AllHolyHoed=true;
+        for (int i = 0; i < 24; i++)
+        {
+            if (!GameManag.farmsScr.frams[i].HolyHoed) { AllHolyHoed = false; break; }
+        }
+        if(AllHolyHoed) {
+            while (CardID == 8)
+            {
+                CardID = Random.Range(0, DP.allCardScr.Length);
+            }
+        }
+        
         allIcons[ShopIndex].GetComponent<Button>().interactable = true;
         CardScr chosenCard = DP.allCardScr[CardID];
         allIcons[ShopIndex].sprite = chosenCard.Icon;
         #region para belirleme
         float CardCost;
         CardCost = chosenCard.CardCost;
-
-        if (GameManag.debuffs[0]) { CardCost = chosenCard.CardCost * (1 + GameManag.Day * 0.05f); }
+        if (CardID == 11)
+        {
+            CardCost = GameManag.money * 0.05f;
+            if (CardCost <= 100) { CardCost = 100; }
+        }
+        if (GameManag.debuffs[0]) { CardCost *= (1 + GameManag.Day * 0.05f); }
         if (GameManag.farmers[1].GetComponent<FarmerInfo>().choosed) { CardCost *= 0.9f; }
         #endregion
         allShopNameTxt[ShopIndex].text = chosenCard.CardName;

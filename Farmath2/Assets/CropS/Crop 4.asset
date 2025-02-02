@@ -17,13 +17,13 @@ MonoBehaviour:
   cropName: Tomato
   reqDayToGrow: 6
   Rev:
+  - 500
   - -1000
   - 4
   - 500
-  - 2
   - 1000
-  - 500
-  RevOperation: 000000000100000000000000010000000000000000000000
+  - 2
+  RevOperation: 000000000000000001000000000000000000000001000000
   reqConnectedIds: 07000000000000000000000000000000
   reqHarvestDaymin: 5
   reqHarvestDaymax: 2147483647

@@ -4,6 +4,7 @@ using UnityEngine;
 public class FarmInfo : MonoBehaviour
 {
     [Header("MainStats")]
+    public BoxCollider2D Col;
     Color Color = new Color(0, 1, 0, 5);
     public int Id;
     public int curDay, reqDay;
@@ -11,11 +12,13 @@ public class FarmInfo : MonoBehaviour
     public bool HolyHoed;
     public bool Watered;
     public bool Negatived;
+    public bool firstBossEffected;
     [Header("Sprites")]
     public Sprite[] farmSprites;
     public Sprite[] farmPeriodSprite1;
     public Sprite[] farmPeriodSprite2;
     public Sprite[] GrowedfarmSprites;
+    public Sprite ThatDisgustingBossImage;
     public SpriteRenderer farmImage;
     public SpriteRenderer SeededfarmImage;
     [Header("HoeObjects")]
@@ -29,50 +32,55 @@ public class FarmInfo : MonoBehaviour
     public Color WateredColor;
     private void Update()
     {
-        if (Id != 0)
+
+        if (firstBossEffected) { SeededfarmImage.sprite = ThatDisgustingBossImage; farmImage.sprite = ThatDisgustingBossImage; Col.enabled = false; farmImage.enabled = true; SeededfarmImage.enabled = false; }
+        else
         {
-            if (HolyHoed)
+            Col.enabled = true;
+            if (Id != 0)
             {
-                Renderer.material = HolyMat;
-                HolyEffect.SetActive(true);
+                if (HolyHoed)
+                {
+                    Renderer.material = HolyMat;
+                    HolyEffect.SetActive(true);
+                }
+                else { Renderer.material = NormalMat; HolyEffect.SetActive(false); }
+                if (Negatived) { NegativeEffect.SetActive(true); }
+                else { NegativeEffect.SetActive(false); }
+                if (Watered)
+                {
+                    Renderer.color = WateredColor;
+                }
+                else { Renderer.color = Color.white; }
             }
-            else { Renderer.material = NormalMat; HolyEffect.SetActive(false); }
-            if (Negatived) { NegativeEffect.SetActive(true); }
-            else { NegativeEffect.SetActive(false); }
-            if (Watered)
+
+            if (Id >= 2)
             {
-                Renderer.color = WateredColor;
+                farmImage.enabled = false;
+                SeededfarmImage.enabled = true;
+                if (curDay <= reqDay / 3)
+                {
+                    SeededfarmImage.sprite = farmSprites[Id];
+                }
+                else if (curDay <= reqDay * 2 / 3)
+                {
+                    SeededfarmImage.sprite = farmPeriodSprite1[Id];
+                }
+                else if (curDay < reqDay)
+                {
+                    SeededfarmImage.sprite = farmPeriodSprite2[Id];
+                }
+                else if (curDay >= reqDay) { SeededfarmImage.sprite = GrowedfarmSprites[Id]; }
             }
-            else { Renderer.color = Color.white; }
+            else { farmImage.enabled = true; SeededfarmImage.enabled = false; farmImage.sprite = farmSprites[Id]; }
         }
 
-        if (Id >= 2)
+
+
+
+        if (GameManager.deckPlacing.cropCardUsing && Id == 1&&!firstBossEffected)
         {
-            farmImage.enabled = false;
-            SeededfarmImage.enabled = true;
-            if (curDay <= reqDay / 3)
-            {
-                SeededfarmImage.sprite = farmSprites[Id];
-            }
-            else if (curDay <= reqDay * 2 / 3)
-            {
-                SeededfarmImage.sprite = farmPeriodSprite1[Id];
-            }
-            else if (curDay < reqDay)
-            {
-                SeededfarmImage.sprite = farmPeriodSprite2[Id];
-            }
-            else if (curDay >= reqDay) { SeededfarmImage.sprite = GrowedfarmSprites[Id]; }
-        }
-        else { farmImage.enabled = true; SeededfarmImage.enabled = false; farmImage.sprite = farmSprites[Id]; }
-
-
-
-
-
-        if (GameManager.deckPlacing.cropCardUsing && Id == 1)
-        {
-            farmImage.color = Color.Lerp(Color.white, Color, (1 - Mathf.Sin(Time.time*2.5f)) / 2);
+            farmImage.color = Color.Lerp(Color.white, Color, (1 - Mathf.Sin(Time.time * 2.5f)) / 2);
         }
     }
 
