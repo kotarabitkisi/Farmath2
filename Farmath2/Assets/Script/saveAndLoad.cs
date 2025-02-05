@@ -71,7 +71,7 @@ public class saveAndLoad : MonoBehaviour
         data.money = GManager.money;
         data.Day = GManager.Day;
         data.Month = GManager.Month;
-        data.firstBossEffectCount=GManager.bossManager.BossEffectCount;
+        data.firstBossEffectCount = GManager.bossManager.BossEffectCount;
         List<float> Qrewards = GManager.ShopManagement.Qreward;
         for (int i = 0; i < Qrewards.Count; i++)
         {
@@ -87,13 +87,17 @@ public class saveAndLoad : MonoBehaviour
             data.HarvestedCropCount[i] = GManager.HarvestedCropCount[i];
         }
         data.hoeCount = GManager.HoeCount;
+
         #endregion
         #region Çiftçiler
         for (int i = 0; i < GManager.farmers.Length; i++)
         {
             data.farmerChoosed.Add(GManager.farmers[i].GetComponent<FarmerInfo>().choosed);
         }
-
+        for (int i = 0; i < data.farmerCount.Length; i++)
+        {
+            data.farmerCount[i] = GManager.farmerCount[i];
+        }
 
 
         #endregion
@@ -126,7 +130,7 @@ public class saveAndLoad : MonoBehaviour
             string json = File.ReadAllText(path);
 
             Data data = JsonUtility.FromJson<Data>(json);
-
+            #region çiftçiler
             int choosedCount = 0;
             for (int i = 0; i < data.farmerChoosed.Count; i++)
             {
@@ -135,15 +139,17 @@ public class saveAndLoad : MonoBehaviour
                     GManager.farmers[i].GetComponent<FarmerInfo>().HireHero(GManager.farmers[i], FarmerPlace[i]);
                 }
                 GManager.farmers[i].GetComponent<FarmerInfo>().choosed = data.farmerChoosed[i];
-
-
             }
-            print(data.DiscardedCardIds.Count);
+            for (int i = 0; i < data.farmerCount.Length; i++)
+            {
+                GManager.farmerCount[i] = data.farmerCount[i];
+            }
+            #endregion
+            #region kartstatlarý
             for (int i = 0; i < data.DiscardedCardIds.Count; i++)
             {
                 int cardId = data.DiscardedCardIds[i];
                 int CardType = data.DiscardedCardType[i];
-                print("type=" + CardType + "\nCardId=" + cardId);
                 if (CardType == 0)
                 {
                     OpenedDeck.AddCardToDiscard(CropCards[cardId]);
@@ -151,8 +157,6 @@ public class saveAndLoad : MonoBehaviour
                 }
                 else { OpenedDeck.AddCardToDiscard(ItemCards[cardId]); }
             }
-
-            print(data.OpenedCardIds.Count);
             for (int i = 0; i < data.OpenedCardIds.Count; i++)
             {
                 int cardId = data.OpenedCardIds[i];
@@ -169,12 +173,9 @@ public class saveAndLoad : MonoBehaviour
                     OpenedDeck.TakeCardFromDiscard();
                 }
             }
-
-
-
-
-
-            GManager.bossManager.BossEffectCount=data.firstBossEffectCount;
+            #endregion
+            #region anastatlar
+            GManager.bossManager.BossEffectCount = data.firstBossEffectCount;
             GManager.HoeCount = data.hoeCount;
             GManager.money = data.money;
             GManager.Day = data.Day;
@@ -193,6 +194,8 @@ public class saveAndLoad : MonoBehaviour
             {
                 GManager.HarvestedCropCount[i] = data.HarvestedCropCount[i];
             }
+            #endregion
+            #region farmbilgileri
             for (int i = 0; i < FarmInfos.Length; i++)
             {
                 FarmInfos[i].Id = data.farmId[i];
@@ -203,10 +206,9 @@ public class saveAndLoad : MonoBehaviour
                 FarmInfos[i].Negatived = data.negatived[i];
                 FarmInfos[i].firstBossEffected = data.firstBossEffected[i];
             }
+            #endregion
 
-            
         }
-        print(File.Exists(Explorationpath));
         if (File.Exists(Explorationpath))
         {
             string json2 = File.ReadAllText(Explorationpath);
@@ -223,27 +225,17 @@ public class saveAndLoad : MonoBehaviour
         else
         {
             Debug.LogError("Save file not found!");
-            
+
         }
         GManager.InitializeLoad();
     }
     public void EraseSaves()
     {
         string dosyaYolu = Application.persistentDataPath + "/playerData.json";
-        string dosyaYolu2 = Application.persistentDataPath + "/playerExplorations.json";
 
-        if (System.IO.File.Exists(dosyaYolu))
+        if (File.Exists(dosyaYolu))
         {
-            System.IO.File.Delete(dosyaYolu);
-            Debug.Log("Kayýt dosyasý baþarýyla silindi.");
-        }
-        else
-        {
-            Debug.LogError("Silinecek dosya bulunamadý.");
-        }
-        if (System.IO.File.Exists(dosyaYolu2))
-        {
-            System.IO.File.Delete(dosyaYolu);
+            File.Delete(dosyaYolu);
             Debug.Log("Kayýt dosyasý baþarýyla silindi.");
         }
         else
@@ -283,6 +275,7 @@ public class Data
     [Space(3)]
     [Header("FarmerInfo")]
     public List<bool> farmerChoosed;
+    public int[] farmerCount;
 }
 [System.Serializable]
 public class ExplorationData

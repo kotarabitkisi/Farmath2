@@ -31,7 +31,7 @@ MonoBehaviour:
   reqMoneyMax: 2147483647
   reqdayMin: 75
   reqdayMax: 2147483647
-  reqHarvestCountmin: 250
+  reqHarvestCountmin: 200
   reqHarvestCountmax: 2147483647
   reqHarvestCountOnSameTypemin: 10
   reqHarvestCountOnSameTypemax: 2147483647

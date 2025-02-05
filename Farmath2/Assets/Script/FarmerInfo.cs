@@ -23,6 +23,10 @@ public class FarmerInfo : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         {
             GetComponent<RectTransform>().position = Input.mousePosition;
         }
+        if (choosed)
+        {
+            GetComponent<Image>().raycastTarget = false;
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)

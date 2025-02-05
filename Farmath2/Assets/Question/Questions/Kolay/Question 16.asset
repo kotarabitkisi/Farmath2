@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Question 16
   m_EditorClassIdentifier: 
   questionTitle: "K\xFCmeler - Kolay"
-  QuestionIcon: {fileID: 21300000, guid: 9a02a78db82206344bf53babf6f1c658, type: 3}
+  QuestionIcon: {fileID: 21300000, guid: 4d34e5f7da45f5644860c9bd27e22377, type: 3}
   Solution: 12
   moneyMultiple: 1.25
-  timeOfQuestion: 60
+  timeOfQuestion: 90

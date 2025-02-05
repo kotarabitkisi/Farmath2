@@ -53,7 +53,6 @@ public class FarmInfo : MonoBehaviour
                 }
                 else { Renderer.color = Color.white; }
             }
-
             if (Id >= 2)
             {
                 farmImage.enabled = false;

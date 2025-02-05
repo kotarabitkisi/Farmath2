@@ -8,7 +8,9 @@ using static GameManager;
 
 public class DeckPlacing : MonoBehaviour
 {
-
+    [Header("Audio")]
+    public AudioClip[] audioClips;//0:kart çekme 1:kartý yerine koyma
+    public AudioSource Source;
     [Header("AnotherScripts")]
     public GameManager GManager;
     public BossManager BossManager;
@@ -170,6 +172,12 @@ public class DeckPlacing : MonoBehaviour
         {
             for (int i = 0; i < Count; i++)
             {
+                #region Question Kartý ise Reward elemanýný sil
+                if (transform.GetChild(i).gameObject == GManager.deckPlacing.allCardScr[11])
+                {
+                    GManager.ShopManagement.Qreward.RemoveAt(GManager.ShopManagement.Qreward.Count-1);
+                }
+                #endregion
                 Destroy(transform.GetChild(i).gameObject);
             }
         }
@@ -214,7 +222,7 @@ public class DeckPlacing : MonoBehaviour
             {
                 cardIndex = Random.Range(0, discardedCards.Count);
             }
-
+            Source.PlayOneShot(audioClips[0]);
             CardScr Card = discardedCards[cardIndex];
             discardedCards.RemoveAt(cardIndex);
             RaycastHit2D hit = Physics2D.Raycast(closedCardPrefab.transform.position, Vector2.zero);
@@ -273,13 +281,13 @@ public class DeckPlacing : MonoBehaviour
                 openedCards.RemoveAt(i);
                 break;
             }
-
         }
-
+        Source.PlayOneShot(audioClips[1]);
         RaycastHit2D hit = Physics2D.Raycast(closedCardPrefab.transform.position, Vector2.zero);
         Vector2 targetPosition = hit.point;
         ChosenCardToDiscard.transform.parent = null;
         ChosenCardToDiscard.tag = "Untagged";
+        ChosenCardToDiscard.transform.DOKill();
         ChosenCardToDiscard.transform.DOMove(hit.point, 0.2f);
         ChosenCardToDiscard.transform.DOScale(Vector3.one, 0.2f);
 
@@ -396,6 +404,7 @@ public class DeckPlacing : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.2f);
             if (card is CropScr CropCard)
             {
+                Source.PlayOneShot(audioClips[4]);
                 GManager.SeedCrop(CropCard.id, farm);
                 DestroyThisCard(chosenCardUsing);
                 for (int i = 0; i < GManager.farmsScr.frams.Length; i++)
@@ -431,6 +440,7 @@ public class DeckPlacing : MonoBehaviour
                             chosenCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
                             chosenCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
                             yield return new WaitForSecondsRealtime(cardAnimTime);
+                            Source.PlayOneShot(audioClips[3]);
                             farm.HolyHoed = true;
                             farm.Id = 1;
                             DestroyThisCard(chosenCardUsing);

@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
+    public GameObject LevelSelect;
+    public GameObject MainMenu;
     public void LoadSceneByName(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -18,12 +20,19 @@ public class SceneTransition : MonoBehaviour
     {
         StartCoroutine(LoadSceneAfterDelay(sceneName, delay));
     }
-
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
     private IEnumerator LoadSceneAfterDelay(string sceneName, float delay)
     {
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(sceneName);
     }
-
+    public void OpenLevelSelect()
+    {
+        LevelSelect.SetActive(true);
+        MainMenu.SetActive(false);
+    }
    
 }

@@ -14,7 +14,7 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI[] allShopNameTxt;
     public TextMeshProUGUI[] allShopCostTxt;
     public List<float> Qreward;
-
+    public bool[] Shaking;
     public void BuyCard(int ShopIndex)
     {
         if (cardsOnShop[ShopIndex] == DP.allCardScr[11])
@@ -31,6 +31,8 @@ public class ShopManager : MonoBehaviour
         else
         {
             StartCoroutine(GameManag.ShakeTheObj(ShopCardObj[ShopIndex], 0.25f, 10f, 10f,true));
+            
+
         }
     }
     public void AddCardToShop(int ShopIndex, int CardID)
