@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
             totalHarvest += HarvestedCropCount[i];
         }
         totalHarvestText.text = "Toplam Hasat:" + totalHarvest;
-        dayText.text = "Time: " + Day + "/" + Month;
+        dayText.text = "Gün/Ay: " + Day + "/" + Month;
         if (Boss == 1)
         {
             bossManager.BossStart();
@@ -327,8 +327,9 @@ public class GameManager : MonoBehaviour
             money -= HoeCost[HoeCount];
             farm.Id = 1;
             HoeCount++;
+            Source.PlayOneShot(audioClips[3]);
         }
-        Source.PlayOneShot(audioClips[3]);
+        
 
         CloseHoeMenuvoid(farm);
         InitializeMoneyText();
@@ -366,10 +367,10 @@ public class GameManager : MonoBehaviour
 
         if (deckPlacing.itemCardUsing || deckPlacing.cropCardUsing)
         {
-            StartCoroutine(ToggleWarning(4, "you cant pass day you choosed an item")); StartCoroutine(ShakeTheObj(bossManager.Camera, 0.2f, 0.05f, 0, false));
+            StartCoroutine(ToggleWarning(4, "Kart kullanýrken gün geçemezsin.")); StartCoroutine(ShakeTheObj(bossManager.Camera, 0.2f, 0.05f, 0, false));
         }
 
-        else if (pageopened) { StartCoroutine(ToggleWarning(4, "turn off the pages before day pass")); StartCoroutine(ShakeTheObj(bossManager.Camera, 0.2f, 0.05f, 0, false)); }
+        else if (pageopened) { StartCoroutine(ToggleWarning(4, "Gün Geçmeden önce sayfalarý kapat.")); StartCoroutine(ShakeTheObj(bossManager.Camera, 0.2f, 0.05f, 0, false)); }
         else
         {
             #region kaybetmekontrolü
@@ -378,13 +379,13 @@ public class GameManager : MonoBehaviour
             {
                 if (farmsScr.frams[i].Id >= 2 && farmsScr.frams[i].Id <= 7) { isthecrop++; }
             }
-if (money <= 0 && isthecrop == 0 && deckPlacing.openedCards.Count == 0)
+            if (money <= 0 && isthecrop == 0 && deckPlacing.openedCards.Count == 0)
             {
                 Lose();
             }
             #endregion
             Day++;
-            dayText.text = "Day: " + Day + "/" + Month;
+            dayText.text = "Gün/Ay: " + Day + "/" + Month;
             #region yeniayýnbaþlangýcýnýkontroletme
             if (reqDay < Day)
             {
@@ -425,22 +426,21 @@ if (money <= 0 && isthecrop == 0 && deckPlacing.openedCards.Count == 0)
                 }
             }
             #endregion
-            
-            
+
+
             if (farmers[2].GetComponent<FarmerInfo>().choosed)
             {
                 farmerCount[2]--;
                 if (farmerCount[2] <= 0)
                 {
                     farmerCount[2] = 4;
-                    bool a = true;
-                    while (a)
+                    for (int i = 0; i < 1000; i++)
                     {
                         int randomIndex = Random.Range(0, isExplored.Length);
                         if (!isExplored[randomIndex])
                         {
                             OpenExplore(randomIndex, true);
-                            a = false;
+                            break;
                         }
                     }
                 }
@@ -451,14 +451,13 @@ if (money <= 0 && isthecrop == 0 && deckPlacing.openedCards.Count == 0)
                 if (farmerCount[3] <= 0)
                 {
                     farmerCount[3] = 3;
-                    bool a = true;
-                    while (a)
+                    for (int i=0;i<1000;i++)
                     {
                         int randomIndex = Random.Range(0, farmsScr.FarmList.Length);
                         if (farmsScr.frams[randomIndex].Id == 8)
                         {
                             farmsScr.frams[randomIndex].Id = 1;
-                            a = false;
+                            break;
                         }
                     }
                 }

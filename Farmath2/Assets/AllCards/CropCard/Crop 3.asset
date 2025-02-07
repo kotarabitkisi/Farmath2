@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53a329eec469514c9b88060877da0f4, type: 3}
   m_Name: Crop 3
   m_EditorClassIdentifier: 
-  CardName: Lettuce
+  CardName: Lahana
   Icon: {fileID: -828998093, guid: 9436dad52a47b9742bf15782faa90a51, type: 3}
   CardCost: 200
   IsThatBossCard: 0

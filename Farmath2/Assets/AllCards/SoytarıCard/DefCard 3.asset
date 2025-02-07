@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79496f5591d5c4e43a3ae3893675fe4a, type: 3}
   m_Name: DefCard 3
   m_EditorClassIdentifier: 
-  CardName: CorN
+  CardName: "M\u0131s\u0131R"
   Icon: {fileID: -345116089, guid: 8d8f7a764e7b4c14aa5b7bf1c715daa3, type: 3}
   CardCost: 0
   IsThatBossCard: 1

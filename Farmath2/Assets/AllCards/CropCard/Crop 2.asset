@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53a329eec469514c9b88060877da0f4, type: 3}
   m_Name: Crop 2
   m_EditorClassIdentifier: 
-  CardName: Corn
+  CardName: "M\u0131s\u0131r"
   Icon: {fileID: -345116089, guid: 8d8f7a764e7b4c14aa5b7bf1c715daa3, type: 3}
   CardCost: 200
   IsThatBossCard: 0

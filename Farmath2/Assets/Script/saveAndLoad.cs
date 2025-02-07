@@ -136,7 +136,8 @@ public class saveAndLoad : MonoBehaviour
             {
                 if (data.farmerChoosed[i] && choosedCount < 3)
                 {
-                    GManager.farmers[i].GetComponent<FarmerInfo>().HireHero(GManager.farmers[i], FarmerPlace[i]);
+                    GManager.farmers[i].GetComponent<FarmerInfo>().HireHero(GManager.farmers[i], FarmerPlace[choosedCount]);
+                    choosedCount++;
                 }
                 GManager.farmers[i].GetComponent<FarmerInfo>().choosed = data.farmerChoosed[i];
             }

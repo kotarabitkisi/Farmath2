@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d14d02aff6d14dbc98733387b3e00, type: 3}
   m_Name: Question 32
   m_EditorClassIdentifier: 
-  questionTitle: "Do\u011Frusal Denklemler - Kolay"
+  questionTitle: Problemler - Kolay
   QuestionIcon: {fileID: 21300000, guid: e302a9a01a215964bbd0f5d963fe80e7, type: 3}
-  Solution: 250
+  Solution: 600
   moneyMultiple: 1.25
   timeOfQuestion: 120

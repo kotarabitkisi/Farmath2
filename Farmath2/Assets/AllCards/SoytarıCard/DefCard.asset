@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79496f5591d5c4e43a3ae3893675fe4a, type: 3}
   m_Name: DefCard
   m_EditorClassIdentifier: 
-  CardName: Carrot
+  CardName: "Havu\xE7"
   Icon: {fileID: -2033290804, guid: 6a7606c7a6c806b4ebc60b97c1650cdf, type: 3}
   CardCost: 0
   IsThatBossCard: 1

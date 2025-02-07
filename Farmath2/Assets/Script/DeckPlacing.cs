@@ -59,7 +59,7 @@ public class DeckPlacing : MonoBehaviour
 
 
 
-        if (GManager.activeCardState == ActiveCardState.NONE&&!GManager.pageopened)
+        if (GManager.activeCardState == ActiveCardState.NONE && !GManager.pageopened)
         {
             if (chosenMovingCard != null)
             {
@@ -163,7 +163,7 @@ public class DeckPlacing : MonoBehaviour
         }
 
         closedCardPrefab.SetActive(discardedCards.Count > 0);
-        cardCountTxt.text = "Card: " + discardedCards.Count.ToString();
+        cardCountTxt.text = "Kart: " + discardedCards.Count.ToString();
     }
     public void DeleteAllOfOpenedCards()
     {
@@ -173,9 +173,9 @@ public class DeckPlacing : MonoBehaviour
             for (int i = 0; i < Count; i++)
             {
                 #region Question Kartý ise Reward elemanýný sil
-                if (transform.GetChild(i).gameObject == GManager.deckPlacing.allCardScr[11])
+                if (transform.GetChild(i).gameObject.GetComponent<CardData>().Card == GManager.deckPlacing.allCardScr[11])
                 {
-                    GManager.ShopManagement.Qreward.RemoveAt(GManager.ShopManagement.Qreward.Count-1);
+                    GManager.ShopManagement.Qreward.RemoveAt(GManager.ShopManagement.Qreward.Count - 1);
                 }
                 #endregion
                 Destroy(transform.GetChild(i).gameObject);
@@ -448,21 +448,23 @@ public class DeckPlacing : MonoBehaviour
                         }
                         break;
                     case 3:
-                        GManager.activeCardState = ActiveCardState.USING;
-                        chosenCardUsing = itemCardUsing;
-                        chosenCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
-                        chosenCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
-                        yield return new WaitForSecondsRealtime(cardAnimTime);
-                        farm.Id = 1;
-                        farm.curDay = 0;
-                        farm.reqDay = 0;
-                        DestroyThisCard(chosenCardUsing);
-                        GManager.activeCardState = ActiveCardState.NONE;
+                        if (farm.Id > 0)
+                        {
+                            GManager.activeCardState = ActiveCardState.USING;
+                            chosenCardUsing = itemCardUsing;
+                            chosenCardUsing.transform.DOMove(farm.transform.position, cardAnimTime);
+                            chosenCardUsing.transform.DOScale(Vector3.zero, cardAnimTime);
+                            yield return new WaitForSecondsRealtime(cardAnimTime);
+                            farm.Id = 1;
+                            farm.curDay = 0;
+                            farm.reqDay = 0;
+                            DestroyThisCard(chosenCardUsing);
+                            GManager.activeCardState = ActiveCardState.NONE;
+                        }
                         break;
                 }
-            }
 
+            }
         }
     }
-
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Question 34
   m_EditorClassIdentifier: 
   questionTitle: Problemler - Orta
-  QuestionIcon: {fileID: 21300000, guid: 3d1be9457687f3c4aa03e4d2e42380e6, type: 3}
+  QuestionIcon: {fileID: 21300000, guid: 3b04fda39d45b534c8590bef98665b2c, type: 3}
   Solution: 1625
   moneyMultiple: 1.5
   timeOfQuestion: 120

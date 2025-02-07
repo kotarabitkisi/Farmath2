@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee0309a618b17347b865f992fbad77d, type: 3}
   m_Name: ItemCard 5-Sadece Bir Soru
   m_EditorClassIdentifier: 
-  CardName: JustAQuestion
+  CardName: Sadece Bir Soru
   Icon: {fileID: 21300000, guid: 28e0d55fb9ae7534793038d9d7bc8fc4, type: 3}
   CardCost: 500
+  IsThatBossCard: 0
   itemId: 5

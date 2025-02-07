@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d14d02aff6d14dbc98733387b3e00, type: 3}
   m_Name: Question 28
   m_EditorClassIdentifier: 
-  questionTitle: "\u0130kinci Dereceden Denklem - Kolay"
+  questionTitle: Denklemler - Kolay
   QuestionIcon: {fileID: 21300000, guid: 462f7e9fea488a0488514c3a1747ec18, type: 3}
   Solution: -10
   moneyMultiple: 1.25

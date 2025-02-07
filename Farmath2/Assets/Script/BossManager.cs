@@ -43,15 +43,14 @@ public class BossManager : MonoBehaviour
         }
         for (int i = 0; i < 12; i++)
         {
-            bool worked = false;
-            while (!worked)
+            for (int f = 0; f < 1000; f++)
             {
                 FarmInfo chosenFarm = AllFarms[Random.Range(0, 24)];
                 print("b");
                 if (!chosenFarm.Negatived)
                 {
                     chosenFarm.Negatived = true;
-                    worked = true;
+                    break;
                 }
             }
         }

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee0309a618b17347b865f992fbad77d, type: 3}
   m_Name: ItemCard 4-Bu saat
   m_EditorClassIdentifier: 
-  CardName: ThatClock
+  CardName: Bu Saat
   Icon: {fileID: 0}
   CardCost: 500
+  IsThatBossCard: 0
   itemId: 4

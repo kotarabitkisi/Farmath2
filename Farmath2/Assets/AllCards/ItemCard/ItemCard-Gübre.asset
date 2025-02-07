@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee0309a618b17347b865f992fbad77d, type: 3}
   m_Name: "ItemCard-G\xFCbre"
   m_EditorClassIdentifier: 
-  CardName: Fertilizer
+  CardName: "G\xFCbre"
   Icon: {fileID: 1758565813, guid: 15567e5cf4e7f244e89492e102e24d41, type: 3}
   CardCost: 500
+  IsThatBossCard: 0
   itemId: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d14d02aff6d14dbc98733387b3e00, type: 3}
   m_Name: Question 38
   m_EditorClassIdentifier: 
-  questionTitle: "\u0130ki Bilinmeyenli Denklemler - Kolay"
+  questionTitle: Denklemler - Kolay
   QuestionIcon: {fileID: 21300000, guid: f3443cc6082c49c42ba0e06b8fd01b02, type: 3}
   Solution: 13
   moneyMultiple: 1.25
