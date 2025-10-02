@@ -1,0 +1,1 @@
+C:\Users\ASUS\Documents\GitHub\Farmath2\Farmath2\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\4e434p6i\obj\armeabi-v7a

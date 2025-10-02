@@ -20,12 +20,11 @@ public class Farms : MonoBehaviour
             }
         }
     }
-    public void Update()
-    {
-        CalculateConnectedCount();
-        CalculateTotalConnectedIds();
-
-    }
+    //public void Update()
+    //{
+    //    CalculateConnectedCount();
+    //    CalculateTotalConnectedIds();
+    //}
     public void CalculateTotalConnectedIds()
     {
         for (int i = 0; i < totalConnectedIds.Length; i++)
@@ -42,10 +41,6 @@ public class Farms : MonoBehaviour
                 }
             }
             totalConnectedIds[i] = totalConnectedId / 2;
-
-
-
-
         }
         totalConnectedIds[0] = 0;
     }
@@ -69,16 +64,21 @@ public class Farms : MonoBehaviour
         if (farm.Id >= 2 && FarmList[i, j].Id >= 2) { farm.connectedFarmIds[direction] = FarmList[i, j].Id; }
         else { farm.connectedFarmIds[direction] = 0; }
     }
-    public void ChangeId(FarmInfo ChosenFarm, int id)
-    {
-        ChosenFarm.Id = id;
-    }
     public void water(int width, int height, bool IsRandom)
     {
         if (IsRandom)
         {
-            FarmList[Random.Range(0, height), Random.Range(0, width)].Watered = true;
+            FarmInfo farm = FarmList[Random.Range(0, height), Random.Range(0, width)];
+            farm.Watered = true;
+            farm.ChangeScale(1.1f, 1);
+            farm.InitializeSpriteAndEffect();
         }
-        else { FarmList[height, width].Watered = true; }
+        else
+        {
+            FarmInfo farm = FarmList[height, width];
+            farm.Watered = true;
+            farm.ChangeScale(1.1f, 1);
+            farm.InitializeSpriteAndEffect();
+        }
     }
 }

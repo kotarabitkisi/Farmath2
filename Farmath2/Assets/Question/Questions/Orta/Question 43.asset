@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: Geometri - Orta
   QuestionIcon: {fileID: 21300000, guid: c3ac70430965d644badc50a36f4c50c2, type: 3}
   Solution: 5
-  moneyMultiple: 1.5
+  moneyMultiple: 1.35
   timeOfQuestion: 180

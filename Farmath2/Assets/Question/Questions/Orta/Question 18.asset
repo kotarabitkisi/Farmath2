@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: "K\xFCmeler - Orta"
   QuestionIcon: {fileID: 21300000, guid: a27f1f85e375e8b418908e8ab57be908, type: 3}
   Solution: 7
-  moneyMultiple: 1.5
+  moneyMultiple: 1.35
   timeOfQuestion: 150

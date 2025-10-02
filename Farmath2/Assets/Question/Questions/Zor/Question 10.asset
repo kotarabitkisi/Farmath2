@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: Geometri - Zor
   QuestionIcon: {fileID: 21300000, guid: e7529af704b01f546b35c26f6a633d30, type: 3}
   Solution: 120
-  moneyMultiple: 2
+  moneyMultiple: 1.8
   timeOfQuestion: 450

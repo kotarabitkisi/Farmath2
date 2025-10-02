@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53a329eec469514c9b88060877da0f4, type: 3}
   m_Name: Crop
   m_EditorClassIdentifier: 
-  CardName: "Bu\u011Fday"
+  CardName: Bugday
   Icon: {fileID: -83900220, guid: 65e096fb30eac59498f87a0d980c9889, type: 3}
   CardCost: 100
   IsThatBossCard: 0
+  IsThatOneUse: 1
   id: 2
   cropName: Wheat
   GManager: {fileID: 3030820063569021284, guid: e0cca7db3497d0046993540a7a1b3c12, type: 3}

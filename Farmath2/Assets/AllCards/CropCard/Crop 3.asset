@@ -16,6 +16,7 @@ MonoBehaviour:
   Icon: {fileID: -828998093, guid: 9436dad52a47b9742bf15782faa90a51, type: 3}
   CardCost: 200
   IsThatBossCard: 0
+  IsThatOneUse: 1
   id: 5
   cropName: Lettuce
   GManager: {fileID: 3030820063569021284, guid: e0cca7db3497d0046993540a7a1b3c12, type: 3}

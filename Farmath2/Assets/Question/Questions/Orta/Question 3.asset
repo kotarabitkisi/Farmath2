@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: "\u0130\u015Flem \xD6nceli\u011Fi - Orta"
   QuestionIcon: {fileID: 21300000, guid: 2edb5e2408cdd964785546aaca4ba2ff, type: 3}
   Solution: 16
-  moneyMultiple: 1.5
+  moneyMultiple: 1.35
   timeOfQuestion: 60

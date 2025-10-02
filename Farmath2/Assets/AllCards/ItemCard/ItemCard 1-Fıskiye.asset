@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee0309a618b17347b865f992fbad77d, type: 3}
   m_Name: "ItemCard 1-F\u0131skiye"
   m_EditorClassIdentifier: 
-  CardName: fiskiye
-  Icon: {fileID: 0}
-  CardCost: 500
+  CardName: "F\u0131skiye"
+  Icon: {fileID: 21300000, guid: ebac82415eb67dc4796b2678576544df, type: 3}
+  CardCost: 3000
+  IsThatBossCard: 0
+  IsThatOneUse: 0
   itemId: 1

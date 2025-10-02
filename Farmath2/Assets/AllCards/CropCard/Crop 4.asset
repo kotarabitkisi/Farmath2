@@ -16,6 +16,7 @@ MonoBehaviour:
   Icon: {fileID: -678118812, guid: 93042d995c69e5b44a3b4e5524c71be3, type: 3}
   CardCost: 100
   IsThatBossCard: 0
+  IsThatOneUse: 1
   id: 6
   cropName: Tomato
   GManager: {fileID: 3030820063569021284, guid: e0cca7db3497d0046993540a7a1b3c12, type: 3}

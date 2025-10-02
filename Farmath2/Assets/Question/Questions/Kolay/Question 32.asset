@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: Problemler - Kolay
   QuestionIcon: {fileID: 21300000, guid: e302a9a01a215964bbd0f5d963fe80e7, type: 3}
   Solution: 600
-  moneyMultiple: 1.25
+  moneyMultiple: 1.2
   timeOfQuestion: 120

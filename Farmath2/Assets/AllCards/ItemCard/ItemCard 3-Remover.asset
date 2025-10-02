@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee0309a618b17347b865f992fbad77d, type: 3}
   m_Name: ItemCard 3-Remover
   m_EditorClassIdentifier: 
-  CardName: Yok Edici
+  CardName: Makas
   Icon: {fileID: 200194164, guid: 15567e5cf4e7f244e89492e102e24d41, type: 3}
-  CardCost: 500
+  CardCost: 2500
   IsThatBossCard: 0
+  IsThatOneUse: 0
   itemId: 3

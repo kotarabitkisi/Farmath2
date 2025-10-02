@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: "C\xFCmleyi Denkleme D\xF6kme - Orta"
   QuestionIcon: {fileID: 21300000, guid: 19eee5b35a41707429939d3556c0ce1a, type: 3}
   Solution: 37
-  moneyMultiple: 1.5
+  moneyMultiple: 1.35
   timeOfQuestion: 75

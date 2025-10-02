@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: Denklemler - Kolay
   QuestionIcon: {fileID: 21300000, guid: 462f7e9fea488a0488514c3a1747ec18, type: 3}
   Solution: -10
-  moneyMultiple: 1.25
+  moneyMultiple: 1.2
   timeOfQuestion: 75

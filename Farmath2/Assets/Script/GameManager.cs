@@ -15,9 +15,12 @@ public class GameManager : MonoBehaviour
         USING
     };
     public Color colorNone;
+    public static GameManager instance;
     [Header("Audio")]
     public AudioClip[] audioClips;
     public AudioSource Source;
+    public AudioListener Listener;
+
     [Header("AnotherScripts")]
     public Logger logger;
     public Farms farmsScr;
@@ -26,7 +29,10 @@ public class GameManager : MonoBehaviour
     public ShopManager ShopManagement;
     public DeckPlacing deckPlacing;
     public saveAndLoad saveAndLoad;
+
     [Header("MainStats")]
+    public bool tutorialPlayed;
+    public Sprite[] EventSprites;
     public int[] farmerCount;
     public CropStats[] crops;
     public float money;
@@ -39,11 +45,13 @@ public class GameManager : MonoBehaviour
     const int maxExploreCount = 6;
     const int reqMoneyToWin = 1000000;
     public bool pageopened;
+    public bool pageopening;
     public int[] HarvestedCropCount;
     public int HoeCount;
     public int[] HoeCost;
     public ActiveCardState activeCardState;
     public int Boss;//0=boss yok 1=soytarý
+
     [Header("CanvasObjects")]
     public TextMeshProUGUI WarningText;
     public GameObject[] farmers;
@@ -52,6 +60,11 @@ public class GameManager : MonoBehaviour
     public GameObject LosePanel;
     public GameObject ShopImage;
     public GameObject PageParent;
+    public Image soundButtonImage;
+    public Image EventImage;
+    public Sprite[] soundSprite;
+    public Image[] heroPlaces;
+
     [Header("Question")]
     public QuestionScr[] Questions;
     public GameObject questionPage;
@@ -60,6 +73,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI questionTimeTxt;
     public float questionTime;
     public GameObject moneyObjPool;
+
     [Header("Explore")]
     public float ColorSpeed;
     public Color textColor, textColor2;
@@ -70,6 +84,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI[] ExploreTexts;
     public bool[] isTextColorful;
     public GameObject ExplorePage;
+
     [Header("Debuffs")]
     public string[] DebuffTitle;
     public Sprite[] DebuffIcon;
@@ -78,22 +93,44 @@ public class GameManager : MonoBehaviour
     public GameObject[] debuffChilds;
     public bool[] debuffs;
     //0:inflation 1:invasion 2:festival
-
-
-
+    private void Awake()
+    {
+        instance = this;
+    }
     public void InitializeLoad()
     {
+        if (Month != 0)
+        {
+            EventImage.sprite = EventSprites[Month];
+            EventImage.color = Color.white;
+            EventImage.raycastTarget = true;
+        }
+        else { EventImage.color = colorNone; EventImage.raycastTarget = false; }
         DOTween.Init();
         int totalHarvest = 0;
         for (int i = 0; i < HarvestedCropCount.Length; i++)
         {
             totalHarvest += HarvestedCropCount[i];
         }
-        totalHarvestText.text = "Toplam Hasat:" + totalHarvest;
-        dayText.text = "Gün/Ay: " + Day + "/" + Month;
+        totalHarvestText.text = totalHarvest.ToString();
+        dayText.text = Day + "/" + Month;
         if (Boss == 1)
         {
             bossManager.BossStart();
+        }
+        foreach (FarmInfo farmland in farmsScr.FarmList)
+        {
+            farmland.InitializeSpriteAndEffect();
+        }
+        int heroCount = Mathf.Clamp(Month+1, 1, 3);
+        for (int i = 0; i < heroCount; i++)
+        {
+            heroPlaces[i].raycastTarget = true;
+            heroPlaces[i].color = Color.white;
+        }
+        if (!tutorialPlayed)
+        {
+            logger.StartDialouge(0);
         }
         ShopManagement.DayPassedAddCard();
         InitializeMoneyText();
@@ -107,9 +144,48 @@ public class GameManager : MonoBehaviour
 
             if (questionTime <= 0) { questionTextArea.text = ""; questionTime = 0; questionTimeTxt.text = "Süre: 0"; SolutionIsTrueOrNot(Questions[0], 0); }
         }
-
-
         #region TýklamaKontrolleri
+#if UNITY_ANDROID || UNITY_IOS
+        if (Input.touchCount > 0)
+        {
+            Touch touch = new Touch();
+            touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began && activeCardState != ActiveCardState.USING && !pageopened)
+            {
+                if (!pageopened)
+                {
+                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                    RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+                    if (hit.collider != null && hit.collider.CompareTag("Farm"))
+                    {
+                        farmsScr.ChosenFarm = hit.collider.gameObject.GetComponent<FarmInfo>();
+                        FarmInfo farm = hit.collider.gameObject.GetComponent<FarmInfo>();
+                        if (deckPlacing.itemCardUsing != null || deckPlacing.cropCardUsing != null)
+                        {
+                            StartCoroutine(deckPlacing.UseThisCard(farm));
+                        }
+                        else if (farm.Id == 0) { farm.HoeImage.SetActive(true); farm.HoeCost.text = HoeCost[HoeCount].ToString("F2"); pageopened = true; }
+                    }
+                }
+            }
+            else if ((touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary) && activeCardState != ActiveCardState.USING && !pageopened)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+                if (hit.collider != null && hit.collider.CompareTag("Farm"))
+                {
+                    farmsScr.ChosenFarm = hit.collider.gameObject.GetComponent<FarmInfo>();
+                    FarmInfo farm = hit.collider.gameObject.GetComponent<FarmInfo>();
+                    if (farm.curDay >= farm.reqDay && farm.Id >= 2 && farm.Id <= 7)
+                    {
+                        HarvestCrop(farm);
+                    }
+                }
+            }
+        }
+
+#elif UNITY_STANDALONE_WIN
         if (Input.GetMouseButtonDown(0) && activeCardState != ActiveCardState.USING && !pageopened)
         {
             if (!pageopened)
@@ -143,7 +219,9 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+#endif
         #endregion
+
         for (int i = 0; i < isTextColorful.Length; i++)
         {
             if (isTextColorful[i])
@@ -163,10 +241,12 @@ public class GameManager : MonoBehaviour
     }
     public void HarvestCrop(FarmInfo farm)
     {
+        farmsScr.CalculateConnectedCount();
+        farmsScr.CalculateTotalConnectedIds();
         CropStats cropStats = crops[farm.Id];
         float baseRev = cropStats.base_;
         float MultipleRev = 1;
-
+        HarvestedCropCount[farm.Id]++;
 
 
         if (cropStats.IsNeighbour(farm.connectedFarmIds))
@@ -174,7 +254,6 @@ public class GameManager : MonoBehaviour
             int id = (farm.Id - 2) * maxExploreCount;
             if (!isExplored[id])
             {
-                logger.Addlog("Yeni Koþul Keþfedildi: " + ExploreText[id]);
                 OpenExplore(id, true);
             }
 
@@ -193,7 +272,6 @@ public class GameManager : MonoBehaviour
             int id = (farm.Id - 2) * maxExploreCount + 1;
             if (!isExplored[id])
             {
-                logger.Addlog("Yeni Koþul Keþfedildi: " + ExploreText[id]);
                 OpenExplore(id, true);
             }
             switch (cropStats.RevOperation[1])
@@ -211,7 +289,6 @@ public class GameManager : MonoBehaviour
             int id = (farm.Id - 2) * maxExploreCount + 2;
             if (!isExplored[id])
             {
-                logger.Addlog("Yeni Koþul Keþfedildi: " + ExploreText[id]);
                 OpenExplore(id, true);
             }
             switch (cropStats.RevOperation[2])
@@ -229,7 +306,6 @@ public class GameManager : MonoBehaviour
             int id = (farm.Id - 2) * maxExploreCount + 3;
             if (!isExplored[id])
             {
-                logger.Addlog("Yeni Koþul Keþfedildi: " + ExploreText[id]);
                 OpenExplore(id, true);
             }
             switch (cropStats.RevOperation[3])
@@ -247,7 +323,6 @@ public class GameManager : MonoBehaviour
             int id = (farm.Id - 2) * maxExploreCount + 4;
             if (!isExplored[id])
             {
-                logger.Addlog("Yeni Koþul Keþfedildi: " + ExploreText[id]);
                 OpenExplore(id, true);
             }
             switch (cropStats.RevOperation[4])
@@ -265,13 +340,12 @@ public class GameManager : MonoBehaviour
         {
             totalHarvest += HarvestedCropCount[i];
         }
-        totalHarvestText.text = "Toplam Hasat:" + totalHarvest;
+        totalHarvestText.text = totalHarvest.ToString();
         if (cropStats.IsHarvestCount(false, totalHarvest))
         {
             int id = (farm.Id - 2) * maxExploreCount + 5;
             if (!isExplored[id])
             {
-                logger.Addlog("Yeni Koþul Keþfedildi: " + ExploreText[id]);
                 OpenExplore(id, true);
             }
             switch (cropStats.RevOperation[5])
@@ -287,12 +361,6 @@ public class GameManager : MonoBehaviour
         if (farm.Watered) { MultipleRev *= 2; farm.Watered = false; }
         if (farm.HolyHoed) { MultipleRev *= 2; }
         if (farm.Negatived) { MultipleRev *= -1; }
-        HarvestedCropCount[farm.Id]++;
-        if (Boss == 1 && bossManager.BossEffectCount > 0)
-        {
-            bossManager.BossEffectCount--;
-            farm.firstBossEffected = true;
-        }
         #region explorebildirimi
         int ExploreNotificationTextCount = 0;
         for (int i = 0; i < ExploreTexts.Length; i++)
@@ -305,32 +373,42 @@ public class GameManager : MonoBehaviour
         ExploreNotificationTxt.text = ExploreNotificationTextCount.ToString();
         #endregion
         farm.Id = 1;
+        if (Boss == 1) { farm.Id = 8; }
         farm.curDay = 0;
         farm.reqDay = 0;
+        farm.InitializeSpriteAndEffect();
         float Revenue = baseRev * MultipleRev;
         money += Revenue;
-        logger.Addlog("Hasat edildi Gelir: " + Revenue);
+        if (Revenue < 0 && logger.textingFinished)
+        {
+            logger.StartDialouge(7);
+        }
         StartCoroutine(MoneyAnimPlay(moneyObjPool.transform.GetChild(0).gameObject, Revenue, farm.gameObject, 1));
         InitializeMoneyText();
     }
     public void SeedCrop(int id, FarmInfo ChosenFarm)
     {
+        ChosenFarm.ChangeScale(1.1f, 1);
         ChosenFarm.Id = id;
         ChosenFarm.curDay = 0;
         ChosenFarm.reqDay = crops[id].reqDayToGrow;
-        InitializeMoneyText();
+        ChosenFarm.InitializeSpriteAndEffect();
     }
     public void Hoe(FarmInfo farm)
     {
-        if (money >= HoeCost[HoeCount])//10 * Mathf.Pow(1.45f, HoeCount)
+        if (money >= HoeCost[HoeCount])
         {
+            if (!tutorialPlayed && !logger.tutorials[3] && logger.CalculatePlayedDialogTutorial() >= 3 && logger.textingFinished)
+            {
+                logger.StartDialouge(3);
+            }
             money -= HoeCost[HoeCount];
             farm.Id = 1;
             HoeCount++;
-            Source.PlayOneShot(audioClips[3]);
+            PlaySound(3);
+            farm.ChangeScale(1.1f, 1);
+            farm.InitializeSpriteAndEffect();
         }
-        
-
         CloseHoeMenuvoid(farm);
         InitializeMoneyText();
     }
@@ -339,26 +417,24 @@ public class GameManager : MonoBehaviour
         farm.HoeImage.SetActive(false);
         pageopened = false;
     }
-    public void UIPageAnimVoid(GameObject Obj)
+    public void UIPageAnim(GameObject Obj)
     {
-        StartCoroutine(UIPageAnim(Obj, pageopened));
-    }
-    public IEnumerator UIPageAnim(GameObject Obj, bool pageopened)
-    {
+        if (pageopening || (pageopened && !Obj.activeSelf)) return;
+        pageopening = true;
         if (!pageopened && !Obj.activeSelf)
         {
-            this.pageopened = true;
+            PlaySound(10);
+            pageopened = true;
             Obj.SetActive(true);
-            PageParent.GetComponent<RectTransform>().DOMoveX(Screen.width / 2, pageAnimTime);
-            yield return new WaitForSecondsRealtime(pageAnimTime);
+            PageParent.GetComponent<RectTransform>().DOScale(Vector3.one, pageAnimTime).OnComplete(() => pageopening = false);
         }
         else if (Obj.activeSelf)
         {
-            this.pageopened = false;
-            PageParent.GetComponent<RectTransform>().DOMoveX(-Obj.GetComponent<RectTransform>().rect.width / 2, pageAnimTime);
-            yield return new WaitForSecondsRealtime(pageAnimTime);
-            Obj.SetActive(false);
+            PlaySound(11);
             TurnOffColor();
+            pageopened = false;
+            Sequence seq = DOTween.Sequence();
+            seq.Append(PageParent.GetComponent<RectTransform>().DOScale(Vector3.zero, pageAnimTime)).OnComplete(() => { Obj.SetActive(false); pageopening = false; });
         }
 
     }
@@ -369,7 +445,6 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(ToggleWarning(4, "Kart kullanýrken gün geçemezsin.")); StartCoroutine(ShakeTheObj(bossManager.Camera, 0.2f, 0.05f, 0, false));
         }
-
         else if (pageopened) { StartCoroutine(ToggleWarning(4, "Gün Geçmeden önce sayfalarý kapat.")); StartCoroutine(ShakeTheObj(bossManager.Camera, 0.2f, 0.05f, 0, false)); }
         else
         {
@@ -382,24 +457,39 @@ public class GameManager : MonoBehaviour
             if (money <= 0 && isthecrop == 0 && deckPlacing.openedCards.Count == 0)
             {
                 Lose();
+                return;
             }
             #endregion
             Day++;
-            dayText.text = "Gün/Ay: " + Day + "/" + Month;
+            dayText.text = Day + "/" + Month;
             #region yeniayýnbaþlangýcýnýkontroletme
             if (reqDay < Day)
             {
                 Month++;
+                int heroCount = Mathf.Clamp(Month, 0, 3);
+                for (int i = 0; i < heroCount; i++)
+                {
+                    heroPlaces[i].raycastTarget = true;
+                    heroPlaces[i].color = Color.white;
+                }
+                EventImage.color = Color.white;
+                EventImage.sprite = EventSprites[Month];
+                EventImage.raycastTarget = true;
                 Day = 1;
-                dayText.text = "Time: " + Day + "/" + Month;
+                dayText.text = Day + "/" + Month;
                 if (reqMonth < Month)
                 {
                     if (Boss != 0)
                     {
-                        if (money >= reqMoneyToWin) { Win(); }
+                        if (money >= reqMoneyToWin)
+                        {
+                            Win();
+                            return;
+                        }
                         else
                         {
                             Lose();
+                            return;
                         }
                     }
                     bossManager.BossStart();
@@ -415,6 +505,7 @@ public class GameManager : MonoBehaviour
                     foreach (FarmInfo farmland in farmsScr.FarmList)
                     {
                         farmland.curDay++;
+                        farmland.InitializeSpriteAndEffect();
                     }
                 }
             }
@@ -423,6 +514,7 @@ public class GameManager : MonoBehaviour
                 foreach (FarmInfo farmland in farmsScr.FarmList)
                 {
                     farmland.curDay++;
+                    farmland.InitializeSpriteAndEffect();
                 }
             }
             #endregion
@@ -433,7 +525,7 @@ public class GameManager : MonoBehaviour
                 farmerCount[2]--;
                 if (farmerCount[2] <= 0)
                 {
-                    farmerCount[2] = 4;
+                    farmerCount[2] = 5;
                     for (int i = 0; i < 1000; i++)
                     {
                         int randomIndex = Random.Range(0, isExplored.Length);
@@ -451,7 +543,7 @@ public class GameManager : MonoBehaviour
                 if (farmerCount[3] <= 0)
                 {
                     farmerCount[3] = 3;
-                    for (int i=0;i<1000;i++)
+                    for (int i = 0; i < 1000; i++)
                     {
                         int randomIndex = Random.Range(0, farmsScr.FarmList.Length);
                         if (farmsScr.frams[randomIndex].Id == 8)
@@ -462,10 +554,11 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
+
             if (Boss == 1)
             {
                 bossManager.AddBossCard();
-                bossManager.BossPutVein();
+                bossManager.BossPutNegative();
                 bossManager.BossEffectCount = 1;
             }
 
@@ -475,22 +568,16 @@ public class GameManager : MonoBehaviour
                 float probality = 15;
                 if (debuffs[1])
                 {
-                    probality += 10;
+                    probality += 100;
                 }
                 for (int l = 0; l < farm.connectedFarmIds.Length; l++)
                 {
                     if (farm.connectedFarmIds[l] == 8) { probality += 2.5f; }
                 }
-                if (farm.Id == 1 && Random.Range(0f, 100) <= probality) { farm.Id = 8; }
+                if (farm.Id == 1 && Random.Range(0f, 100) <= probality) { farm.Id = 8; farm.InitializeSpriteAndEffect(); }
             }
-
-
             StartCoroutine(deckPlacing.DayPassedTakeCard());
             ShopManagement.DayPassedAddCard();
-
-
-
-
         }
 
 
@@ -498,6 +585,7 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         saveAndLoad.SaveExploration();
+        PlayerPrefs.SetInt("Level", 1);
         WinPanel.SetActive(true);
         pageopened = true;
         WinPanel.transform.DOScale(new Vector3(1, 1, 1) * 1, pageAnimTime);
@@ -516,16 +604,17 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < ExploreText.Length; i++)
         {
             ExploreNotification.SetActive(false);
+            ExploreNotificationTxt.text = "0";
             isTextColorful[i] = false;
-            ExploreTexts[i].color = Color.white;
+            ExploreTexts[i].color = Color.black;
         }
 
     }
 
     public void StartDebuff(int DebuffType)
     {
-        UIPageAnimVoid(debuffPage);
-        Source.PlayOneShot(audioClips[5]);
+        UIPageAnim(debuffPage);
+        PlaySound(3);
         debuffChilds[0].GetComponent<TextMeshProUGUI>().text = DebuffTitle[DebuffType];
         debuffChilds[1].GetComponent<Image>().sprite = DebuffIcon[DebuffType];
         debuffChilds[2].GetComponent<TextMeshProUGUI>().text = DebuffDesc[DebuffType];
@@ -534,6 +623,7 @@ public class GameManager : MonoBehaviour
             debuffs[i] = false;
         }
         debuffs[DebuffType] = true;
+        logger.StartDialouge(DebuffType + 8);
     }
 
     public void QuestionStart(ItemScr cardData)
@@ -541,7 +631,7 @@ public class GameManager : MonoBehaviour
 
         QuestionScr ChosenQuestion = Questions[Random.Range(0, Questions.Length)];
         StartCoroutine(ColorScr.ChangeColor(Color.black, 1));
-        UIPageAnimVoid(questionPage);
+        UIPageAnim(questionPage);
         questionTime = ChosenQuestion.timeOfQuestion;
         questionChilds[0].GetComponent<TextMeshProUGUI>().text = ChosenQuestion.questionTitle;
         questionChilds[1].GetComponent<Image>().sprite = ChosenQuestion.QuestionIcon;
@@ -566,7 +656,7 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(ColorScr.ChangeColor(Color.white, 1));
                 break;
             case 1:
-                StartCoroutine(ColorScr.ChangeColor(deckPlacing.BossSoytariColor, 1));
+                StartCoroutine(ColorScr.ChangeColor(bossManager.BossSoytariColor, 1));
                 break;
         }
 
@@ -574,21 +664,23 @@ public class GameManager : MonoBehaviour
         if (question.Solution == questionTextArea.text)
         {
             float rewardmoney = reward * question.moneyMultiple;
-            logger.Addlog("Cevabýn doðru \n kazandýðýn para: " + rewardmoney);
-            Source.PlayOneShot(audioClips[2]);
+            //logger.Addlog("Cevabýn doðru \n kazandýðýn para: " + rewardmoney);
+            PlaySound(2);
             money += rewardmoney;
             InitializeMoneyText();
         }
-        else { logger.Addlog("Cevabýn yanlýþ \n doðru cevap: " + question.Solution); }
-
-        UIPageAnimVoid(questionPage);
+        else
+        {
+            //logger.Addlog("Cevabýn yanlýþ \n doðru cevap: " + question.Solution);
+        }
+        UIPageAnim(questionPage);
         questionTextArea.text = "";
         activeCardState = ActiveCardState.NONE;
     }
 
     public IEnumerator MoneyAnimPlay(GameObject MoneyObj, float money, GameObject farmObj, float animTime)
     {
-        Source.PlayOneShot(audioClips[2]);
+        PlaySound(2);
         MoneyObj.SetActive(true);
         MoneyObj.transform.position = farmObj.transform.position;
         MoneyObj.transform.parent = null;
@@ -617,7 +709,7 @@ public class GameManager : MonoBehaviour
         if (IsInCanvas)
         {
             RectTransform transformm = Obj.GetComponent<RectTransform>();
-            Vector3 originalPosition = transformm.position;
+            Vector3 originalPosition = transformm.anchoredPosition;
             float elapsed = 0.0f;
 
             while (elapsed < duration)
@@ -625,13 +717,13 @@ public class GameManager : MonoBehaviour
                 float offsetX = Random.Range(-1f, 1f) * magnitudeX;
                 float offsetY = Random.Range(-1f, 1f) * magnitudeY;
 
-                transformm.position = new Vector3(originalPosition.x + offsetX, originalPosition.y + offsetY, originalPosition.z);
+                transformm.anchoredPosition = new Vector3(originalPosition.x + offsetX, originalPosition.y + offsetY, originalPosition.z);
 
                 elapsed += Time.deltaTime;
 
                 yield return null;
             }
-            transformm.position = originalPosition;
+            transformm.anchoredPosition = originalPosition;
         }
         else
         {
@@ -676,6 +768,21 @@ public class GameManager : MonoBehaviour
         ExploreTexts[id].text = ExploreText[id];
         isTextColorful[id] = iscolorful;
         ExploreNotification.SetActive(iscolorful);
+    }
+
+    public void SoundSet()
+    {
+        Listener.enabled = !Listener.enabled;
+        Source.enabled = !Source.enabled;
+        soundButtonImage.sprite = soundSprite[Listener.enabled ? 0 : 1];
+    }
+    public void PlaySound(int id)
+    {
+        Source.PlayOneShot(audioClips[id]);
+    }
+    public void OpenWeb(string url)
+    {
+        Application.OpenURL(url);
     }
 
 }

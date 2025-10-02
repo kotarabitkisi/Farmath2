@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5944012441474439902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4666068323314797639}
+  - component: {fileID: 3808569493836823913}
+  m_Layer: 0
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4666068323314797639
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5944012441474439902}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.04938489}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 979099073167504005}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -4.3457146}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &3808569493836823913
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5944012441474439902}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 40
+  m_TargetDisplay: 0
+--- !u!1 &8044387433462123960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 979099073167504005}
+  - component: {fileID: 2052021469111315741}
+  m_Layer: 0
+  m_Name: OpenedCardParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &979099073167504005
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8044387433462123960}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4666068323314797639}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2052021469111315741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8044387433462123960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35d606fbf18d064393ee026bec7b6ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpenedCardCanvas: {fileID: 5944012441474439902}
+  audioClips:
+  - {fileID: 8300000, guid: c886728e5050d984388238ecac774137, type: 3}
+  - {fileID: 8300000, guid: de2624803258e814380a491888945916, type: 3}
+  - {fileID: 8300000, guid: d9c2b96c2f2d84b4e9108e7beef26be0, type: 3}
+  - {fileID: 8300000, guid: 32ba69766cd0692488296c5c5f6c5e03, type: 3}
+  - {fileID: 8300000, guid: 7bc36e6a2ac281b4c84bc7fce784244f, type: 3}
+  - {fileID: 8300000, guid: 091c4f7c0337a5145b7ee3f46eabeb79, type: 3}
+  - {fileID: 8300000, guid: 2860e9890b68f7f48aba148226d528a2, type: 3}
+  - {fileID: 8300000, guid: 411c3927b32a25d40bb3e90384ce9ebf, type: 3}
+  - {fileID: 8300000, guid: 269cd0a13d37930428724be9e8656fa6, type: 3}
+  Source: {fileID: 0}
+  GManager: {fileID: 0}
+  BossManager: {fileID: 0}
+  ColorScr: {fileID: 0}
+  cardCountTxt: {fileID: 0}
+  discardedCardPrefab: {fileID: 0}
+  cardPrefab: {fileID: 5570604462740780097, guid: 3f2de43d00aafd74d8488d9471f5b8a0, type: 3}
+  cropCardUsing: {fileID: 0}
+  itemCardUsing: {fileID: 0}
+  openedCards: []
+  chosenMovingCard: {fileID: 0}
+  allCardScr:
+  - {fileID: 11400000, guid: b6d8e4d75d68bc241b9e2fbf8d107212, type: 2}
+  - {fileID: 11400000, guid: 962c5aa9681442643b7c4ed6fdea1274, type: 2}
+  - {fileID: 11400000, guid: 03717c8ec990c284aa23a7cc21bc7198, type: 2}
+  - {fileID: 11400000, guid: 2dd83a9164d2c6e428ee416eb98d14fb, type: 2}
+  - {fileID: 11400000, guid: 10a554834532bea4ea6bf7f49d1a759a, type: 2}
+  - {fileID: 11400000, guid: 34206a99f463545449824326945cd094, type: 2}
+  - {fileID: 11400000, guid: d950a878793bdb548b7180131154d72f, type: 2}
+  - {fileID: 11400000, guid: 3cf91d8ce77d3294a8e258cef159ddfb, type: 2}
+  - {fileID: 11400000, guid: ee19874e238d7324ab7e715d08e509f8, type: 2}
+  - {fileID: 11400000, guid: 81ed7dd2ea0677c4a87d6ebc2f6f8005, type: 2}
+  - {fileID: 11400000, guid: d11085088dfbfd44483df6608e26a762, type: 2}
+  - {fileID: 11400000, guid: d4c6397aad08b6844adba992fa6a5730, type: 2}
+  takeRandomized: 0
+  cardCollected: 0
+  Ypos2: 1
+  rotationValue: -15
+  chooseCardToDestroy: 0
+  maxOpenedCardCount: 7
+  discardedCards: []
+  DiscardColor1: {r: 0.9169811, g: 0.4965539, b: 0.4965539, a: 1}
+  DiscardColor2: {r: 0, g: 0, b: 0, a: 0}
+  backCardIcon:
+  - {fileID: 1152382498, guid: dfe6e5767aded344898e074867e2bc88, type: 3}
+  - {fileID: 1756322445, guid: 09f15f71fbafac44d8b7425eedba7ded, type: 3}
+  WaitForDiscard: 0

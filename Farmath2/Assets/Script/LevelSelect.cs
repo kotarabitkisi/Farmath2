@@ -12,6 +12,7 @@ public class LevelSelect : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+            print(hit.collider);
             if (hit.collider != null)
             {
                 for (int i = 0; i < levelSelects.Length; i++)

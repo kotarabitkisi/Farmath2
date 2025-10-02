@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
-    public GameManager GameManag;
+    public GameManager gameManager;
     public DeckPlacing DP;
     public List<CardScr> cardsOnShop = new List<CardScr>();
     public List<float> cardCosts;
@@ -17,51 +17,57 @@ public class ShopManager : MonoBehaviour
     public bool[] Shaking;
     public void BuyCard(int ShopIndex)
     {
-        if (cardsOnShop[ShopIndex] == DP.allCardScr[11])
+
+
+        if (gameManager.money >= cardCosts[ShopIndex])
         {
-            Qreward.Add(cardCosts[ShopIndex]);
-        }
-        if (GameManag.money >= cardCosts[ShopIndex])
-        {
-            GameManag.money -= cardCosts[ShopIndex];
-            GameManag.InitializeMoneyText();
+            if (cardsOnShop[ShopIndex] == DP.allCardScr[11])
+            {
+                Qreward.Add(cardCosts[ShopIndex]);
+            }
+            gameManager.money -= cardCosts[ShopIndex];
+            gameManager.InitializeMoneyText();
             DP.AddCardToDiscard(cardsOnShop[ShopIndex]);
             DeleteCard(ShopIndex);
+            if (!gameManager.tutorialPlayed && !gameManager.logger.tutorials[1] && gameManager.logger.textingFinished)
+            {
+                gameManager.logger.StartDialouge(1);
+            }
         }
         else
         {
-            StartCoroutine(GameManag.ShakeTheObj(ShopCardObj[ShopIndex], 0.25f, 10f, 10f,true));
-            
-
+            StartCoroutine(gameManager.ShakeTheObj(ShopCardObj[ShopIndex], 0.25f, 10f, 10f, true));
         }
     }
     public void AddCardToShop(int ShopIndex, int CardID)
     {
-        bool AllHolyHoed=true;
-        for (int i = 0; i < 24; i++)
+
+        bool AllHolyHoed = true;
+        for (int i = 0; i < 12; i++)
         {
-            if (!GameManag.farmsScr.frams[i].HolyHoed) { AllHolyHoed = false; break; }
+            if (!gameManager.farmsScr.frams[i].HolyHoed) { AllHolyHoed = false; break; }
         }
-        if(AllHolyHoed) {
+        if (AllHolyHoed)
+        {
             while (CardID == 8)
             {
-                CardID = Random.Range(0, DP.allCardScr.Length);
+                CardID = Random.Range(6, DP.allCardScr.Length);
             }
         }
-        
+
         allIcons[ShopIndex].GetComponent<Button>().interactable = true;
         CardScr chosenCard = DP.allCardScr[CardID];
         allIcons[ShopIndex].sprite = chosenCard.Icon;
         #region para belirleme
         float CardCost;
         CardCost = chosenCard.CardCost;
-        if (CardID == 11)
+        if (CardID == 11)//soru kartýysa
         {
-            CardCost = GameManag.money * 0.05f;
-            if (CardCost <= 100) { CardCost = 100; }
+            CardCost = gameManager.money * 0.1f;
+            if (CardCost <= 500) { CardCost = 500; }
         }
-        if (GameManag.debuffs[0]) { CardCost *= (1 + GameManag.Day * 0.05f); }
-        if (GameManag.farmers[1].GetComponent<FarmerInfo>().choosed) { CardCost *= 0.9f; }
+        if (gameManager.debuffs[0]) { CardCost *= (1 + gameManager.Day * 0.05f); }
+        if (gameManager.farmers[1].GetComponent<FarmerInfo>().choosed) { CardCost *= 0.9f; }
         #endregion
         allShopNameTxt[ShopIndex].text = chosenCard.CardName;
         allShopCostTxt[ShopIndex].text = CardCost.ToString("0") + "$";
@@ -81,7 +87,14 @@ public class ShopManager : MonoBehaviour
         cardCosts.Clear();
         for (int i = 0; i < 6; i++)
         {
-            AddCardToShop(i, Random.Range(0, GameManag.deckPlacing.allCardScr.Length));
+            if (i == 5)
+            {
+                AddCardToShop(i, Random.Range(6, gameManager.deckPlacing.allCardScr.Length));
+            }
+            else
+            {
+                AddCardToShop(i, Random.Range(0, 6));
+            }
         }
     }
 }

@@ -16,6 +16,7 @@ MonoBehaviour:
   Icon: {fileID: 440262100, guid: 9e51132051ab3b34a9c64cd1fb61589e, type: 3}
   CardCost: 500
   IsThatBossCard: 0
+  IsThatOneUse: 1
   id: 7
   cropName: Eggplant
   GManager: {fileID: 3030820063569021284, guid: e0cca7db3497d0046993540a7a1b3c12, type: 3}

@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: "B\xF6l\xFCnebilme Kurallar\u0131 - Orta"
   QuestionIcon: {fileID: 21300000, guid: 77d1205edd1e8e2428f9a884d457c023, type: 3}
   Solution: 209
-  moneyMultiple: 1.5
+  moneyMultiple: 1.35
   timeOfQuestion: 100

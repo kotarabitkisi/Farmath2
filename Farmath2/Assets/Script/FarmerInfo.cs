@@ -5,35 +5,48 @@ using UnityEngine.UI;
 
 public class FarmerInfo : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
-    public FarmerScr farmer;
     public TextMeshProUGUI farmerName;
     public TextMeshProUGUI farmerDescription;
     public Image farmerImage;
     public bool touched, choosed;
     public Vector3 firstPosition;
     public RectTransform transformOfImage;
+    public Canvas canvas;
     GameManager Gmanager;
     private void Start()
     {
-        Gmanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        Gmanager = GameManager.instance;
     }
     private void Update()
     {
         if (touched)
         {
-            GetComponent<RectTransform>().position = Input.mousePosition;
+            Vector2 pos;
+#if UNITY_ANDROID
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvas.transform as RectTransform,
+                Input.GetTouch(0).position,
+                canvas.worldCamera,
+                out pos);
+#elif UNITY_STANDALONE_WIN
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvas.transform as RectTransform,
+                Input.mousePosition,
+                canvas.worldCamera,
+                out pos);
+#endif
+            transformOfImage.localPosition = pos;
         }
         if (choosed)
         {
-            GetComponent<Image>().raycastTarget = false;
+            farmerImage.raycastTarget = false;
         }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        print(eventData.pointerEnter);
         firstPosition = transformOfImage.position;
-        GetComponent<Image>().raycastTarget = false;
+        farmerImage.raycastTarget = false;
         touched = true;
     }
 
@@ -44,13 +57,13 @@ public class FarmerInfo : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         if (eventData.pointerEnter != null && eventData.pointerEnter.CompareTag("HeroPlace"))
         {
             GameObject hittedHeroPlace = eventData.pointerEnter.gameObject;
-            HireHero(this.gameObject,hittedHeroPlace);
-            
+            HireHero(this.gameObject, hittedHeroPlace);
+
         }
         else { this.transform.position = firstPosition; GetComponent<Image>().raycastTarget = true; }
 
     }
-    public void HireHero(GameObject Hero,GameObject Par)
+    public void HireHero(GameObject Hero, GameObject Par)
     {
         Hero.transform.position = Par.transform.position; choosed = true; Par.GetComponent<Image>().raycastTarget = false;
     }

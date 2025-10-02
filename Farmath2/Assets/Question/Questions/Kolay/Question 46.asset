@@ -15,5 +15,5 @@ MonoBehaviour:
   questionTitle: Geometri - Kolay
   QuestionIcon: {fileID: 21300000, guid: 05a3769f08c05fa428f215257a4cfae6, type: 3}
   Solution: 24
-  moneyMultiple: 1.25
+  moneyMultiple: 1.2
   timeOfQuestion: 60

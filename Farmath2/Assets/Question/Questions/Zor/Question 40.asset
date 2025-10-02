@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questionTitle: Problemler - Zor
   QuestionIcon: {fileID: 21300000, guid: 575702098a851fa4abda1c7facd0648c, type: 3}
-  Solution: 494505
-  moneyMultiple: 2
+  Solution: 404595
+  moneyMultiple: 1.8
   timeOfQuestion: 240

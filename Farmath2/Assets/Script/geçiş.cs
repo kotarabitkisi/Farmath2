@@ -6,6 +6,7 @@ public class SceneTransition : MonoBehaviour
 {
     public GameObject LevelSelect;
     public GameObject MainMenu;
+    public GameObject tutorialPage;
     public void LoadSceneByName(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -15,7 +16,10 @@ public class SceneTransition : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex);
     }
-
+    public void TutorialPage(bool trueorfalse)
+    {
+        tutorialPage.SetActive(trueorfalse);
+    }
     public void LoadSceneWithDelay(string sceneName, float delay)
     {
         StartCoroutine(LoadSceneAfterDelay(sceneName, delay));
