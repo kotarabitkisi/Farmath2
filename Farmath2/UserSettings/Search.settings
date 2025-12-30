@@ -1,5 +1,6 @@
 trackSelection = true
 refreshSearchWindowsInPlayMode = false
+pickerAdvancedUI = false
 fetchPreview = true
 defaultFlags = 0
 keepOpen = false
@@ -8,6 +9,10 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
+	"picker_window_position_offset.075BCD15" = "-560;268,8;434,4;366,4"
+	"picker_visibility_flags.075BCD15" = "264"
+	"picker_item_size.075BCD15" = "32"
+	"picker_inspector.075BCD15" = "0"
 }
 providers = {
 	adb = {
@@ -55,16 +60,62 @@ providers = {
 		priority = 50
 		defaultAction = null
 	}
+	"unity.ai.pattern.search" = {
+		active = true
+		priority = 80
+		defaultAction = null
+	}
+	"unity.ai.file.search" = {
+		active = true
+		priority = 85
+		defaultAction = null
+	}
+	at = {
+		active = true
+		priority = 100
+		defaultAction = null
+	}
+	st = {
+		active = true
+		priority = 100
+		defaultAction = null
+	}
+	presets_provider = {
+		active = false
+		priority = -10
+		defaultAction = null
+	}
 }
 objectSelectors = {
 }
 recentSearches = [
+	"st: event"
+	"st: cropharvestcount"
+	"st: infoex"
+	"st: cropharvestc"
+	"st: croph"
+	"st: evetn"
+	"st: infoexploration"
+	"st: money"
+	"st: Infoexplo"
+	"st: InfoD"
+	"st: InfoDescrip"
+	"st: InfoDest"
+	"st: exploratio"
+	"st: explo"
+	"st:"
+	"st: trans"
+	"st: trabs"
+	"st: ev"
+	"st: translation"
 ]
 searchItemFavorites = [
 ]
 savedSearchesSortOrder = 0
 showSavedSearchPanel = false
 hideTabs = false
+indexOnEditorStartup = true
+logIndexingPerformanceReport = false
 expandedQueries = [
 ]
 queryBuilder = false
@@ -73,3 +124,4 @@ helperWidgetCurrentArea = "all"
 disabledIndexers = ""
 minIndexVariations = 2
 findProviderIndexHelper = true
+itemIconSize = 32

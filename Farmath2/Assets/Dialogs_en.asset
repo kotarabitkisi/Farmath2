@@ -1,0 +1,350 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Dialogs_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 77f6c687497d20746b336dfb3a351671, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 2960535027712
+    m_Localized: Eureka!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960535027713
+    m_Localized: What if I mix this with that and do it like this...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960535027714
+    m_Localized: Explosion sound... FINALLY!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960535027715
+    m_Localized: Hmm I wonder what happens if I do it like this? *BOOM*
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610624
+    m_Localized: This will be very useful in my experiments.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610625
+    m_Localized: Hmm I wonder if this would make a good fertilizer?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610626
+    m_Localized: Hey creature you must tell me how you pollute the soil.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610627
+    m_Localized: Hmm I wonder how it took this special shape?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610628
+    m_Localized: WHAT IS IT CREATING VINES? PLEASE TELL ME YOUR SECRETS!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610629
+    m_Localized: Hey what is with that light? I need to examine it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610630
+    m_Localized: Cousin do us a little favor.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610631
+    m_Localized: I think you will give this to me for half price.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610632
+    m_Localized: Sell this to me cheap and I will always come to you.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610633
+    m_Localized: No that is too much lower it lower it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610634
+    m_Localized: Oh I will sell this for a good price at the market.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610635
+    m_Localized: This one turned out solid too.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610636
+    m_Localized: Eh this one turned out bad.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610637
+    m_Localized: If I could just get my hands on him I would beat him.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610638
+    m_Localized: What is this doing in our garden man?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610639
+    m_Localized: Ugh who is going to deal with cleaning this?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610640
+    m_Localized: Wait let me carry that.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610641
+    m_Localized: Look we can plant it like this.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610642
+    m_Localized: Oh look we can plant it here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610643
+    m_Localized: This would make a nice stew.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610644
+    m_Localized: I will boil it when it grows.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610645
+    m_Localized: Oh this is very good.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610646
+    m_Localized: Eww the filthy guy is here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610647
+    m_Localized: Shoo shoo go away!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610648
+    m_Localized: Ugh it smells bad too.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610649
+    m_Localized: Now we will have to deal with cutting that too.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610650
+    m_Localized: Oh just go away already!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610651
+    m_Localized: Yuck what is this smell?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610652
+    m_Localized: Baaa (Happy)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610653
+    m_Localized: Baaa (Angry)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610654
+    m_Localized: Baaa (Irritated)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610655
+    m_Localized: Munch crunch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610656
+    m_Localized: Look this will be useful for us.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610657
+    m_Localized: Can I plant it?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610658
+    m_Localized: Man this will be so good to eat when it grows.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610659
+    m_Localized: Oh no not you again!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610660
+    m_Localized: DAAAAAAAD!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610661
+    m_Localized: If I ever catch you...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610662
+    m_Localized: Would you be happy if we ruined your garden?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610663
+    m_Localized: Scumbag!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610664
+    m_Localized: Aha I knew it!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610665
+    m_Localized: HAHAHA I am smarter than you Pigoblin!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610666
+    m_Localized: Hehe is this supposed to be hard?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610667
+    m_Localized: Aha I was looking for this!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610668
+    m_Localized: I wonder how long it will take to grow?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610669
+    m_Localized: MOMMMMY!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610670
+    m_Localized: Snotty is here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610671
+    m_Localized: You have no friends you are a loser.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610672
+    m_Localized: Ugh...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610673
+    m_Localized: I will bring the sheep so it can eat it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610674
+    m_Localized: Eh is this it?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610675
+    m_Localized: Even a baby could solve this.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610676
+    m_Localized: Hehehe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 661767904788480
+    m_Localized: Hello Gamer, welcome to Farmath.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 661932577357824
+    m_Localized: Our current goal is to earn 1M.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 663472574791680
+    m_Localized: Let's open the shop and buy a card.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 663633912889344
+    m_Localized: As you see in the shop, there are 5 crops and 1 tool.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 664269769375744
+    m_Localized: Each card has its own unique function; let's plant the crop that
+      we bought.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 664785484218368
+    m_Localized: Now let's skip the day and draw the deck.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 665824648200192
+    m_Localized: As you see, the deck has been opened.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 665909754822656
+    m_Localized: Now, hoe any soil.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 666129213390848
+    m_Localized: The number of cards you can reveal may vary depending on the conditions,
+      and you can reveal a maximum of 7.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 666295395909632
+    m_Localized: Great, now plant one of the crops.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 666695528316928
+    m_Localized: after that let's move on to the information page.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 667821099155456
+    m_Localized: This is the information page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 667930339803136
+    m_Localized: Here, the discovered information about crops is written, and they
+      all have mathematical properties.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668042826842112
+    m_Localized: The other page contains information about the tools to be used.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668343839457280
+    m_Localized: Now let's move on to the heroes' page.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668423900332032
+    m_Localized: This is the page for the heroes who will help us.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668579043442688
+    m_Localized: You can use this heroes permanently by placing here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668780286148608
+    m_Localized: A new hero slot opens each month.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668942203060224
+    m_Localized: That's all I have to explain.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 669026261106688
+    m_Localized: good luck.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27312840212480
+    m_Localized: festival time.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27511750885376
+    m_Localized: We need to destroy some of the cards.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27605258698752
+    m_Localized: Watch out kids, prices are rising.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27768710725632
+    m_Localized: Ugh, it's starting to smell here.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

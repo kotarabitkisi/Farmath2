@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 using static GameManager;
 
 public class DeckPlacing : MonoBehaviour
 {
-
+    public TrailRenderer trilRenderer;
     public static DeckPlacing Instance;
     public GameObject OpenedCardCanvas;
     [Header("Audio")]
@@ -135,7 +136,7 @@ public class DeckPlacing : MonoBehaviour
                         chosenMovingCard = collider.gameObject;
                         chosenMovingCard.transform.DOLocalMoveY(yPos + Ypos2, 0.25f);
                         chosenMovingCard.transform.DOScale(cardPrefab.transform.lossyScale * 1.5f, 0.25f);
-                        chosenMovingCard.GetComponent<CardData>().SortLayers(50);
+                        chosenMovingCard.GetComponent<CardData>().SortLayers(20);
                         chosenMovingCard.GetComponent<BoxCollider2D>().offset = new Vector2(0, -0.165f);
                         chosenMovingCard.GetComponent<BoxCollider2D>().size = new Vector2(1, 1.35f);
                     }
@@ -304,7 +305,7 @@ public class DeckPlacing : MonoBehaviour
 #endif
 
         discardedCardPrefab.SetActive(discardedCards.Count > 0);
-        cardCountTxt.text = "Kart: " + discardedCards.Count.ToString();
+        cardCountTxt.text = LanguageManager.instance.TurnToString(new LocalizedString("Translation-1", "DiscardedCardCount"), new object[1] { discardedCards.Count });
     }
     public IEnumerator DeleteAllOfOpenedCards()
     {
@@ -332,7 +333,10 @@ public class DeckPlacing : MonoBehaviour
     }
     public IEnumerator DayPassedTakeCard()
     {
-
+        if (Random.Range(0f, 1f) <= 0.15f)
+        {
+            Logger.instance.StartDialougeCondition(7);
+        }
         yield return StartCoroutine(DeleteAllOfOpenedCards());
         if (GManager.debuffs[2])
         {
@@ -359,13 +363,13 @@ public class DeckPlacing : MonoBehaviour
     }
     public void TakeCardFromDiscard()
     {
-        if (GManager.logger.textingFinished && !GManager.logger.tutorials[2] && GManager.logger.CalculatePlayedDialogTutorial() >= 2)
+        if (!GManager.logger.tutorials[2] && GManager.logger.CalculatePlayedDialogTutorial() >= 2)
         {
             GManager.logger.StartDialouge(2);
         }
         if (openedCards.Count >= maxOpenedCardCount)
         {
-            StartCoroutine(GManager.ToggleWarning(4, "Açýk Kart Sayýsý en fazla " + maxOpenedCardCount + " olabilir."));
+            StartCoroutine(GManager.ToggleWarning(4, new LocalizedString("MaxOpenCardCountWarning", "Translation-1"), new object[1] { maxOpenedCardCount }));
             StartCoroutine(GManager.ShakeTheObj(Camera.main.gameObject, 0.2f, 0.05f, 0, false));
         }
         if (discardedCards.Count != 0 && openedCards.Count < maxOpenedCardCount)
@@ -467,6 +471,10 @@ public class DeckPlacing : MonoBehaviour
     {
         if (trueorfalse)
         {
+            if(Random.Range(0f, 1f) >= 0.15f)
+            {
+                Logger.instance.StartDialougeCondition(5);
+            }
             CardScr cardData = ChosenObject.GetComponent<CardData>().Card;
             if (cardData.IsThatBossCard) { BossManager.BossCardUsed(); ChosenObject.GetComponent<CardData>().FadeCard(true); InitializeAllCardsPositions(); }
             else
@@ -504,6 +512,7 @@ public class DeckPlacing : MonoBehaviour
                                         TakeCardFromDiscard();
                                     }
                                     GManager.ShopManagement.DayPassedAddCard();
+                                    GManager.farmsScr.GrowAllFarms();
                                     GManager.PlaySound(8);
                                     GManager.activeCardState = ActiveCardState.NONE;
                                     itemCardUsing.GetComponent<CardData>().FadeCard(false);
@@ -534,7 +543,10 @@ public class DeckPlacing : MonoBehaviour
                 cropCardUsing = null;
                 for (int i = 0; i < GManager.farmsScr.frams.Length; i++)
                 {
-                    GManager.farmsScr.frams[i].farmImage.color = Color.white;
+                    for (int j = 0; j < 2; j++)
+                    {
+                        GManager.farmsScr.frams[i].farmImage[j].color = Color.white;
+                    }
                 }
             }
             ChosenObject.transform.parent = transform;
@@ -581,7 +593,10 @@ public class DeckPlacing : MonoBehaviour
                 GManager.SeedCrop(CropCard.id, farm);
                 for (int i = 0; i < GManager.farmsScr.frams.Length; i++)
                 {
-                    GManager.farmsScr.frams[i].farmImage.color = Color.white;
+                    for (int j = 0; j < 2; j++)
+                    {
+                        GManager.farmsScr.frams[i].farmImage[j].color = Color.white;
+                    }
                 }
                 GManager.activeCardState = ActiveCardState.NONE;
             }
@@ -659,13 +674,22 @@ public class DeckPlacing : MonoBehaviour
     {
         float cardAnimTime = 0.5f;
         Sequence seq = DOTween.Sequence();
+        trilRenderer.enabled = true;
+        trilRenderer.gameObject.transform.SetParent(chosenCardUsing.transform, false);
+        trilRenderer.transform.localPosition = Vector3.zero;
         chosenCardUsing.transform.DORotate(new Vector3(0, 0, 720), 0.2f, RotateMode.FastBeyond360);
         chosenCardUsing.transform.DOMoveX(farm.transform.position.x, cardAnimTime).SetEase(Ease.Linear);
         seq.Append(chosenCardUsing.transform.DOMoveY(farm.transform.position.y + 1f, cardAnimTime / 2));
         seq.Append(chosenCardUsing.transform.DOMoveY(farm.transform.position.y, cardAnimTime / 2));
-        chosenCardUsing.transform.DOScale(Vector3.zero, cardAnimTime).OnComplete(() => DestroyThisCard(chosenCardUsing));
-
+        chosenCardUsing.transform.DOScale(Vector3.zero, cardAnimTime).SetEase(Ease.InOutQuad).OnComplete(() => { StartCoroutine(DisableTrail()); DestroyThisCard(chosenCardUsing); });
     }
+    public IEnumerator DisableTrail()
+    {
+        trilRenderer.transform.SetParent(null, true);
 
+        yield return new WaitForSecondsRealtime(0.3f);
+
+        trilRenderer.enabled = false;
+    }
 
 }

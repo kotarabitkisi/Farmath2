@@ -17,8 +17,6 @@ public class ShopManager : MonoBehaviour
     public bool[] Shaking;
     public void BuyCard(int ShopIndex)
     {
-
-
         if (gameManager.money >= cardCosts[ShopIndex])
         {
             if (cardsOnShop[ShopIndex] == DP.allCardScr[11])
@@ -33,6 +31,10 @@ public class ShopManager : MonoBehaviour
             {
                 gameManager.logger.StartDialouge(1);
             }
+            else if (gameManager.tutorialPlayed && ShopIndex != 5 && Random.Range(0f, 1f) <= 0.1f)
+            {
+                Logger.instance.StartDialougeCondition(0);
+            }
         }
         else
         {
@@ -41,7 +43,6 @@ public class ShopManager : MonoBehaviour
     }
     public void AddCardToShop(int ShopIndex, int CardID)
     {
-
         bool AllHolyHoed = true;
         for (int i = 0; i < 12; i++)
         {
@@ -54,7 +55,6 @@ public class ShopManager : MonoBehaviour
                 CardID = Random.Range(6, DP.allCardScr.Length);
             }
         }
-
         allIcons[ShopIndex].GetComponent<Button>().interactable = true;
         CardScr chosenCard = DP.allCardScr[CardID];
         allIcons[ShopIndex].sprite = chosenCard.Icon;
@@ -69,10 +69,15 @@ public class ShopManager : MonoBehaviour
         if (gameManager.debuffs[0]) { CardCost *= (1 + gameManager.Day * 0.05f); }
         if (gameManager.farmers[1].GetComponent<FarmerInfo>().choosed) { CardCost *= 0.9f; }
         #endregion
-        allShopNameTxt[ShopIndex].text = chosenCard.CardName;
+        allShopNameTxt[ShopIndex].text = LanguageManager.instance.TurnToString(chosenCard.CardName, null);
         allShopCostTxt[ShopIndex].text = CardCost.ToString("0") + "$";
         cardsOnShop.Add(chosenCard);
         cardCosts.Add(CardCost);
+        if (Random.Range(0f, 1f) <= 0.15f)
+        {
+            Logger.instance.StartDialougeCondition(4);
+        }
+
     }
     public void DeleteCard(int ShopIndex)
     {

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Question 37
   m_EditorClassIdentifier: 
   questionTitle: "Oran Orant\u0131 - Orta"
-  QuestionIcon: {fileID: 21300000, guid: 8119878e1d89a614d819d2c2bd333d54, type: 3}
+  QuestionIcons:
+  - {fileID: 0}
+  - {fileID: 0}
   Solution: 720
   moneyMultiple: 1.35
   timeOfQuestion: 120

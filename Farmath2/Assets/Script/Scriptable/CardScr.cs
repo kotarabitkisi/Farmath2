@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.Localization;
 [CreateAssetMenu(fileName = "DefCard", menuName = "Cards/DefCard")]
 public class CardScr : ScriptableObject
 {
-    public string CardName;
+    public LocalizedString CardName;
     public Sprite Icon;
     public float CardCost;
     public bool IsThatBossCard;

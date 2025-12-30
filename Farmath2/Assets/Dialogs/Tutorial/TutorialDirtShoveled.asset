@@ -14,14 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogScr
   dialogs:
   - characterId: 0
-    text: "Kartlardan birini kullanarak topra\u011Fa ekininizi ekin"
     dialogDelay: 0.05
     timeToNextDialouge: 3
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 666295395909632
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - characterId: 0
-    text: "G\xFCn ge\xE7tik\xE7e ekininiz b\xFCy\xFCyecektir"
-    dialogDelay: 0.05
-    timeToNextDialouge: 1
-  - characterId: 0
-    text: "\u015Eimdi Bilgiler sayfas\u0131n\u0131 a\xE7al\u0131m."
     dialogDelay: 0.05
     timeToNextDialouge: 0
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 666695528316928
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  DisableLoggerWhenDialogfinished: 0
+  references:
+    version: 2
+    RefIds: []

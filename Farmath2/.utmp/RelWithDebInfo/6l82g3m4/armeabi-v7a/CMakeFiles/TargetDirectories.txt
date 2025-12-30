@@ -1,0 +1,5 @@
+C:/Users/ASUS/Documents/GitHub/Farmath2/Farmath2/.utmp/RelWithDebInfo/6l82g3m4/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/ASUS/Documents/GitHub/Farmath2/Farmath2/.utmp/RelWithDebInfo/6l82g3m4/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+C:/Users/ASUS/Documents/GitHub/Farmath2/Farmath2/.utmp/RelWithDebInfo/6l82g3m4/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+C:/Users/ASUS/Documents/GitHub/Farmath2/Farmath2/.utmp/RelWithDebInfo/6l82g3m4/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+C:/Users/ASUS/Documents/GitHub/Farmath2/Farmath2/.utmp/RelWithDebInfo/6l82g3m4/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

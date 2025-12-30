@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Question 12
   m_EditorClassIdentifier: 
   questionTitle: "Mant\u0131k - Kolay"
-  QuestionIcon: {fileID: 21300000, guid: 1d0219ce59679d8428f5552cf13f8bd3, type: 3}
+  QuestionIcons:
+  - {fileID: 0}
+  - {fileID: 0}
   Solution: 0
   moneyMultiple: 1.2
   timeOfQuestion: 45

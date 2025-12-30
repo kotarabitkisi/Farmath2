@@ -84,8 +84,19 @@ public class LevelSettings : MonoBehaviour
     public void InitializeVolume()
     {
         Camera camera = Camera.main;
-        camera.UpdateVolumeStack();
-        VolumeManager.instance.Update(camera.transform, camera.GetComponent<UniversalAdditionalCameraData>().volumeLayerMask);
+        if (camera == null)
+        {
+            Debug.LogWarning("Main camera bulunamadý.");
+            return;
+        }
+
+        var camData = camera.GetComponent<UniversalAdditionalCameraData>();
+        if (camData == null)
+        {
+            Debug.LogWarning("UniversalAdditionalCameraData bulunamadý.");
+            return;
+        }
+        VolumeManager.instance.Update(camera.transform, camData.volumeLayerMask);
     }
     public void ChangeSoundLevel()
     {

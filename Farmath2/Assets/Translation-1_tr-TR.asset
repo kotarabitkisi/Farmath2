@@ -1,0 +1,311 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Translation-1_tr-TR
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: tr-TR
+  m_SharedData: {fileID: 11400000, guid: c4d7dbcda9a15f0448e0433fd383de62, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 2582250844481126756
+  m_TableData:
+  - m_Id: 3801744637952
+    m_Localized: "Kart kullan\u0131rken g\xFCn ge\xE7emezsin."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3888411541504
+    m_Localized: "G\xFCn Ge\xE7meden \xF6nce sayfalar\u0131 kapat.\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49235066880
+    m_Localized: "Bu\u011Fday: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2818293596160
+    m_Localized: 'Domates: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3470235238400
+    m_Localized: "Patl\u0131can: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2813373677568
+    m_Localized: "M\u0131s\u0131r: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2802518818816
+    m_Localized: "Havu\xE7: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2816108363776
+    m_Localized: 'Lahana: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8194304999424
+    m_Localized: "A\xE7\u0131k Kart Say\u0131s\u0131 en fazla {0} olabilir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 319902990958592
+    m_Localized: Ayarlar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 323797704212480
+    m_Localized: "\xC7al\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 323871700123648
+    m_Localized: "G\xF6lge"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 323932010020864
+    m_Localized: "I\u015F\u0131k"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 324369081663488
+    m_Localized: Polen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 324418666725376
+    m_Localized: Ses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 325240813223936
+    m_Localized: Dil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335338746904576
+    m_Localized: "Ayarlar\u0131 S\u0131f\u0131rla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 341107299024896
+    m_Localized: 'Toplam: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 648945913266176
+    m_Localized: "Bu\u011Fday"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 648982676340736
+    m_Localized: "Havu\xE7"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 648996446240768
+    m_Localized: "M\u0131s\u0131r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649022887133184
+    m_Localized: Lahana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649041463705600
+    m_Localized: Domates
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649077287256064
+    m_Localized: "Patl\u0131can"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649378580889600
+    m_Localized: "G\xFCbre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649530267893760
+    m_Localized: "F\u0131skiye"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649531773648896
+    m_Localized: "Kutsal \xC7apa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649532864167936
+    m_Localized: Makas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649533669474304
+    m_Localized: Bu Saat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649844282851328
+    m_Localized: Sadece Bir Soru
+    m_Metadata:
+      m_Items: []
+  - m_Id: 654619711864832
+    m_Localized: Ekin Bilgileri
+    m_Metadata:
+      m_Items: []
+  - m_Id: 654781091905536
+    m_Localized: "\u0130tem Bilgileri"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 658246899826688
+    m_Localized: "-{0} kom\u015Fu {1} var ise: {2} {3}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 660729973932032
+    m_Localized: "-olgunla\u015Ft\u0131ktan sonra {0} g\xFCn ge\xE7erse: {1} {2}\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 661695699845120
+    m_Localized: "-e\u011Fer {0} aras\u0131 paran varsa: {1} {2}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 661890915336192
+    m_Localized: "-ana g\xFCn\xFCn {0} aras\u0131 ise: {1} {2}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662463928565760
+    m_Localized: "-ayn\u0131 t\xFCr {0} kere hasat edildiyse: {1} {2}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662872944508928
+    m_Localized: "-toplam 100-150 aras\u0131 hasat yap\u0131ld\u0131ysa: ana gelir
+      + 500"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679774714560512
+    m_Localized: Ana Gelir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679889080647680
+    m_Localized: "Gelir \xC7arpan\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 997700659281920
+    m_Localized: 'Fiyat: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 2582250844481126756
+  - m_Id: 997817537757184
+    m_Localized: 'Ana gelir: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 2582250844481126756
+  - m_Id: 1009533470343168
+    m_Localized: "Kullan\u0131lan ekinin hasat edilebilecek kadar b\xFCy\xFCmesini
+      sa\u011Flar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010090029318144
+    m_Localized: "Rastgele 3 tane ekini sular(sulanm\u0131\u015Flar\u0131 da sular)."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010147847798784
+    m_Localized: "Se\xE7ilen topra\u011F\u0131 verimli hale getirir ve gelirini iki
+      kat\u0131na \xE7\u0131kar\u0131r."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010501410848768
+    m_Localized: "Bir sarma\u015F\u0131\u011F\u0131 ya da ekini keser."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010609393205248
+    m_Localized: "D\xFCkkan\u0131 yeniler ve kart \xE7eker."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010739114639360
+    m_Localized: "Rastgele bir soru sorar, do\u011Fru bilinirse sat\u0131n al\u0131nan
+      paran\u0131n kat\u0131yla para verir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1017481697394688
+    m_Localized: Kahramanlar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1017515457347584
+    m_Localized: "1 fazla kart \xE7ekebilir.\nIskartada bir kart\u0131n yok edilmesini
+      Bedava hale getirir.\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1018602725801984
+    m_Localized: "%15 indirim sa\u011Flar.\nHer 2 g\xFCnde 1 kart verir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1018728190017536
+    m_Localized: "Her 5 g\xFCnde iki ke\u015Fifi if\u015Fa eder.\nE\u011Fer b\xFCt\xFCn
+      ke\u015Fifler ke\u015Ffedilirse her g\xFCn 1 tane bu saat verir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1019074337538048
+    m_Localized: "Her g\xFCn bir zararl\u0131 ot yer.\n%20 ihtimalle kutsl hale gelir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047493725093888
+    m_Localized: "Her g\xFCn \xFCr\xFCn fiyatlar\u0131 %5 zamlan\u0131r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048274280873984
+    m_Localized: "Yabani otlar kesin olarak \xE7\u0131kar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048542548557824
+    m_Localized: "Discard'dan 3 fazla kart alabilirsin ama se\xE7ti\u011Fin ilk 2
+      kart\u0131 yok etmek zorundas\u0131n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049788734996480
+    m_Localized: Enflasyon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049880179212288
+    m_Localized: "\u0130stila"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049983182929920
+    m_Localized: Festival
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1063456113655808
+    m_Localized: "Soytar\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1063582961991680
+    m_Localized: "-her g\xFCn topraklar\u0131n yar\u0131s\u0131na negatif efekt verir
+      bu efekt gelirin nefatif hale gelmesini sa\u011Flar.\n-her g\xFCn hasat etti\u011Fin
+      ilk 3 \xFCr\xFCn zararl\u0131 ota d\xF6n\xFC\u015F\xFCr.\n-her g\xFCn kapal\u0131
+      desteye 1 sahte kart ekler."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3955461110071296
+    m_Localized: "D\xFCkkan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3960346920583168
+    m_Localized: 'Kart: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10924700916219904
+    m_Localized: "Ba\u015Fla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10924786052202496
+    m_Localized: Jenerik
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10925086410506240
+    m_Localized: Bilgiler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10925186054586368
+    m_Localized: "\xC7\u0131k\u0131\u015F"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 2582250844481126756
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 997700659281920
+        - id: 997817537757184

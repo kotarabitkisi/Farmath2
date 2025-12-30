@@ -12,11 +12,6 @@ public class FarmerInfo : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public Vector3 firstPosition;
     public RectTransform transformOfImage;
     public Canvas canvas;
-    GameManager Gmanager;
-    private void Start()
-    {
-        Gmanager = GameManager.instance;
-    }
     private void Update()
     {
         if (touched)
@@ -65,6 +60,6 @@ public class FarmerInfo : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     }
     public void HireHero(GameObject Hero, GameObject Par)
     {
-        Hero.transform.position = Par.transform.position; choosed = true; Par.GetComponent<Image>().raycastTarget = false;
+        Hero.GetComponent<RectTransform>().position = Par.GetComponent<RectTransform>().position; choosed = true; Par.GetComponent<Image>().raycastTarget = false;
     }
 }

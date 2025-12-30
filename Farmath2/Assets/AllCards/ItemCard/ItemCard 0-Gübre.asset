@@ -12,9 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee0309a618b17347b865f992fbad77d, type: 3}
   m_Name: "ItemCard 0-G\xFCbre"
   m_EditorClassIdentifier: 
-  CardName: "G\xFCbre"
+  CardName:
+    m_TableReference:
+      m_TableCollectionName: GUID:c4d7dbcda9a15f0448e0433fd383de62
+    m_TableEntryReference:
+      m_KeyId: 649378580889600
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   Icon: {fileID: 1758565813, guid: 15567e5cf4e7f244e89492e102e24d41, type: 3}
   CardCost: 5000
   IsThatBossCard: 0
   IsThatOneUse: 0
   itemId: 0
+  references:
+    version: 2
+    RefIds: []

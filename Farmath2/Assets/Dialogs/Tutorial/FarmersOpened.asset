@@ -14,10 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogScr
   dialogs:
   - characterId: 0
-    text: "Buras\u0131 yard\u0131mc\u0131lar\u0131n bulundu\u011Fu sayfa"
     dialogDelay: 0.05
     timeToNextDialouge: 2
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 668423900332032
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - characterId: 0
-    text: "Her ay farkl\u0131 bir alan a\xE7\u0131l\u0131r"
     dialogDelay: 0.05
     timeToNextDialouge: 2
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 668579043442688
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - characterId: 0
+    dialogDelay: 0.05
+    timeToNextDialouge: 0
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 668780286148608
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  DisableLoggerWhenDialogfinished: 0
+  references:
+    version: 2
+    RefIds: []

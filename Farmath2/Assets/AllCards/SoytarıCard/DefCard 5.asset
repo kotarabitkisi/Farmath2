@@ -12,7 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79496f5591d5c4e43a3ae3893675fe4a, type: 3}
   m_Name: DefCard 5
   m_EditorClassIdentifier: 
-  CardName: Patlican
+  CardName:
+    m_TableReference:
+      m_TableCollectionName: GUID:d421c73632ec61742b56b4c25364828f
+    m_TableEntryReference:
+      m_KeyId: 3470235238400
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   Icon: {fileID: 440262100, guid: 9e51132051ab3b34a9c64cd1fb61589e, type: 3}
   CardCost: 0
   IsThatBossCard: 1
+  IsThatOneUse: 0
+  references:
+    version: 2
+    RefIds: []

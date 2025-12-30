@@ -1,0 +1,356 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Dialogs Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Dialogs
+  m_TableCollectionNameGuidString: 77f6c687497d20746b336dfb3a351671
+  m_Entries:
+  - m_Id: 2960535027712
+    m_Key: eugune_power_eureka
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960535027713
+    m_Key: eugune_power_mix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960535027714
+    m_Key: eugune_power_finally
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960535027715
+    m_Key: eugune_power_wonder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610624
+    m_Key: eugune_harvest_useful
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610625
+    m_Key: eugune_harvest_fertilizer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610626
+    m_Key: eugune_BossComming_pollute
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610627
+    m_Key: eugune_pigo_shape
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610628
+    m_Key: eugune_vines_secret
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610629
+    m_Key: 'eugune_Hoe_1
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610630
+    m_Key: Bert_shop_favor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610631
+    m_Key: Bert_shop_halfprice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610632
+    m_Key: Bert_shop_cheap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610633
+    m_Key: Bert_shop_lower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610634
+    m_Key: Bert_harvest_market
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610635
+    m_Key: Bert_harvest_solid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610636
+    m_Key: Bert_harvest_bad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610637
+    m_Key: Bert_pigo_beat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610638
+    m_Key: Bert_pigo_garden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610639
+    m_Key: Bert_Hoe_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610640
+    m_Key: Betty_card_carry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610641
+    m_Key: Betty_card_plant1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610642
+    m_Key: Betty_card_plant2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610643
+    m_Key: Betty_harvest_stew
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610644
+    m_Key: Betty_harvest_boil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610645
+    m_Key: Betty_harvest_good
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610646
+    m_Key: Betty_pigo_filthy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610647
+    m_Key: Betty_pigo_shoo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610648
+    m_Key: Betty_pigo_smell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610649
+    m_Key: mother_vines_cut
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610650
+    m_Key: mother_vines_goaway
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610651
+    m_Key: mother_corrupt_smell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610652
+    m_Key: sheep_card_happy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610653
+    m_Key: sheep_pigo_angry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610654
+    m_Key: sheep_vines_irritated
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610655
+    m_Key: sheep_power_munch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610656
+    m_Key: boy_card_useful
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610657
+    m_Key: boy_card_plant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610658
+    m_Key: boy_card_eat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610659
+    m_Key: boy_pigo_again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610660
+    m_Key: boy_pigo_dad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610661
+    m_Key: boy_pigo_catch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610662
+    m_Key: boy_vines_ruin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610663
+    m_Key: boy_vines_scumbag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610664
+    m_Key: boy_win_knew
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610665
+    m_Key: boy_win_smarter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610666
+    m_Key: boy_win_hard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610667
+    m_Key: girl_card_looking
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610668
+    m_Key: girl_card_grow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610669
+    m_Key: girl_pigo_mom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610670
+    m_Key: girl_pigo_snotty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610671
+    m_Key: girl_pigo_loser
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610672
+    m_Key: girl_vines_off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610673
+    m_Key: girl_vines_sheep
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610674
+    m_Key: girl_win_isthisit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610675
+    m_Key: girl_win_baby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610676
+    m_Key: girl_win_hehe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 661767904788480
+    m_Key: Tutorial_Start_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 661932577357824
+    m_Key: Tutorial_Start_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 663472574791680
+    m_Key: Tutorial_Start_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 663633912889344
+    m_Key: Tutorial_Shop_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 664269769375744
+    m_Key: Tutorial_Shop_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 664785484218368
+    m_Key: Tutorial_Shop_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 665824648200192
+    m_Key: Tutorial_CardOpened_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 665909754822656
+    m_Key: 'Tutorial_CardOpened_3
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 666129213390848
+    m_Key: Tutorial_CardOpened_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 666295395909632
+    m_Key: Tutorial_DirtShoveled_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 666695528316928
+    m_Key: Tutorial_DirtShoveled_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 667821099155456
+    m_Key: Tutorial_InfoPageOpened_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 667930339803136
+    m_Key: Tutorial_InfoPageOpened_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668042826842112
+    m_Key: Tutorial_InfoPageOpened_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668343839457280
+    m_Key: Tutorial_InfoPageOpened_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668423900332032
+    m_Key: Tutorial_FarmersOpened_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668579043442688
+    m_Key: Tutorial_FarmersOpened_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668780286148608
+    m_Key: Tutorial_FarmersOpened_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668942203060224
+    m_Key: Tutorial_Finished_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 669026261106688
+    m_Key: Tutorial_Finished_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27312840212480
+    m_Key: EventStart_Festival_
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27511750885376
+    m_Key: EventStart_Festival_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27605258698752
+    m_Key: EventStart_Enflation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27768710725632
+    m_Key: "EventStart_\u0130nvasion"
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2582250825516319279
+  references:
+    version: 2
+    RefIds:
+    - rid: 2582250825516319279
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1766330866222

@@ -3,7 +3,7 @@ using UnityEngine;
 public class QuestionScr : ScriptableObject
 {
     public string questionTitle;
-    public Sprite QuestionIcon;
+    public Sprite[] QuestionIcons;
     public string Solution;
     public float moneyMultiple;
     public float timeOfQuestion;

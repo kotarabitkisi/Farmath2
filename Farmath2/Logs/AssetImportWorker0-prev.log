@@ -1,0 +1,2180 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.0f1 (d1870ce95baf) revision 13731596'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Kotara" at "2025-12-30T08:17:16.5281363Z"
+OS: 'Windows 11  (10.0.26200) 64bit CoreSingleLanguage' Language: 'tr' Physical Memory: 16221 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+Date: 2025-12-30T08:17:16Z
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.3.0f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/ASUS/Documents/GitHub/Farmath2/Farmath2
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+50798
+-licensingIpc
+LicenseClient-Kotara
+-job-worker-count
+3
+-background-job-worker-count
+8
+-gc-helper-count
+1
+-name
+AssetImport
+Successfully changed project path to: C:/Users/ASUS/Documents/GitHub/Farmath2/Farmath2
+C:/Users/ASUS/Documents/GitHub/Farmath2/Farmath2
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [1828]  Target information:
+
+Player connection [1828] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [1828] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 3
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 5.48 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 1.61 ms.
+Initialize engine version: 6000.3.0f1 (d1870ce95baf)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.0f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/ASUS/Documents/GitHub/Farmath2/Farmath2/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1650 (ID=0x1f99)
+    Vendor:   NVIDIA
+    VRAM:     3937 MB
+    Driver:   32.0.15.6636
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.0f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.0f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56832
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              ff788c5024ca45b991855324fda61d8b
+  Correlation Id:          1d68ebbb20d77ce62585670b21dc06ce
+  External correlation Id: 713123006929845958
+  Machine Id:              hwMu/obmzuRRsmzofRmk3PNeQbQ=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Kotara" (connect: 0.00s, validation: 0.00s, handshake: 1.62s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Kotara-notifications" at "2025-12-30T08:17:18.1480665Z"
+[Licensing::Module] Licensing Background thread has ended after 1.62s
+[Licensing::Module] Licensing is initialized (took 0.47s).
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 18967442847090-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.0f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Registered in 0.474117 seconds.
+- Loaded All Assemblies, in  1.089 seconds
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 219 ms
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.879 seconds
+Domain Reload Profiling: 1966ms
+	BeginReloadAssembly (211ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (57ms)
+	RebuildNativeTypeToScriptingClass (23ms)
+	initialDomainReloadingComplete (536ms)
+	LoadAllAssembliesAndSetupDomain (259ms)
+		LoadAssemblies (206ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (256ms)
+			TypeCache.Refresh (253ms)
+				TypeCache.ScanAssembly (232ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (880ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (801ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (369ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (149ms)
+			ProcessInitializeOnLoadAttributes (208ms)
+			ProcessInitializeOnLoadMethodAttributes (69ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.576 seconds
+Refreshing native plugins compatible for Editor in 2.39 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.474 seconds
+Domain Reload Profiling: 3043ms
+	BeginReloadAssembly (239ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (49ms)
+	RebuildCommonClasses (42ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (1228ms)
+		LoadAssemblies (624ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (736ms)
+			TypeCache.Refresh (591ms)
+				TypeCache.ScanAssembly (562ms)
+			BuildScriptInfoCaches (123ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (1475ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1235ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (8ms)
+			BeforeProcessingInitializeOnLoad (402ms)
+			ProcessInitializeOnLoadAttributes (478ms)
+			ProcessInitializeOnLoadMethodAttributes (315ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 3.75 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 74 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11072 unused Assets / (21.7 MB). Loaded Objects now: 11993.
+Memory consumption went from 240.8 MB to 219.1 MB.
+Total: 24.606800 ms (FindLiveObjects: 1.372000 ms CreateObjectMapping: 3.385300 ms MarkObjects: 11.143000 ms  DeleteObjects: 8.704800 ms)
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 4.10 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.12 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 69 unused Assets / (13.6 MB). Loaded Objects now: 11993.
+Memory consumption went from 228.5 MB to 214.9 MB.
+Total: 12.103800 ms (FindLiveObjects: 0.805600 ms CreateObjectMapping: 0.871300 ms MarkObjects: 8.398800 ms  DeleteObjects: 2.027000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.447 seconds
+Refreshing native plugins compatible for Editor in 2.45 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.389 seconds
+Domain Reload Profiling: 2834ms
+	BeginReloadAssembly (314ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (17ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (86ms)
+	RebuildCommonClasses (64ms)
+	RebuildNativeTypeToScriptingClass (30ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (995ms)
+		LoadAssemblies (628ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (497ms)
+			TypeCache.Refresh (13ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (455ms)
+			ResolveRequiredComponents (19ms)
+	FinalizeReload (1389ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1120ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (27ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (384ms)
+			ProcessInitializeOnLoadAttributes (415ms)
+			ProcessInitializeOnLoadMethodAttributes (281ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (21ms)
+Refreshing native plugins compatible for Editor in 3.68 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (21.0 MB). Loaded Objects now: 12000.
+Memory consumption went from 240.9 MB to 219.9 MB.
+Total: 24.175200 ms (FindLiveObjects: 1.743500 ms CreateObjectMapping: 3.250700 ms MarkObjects: 9.782900 ms  DeleteObjects: 9.396300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 89646.112509 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold SDF.asset
+  artifactKey: Guid(5302535af1044152a457ed104f1f4b91) Importer(2089858483,d624ce77472d68a35037170ec1d2d27e)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold SDF.asset using Guid(5302535af1044152a457ed104f1f4b91) Importer(2089858483,d624ce77472d68a35037170ec1d2d27e) (ScriptedImporter) -> (artifact id: '3529691d58b9547eb419573e348e1f29') in 0.2719736 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.287 seconds
+Refreshing native plugins compatible for Editor in 3.81 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.219 seconds
+Domain Reload Profiling: 2507ms
+	BeginReloadAssembly (263ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (15ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (81ms)
+	RebuildCommonClasses (40ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (30ms)
+	LoadAllAssembliesAndSetupDomain (938ms)
+		LoadAssemblies (567ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (464ms)
+			TypeCache.Refresh (12ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (431ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (1220ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (976ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (21ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (334ms)
+			ProcessInitializeOnLoadAttributes (363ms)
+			ProcessInitializeOnLoadMethodAttributes (247ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+Refreshing native plugins compatible for Editor in 2.96 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (22.3 MB). Loaded Objects now: 12008.
+Memory consumption went from 241.7 MB to 219.5 MB.
+Total: 23.060200 ms (FindLiveObjects: 1.769800 ms CreateObjectMapping: 3.313800 ms MarkObjects: 8.108200 ms  DeleteObjects: 9.867400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.265 seconds
+Refreshing native plugins compatible for Editor in 3.42 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.192 seconds
+Domain Reload Profiling: 2459ms
+	BeginReloadAssembly (265ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (16ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (76ms)
+	RebuildCommonClasses (41ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (907ms)
+		LoadAssemblies (556ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (444ms)
+			TypeCache.Refresh (12ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (409ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (1193ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (953ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (28ms)
+			SetLoadedEditorAssemblies (7ms)
+			BeforeProcessingInitializeOnLoad (310ms)
+			ProcessInitializeOnLoadAttributes (374ms)
+			ProcessInitializeOnLoadMethodAttributes (226ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (20ms)
+Refreshing native plugins compatible for Editor in 4.08 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.11 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (20.3 MB). Loaded Objects now: 12014.
+Memory consumption went from 241.8 MB to 221.4 MB.
+Total: 26.022200 ms (FindLiveObjects: 1.701800 ms CreateObjectMapping: 4.236900 ms MarkObjects: 11.697000 ms  DeleteObjects: 8.385300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 143.880736 seconds.
+  path: Assets/Scenes/Level 1.unity
+  artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(2089858483,d624ce77472d68a35037170ec1d2d27e)
+Start importing Assets/Scenes/Level 1.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(2089858483,d624ce77472d68a35037170ec1d2d27e) (ScriptedImporter) -> (artifact id: '8d0b857014777c5ee67b0a81bc41fb19') in 0.0784921 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.300 seconds
+Refreshing native plugins compatible for Editor in 2.50 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.199 seconds
+Domain Reload Profiling: 2498ms
+	BeginReloadAssembly (275ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (16ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (81ms)
+	RebuildCommonClasses (41ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (929ms)
+		LoadAssemblies (559ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (465ms)
+			TypeCache.Refresh (16ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (427ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (1200ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (971ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (20ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (303ms)
+			ProcessInitializeOnLoadAttributes (381ms)
+			ProcessInitializeOnLoadMethodAttributes (255ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+Refreshing native plugins compatible for Editor in 3.16 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.10 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (21.0 MB). Loaded Objects now: 12020.
+Memory consumption went from 241.8 MB to 220.9 MB.
+Total: 24.192800 ms (FindLiveObjects: 1.543900 ms CreateObjectMapping: 2.946000 ms MarkObjects: 10.180400 ms  DeleteObjects: 9.520800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 89.945600 seconds.
+  path: Assets/Prefab/Card.prefab
+  artifactKey: Guid(3f2de43d00aafd74d8488d9471f5b8a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Card.prefab using Guid(3f2de43d00aafd74d8488d9471f5b8a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '14868f25f9a86ba6e049c1427519bccc') in 0.8602766 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 183
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.394613 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ec2646c39096f03f7fd4088c5026b32d') in 0.4029604 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 331
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.303293 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '148a828263c916adaee8ab8ab02b99db') in 0.271107 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 353
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.422603 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f086130171af7b9286073a51b0d31604') in 0.3220115 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 353
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.501284 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd7d213c3ec3afc1693c843d5f2894b4c') in 0.3479101 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 353
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.685617 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '13cc88c7e6d924a6978613ff530a1166') in 0.2910522 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 336
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.066501 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0fa5d845d503b9421d98c42c1d06f6e8') in 0.3007444 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 340
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.522837 seconds.
+  path: Assets/Sprite/Crop/CropGrowPeriod/Buğday/1.png
+  artifactKey: Guid(71b93f8429b4dba42abfa8a3f426bd0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropGrowPeriod/Buğday/1.png using Guid(71b93f8429b4dba42abfa8a3f426bd0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[Licensing::Client] Successfully resolved entitlement details
+ -> (artifact id: '957273153b54019f6d076b022c3bb252') in 0.1608535 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 65
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Sprite/Crop/CropGrowPeriod/Domates-yeni/2.png
+  artifactKey: Guid(332f45497fa38004ba37d53d77a654f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropGrowPeriod/Domates-yeni/2.png using Guid(332f45497fa38004ba37d53d77a654f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6cd9ab8f09991cd6d81d23b1f362b601') in 0.1298564 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 65
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Sprite/Crop/CropGrowPeriod/Patlıcan/1.png
+  artifactKey: Guid(758953d6dce031a4a8d5effe870c9616) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropGrowPeriod/Patlıcan/1.png using Guid(758953d6dce031a4a8d5effe870c9616) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '86937f3106b86688ac3dace42925702e') in 0.1363549 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 65
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Sprite/Crop/CropGrowPeriod/lahana/1.png
+  artifactKey: Guid(3d0866cf2af898b459f195df1598d71f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropGrowPeriod/lahana/1.png using Guid(3d0866cf2af898b459f195df1598d71f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3d461d4d16c635c92c552c8e66337dcd') in 0.1135405 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 65
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Sprite/Crop/CropGrowPeriod/Domates-yeni/1.png
+  artifactKey: Guid(a6d54e3e7cf13724b97a57347c935d1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropGrowPeriod/Domates-yeni/1.png using Guid(a6d54e3e7cf13724b97a57347c935d1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c8e6e67b3d68ac88e8ae71b0d6cd2052') in 0.1046585 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 65
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000091 seconds.
+  path: Assets/Sprite/Crop/CropGrowPeriod/Havuc/4.png
+  artifactKey: Guid(44c05869ea08d6e45a56d05b9c18ac92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropGrowPeriod/Havuc/4.png using Guid(44c05869ea08d6e45a56d05b9c18ac92) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f3c599e7e197f15bb092b210e35fb1c8') in 0.1024089 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 65
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Sprite/Crop/CropGrowPeriod/Mısır/4.png
+  artifactKey: Guid(95acf29aa59c7e6408ffbb672ea91982) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropGrowPeriod/Mısır/4.png using Guid(95acf29aa59c7e6408ffbb672ea91982) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8b2e12e863638b78b18811db5d622eac') in 0.1002802 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 65
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Sprite/Crop/CropGrowPeriod/Buğday/4.png
+  artifactKey: Guid(6ab2b94653c22bd4d93de36eb5a35528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropGrowPeriod/Buğday/4.png using Guid(6ab2b94653c22bd4d93de36eb5a35528) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c5cf951965038276dcb78044a1627d62') in 0.0968831 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 65
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000100 seconds.
+  path: Assets/Sprite/Crop/CropCardIcon/8.png
+  artifactKey: Guid(36340975828bbb04ba68b85f64da725d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropCardIcon/8.png using Guid(36340975828bbb04ba68b85f64da725d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e80b2543c649c39d4eb51056ec4908f8') in 0.16654 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 136
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Sprite/Crop/CropCardIcon/9.png
+  artifactKey: Guid(09f15f71fbafac44d8b7425eedba7ded) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropCardIcon/9.png using Guid(09f15f71fbafac44d8b7425eedba7ded) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9d035b3cfa383a5cb029933b8defdbae') in 0.1219803 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 136
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Sprite/Crop/CropGrowPeriod/Domates-yeni/3.png
+  artifactKey: Guid(b232bdcbf44410b458ad51675110e845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropGrowPeriod/Domates-yeni/3.png using Guid(b232bdcbf44410b458ad51675110e845) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fecd6c7ee41e063dfa4f4117d4d8b559') in 0.0963971 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 65
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/UI/afetler/2.png
+  artifactKey: Guid(be9d303934c25e94bb30ed30cb7210c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/afetler/2.png using Guid(be9d303934c25e94bb30ed30cb7210c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '98409f6ed41b77eeed1d408ab2818fcd') in 0.1395257 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 136
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Sprite/Crop/CropCardIcon/7_2.png
+  artifactKey: Guid(dfe6e5767aded344898e074867e2bc88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropCardIcon/7_2.png using Guid(dfe6e5767aded344898e074867e2bc88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1c3832657baab259426d91fdbbf78351') in 0.126878 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 136
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000058 seconds.
+  path: Assets/Sprite/Crop/CropGrowPeriod/Buğday/2.png
+  artifactKey: Guid(ab58ce805aab468478d7062fadc16a2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropGrowPeriod/Buğday/2.png using Guid(ab58ce805aab468478d7062fadc16a2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5d3a83ddaece46a4552102f39be814b4') in 0.1163782 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 65
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Sprite/Crop/CropGrowPeriod/Patlıcan/4.png
+  artifactKey: Guid(d5b60a25a2f46a94d847e1f9404f029c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropGrowPeriod/Patlıcan/4.png using Guid(d5b60a25a2f46a94d847e1f9404f029c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '560301ac8728ecdf0b6b2b5f82e61809') in 0.1011553 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 65
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/UI/Kullanılmayanlar/UI_MainMenu_DecorButton.png
+  artifactKey: Guid(14e945f96cc757a4c830c4e5ac7cba6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/Kullanılmayanlar/UI_MainMenu_DecorButton.png using Guid(14e945f96cc757a4c830c4e5ac7cba6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0b06109e319cdf294840434a6320c65f') in 0.0136967 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/UI/Kullanılmayanlar/UI_MainMenu_GardenButton.png
+  artifactKey: Guid(6f13af627d276964cb177b72248ff180) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/Kullanılmayanlar/UI_MainMenu_GardenButton.png using Guid(6f13af627d276964cb177b72248ff180) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b229dfa434e772fa647f13ac27b3d6b3') in 0.0135072 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/UI/Kullanılmayanlar/UI_MainMenu_ToolsButton_balanced.png
+  artifactKey: Guid(04b59f87af9140c4b8c88cce12a4b6aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/Kullanılmayanlar/UI_MainMenu_ToolsButton_balanced.png using Guid(04b59f87af9140c4b8c88cce12a4b6aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '20862d26b5cdc13616ea14f759e3f187') in 0.0156577 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/UI/Kullanılmayanlar/UI_MainMenu_BoothButton.png
+  artifactKey: Guid(0274cbc8e08d2bc408f1d70b2423f8a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/Kullanılmayanlar/UI_MainMenu_BoothButton.png using Guid(0274cbc8e08d2bc408f1d70b2423f8a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8ede95d314fbdb1977f12e06ce1d1716') in 0.0153164 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Sprite/Crop/CropGrowPeriod/Mısır/1.png
+  artifactKey: Guid(140135bc0cd5b4c48a9b5e4338465904) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropGrowPeriod/Mısır/1.png using Guid(140135bc0cd5b4c48a9b5e4338465904) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cc5ca8f6ec6bbdf6c68dbf304a5fa193') in 0.0882667 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 65
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.475876 seconds.
+  path: Assets/UI/Kullanılmayanlar/UI_MainMenu_AchievementsButton.png
+  artifactKey: Guid(ab383d6d1e8755449969adb702a38a08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/Kullanılmayanlar/UI_MainMenu_AchievementsButton.png using Guid(ab383d6d1e8755449969adb702a38a08) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8e8d534b4e260bfb03da4aff4e804a09') in 0.0380981 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.927041 seconds.
+  path: Assets/UI/UI tasarımlar
+  artifactKey: Guid(0aa6c6de48a08d647b7a4eafe178c01d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/UI tasarımlar using Guid(0aa6c6de48a08d647b7a4eafe178c01d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a6dc558119074c73e932a6786b5b9aff') in 0.0008349 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/UI/UI tasarımlar/ahsapbackground.png
+  artifactKey: Guid(206ddca28f659a147b39d1fc29583be8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/UI tasarımlar/ahsapbackground.png using Guid(206ddca28f659a147b39d1fc29583be8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '477507b820982270e3c88fbf7b556da6') in 0.1386251 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 136
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000091 seconds.
+  path: Assets/UI/UI tasarımlar/dukkan.png
+  artifactKey: Guid(3501602ca6fbbf84dad5a7d00916a13c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/UI tasarımlar/dukkan.png using Guid(3501602ca6fbbf84dad5a7d00916a13c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9bd0573137e2d53367ad82090c263e48') in 0.1324979 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 136
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/UI/UI tasarımlar/herobilgilerbackground..png
+  artifactKey: Guid(e15a1b24455cde34fa176105703aa05e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/UI tasarımlar/herobilgilerbackground..png using Guid(e15a1b24455cde34fa176105703aa05e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd4c5f08d707dc6540653effd901033c2') in 0.1291534 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 136
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/UI/UI tasarımlar/dukkanitem.png
+  artifactKey: Guid(76f5ad8bcff6a05428c7a63fdb78ec1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/UI tasarımlar/dukkanitem.png using Guid(76f5ad8bcff6a05428c7a63fdb78ec1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f6eca44778e23b2614b504f51ac89e4b') in 0.1376179 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 136
+
+========================================================================
+Received Import Request.
+  Time since last request: 52.961880 seconds.
+  path: Assets/UI/ButtonIcon/Wood62.png
+  artifactKey: Guid(9e949b2c393623a4c9bee8b14760783c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/ButtonIcon/Wood62.png using Guid(9e949b2c393623a4c9bee8b14760783c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0bfd552a6f2d32e9c0e4556d15e0c5a8') in 0.1586536 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 136
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.719106 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5d165382871902daf250a0f8722c14da') in 0.4311121 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 340
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.943967 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1ad43a1517fd82c244ef10105400798c') in 0.3003223 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 340
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.680451 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1912290fa6151aeefbb6902375461658') in 0.2331451 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 340
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.139812 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '64301fa65dbbe491662b9d31eeb954f7') in 0.3207996 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 340
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.881477 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9f2a05d39d3b06476d01ed4dfdb1cbe0') in 0.2560785 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 340
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.101140 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '22531267e2d2d689d9732bcd83024a96') in 0.3259744 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 340
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.249995 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '78c0f74dd4e920d1f5c31f808fbeb033') in 0.280873 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 340
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.428265 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5a6807b74331e3f38c6e58e7715cd01e') in 0.3041502 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 340
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.817229 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9200765b8312843871a9d488d0a4f450') in 0.3076205 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 340
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.212204 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4b499d7459840363c9a3c4427eb7ecca') in 0.3063708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.103698 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '774ffeb3ab470ae8913f29558938d501') in 0.3236126 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.830286 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0c3ac4e7e7d043d61bfc23a016834141') in 0.3162972 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.837801 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '06dab47a898a5755903fb7062761119f') in 0.2929887 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.934627 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '327912801ff61e48cc901313a654e320') in 0.3719724 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.774622 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '67c0556b162034daa0feb49199ee7adf') in 0.3022474 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.700178 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '615fc24d7dbbc86f11933619ffd3421c') in 0.302377 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.737882 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ac40d317d38cb206b21485d15b4faa35') in 0.3439769 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.979012 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dbe340faf2f637d1d97f910fb9e6748e') in 0.2578769 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.116655 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6d89667c134c4236919102d3a0027f75') in 0.335776 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.226495 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c1b9e32fb2565df3d07e570a1eb861fb') in 0.3186895 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.702012 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '551abee73733bda825877fde1c6bcb4a') in 0.2886406 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.162983 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '49cabe42ece2db942a623d4bcc29d5fa') in 0.2619339 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.873197 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '110860d6d7512361097c3e479adf0ad1') in 0.2894455 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.655094 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '601b349500eb31856b3ef91b32bbbf52') in 0.2947234 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 463.169287 seconds.
+  path: Assets/Sprite/Crop/SuAnlikIhtiyacYok/mısırr.png
+  artifactKey: Guid(72db40ec66e1e29408f0b876c1d16b48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/SuAnlikIhtiyacYok/mısırr.png using Guid(72db40ec66e1e29408f0b876c1d16b48) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f03d74ad3198b248578fa84dec6a97df') in 0.1960886 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 140
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/Sprite/Crop/CropCardIcon/patlıcanpaket.png
+  artifactKey: Guid(9e51132051ab3b34a9c64cd1fb61589e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropCardIcon/patlıcanpaket.png using Guid(9e51132051ab3b34a9c64cd1fb61589e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dd3646dd01f57152470d9200d8b1e7b0') in 0.1007296 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 136
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.468221 seconds.
+  path: Assets/Sprite/Crop/SuAnlikIhtiyacYok/lahana.png
+  artifactKey: Guid(981c5d234569e784eb80dd3b31bd8e71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/SuAnlikIhtiyacYok/lahana.png using Guid(981c5d234569e784eb80dd3b31bd8e71) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '879474dc49de29cf94de72604b93b3ce') in 0.1862951 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 139
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/UI/ButtonIcon/Kahramanlarikon.png
+  artifactKey: Guid(ea7d1d80dac66db488df341844ac6e13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/ButtonIcon/Kahramanlarikon.png using Guid(ea7d1d80dac66db488df341844ac6e13) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0e0ae3f71ca3fe03603a54544a8cf3aa') in 0.1238549 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 136
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/Sprite/Crop/CropCardIcon/HeroCard.png
+  artifactKey: Guid(86defd079ccd4a443bf14b3f4d61c03a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/CropCardIcon/HeroCard.png using Guid(86defd079ccd4a443bf14b3f4d61c03a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '91db35df0b87909fe702f2821bbcc108') in 0.012148 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005063 seconds.
+  path: Assets/Sprite/Crop/SuAnlikIhtiyacYok/havucc.png
+  artifactKey: Guid(6a7606c7a6c806b4ebc60b97c1650cdf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Crop/SuAnlikIhtiyacYok/havucc.png using Guid(6a7606c7a6c806b4ebc60b97c1650cdf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2488832cc2fabb74b8146d2669df333b') in 0.1337406 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 140
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 3.48 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.10 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11055 unused Assets / (22.2 MB). Loaded Objects now: 12178.
+Memory consumption went from 245.5 MB to 223.3 MB.
+Total: 25.424000 ms (FindLiveObjects: 1.360500 ms CreateObjectMapping: 2.759900 ms MarkObjects: 12.668300 ms  DeleteObjects: 8.633900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.868 seconds
+Refreshing native plugins compatible for Editor in 2.56 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  3.173 seconds
+Domain Reload Profiling: 5043ms
+	BeginReloadAssembly (369ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (42ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (107ms)
+	RebuildCommonClasses (64ms)
+	RebuildNativeTypeToScriptingClass (23ms)
+	initialDomainReloadingComplete (44ms)
+	LoadAllAssembliesAndSetupDomain (1369ms)
+		LoadAssemblies (820ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (678ms)
+			TypeCache.Refresh (24ms)
+				TypeCache.ScanAssembly (2ms)
+			BuildScriptInfoCaches (622ms)
+			ResolveRequiredComponents (21ms)
+	FinalizeReload (3174ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2884ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (34ms)
+			SetLoadedEditorAssemblies (8ms)
+			BeforeProcessingInitializeOnLoad (444ms)
+			ProcessInitializeOnLoadAttributes (1218ms)
+			ProcessInitializeOnLoadMethodAttributes (1169ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (22ms)
+Refreshing native plugins compatible for Editor in 6.85 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.13 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (21.1 MB). Loaded Objects now: 12111.
+Memory consumption went from 243.8 MB to 222.7 MB.
+Total: 30.677100 ms (FindLiveObjects: 1.964900 ms CreateObjectMapping: 3.389300 ms MarkObjects: 13.673900 ms  DeleteObjects: 11.647000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 3.74 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.12 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11051 unused Assets / (21.1 MB). Loaded Objects now: 12111.
+Memory consumption went from 243.8 MB to 222.7 MB.
+Total: 30.460400 ms (FindLiveObjects: 1.964100 ms CreateObjectMapping: 4.475800 ms MarkObjects: 13.557600 ms  DeleteObjects: 10.461400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.476 seconds
+Refreshing native plugins compatible for Editor in 2.41 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.290 seconds
+Domain Reload Profiling: 2763ms
+	BeginReloadAssembly (285ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (16ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (93ms)
+	RebuildCommonClasses (40ms)
+	RebuildNativeTypeToScriptingClass (19ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (1086ms)
+		LoadAssemblies (606ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (581ms)
+			TypeCache.Refresh (17ms)
+				TypeCache.ScanAssembly (1ms)
+			BuildScriptInfoCaches (541ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (1290ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1005ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (21ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (326ms)
+			ProcessInitializeOnLoadAttributes (352ms)
+			ProcessInitializeOnLoadMethodAttributes (292ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (24ms)
+Refreshing native plugins compatible for Editor in 2.89 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.08 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (20.3 MB). Loaded Objects now: 12117.
+Memory consumption went from 243.8 MB to 223.4 MB.
+Total: 19.707700 ms (FindLiveObjects: 1.355300 ms CreateObjectMapping: 2.598200 ms MarkObjects: 8.597500 ms  DeleteObjects: 7.155900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.294 seconds
+Refreshing native plugins compatible for Editor in 2.41 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.229 seconds
+Domain Reload Profiling: 2523ms
+	BeginReloadAssembly (261ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (16ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (75ms)
+	RebuildCommonClasses (42ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (35ms)
+	LoadAllAssembliesAndSetupDomain (939ms)
+		LoadAssemblies (567ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (468ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (433ms)
+			ResolveRequiredComponents (15ms)
+	FinalizeReload (1229ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (983ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (329ms)
+			ProcessInitializeOnLoadAttributes (382ms)
+			ProcessInitializeOnLoadMethodAttributes (239ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (17ms)
+Refreshing native plugins compatible for Editor in 3.15 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (20.1 MB). Loaded Objects now: 12123.
+Memory consumption went from 243.8 MB to 223.7 MB.
+Total: 22.765700 ms (FindLiveObjects: 1.872900 ms CreateObjectMapping: 3.093200 ms MarkObjects: 9.950100 ms  DeleteObjects: 7.847900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 515.826899 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9094e98cff369f9620ff6aa6c93d8b43') in 1.1101984 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 345
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.915025 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ffc57a8810a35a2a7c82f8e0364d0f9b') in 0.3403772 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.422119 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '997d8e395820866fac152a8567249101') in 0.2597536 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 344
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.579 seconds
+Refreshing native plugins compatible for Editor in 2.42 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.349 seconds
+Domain Reload Profiling: 2928ms
+	BeginReloadAssembly (365ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (47ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (119ms)
+	RebuildCommonClasses (56ms)
+	RebuildNativeTypeToScriptingClass (19ms)
+	initialDomainReloadingComplete (41ms)
+	LoadAllAssembliesAndSetupDomain (1097ms)
+		LoadAssemblies (638ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (572ms)
+			TypeCache.Refresh (16ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (529ms)
+			ResolveRequiredComponents (17ms)
+	FinalizeReload (1349ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1101ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (25ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (322ms)
+			ProcessInitializeOnLoadAttributes (419ms)
+			ProcessInitializeOnLoadMethodAttributes (321ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (26ms)
+Refreshing native plugins compatible for Editor in 4.23 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.13 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11074 unused Assets / (21.3 MB). Loaded Objects now: 12149.
+Memory consumption went from 244.0 MB to 222.8 MB.
+Total: 27.494600 ms (FindLiveObjects: 2.485800 ms CreateObjectMapping: 4.434800 ms MarkObjects: 11.279200 ms  DeleteObjects: 9.292700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 3.11 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11051 unused Assets / (18.9 MB). Loaded Objects now: 12149.
+Memory consumption went from 244.0 MB to 225.0 MB.
+Total: 47.369000 ms (FindLiveObjects: 1.391000 ms CreateObjectMapping: 2.809300 ms MarkObjects: 12.962100 ms  DeleteObjects: 30.205300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.403 seconds
+Refreshing native plugins compatible for Editor in 2.48 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.170 seconds
+Domain Reload Profiling: 2575ms
+	BeginReloadAssembly (273ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (17ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (81ms)
+	RebuildCommonClasses (43ms)
+	RebuildNativeTypeToScriptingClass (19ms)
+	initialDomainReloadingComplete (38ms)
+	LoadAllAssembliesAndSetupDomain (1031ms)
+		LoadAssemblies (654ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (474ms)
+			TypeCache.Refresh (20ms)
+				TypeCache.ScanAssembly (1ms)
+			BuildScriptInfoCaches (432ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (1171ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (927ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (332ms)
+			ProcessInitializeOnLoadAttributes (336ms)
+			ProcessInitializeOnLoadMethodAttributes (224ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (19ms)
+Refreshing native plugins compatible for Editor in 2.45 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.08 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (22.3 MB). Loaded Objects now: 12155.
+Memory consumption went from 243.9 MB to 221.6 MB.
+Total: 21.592800 ms (FindLiveObjects: 1.340200 ms CreateObjectMapping: 2.569000 ms MarkObjects: 9.481200 ms  DeleteObjects: 8.201100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 6.14 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.12 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11051 unused Assets / (21.1 MB). Loaded Objects now: 12155.
+Memory consumption went from 244.0 MB to 222.9 MB.
+Total: 44.433700 ms (FindLiveObjects: 14.099500 ms CreateObjectMapping: 3.430200 ms MarkObjects: 16.889700 ms  DeleteObjects: 10.012400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.605 seconds
+Refreshing native plugins compatible for Editor in 2.48 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.142 seconds
+Domain Reload Profiling: 2746ms
+	BeginReloadAssembly (345ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (21ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (98ms)
+	RebuildCommonClasses (72ms)
+	RebuildNativeTypeToScriptingClass (28ms)
+	initialDomainReloadingComplete (58ms)
+	LoadAllAssembliesAndSetupDomain (1100ms)
+		LoadAssemblies (742ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (494ms)
+			TypeCache.Refresh (19ms)
+				TypeCache.ScanAssembly (1ms)
+			BuildScriptInfoCaches (444ms)
+			ResolveRequiredComponents (20ms)
+	FinalizeReload (1143ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (924ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (337ms)
+			ProcessInitializeOnLoadAttributes (340ms)
+			ProcessInitializeOnLoadMethodAttributes (213ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+Refreshing native plugins compatible for Editor in 2.49 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.08 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (20.3 MB). Loaded Objects now: 12161.
+Memory consumption went from 243.9 MB to 223.6 MB.
+Total: 18.840700 ms (FindLiveObjects: 1.296500 ms CreateObjectMapping: 2.544300 ms MarkObjects: 8.290300 ms  DeleteObjects: 6.708600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.381 seconds
+Refreshing native plugins compatible for Editor in 2.38 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.117 seconds
+Domain Reload Profiling: 2498ms
+	BeginReloadAssembly (275ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (21ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (76ms)
+	RebuildCommonClasses (53ms)
+	RebuildNativeTypeToScriptingClass (19ms)
+	initialDomainReloadingComplete (33ms)
+	LoadAllAssembliesAndSetupDomain (1001ms)
+		LoadAssemblies (581ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (521ms)
+			TypeCache.Refresh (21ms)
+				TypeCache.ScanAssembly (2ms)
+			BuildScriptInfoCaches (477ms)
+			ResolveRequiredComponents (15ms)
+	FinalizeReload (1117ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (897ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (20ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (282ms)
+			ProcessInitializeOnLoadAttributes (352ms)
+			ProcessInitializeOnLoadMethodAttributes (231ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+Refreshing native plugins compatible for Editor in 2.77 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (20.9 MB). Loaded Objects now: 12167.
+Memory consumption went from 244.0 MB to 223.1 MB.
+Total: 20.033300 ms (FindLiveObjects: 1.555900 ms CreateObjectMapping: 2.949300 ms MarkObjects: 8.777400 ms  DeleteObjects: 6.749700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 2.85 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11051 unused Assets / (22.0 MB). Loaded Objects now: 12167.
+Memory consumption went from 244.1 MB to 222.1 MB.
+Total: 22.639700 ms (FindLiveObjects: 1.853900 ms CreateObjectMapping: 2.942700 ms MarkObjects: 9.321100 ms  DeleteObjects: 8.520900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.300 seconds
+Refreshing native plugins compatible for Editor in 2.66 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.245 seconds
+Domain Reload Profiling: 2545ms
+	BeginReloadAssembly (257ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (16ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (74ms)
+	RebuildCommonClasses (43ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (33ms)
+	LoadAllAssembliesAndSetupDomain (950ms)
+		LoadAssemblies (572ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (469ms)
+			TypeCache.Refresh (19ms)
+				TypeCache.ScanAssembly (1ms)
+			BuildScriptInfoCaches (426ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (1245ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1013ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (23ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (369ms)
+			ProcessInitializeOnLoadAttributes (380ms)
+			ProcessInitializeOnLoadMethodAttributes (229ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (17ms)
+Refreshing native plugins compatible for Editor in 2.75 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (21.6 MB). Loaded Objects now: 12173.
+Memory consumption went from 244.0 MB to 222.4 MB.
+Total: 19.254800 ms (FindLiveObjects: 1.394800 ms CreateObjectMapping: 2.757300 ms MarkObjects: 7.897100 ms  DeleteObjects: 7.204100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.328 seconds
+Refreshing native plugins compatible for Editor in 2.61 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.341 seconds
+Domain Reload Profiling: 2670ms
+	BeginReloadAssembly (287ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (16ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (79ms)
+	RebuildCommonClasses (46ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (38ms)
+	LoadAllAssembliesAndSetupDomain (937ms)
+		LoadAssemblies (572ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (472ms)
+			TypeCache.Refresh (14ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (435ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (1341ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1081ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (21ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (337ms)
+			ProcessInitializeOnLoadAttributes (384ms)
+			ProcessInitializeOnLoadMethodAttributes (326ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (25ms)
+Refreshing native plugins compatible for Editor in 3.77 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.12 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (22.1 MB). Loaded Objects now: 12179.
+Memory consumption went from 244.1 MB to 221.9 MB.
+Total: 29.237400 ms (FindLiveObjects: 2.170400 ms CreateObjectMapping: 6.150200 ms MarkObjects: 12.808100 ms  DeleteObjects: 8.107300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.404 seconds
+Refreshing native plugins compatible for Editor in 2.50 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.237 seconds
+Domain Reload Profiling: 2642ms
+	BeginReloadAssembly (279ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (17ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (71ms)
+	RebuildCommonClasses (41ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (1031ms)
+		LoadAssemblies (575ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (553ms)
+			TypeCache.Refresh (13ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (519ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (1238ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (999ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (21ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (325ms)
+			ProcessInitializeOnLoadAttributes (402ms)
+			ProcessInitializeOnLoadMethodAttributes (239ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+Refreshing native plugins compatible for Editor in 2.99 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.10 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (21.6 MB). Loaded Objects now: 12185.
+Memory consumption went from 244.1 MB to 222.5 MB.
+Total: 26.988900 ms (FindLiveObjects: 1.629800 ms CreateObjectMapping: 3.321800 ms MarkObjects: 11.610000 ms  DeleteObjects: 10.425900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 2.89 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11051 unused Assets / (20.8 MB). Loaded Objects now: 12185.
+Memory consumption went from 244.2 MB to 223.4 MB.
+Total: 25.766400 ms (FindLiveObjects: 1.596900 ms CreateObjectMapping: 3.243900 ms MarkObjects: 10.766800 ms  DeleteObjects: 10.157400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.465 seconds
+Refreshing native plugins compatible for Editor in 3.61 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.318 seconds
+Domain Reload Profiling: 2782ms
+	BeginReloadAssembly (261ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (16ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (71ms)
+	RebuildCommonClasses (48ms)
+	RebuildNativeTypeToScriptingClass (21ms)
+	initialDomainReloadingComplete (40ms)
+	LoadAllAssembliesAndSetupDomain (1093ms)
+		LoadAssemblies (624ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (564ms)
+			TypeCache.Refresh (23ms)
+				TypeCache.ScanAssembly (1ms)
+			BuildScriptInfoCaches (513ms)
+			ResolveRequiredComponents (18ms)
+	FinalizeReload (1318ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1082ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (21ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (350ms)
+			ProcessInitializeOnLoadAttributes (463ms)
+			ProcessInitializeOnLoadMethodAttributes (234ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (19ms)
+Refreshing native plugins compatible for Editor in 2.64 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (20.9 MB). Loaded Objects now: 12191.
+Memory consumption went from 244.1 MB to 223.3 MB.
+Total: 18.481500 ms (FindLiveObjects: 1.391100 ms CreateObjectMapping: 2.702000 ms MarkObjects: 8.181900 ms  DeleteObjects: 6.205600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.329 seconds
+Refreshing native plugins compatible for Editor in 2.58 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.347 seconds
+Domain Reload Profiling: 2678ms
+	BeginReloadAssembly (259ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (16ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (75ms)
+	RebuildCommonClasses (41ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (37ms)
+	LoadAllAssembliesAndSetupDomain (977ms)
+		LoadAssemblies (586ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (483ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (445ms)
+			ResolveRequiredComponents (16ms)
+	FinalizeReload (1347ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1079ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (29ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (345ms)
+			ProcessInitializeOnLoadAttributes (418ms)
+			ProcessInitializeOnLoadMethodAttributes (273ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (28ms)
+Refreshing native plugins compatible for Editor in 4.50 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.15 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (21.7 MB). Loaded Objects now: 12197.
+Memory consumption went from 244.2 MB to 222.5 MB.
+Total: 24.865000 ms (FindLiveObjects: 2.165300 ms CreateObjectMapping: 3.518800 ms MarkObjects: 10.928100 ms  DeleteObjects: 8.251200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 4.86 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11051 unused Assets / (21.0 MB). Loaded Objects now: 12197.
+Memory consumption went from 244.3 MB to 223.3 MB.
+Total: 22.401800 ms (FindLiveObjects: 1.815900 ms CreateObjectMapping: 2.939500 ms MarkObjects: 7.785800 ms  DeleteObjects: 9.859600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.517 seconds
+Refreshing native plugins compatible for Editor in 4.30 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.134 seconds
+Domain Reload Profiling: 3652ms
+	BeginReloadAssembly (275ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (17ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (76ms)
+	RebuildCommonClasses (45ms)
+	RebuildNativeTypeToScriptingClass (19ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (1143ms)
+		LoadAssemblies (674ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (572ms)
+			TypeCache.Refresh (19ms)
+				TypeCache.ScanAssembly (1ms)
+			BuildScriptInfoCaches (527ms)
+			ResolveRequiredComponents (17ms)
+	FinalizeReload (2135ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1825ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (45ms)
+			SetLoadedEditorAssemblies (16ms)
+			BeforeProcessingInitializeOnLoad (805ms)
+			ProcessInitializeOnLoadAttributes (678ms)
+			ProcessInitializeOnLoadMethodAttributes (270ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (22ms)
+Refreshing native plugins compatible for Editor in 2.65 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (22.0 MB). Loaded Objects now: 12203.
+Memory consumption went from 244.2 MB to 222.3 MB.
+Total: 22.407800 ms (FindLiveObjects: 1.363800 ms CreateObjectMapping: 3.417600 ms MarkObjects: 10.090800 ms  DeleteObjects: 7.534400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.355 seconds
+Refreshing native plugins compatible for Editor in 2.73 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.139 seconds
+Domain Reload Profiling: 2494ms
+	BeginReloadAssembly (265ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (16ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (78ms)
+	RebuildCommonClasses (42ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (41ms)
+	LoadAllAssembliesAndSetupDomain (989ms)
+		LoadAssemblies (613ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (473ms)
+			TypeCache.Refresh (20ms)
+				TypeCache.ScanAssembly (1ms)
+			BuildScriptInfoCaches (430ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (1139ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (902ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (296ms)
+			ProcessInitializeOnLoadAttributes (360ms)
+			ProcessInitializeOnLoadMethodAttributes (212ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (17ms)
+Refreshing native plugins compatible for Editor in 2.40 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.08 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (21.3 MB). Loaded Objects now: 12209.
+Memory consumption went from 244.3 MB to 223.0 MB.
+Total: 19.165800 ms (FindLiveObjects: 1.295900 ms CreateObjectMapping: 2.609200 ms MarkObjects: 8.222600 ms  DeleteObjects: 7.036900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 515.536433 seconds.
+  path: Assets/Prefab/Dirt.prefab
+  artifactKey: Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Dirt.prefab using Guid(10e061030be724a4487d414a576eb720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3f00f1af291d4a9108bb2d7dd0b089a5') in 1.4176414 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 345
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 4.91 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.30 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11055 unused Assets / (22.8 MB). Loaded Objects now: 12302.
+Memory consumption went from 245.6 MB to 222.8 MB.
+Total: 163.879500 ms (FindLiveObjects: 2.349300 ms CreateObjectMapping: 3.503600 ms MarkObjects: 127.400000 ms  DeleteObjects: 30.624800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  2.746 seconds
+Refreshing native plugins compatible for Editor in 7.38 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.940 seconds
+Domain Reload Profiling: 4692ms
+	BeginReloadAssembly (642ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (62ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (246ms)
+	RebuildCommonClasses (74ms)
+	RebuildNativeTypeToScriptingClass (23ms)
+	initialDomainReloadingComplete (56ms)
+	LoadAllAssembliesAndSetupDomain (1957ms)
+		LoadAssemblies (1133ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (1041ms)
+			TypeCache.Refresh (31ms)
+				TypeCache.ScanAssembly (2ms)
+			BuildScriptInfoCaches (965ms)
+			ResolveRequiredComponents (26ms)
+	FinalizeReload (1941ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1550ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (37ms)
+			SetLoadedEditorAssemblies (9ms)
+			BeforeProcessingInitializeOnLoad (594ms)
+			ProcessInitializeOnLoadAttributes (587ms)
+			ProcessInitializeOnLoadMethodAttributes (313ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (23ms)
+Refreshing native plugins compatible for Editor in 3.80 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.12 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (21.4 MB). Loaded Objects now: 12235.
+Memory consumption went from 244.5 MB to 223.1 MB.
+Total: 21.470800 ms (FindLiveObjects: 1.476100 ms CreateObjectMapping: 2.945300 ms MarkObjects: 9.375100 ms  DeleteObjects: 7.672900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 3246.592778 seconds.
+  path: Assets/Script/LanguageManager.cs
+  artifactKey: Guid(a52c18433cc3ca54aa5b5c750ff5fdff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/LanguageManager.cs using Guid(a52c18433cc3ca54aa5b5c750ff5fdff) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6d9f7ed6308c88b9e34be6f64dbcbf8a') in 0.0952087 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.066520 seconds.
+  path: Assets/Script/Scriptable
+  artifactKey: Guid(10d4a9ed2456df047bcacd0fb722f99b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/Scriptable using Guid(10d4a9ed2456df047bcacd0fb722f99b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd10900ccd1cf8092ef7d8acd941acfb6') in 0.0009866 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.359861 seconds.
+  path: Assets/Script/UI
+  artifactKey: Guid(075ec09f39dad274cb96767b8fb5c2cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/UI using Guid(075ec09f39dad274cb96767b8fb5c2cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1064b9a375534201482342226eefc646') in 0.0006155 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 3.28 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.10 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11051 unused Assets / (21.0 MB). Loaded Objects now: 12235.
+Memory consumption went from 244.4 MB to 223.4 MB.
+Total: 28.084200 ms (FindLiveObjects: 1.638500 ms CreateObjectMapping: 3.174500 ms MarkObjects: 14.519100 ms  DeleteObjects: 8.750800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.842 seconds
+Refreshing native plugins compatible for Editor in 4.30 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.349 seconds
+Domain Reload Profiling: 3194ms
+	BeginReloadAssembly (317ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (18ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (97ms)
+	RebuildCommonClasses (50ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (40ms)
+	LoadAllAssembliesAndSetupDomain (1418ms)
+		LoadAssemblies (722ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (807ms)
+			TypeCache.Refresh (24ms)
+				TypeCache.ScanAssembly (2ms)
+			BuildScriptInfoCaches (757ms)
+			ResolveRequiredComponents (15ms)
+	FinalizeReload (1350ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1058ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (337ms)
+			ProcessInitializeOnLoadAttributes (413ms)
+			ProcessInitializeOnLoadMethodAttributes (273ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (20ms)
+Refreshing native plugins compatible for Editor in 2.65 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (21.5 MB). Loaded Objects now: 12241.
+Memory consumption went from 244.4 MB to 222.9 MB.
+Total: 17.677000 ms (FindLiveObjects: 1.336700 ms CreateObjectMapping: 2.483300 ms MarkObjects: 7.342000 ms  DeleteObjects: 6.513900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 4.87 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.16 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11051 unused Assets / (21.1 MB). Loaded Objects now: 12241.
+Memory consumption went from 244.5 MB to 223.4 MB.
+Total: 28.613500 ms (FindLiveObjects: 1.751000 ms CreateObjectMapping: 2.933200 ms MarkObjects: 13.745600 ms  DeleteObjects: 10.181800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.595 seconds
+Refreshing native plugins compatible for Editor in 2.43 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.162 seconds
+Domain Reload Profiling: 2761ms
+	BeginReloadAssembly (274ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (17ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (75ms)
+	RebuildCommonClasses (43ms)
+	RebuildNativeTypeToScriptingClass (21ms)
+	initialDomainReloadingComplete (39ms)
+	LoadAllAssembliesAndSetupDomain (1222ms)
+		LoadAssemblies (626ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (688ms)
+			TypeCache.Refresh (20ms)
+				TypeCache.ScanAssembly (1ms)
+			BuildScriptInfoCaches (629ms)
+			ResolveRequiredComponents (30ms)
+	FinalizeReload (1162ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (904ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (21ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (305ms)
+			ProcessInitializeOnLoadAttributes (350ms)
+			ProcessInitializeOnLoadMethodAttributes (217ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+Refreshing native plugins compatible for Editor in 3.22 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.10 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (21.5 MB). Loaded Objects now: 12247.
+Memory consumption went from 244.4 MB to 222.9 MB.
+Total: 23.411600 ms (FindLiveObjects: 1.423400 ms CreateObjectMapping: 2.981600 ms MarkObjects: 8.893700 ms  DeleteObjects: 10.111400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.ai.assistant/Plugins/Markdig/Dependencies/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.329 seconds
+Refreshing native plugins compatible for Editor in 2.40 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.319 seconds
+Domain Reload Profiling: 2649ms
+	BeginReloadAssembly (288ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (17ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (72ms)
+	RebuildCommonClasses (47ms)
+	RebuildNativeTypeToScriptingClass (24ms)
+	initialDomainReloadingComplete (41ms)
+	LoadAllAssembliesAndSetupDomain (930ms)
+		LoadAssemblies (579ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (471ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (437ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (1319ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1067ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (326ms)
+			ProcessInitializeOnLoadAttributes (401ms)
+			ProcessInitializeOnLoadMethodAttributes (300ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (24ms)
+Refreshing native plugins compatible for Editor in 5.14 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.14 ms.
+Unloading 69 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11070 unused Assets / (23.0 MB). Loaded Objects now: 12253.
+Memory consumption went from 244.5 MB to 221.5 MB.
+Total: 38.281800 ms (FindLiveObjects: 2.643300 ms CreateObjectMapping: 3.939600 ms MarkObjects: 15.672100 ms  DeleteObjects: 16.024700 ms)
+
+Prepare: number of updated asset objects reloaded= 0

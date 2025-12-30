@@ -1,36 +1,54 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour
 {
-    public GameObject[] Levels;
+    public Vector2[] Levels;
     public GameObject[] levelSelects;
     public CameraMove camMove;
+    public AnimationVar[] Animations;
+    public int level;
+    public int curAnimationId;
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
-            print(hit.collider);
-            if (hit.collider != null)
+            if (curAnimationId == -1)
             {
-                for (int i = 0; i < levelSelects.Length; i++)
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+                if (hit.collider != null)
                 {
-                    if (hit.collider.gameObject == levelSelects[i])
+                    for (int i = 0; i < levelSelects.Length; i++)
                     {
-                        LevelAnimStart(i);
+                        if (hit.collider.gameObject == levelSelects[i])
+                        {
+                            LevelAnimStart(i, 0);
+                        }
                     }
                 }
             }
-
-
+            else
+            {
+                LevelAnimStart(level, curAnimationId+1);
+            }
         }
     }
-    public void LevelAnimStart(int level)
+    public void LevelAnimStart(int level_, int animId)
     {
-        Levels[level].SetActive(true);
-        Levels[level].transform.DOScale(Vector3.one, 1);
-        camMove.enabled = false;
+        if (animId == 0) { level = level_; Camera.main.transform.DOMove(Animations[level].Transforms[0], Animations[level].moveTime[0]); }
+        else if (animId == Animations[level].Transforms.Length) { SceneManager.LoadScene(level); }
+        else
+        {
+            Camera.main.transform.DOMove(Animations[level].Transforms[animId], Animations[level].moveTime[animId]);
+        }
+    }
+    [System.Serializable]
+    public class AnimationVar
+    {
+        public Vector2[] Transforms;
+        public float[] moveTime;
     }
 }

@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53a329eec469514c9b88060877da0f4, type: 3}
   m_Name: Crop 5
   m_EditorClassIdentifier: 
-  CardName: "Patl\u0131can"
+  CardName:
+    m_TableReference:
+      m_TableCollectionName: GUID:c4d7dbcda9a15f0448e0433fd383de62
+    m_TableEntryReference:
+      m_KeyId: 649077287256064
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   Icon: {fileID: 440262100, guid: 9e51132051ab3b34a9c64cd1fb61589e, type: 3}
   CardCost: 500
   IsThatBossCard: 0
@@ -20,3 +28,6 @@ MonoBehaviour:
   id: 7
   cropName: Eggplant
   GManager: {fileID: 3030820063569021284, guid: e0cca7db3497d0046993540a7a1b3c12, type: 3}
+  references:
+    version: 2
+    RefIds: []

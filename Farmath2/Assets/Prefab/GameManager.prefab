@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9063147203254948491}
   - component: {fileID: 4477584678974648747}
   - component: {fileID: 5005151705105454088}
+  - component: {fileID: -2906218124824601094}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -48,6 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorNone: {r: 0, g: 0, b: 0, a: 0}
+  audioClips: []
+  Source: {fileID: 0}
+  Listener: {fileID: 0}
   logger: {fileID: 0}
   farmsScr: {fileID: 0}
   ColorScr: {fileID: 9063147203254948491}
@@ -55,6 +59,9 @@ MonoBehaviour:
   ShopManagement: {fileID: 0}
   deckPlacing: {fileID: 0}
   saveAndLoad: {fileID: 4477584678974648747}
+  tutorialPlayed: 0
+  EventSprites: []
+  farmerCount: 
   crops:
   - {fileID: 11400000, guid: 5d3bf55e80e784349924bdf68ed4a4fe, type: 2}
   - {fileID: 11400000, guid: 23a8afce15166624988d33bc4a5cf084, type: 2}
@@ -69,6 +76,7 @@ MonoBehaviour:
   Day: 0
   Month: 0
   pageopened: 0
+  pageopening: 0
   HarvestedCropCount: 0000000000000000000000000000000000000000000000000000000000000000
   HoeCount: 0
   HoeCost: 0a0000000f000000140000001e0000002d000000410000006400000096000000e10000005e010000f4010000d50200001a040000dc0500007f080000b20c00008e120000581b0000a62700009e390000ea560000fa7d000086ba0000f8240100
@@ -87,6 +95,10 @@ MonoBehaviour:
   LosePanel: {fileID: 0}
   ShopImage: {fileID: 0}
   PageParent: {fileID: 0}
+  soundButtonImage: {fileID: 0}
+  EventImage: {fileID: 0}
+  soundSprite: []
+  heroPlaces: []
   Questions:
   - {fileID: 11400000, guid: 07642913fe6942341bd99454a6659d88, type: 2}
   - {fileID: 11400000, guid: d97b67cc3f9fa9845ac68f43475ea55e, type: 2}
@@ -241,6 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3842fe6af3e55bf4aacf6b32e282acb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelSettings: {fileID: 0}
   GlobalVol: {fileID: 0}
   colorAdjustments: {fileID: 0}
 --- !u!114 &4477584678974648747
@@ -255,6 +268,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc3cfc86a553404eb17bc1ed9878d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSettings:
+    FPS: 0
+    grass: 0
+    shadow: 0
+    lights: 0
+    pollen: 0
+    renderScaleLevel: 0
+    soundLevel: 0
+    postProcessing: 0
+    Bloom: 0
+    colorAdj: 0
+    vignette: 0
+    HDR: 0
   GManager: {fileID: 3030820063569021284}
   OpenedDeck: {fileID: 0}
   FarmInfos:
@@ -303,6 +329,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 10a554834532bea4ea6bf7f49d1a759a, type: 2}
   - {fileID: 11400000, guid: 34206a99f463545449824326945cd094, type: 2}
   data:
+    tutorialFinished: 0
     money: 0
     Day: 0
     Month: 0
@@ -310,7 +337,6 @@ MonoBehaviour:
     HarvestedCropCount: 0000000000000000000000000000000000000000000000000000000000000000
     hoeCount: 0
     Boss: 0
-    firstBossEffectCount: 0
     Qreward: []
     farmId: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     curDay: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -318,14 +344,28 @@ MonoBehaviour:
     watered: 000000000000000000000000000000000000000000000000
     holyHoed: 000000000000000000000000000000000000000000000000
     negatived: 000000000000000000000000000000000000000000000000
-    firstBossEffected: 000000000000000000000000000000000000000000000000
     OpenedCardIds: 
     DiscardedCardIds: 
     OpenedCardType: 
     DiscardedCardType: 
     farmerChoosed: 
+    farmerCount: 
   exploration:
     isExplored: 000000000000000000000000000000000000000000000000000000000000000000000000
+  settings:
+    FPS: 0
+    grass: 0
+    shadow: 0
+    lights: 0
+    pollen: 0
+    renderScaleLevel: 0
+    soundLevel: 0
+    postProcessing: 0
+    Bloom: 0
+    colorAdj: 0
+    vignette: 0
+    HDR: 0
+  levelSettings: {fileID: 0}
 --- !u!114 &5005151705105454088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +378,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69fc7ada4008a3540851f053f8514c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BossCanvas: {fileID: 0}
+  panel: {fileID: 0}
+  BossImage: {fileID: 0}
+  BossText: {fileID: 0}
+  ease: 0
+  ease1: 0
+  levelSettings: {fileID: 0}
+  Sun: {fileID: 0}
   Camera: {fileID: 0}
   DeckPlacing: {fileID: 0}
   gameManager: {fileID: 3030820063569021284}
@@ -375,3 +423,19 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   BossEffectCount: 0
+  volume: {fileID: 0}
+  adj: {fileID: 0}
+  postExValue: 0
+  BossSoytariColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &-2906218124824601094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910084559847793297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52c18433cc3ca54aa5b5c750ff5fdff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LanguageManager

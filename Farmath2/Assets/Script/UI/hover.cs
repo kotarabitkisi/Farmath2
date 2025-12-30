@@ -4,18 +4,25 @@ using UnityEngine.EventSystems;
 
 public class HoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
+    public GameObject HoverObj;
     private RectTransform rectTransform;
     private bool isHovered = false;
     private bool isClicked = false;
     public float hoverScale = 1.2f; 
     public float clickScale = 1.5f; 
     public float animationSpeed = 5f; 
-
     private Vector3 defaultScale;
+    private void Awake()
+    {
+        if (HoverObj == null)
+        {
+            HoverObj = this.gameObject;
+        }
+    }
 
     void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
+        rectTransform = HoverObj.GetComponent<RectTransform>();
         defaultScale = rectTransform.localScale;
     }
 

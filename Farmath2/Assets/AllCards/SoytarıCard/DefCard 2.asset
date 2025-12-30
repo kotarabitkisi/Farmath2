@@ -12,7 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79496f5591d5c4e43a3ae3893675fe4a, type: 3}
   m_Name: DefCard 2
   m_EditorClassIdentifier: 
-  CardName: Domates
+  CardName:
+    m_TableReference:
+      m_TableCollectionName: GUID:d421c73632ec61742b56b4c25364828f
+    m_TableEntryReference:
+      m_KeyId: 2818293596160
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   Icon: {fileID: 21300000, guid: 497fbe047ee58a746ac56c98b71adb7f, type: 2}
   CardCost: 0
   IsThatBossCard: 1
+  IsThatOneUse: 0
+  references:
+    version: 2
+    RefIds: []

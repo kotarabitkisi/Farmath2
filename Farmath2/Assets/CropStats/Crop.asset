@@ -32,6 +32,6 @@ MonoBehaviour:
   reqdayMin: 25
   reqdayMax: 60
   reqHarvestCountmin: 60
-  reqHarvestCountmax: 5000000
+  reqHarvestCountmax: 2147483647
   reqHarvestCountOnSameTypemin: 15
   reqHarvestCountOnSameTypemax: 2147483647

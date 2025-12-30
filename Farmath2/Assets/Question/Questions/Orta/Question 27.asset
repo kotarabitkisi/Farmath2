@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Question 27
   m_EditorClassIdentifier: 
   questionTitle: "\xC7arpanlara Ay\u0131rma - Orta"
-  QuestionIcon: {fileID: 21300000, guid: 5b5e89fbb1d91194eba870bc9c2d5ecd, type: 3}
+  QuestionIcons:
+  - {fileID: 0}
+  - {fileID: 0}
   Solution: -7
   moneyMultiple: 1.35
   timeOfQuestion: 120

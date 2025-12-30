@@ -14,14 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogScr
   dialogs:
   - characterId: 0
-    text: Merhaba
     dialogDelay: 0.05
     timeToNextDialouge: 3
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 661767904788480
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - characterId: 0
-    text: "\xC7ift\xE7ilik i\xE7in \xF6ncelikle tohum ekmemiz gerekiyor"
     dialogDelay: 0.05
     timeToNextDialouge: 5
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 661932577357824
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - characterId: 0
-    text: "D\xFCkkana gidip bir ekin alal\u0131m"
     dialogDelay: 0.05
     timeToNextDialouge: 0
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 663472574791680
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  DisableLoggerWhenDialogfinished: 0
+  references:
+    version: 2
+    RefIds: []

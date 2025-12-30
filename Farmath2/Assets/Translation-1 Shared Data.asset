@@ -1,0 +1,298 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Translation-1 Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Translation-1
+  m_TableCollectionNameGuidString: c4d7dbcda9a15f0448e0433fd383de62
+  m_Entries:
+  - m_Id: 3801744637952
+    m_Key: NextDayWarningCard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3888411541504
+    m_Key: NextDayWarningPage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49235066880
+    m_Key: CropHarvestCountTextWheat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2818293596160
+    m_Key: CropHarvestCountTextTomato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3470235238400
+    m_Key: CropHarvestCountTextEggplant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2813373677568
+    m_Key: 'CropHarvestCountTextCorn
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2802518818816
+    m_Key: "CropHarvestCountTextCarrot\t\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2816108363776
+    m_Key: CropHarvestCountTextCabbage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8194304999424
+    m_Key: MaxOpenCardCountWarning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 319902990958592
+    m_Key: SettingsTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 323797704212480
+    m_Key: SettingsGrass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 323871700123648
+    m_Key: SettingsShadow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 323932010020864
+    m_Key: SettingsLightning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 324369081663488
+    m_Key: SettingsPolen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 324418666725376
+    m_Key: SettingsSound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 325240813223936
+    m_Key: SettingsLanguage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335338746904576
+    m_Key: SettingsResetSettings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 341107299024896
+    m_Key: CropHarvestCountTotal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 648945913266176
+    m_Key: CropNameWheat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 648982676340736
+    m_Key: CropNameCarrot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 648996446240768
+    m_Key: CropNameCorn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649022887133184
+    m_Key: CropNameLettuce
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649041463705600
+    m_Key: CropNameTomato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649077287256064
+    m_Key: CropNameEggplant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649378580889600
+    m_Key: ItemNameFertilizer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649530267893760
+    m_Key: ItemNameSprinkler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649531773648896
+    m_Key: ItemNameHolyHoe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649532864167936
+    m_Key: ItemNameRemover
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649533669474304
+    m_Key: ItemNameThatClock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649844282851328
+    m_Key: ItemNameJustAQuestion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 654619711864832
+    m_Key: InfoTitleCrop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 654781091905536
+    m_Key: InfoTitleItem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 658246899826688
+    m_Key: InfoExplorationNeighbours
+    m_Metadata:
+      m_Items: []
+  - m_Id: 660729973932032
+    m_Key: InfoExplorationRipening
+    m_Metadata:
+      m_Items: []
+  - m_Id: 661695699845120
+    m_Key: InfoExplorationMoney
+    m_Metadata:
+      m_Items: []
+  - m_Id: 661890915336192
+    m_Key: InfoExplorationDay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662463928565760
+    m_Key: InfoExplorationSameType
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662872944508928
+    m_Key: InfoExplorationTotalHarvest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679774714560512
+    m_Key: BaseMoney
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679889080647680
+    m_Key: Multiple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 997700659281920
+    m_Key: InfoCost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 997817537757184
+    m_Key: InfoBaseRevenue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1009533470343168
+    m_Key: InfoDescriptionFertilizer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010090029318144
+    m_Key: InfoDescriptionSprinkler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010147847798784
+    m_Key: InfoDescriptionHolyHoe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010501410848768
+    m_Key: InfoDescriptionRemover
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010609393205248
+    m_Key: InfoDescriptionThatClock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010739114639360
+    m_Key: InfoDescriptionJustAQuestion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1017481697394688
+    m_Key: HeroesTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1017515457347584
+    m_Key: HeroDescAnnie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1018602725801984
+    m_Key: HeroDescBert
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1018728190017536
+    m_Key: HeroDescGenevie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1019074337538048
+    m_Key: HeroDescSheep
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047493725093888
+    m_Key: EventDescriptionEnflation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048274280873984
+    m_Key: EventDescriptionVeins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048542548557824
+    m_Key: EventDescriptionsFestival
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049788734996480
+    m_Key: EventTitleEnflation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049880179212288
+    m_Key: EventTitleVeins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049983182929920
+    m_Key: EventTitleFestival
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1063456113655808
+    m_Key: BossTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1063582961991680
+    m_Key: BossDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3955461110071296
+    m_Key: ShopTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3960346920583168
+    m_Key: DiscardedCardCount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10924700916219904
+    m_Key: StartButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10924786052202496
+    m_Key: CreditsButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10925086410506240
+    m_Key: InformationButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10925186054586368
+    m_Key: ExitButton
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2582250825516319277
+  references:
+    version: 2
+    RefIds:
+    - rid: 2582250825516319277
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1766330665962

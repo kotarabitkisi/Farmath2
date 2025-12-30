@@ -1,0 +1,2 @@
+C:\Users\ASUS\Documents\GitHub\Farmath2\Farmath2\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\ASUS\Documents\GitHub\Farmath2\Farmath2\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\FramePacing\CMakeLists.txt

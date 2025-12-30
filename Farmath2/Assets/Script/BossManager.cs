@@ -58,7 +58,7 @@ public class BossManager : MonoBehaviour
         seq.Join(BossImage.DOAnchorPosX(-1920, 1).SetEase(ease1));
 
         seq.Join(panel.DOFade(0, 3));
-        seq.OnComplete(() => { BossCanvas.SetActive(false); gameManager.logger.StartDialouge(11); });
+        seq.OnComplete(() => { BossCanvas.SetActive(false); Logger.instance.StartDialougeCondition(1); });
 
         volume.profile.TryGet(out adj);
         Sun.transform.DORotate(new Vector3(0, 0, -30), 3);
@@ -75,7 +75,6 @@ public class BossManager : MonoBehaviour
         DeckPlacing.AddCardToDiscard(AllBossCards[Random.Range(0, AllBossCards.Length)]);
     }
 
-    public void BossIsTalkingAboutSomething() { }
     public void BossPutNegative()
     {
 
@@ -88,14 +87,16 @@ public class BossManager : MonoBehaviour
             for (int f = 0; f < 1000; f++)
             {
                 FarmInfo chosenFarm = AllFarms[Random.Range(0, 24)];
-                print("b");
                 if (!chosenFarm.Negatived)
                 {
                     chosenFarm.Negatived = true;
-                    chosenFarm.InitializeSpriteAndEffect();
                     break;
                 }
             }
+        }
+        for (int i = 0; i < AllFarms.Length; i++)
+        {
+            AllFarms[i].InitializeSpriteAndEffect();
         }
         gameManager.PlaySound(7);
     }

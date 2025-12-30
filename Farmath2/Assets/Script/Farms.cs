@@ -20,11 +20,6 @@ public class Farms : MonoBehaviour
             }
         }
     }
-    //public void Update()
-    //{
-    //    CalculateConnectedCount();
-    //    CalculateTotalConnectedIds();
-    //}
     public void CalculateTotalConnectedIds()
     {
         for (int i = 0; i < totalConnectedIds.Length; i++)
@@ -44,6 +39,14 @@ public class Farms : MonoBehaviour
         }
         totalConnectedIds[0] = 0;
     }
+    public void GrowAllFarms()
+    {
+        foreach (FarmInfo farmland in FarmList)
+        {
+            farmland.curDay++;
+            farmland.InitializeSpriteAndEffect();
+        }
+    }
     public void CalculateConnectedCount()
     {
 
@@ -58,7 +61,17 @@ public class Farms : MonoBehaviour
             }
         }
     }
-
+    public bool isAllHolyHoed()
+    {
+        foreach (FarmInfo farmland in FarmList)
+        {
+            if (!farmland.HolyHoed)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     public void GetConnected(FarmInfo farm, int i, int j, int direction)
     {
         if (farm.Id >= 2 && FarmList[i, j].Id >= 2) { farm.connectedFarmIds[direction] = FarmList[i, j].Id; }

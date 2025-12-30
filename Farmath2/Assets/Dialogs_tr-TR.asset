@@ -1,0 +1,354 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Dialogs_tr-TR
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: tr-TR
+  m_SharedData: {fileID: 11400000, guid: 77f6c687497d20746b336dfb3a351671, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 2960535027712
+    m_Localized: Eureka
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960535027713
+    m_Localized: "Bunla bunu kar\u0131\u015Ft\u0131rsam \u015Funu \u015F\xF6yle yapsam"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960535027714
+    m_Localized: Patlama sesi* SONUNDA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960535027715
+    m_Localized: "Hmm acaba b\xF6yle yaparsam ne olur *BUM*"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610624
+    m_Localized: "Bu deneylerimde \xE7ok i\u015Fe yarar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610625
+    m_Localized: "Hm acaba bunla g\xFCzel g\xFCbre olur mu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610626
+    m_Localized: "Hey yarat\u0131k bana nas\u0131l topraklar\u0131 kirletti\u011Fini
+      anlatmal\u0131s\u0131n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610627
+    m_Localized: "Hmm bu \xF6zel \u015Fekle nas\u0131l b\xFCr\xFCnd\xFC acaba"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610628
+    m_Localized: "NE SARMA\u015EIK MI YARATIYOR O AMANIN L\xDCTFEN SIRLARINI ANLAT
+      BANA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610629
+    m_Localized: "Hey o \u0131\u015F\u0131kta ne dur incelemem laz\u0131m kals\u0131n
+      orada"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610630
+    m_Localized: "Amcao\u011Flu az bi\u015Fi yap bize ya"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610631
+    m_Localized: "Bence bana bunu yar\u0131s\u0131na verirsin"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610632
+    m_Localized: Bunu bana ucuza sat hep sana geleyim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610633
+    m_Localized: "Yok o \xE7ok buna d\xFC\u015F sen d\xFC\u015F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610634
+    m_Localized: "OO bunu iyi fiyata satar\u0131m pazarda"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610635
+    m_Localized: "Buda sa\u011Flam \xE7\u0131kt\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610636
+    m_Localized: "Ehh bu k\xF6t\xFC \xE7\u0131kt\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610637
+    m_Localized: "Aha bi elime ge\xE7sede d\xF6vsem"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610638
+    m_Localized: "Bah\xE7emizde napm\u0131\u015F bu ulan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610639
+    m_Localized: "Off bunun temizli\u011Fiyle kim u\u011Fra\u015Facak"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610640
+    m_Localized: "Dur onu ben ta\u015F\u0131y\u0131m"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610641
+    m_Localized: "Bak bunu b\xF6yle dikebilliriz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610642
+    m_Localized: Aa bak buraya ekebiliriz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610643
+    m_Localized: "Bundan g\xFCzel yahni olur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610644
+    m_Localized: "B\xFCy\xFCs\xFCnde ha\u015Flar\u0131m"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610645
+    m_Localized: "Aa bu \xE7ok iyi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610646
+    m_Localized: Iyy pislik herif geldi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610647
+    m_Localized: "K\u0131\u015F k\u0131\u015F git"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610648
+    m_Localized: "\xF6f k\xF6t\xFCde kokuyor"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610649
+    m_Localized: "Yaa onu kesmekle u\u011Fra\u015F\u0131caz bide"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610650
+    m_Localized: "Ya bi git art\u0131k"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610651
+    m_Localized: Igh bu kokuda ne
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610652
+    m_Localized: Meee (Mutlu)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610653
+    m_Localized: Meee (Sinirli)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610654
+    m_Localized: "Meee (\u0130rrite)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610655
+    m_Localized: '*Hart hurt'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610656
+    m_Localized: "Bu i\u015Fimize yarar bak"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610657
+    m_Localized: Ben dikebnilir miyim?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610658
+    m_Localized: "Off ne yenir buda b\xFCy\xFCy\xFCnce"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610659
+    m_Localized: Yaaa yine mi sen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610660
+    m_Localized: BABAAAAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610661
+    m_Localized: Bi yakalasam seni
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610662
+    m_Localized: "Senin bah\xE7eni biz mahvetsek sevinir misin?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610663
+    m_Localized: Pislik
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610664
+    m_Localized: Aha biliyordum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610665
+    m_Localized: "HAHAHA SENDEN ZEK\u0130Y\u0130M P\u0130GOBL\u0130N"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610666
+    m_Localized: Ehe bu mu zor?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610667
+    m_Localized: "Aha bunu ar\u0131yordum"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610668
+    m_Localized: "Acaba ne kadar s\xFCrer b\xFCy\xFCmesi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610669
+    m_Localized: ANNEEEEE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610670
+    m_Localized: "S\xFCm\xFCkl\xFC geldi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610671
+    m_Localized: "Hi\xE7bir arkada\u015F\u0131n yok eziksin"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610672
+    m_Localized: Offf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610673
+    m_Localized: Koyunu getireyimde yesin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610674
+    m_Localized: Eh bu muydu yani
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610675
+    m_Localized: "Bebek bile \xE7\xF6zer bunu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960547610676
+    m_Localized: Hehehe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 661767904788480
+    m_Localized: "Merhaba Oyuncu, Farmath'e Ho\u015Fgeldin."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 661932577357824
+    m_Localized: "\u015Eu anki amac\u0131m\u0131z 1M para kazanmak."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 663472574791680
+    m_Localized: "Hadi d\xFCkkan\u0131 a\xE7al\u0131m ve bir kart alal\u0131m."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 663633912889344
+    m_Localized: "D\xFCkkanda g\xF6rd\xFC\u011F\xFCn gibi 5 ekin ve 1 alet bulunur."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 664269769375744
+    m_Localized: "her kart\u0131n kendine \xF6zg\xFC i\u015Flevleri vard\u0131r \u015Fimdi
+      alm\u0131\u015F oldu\u011Fumuz ekin kart\u0131n\u0131 ekelim."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 664785484218368
+    m_Localized: "\u015Eimdi g\xFCn\xFC ge\xE7elim ve desteyi \xE7ekelim"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 665824648200192
+    m_Localized: "G\xF6rd\xFC\u011F\xFCn gibi deste a\xE7\u0131ld\u0131."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 665909754822656
+    m_Localized: "\u015Eimdi herhangi bir topra\u011F\u0131 \xE7apala"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 666129213390848
+    m_Localized: "kartlar\u0131n a\xE7\u0131lma say\u0131s\u0131 \u015Fartlara g\xF6re
+      de\u011Fi\u015Febilir ve en fazla 7 tane a\xE7abilirsin"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 666295395909632
+    m_Localized: "Harika \u015Fimdi ekinlerden birini ek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 666695528316928
+    m_Localized: "Sonras\u0131nda ise bilgiler sayfas\u0131na ge\xE7elim"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 667821099155456
+    m_Localized: "buras\u0131 bilgiler sayfas\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 667930339803136
+    m_Localized: "burada ekinlerin ke\u015Ffedilmi\u015F bilgileri yaz\u0131l\u0131r
+      ve hepsinin matematiksel \xF6zellikleri vard\u0131r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668042826842112
+    m_Localized: "di\u011Fer sayfada ise kullan\u0131lacak aletlerin bilgileri bulunur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668343839457280
+    m_Localized: "\u015Fimdi \xE7ift\xE7ilerin sayfas\u0131na ge\xE7elim"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668423900332032
+    m_Localized: "buras\u0131 bize yard\u0131m edecek olan kahramanlar\u0131n sayfas\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668579043442688
+    m_Localized: "burada kahramanlar\u0131 yerle\u015Ftirerek kal\u0131c\u0131 olarak
+      kullanabilirsiniz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668780286148608
+    m_Localized: "her ay ayr\u0131 bir kahraman yeri a\xE7\u0131l\u0131r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 668942203060224
+    m_Localized: "anlatacaklar\u0131m\u0131n hepsi bu kadard\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 669026261106688
+    m_Localized: "bol \u015Fans."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27312840212480
+    m_Localized: "festival zaman\u0131."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27511750885376
+    m_Localized: "Kartlar\u0131n baz\u0131lar\u0131n\u0131 yok etmeliyiz."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27605258698752
+    m_Localized: "Dikkat edin \xE7ocuklar zam geliyor."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27768710725632
+    m_Localized: "Iyhh buras\u0131 k\xF6t\xFC kokmaya ba\u015Flad\u0131."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

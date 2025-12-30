@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd3eb76f127c3524cb493b85b82d2aa3, type: 3}
+  m_Name: Bert_Hoe1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogWithConditions
+  dialogs:
+  - characterId: 3
+    dialogDelay: 0.05
+    timeToNextDialouge: 2
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 2960547610639
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  DisableLoggerWhenDialogfinished: 1
+  hero: 3
+  ConditionId: 3
+  references:
+    version: 2
+    RefIds: []

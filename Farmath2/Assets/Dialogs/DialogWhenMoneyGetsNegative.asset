@@ -25,3 +25,4 @@ MonoBehaviour:
     text: Ekin bilgilerini kontrol et
     dialogDelay: 0.05
     timeToNextDialouge: 2
+  DisableLoggerWhenDialogfinished: 1

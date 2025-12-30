@@ -14,10 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogScr
   dialogs:
   - characterId: 0
-    text: "Ald\u0131\u011F\u0131n\u0131z kartlar sonraki g\xFCn a\xE7\u0131lacakt\u0131r"
     dialogDelay: 0.05
     timeToNextDialouge: 3
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 663633912889344
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - characterId: 0
-    text: "G\xFCn\xFC ge\xE7mek i\xE7in g\xFCn ge\xE7me tu\u015Funa bas\u0131n"
+    dialogDelay: 0.05
+    timeToNextDialouge: 3
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 664269769375744
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - characterId: 0
     dialogDelay: 0.05
     timeToNextDialouge: 0
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 664785484218368
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  DisableLoggerWhenDialogfinished: 0
+  references:
+    version: 2
+    RefIds: []

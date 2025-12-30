@@ -25,7 +25,7 @@ public class CameraMove : MonoBehaviour
     }
     public void MoveCameraToThisPosition()
     {
-        Camera.GetComponent<Camera>().DOOrthoSize(6, 2).SetEase(Ease.InBack);
+        Camera.GetComponent<Camera>().DOOrthoSize(4, 2).SetEase(Ease.InBack);
         int level = 0;
         if (PlayerPrefs.HasKey("Level"))
         {

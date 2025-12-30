@@ -14,6 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogScr
   dialogs:
   - characterId: 3
-    text: "\xDCr\xFCnlerin fiyatlar\u0131na dikkat edin zam gelecek"
     dialogDelay: 0.05
-    timeToNextDialouge: 2
+    timeToNextDialouge: 3
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 27605258698752
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  DisableLoggerWhenDialogfinished: 1
+  references:
+    version: 2
+    RefIds: []

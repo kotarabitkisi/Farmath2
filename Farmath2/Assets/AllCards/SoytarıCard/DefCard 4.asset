@@ -12,7 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79496f5591d5c4e43a3ae3893675fe4a, type: 3}
   m_Name: DefCard 4
   m_EditorClassIdentifier: 
-  CardName: lahana
+  CardName:
+    m_TableReference:
+      m_TableCollectionName: GUID:d421c73632ec61742b56b4c25364828f
+    m_TableEntryReference:
+      m_KeyId: 2816108363776
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   Icon: {fileID: -828998093, guid: 9436dad52a47b9742bf15782faa90a51, type: 3}
   CardCost: 0
   IsThatBossCard: 1
+  IsThatOneUse: 0
+  references:
+    version: 2
+    RefIds: []

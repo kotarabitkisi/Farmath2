@@ -6,13 +6,13 @@ public class LightIntensityChanger : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
     public bool night;
-    Light2D light;
+    Light2D Light_;
     [SerializeField] float changeSpeed;
     float randomint;
     private void Start()
     {
         randomint = Random.value * 1000;
-        light = GetComponent<Light2D>();
+        Light_ = GetComponent<Light2D>();
     }
     void Update()
     {
@@ -27,14 +27,14 @@ public class LightIntensityChanger : MonoBehaviour
         }
         else
         {
-            light.intensity = Mathf.Lerp(0.25f, 1, Mathf.Sin(Time.time * changeSpeed + randomint));
+            Light_.intensity = Mathf.Lerp(0.25f, 1, Mathf.Sin(Time.time * changeSpeed + randomint));
         }
     }
     public IEnumerator TurnOffSmoothly()
     {
         for (float i = 0; i < 100; i++)
         {
-            light.intensity = Mathf.Lerp(light.intensity, 0, i / 99);
+            Light_.intensity = Mathf.Lerp(Light_.intensity, 0, i / 99);
             yield return new WaitForSecondsRealtime(0.03f);
         }
     }

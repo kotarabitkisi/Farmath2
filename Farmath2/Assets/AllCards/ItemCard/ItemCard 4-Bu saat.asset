@@ -12,9 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee0309a618b17347b865f992fbad77d, type: 3}
   m_Name: ItemCard 4-Bu saat
   m_EditorClassIdentifier: 
-  CardName: Bu Saat
+  CardName:
+    m_TableReference:
+      m_TableCollectionName: GUID:c4d7dbcda9a15f0448e0433fd383de62
+    m_TableEntryReference:
+      m_KeyId: 649533669474304
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   Icon: {fileID: 21300000, guid: e5c9a750b9c2dcb499adbd028a6743fa, type: 3}
-  CardCost: 1000
+  CardCost: 2500
   IsThatBossCard: 0
   IsThatOneUse: 1
   itemId: 4
+  references:
+    version: 2
+    RefIds: []

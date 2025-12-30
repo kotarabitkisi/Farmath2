@@ -14,10 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogScr
   dialogs:
   - characterId: 0
-    text: Anlatmam gerekenlerin hepsi bu kadar
     dialogDelay: 0.05
     timeToNextDialouge: 3
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 668942203060224
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - characterId: 0
-    text: "Hadi \xE7iftli\u011Fimizi b\xFCy\xFCtelim"
     dialogDelay: 0.05
-    timeToNextDialouge: 1
+    timeToNextDialouge: 5
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 669026261106688
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  DisableLoggerWhenDialogfinished: 1
+  references:
+    version: 2
+    RefIds: []

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Question 2
   m_EditorClassIdentifier: 
   questionTitle: "\u0130\u015Flem \xD6nceli\u011Fi - Kolay"
-  QuestionIcon: {fileID: 21300000, guid: 430ec5f0dd1c42f45a30633c539ac4e8, type: 3}
+  QuestionIcons:
+  - {fileID: 21300000, guid: 1b914e87770036a4f9fe5c9aef0a20b7, type: 3}
+  - {fileID: 21300000, guid: 1b914e87770036a4f9fe5c9aef0a20b7, type: 3}
   Solution: 15
   moneyMultiple: 1.2
   timeOfQuestion: 45

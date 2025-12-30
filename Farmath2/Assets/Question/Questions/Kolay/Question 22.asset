@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Question 22
   m_EditorClassIdentifier: 
   questionTitle: Problemler - Kolay
-  QuestionIcon: {fileID: 21300000, guid: a3f6cd1de8c47824988040724f33b88e, type: 3}
+  QuestionIcons:
+  - {fileID: 0}
+  - {fileID: 0}
   Solution: 30
   moneyMultiple: 1.2
   timeOfQuestion: 100

@@ -1,8 +1,6 @@
 using DG.Tweening;
-using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CardData : MonoBehaviour
 {
@@ -19,25 +17,29 @@ public class CardData : MonoBehaviour
     public Sprite[] cropSprites;
     public void FadeCard(bool destroy)
     {
-        
+
         GetComponent<BoxCollider2D>().enabled = false;
         transform.SetParent(null, true);
 
         transform.DOKill();
         Sequence seq = DOTween.Sequence();
-        seq.Join(transform.DOScale(Vector3.one * 3f, 0.5f).SetEase(Ease.Linear));
-        seq.Join(transform.DOMove(Vector3.zero, 0.5f).SetEase(Ease.Linear));
-        seq.Join(cardIcon.DOFade(0, 0.5f));
-        seq.Join(cardImage.DOFade(0, 0.5f));
-        seq.Join(itemCornerImages[0].DOFade(0, 0.5f));
-        seq.Join(itemCornerImages[1].DOFade(0, 0.5f));
-        seq.Join(textMeshProUGUI.DOFade(0, 0.5f));
-        seq.OnComplete(() =>
+        float animTime_ = 0.75f;
+        transform.DOScale(Vector3.zero, animTime_).SetEase(Ease.Linear);
+        transform.DORotate(new Vector3(0, 0, 1080), animTime_, RotateMode.WorldAxisAdd);
+        transform.DOMoveY(1, animTime_).SetEase(Ease.OutBack);
+        cardIcon.DOFade(0, animTime_);
+        cardImage.DOFade(0, animTime_);
+        itemCornerImages[0].DOFade(0, animTime_);
+        itemCornerImages[1].DOFade(0, animTime_);
+        textMeshProUGUI.DOFade(0, animTime_).OnComplete(
+        () =>
         {
             DeckPlacing.Instance.DestroyThisCard(gameObject);
             if (!(destroy || Card.IsThatOneUse))
                 DeckPlacing.Instance.AddCardToDiscard(Card);
-        });
+        }
+        );
+
     }
     public void SortLayers(int a)
     {
@@ -49,7 +51,7 @@ public class CardData : MonoBehaviour
     }
     public void InitializeImages()
     {
-        cardTitle.text = Card.CardName;
+        cardTitle.text = LanguageManager.instance.TurnToString(Card.CardName, null);
         cardIcon.sprite = Card.Icon;
         if (Card is CropScr CropCard)
         {

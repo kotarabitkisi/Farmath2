@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 public class saveAndLoad : MonoBehaviour
 {
@@ -14,8 +16,9 @@ public class saveAndLoad : MonoBehaviour
     public ExplorationData exploration;
     public SettingsData settings;
     public LevelSettings levelSettings;
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return UnityEngine.Localization.Settings.LocalizationSettings.InitializationOperation;
         Load();
     }
 #if UNITY_ANDROID || UNITY_IOS
@@ -135,7 +138,7 @@ public class saveAndLoad : MonoBehaviour
     {
         for (int i = 0; i < exploration.isExplored.Length; i++)
         {
-            exploration.isExplored[i] = GManager.isExplored[i];
+            exploration.isExplored[i] = GManager.explorations[i].isExplored;
         }
         string json2 = JsonUtility.ToJson(exploration, true);
         string Explorationpath = Application.persistentDataPath + "/playerExplorations.json";
@@ -174,9 +177,11 @@ public class saveAndLoad : MonoBehaviour
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-
             data = JsonUtility.FromJson<Data>(json);
-            #region çiftçiler
+            if (data.tutorialFinished)
+            {
+
+                  #region çiftçiler
             int choosedCount = 0;
             for (int i = 0; i < data.farmerChoosed.Count; i++)
             {
@@ -192,7 +197,7 @@ public class saveAndLoad : MonoBehaviour
                 GManager.farmerCount[i] = data.farmerCount[i];
             }
             #endregion
-            #region kartstatlarý
+                  #region kartstatlarý
             for (int i = 0; i < data.OpenedCardIds.Count; i++)
             {
                 int cardId = data.OpenedCardIds[i];
@@ -222,7 +227,7 @@ public class saveAndLoad : MonoBehaviour
             }
 
             #endregion
-            #region anastatlar
+                  #region anastatlar
             GManager.tutorialPlayed = data.tutorialFinished;
             GManager.HoeCount = data.hoeCount;
             GManager.money = data.money;
@@ -243,7 +248,7 @@ public class saveAndLoad : MonoBehaviour
                 GManager.HarvestedCropCount[i] = data.HarvestedCropCount[i];
             }
             #endregion
-            #region farmbilgileri
+                  #region farmbilgileri
             for (int i = 0; i < FarmInfos.Length; i++)
             {
                 FarmInfos[i].Id = data.farmId[i];
@@ -254,7 +259,7 @@ public class saveAndLoad : MonoBehaviour
                 FarmInfos[i].Negatived = data.negatived[i];
             }
             #endregion
-
+            }
         }
         if (File.Exists(SettingsPath))
         {
@@ -298,8 +303,8 @@ public class saveAndLoad : MonoBehaviour
             exploration = JsonUtility.FromJson<ExplorationData>(json2);
             for (int i = 0; i < exploration.isExplored.Length; i++)
             {
-                GManager.isExplored[i] = exploration.isExplored[i];
-                if (GManager.isExplored[i])
+                GManager.explorations[i].isExplored = exploration.isExplored[i];
+                if (GManager.explorations[i].isExplored)
                 {
                     GManager.OpenExplore(i, true);
                 }
@@ -308,22 +313,21 @@ public class saveAndLoad : MonoBehaviour
         else
         {
             Debug.LogError("Save file not found!");
-
         }
         GManager.InitializeLoad();
     }
     public void EraseSaves()
     {
         string dosyaYolu = Application.persistentDataPath + "/playerData.json";
-
+        string Explorationpath = Application.persistentDataPath + "/playerExplorations.json";
+        if (File.Exists(Explorationpath))
+        {
+            File.Delete(Explorationpath);
+        }
         if (File.Exists(dosyaYolu))
         {
             File.Delete(dosyaYolu);
             Debug.Log("Kayýt dosyasý baþarýyla silindi.");
-        }
-        else
-        {
-            Debug.LogError("Silinecek dosya bulunamadý.");
         }
     }
 }

@@ -1,0 +1,319 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Translation-1_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: c4d7dbcda9a15f0448e0433fd383de62, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 2582250844481126757
+  m_TableData:
+  - m_Id: 3801744637952
+    m_Localized: You can't pass day while using card.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3888411541504
+    m_Localized: Close all pages before pass day.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49235066880
+    m_Localized: 'Wheat: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2818293596160
+    m_Localized: 'Tomato: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3470235238400
+    m_Localized: 'Eggplant: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2813373677568
+    m_Localized: 'Corn: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2802518818816
+    m_Localized: 'Carrot: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2816108363776
+    m_Localized: 'Cabbage: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8194304999424
+    m_Localized: The Maximum opened card count is {0}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 319902990958592
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 323797704212480
+    m_Localized: Grass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 323871700123648
+    m_Localized: Shadow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 323932010020864
+    m_Localized: Light
+    m_Metadata:
+      m_Items: []
+  - m_Id: 324369081663488
+    m_Localized: Polen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 324418666725376
+    m_Localized: Sound Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 325240813223936
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335338746904576
+    m_Localized: Reset Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 341107299024896
+    m_Localized: 'Total: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 648945913266176
+    m_Localized: Wheat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 648982676340736
+    m_Localized: Carrot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 648996446240768
+    m_Localized: Corn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649022887133184
+    m_Localized: Lettuce
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649041463705600
+    m_Localized: Tomato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649077287256064
+    m_Localized: Eggplant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649378580889600
+    m_Localized: Fertilizer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649530267893760
+    m_Localized: Sprinkler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649531773648896
+    m_Localized: Holy Hoe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649532864167936
+    m_Localized: Remover
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649533669474304
+    m_Localized: ThatClock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 649844282851328
+    m_Localized: JustAQuestion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 654619711864832
+    m_Localized: Crop Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 654781091905536
+    m_Localized: Item Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 658246899826688
+    m_Localized: '-If there is {0} neighbour {1}: {2} {3}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 660729973932032
+    m_Localized: '-If you Harvest after {0} days of ripening: {1} {2}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 661695699845120
+    m_Localized: '-If Your Money is between {0}: {1} {2}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 661890915336192
+    m_Localized: '-If Your Day is between {0}: {1} {2}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662463928565760
+    m_Localized: '-If the same type crop harvested {0} times: {1} {2} '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662872944508928
+    m_Localized: -If the total of harvest is between {0}:{1} {2}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679774714560512
+    m_Localized: Base
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679889080647680
+    m_Localized: Multiple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 997700659281920
+    m_Localized: 'Cost: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 2582250844481126757
+  - m_Id: 997817537757184
+    m_Localized: 'Base Revenue: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 2582250844481126757
+  - m_Id: 1009533470343168
+    m_Localized: Makes the used crop grow enough to be harvested.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010090029318144
+    m_Localized: Waters 3 random crops (including already watered ones).
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010147847798784
+    m_Localized: Makes the selected soil fertile and doubles its profit.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010501410848768
+    m_Localized: Cuts a vine or a crop.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010609393205248
+    m_Localized: Refreshes the shop and draws a card.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010739114639360
+    m_Localized: Asks a random question; if answered correctly, gives money multiplied
+      by the purchase price.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1017481697394688
+    m_Localized: Heroes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1017515457347584
+    m_Localized: 'You can draw 1 more card.
+
+      It makes Destroying discard cards
+      free'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1018602725801984
+    m_Localized: 'It Decreases Cost %15.
+
+      It gives 1 card every 2 days'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1018728190017536
+    m_Localized: 'It reveals two Crop Rule every 5 days.
+
+      if All rules are
+      revealed, It gives a that Clock every day.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1019074337538048
+    m_Localized: 'It eats veins every day.
+
+      here is %20 to turn into holy.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047493725093888
+    m_Localized: The Cost of Cards increase %5 per day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048274280873984
+    m_Localized: Veins will definitely appear.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048542548557824
+    m_Localized: You can draw 3 more card but you should destroy 2 of drawed cards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049788734996480
+    m_Localized: Enflation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049880179212288
+    m_Localized: "\u0130nvasion"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049983182929920
+    m_Localized: Festival
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1063456113655808
+    m_Localized: Jester
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1063582961991680
+    m_Localized: '- Each day, a negative effect is applied to half of your land,
+      causing your income to become negative.
+
+      - Each day, the first three
+      crops you harvest become weeds.
+
+      - Each day, one fake card is added to
+      your face-down deck.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3955461110071296
+    m_Localized: Shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3960346920583168
+    m_Localized: 'Card: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10924700916219904
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10924786052202496
+    m_Localized: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10925086410506240
+    m_Localized: Information
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10925186054586368
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 2582250844481126757
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 997700659281920
+        - id: 997817537757184

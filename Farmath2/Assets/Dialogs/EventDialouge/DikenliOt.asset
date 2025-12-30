@@ -14,14 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogScr
   dialogs:
   - characterId: 4
-    text: "Dikenli otlar h\u0131zl\u0131 \xFCremeye ba\u015Flad\u0131lar"
     dialogDelay: 0.05
-    timeToNextDialouge: 2
-  - characterId: 4
-    text: "Topraklar\u0131m\u0131za bir \u015Feyler oluyor"
-    dialogDelay: 0.05
-    timeToNextDialouge: 2
-  - characterId: 5
-    text: meeeeeeeeeee
-    dialogDelay: 0.05
-    timeToNextDialouge: 2
+    timeToNextDialouge: 3
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:77f6c687497d20746b336dfb3a351671
+      m_TableEntryReference:
+        m_KeyId: 27768710725632
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  DisableLoggerWhenDialogfinished: 1
+  references:
+    version: 2
+    RefIds: []
