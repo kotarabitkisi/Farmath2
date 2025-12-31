@@ -285,6 +285,22 @@ MonoBehaviour:
     m_Key: ExitButton
     m_Metadata:
       m_Items: []
+  - m_Id: 3266049468497920
+    m_Key: Money-Million
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3266124374573056
+    m_Key: Money-Thousand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3267303770914816
+    m_Key: Time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3601294457798656
+    m_Key: DiscardPageText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

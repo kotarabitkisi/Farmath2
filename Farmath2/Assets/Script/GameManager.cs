@@ -154,13 +154,13 @@ public class GameManager : MonoBehaviour
         }
         if (!tutorialPlayed)
         {
-            logger.StartDialouge(0);
+            DialogManager.instance.StartDialouge(0);
         }
         else
         {
-            for (int i = 0; i < logger.Buttons.Length; i++)
+            for (int i = 0; i < DialogManager.instance.Buttons.Length; i++)
             {
-                logger.Buttons[i].SetActive(true);
+                DialogManager.instance.Buttons[i].SetActive(true);
             }
         }
         ShopManagement.DayPassedAddCard();
@@ -171,7 +171,7 @@ public class GameManager : MonoBehaviour
         if (questionTime > 0 && questionPage.activeSelf)
         {
             questionTime -= Time.deltaTime;
-            questionTimeTxt.text = "Süre: " + questionTime.ToString("0");
+            questionTimeTxt.text = LanguageManager.instance.TurnToString(new LocalizedString("Translation-1","Time"),null)+questionTime.ToString("F1");
 
             if (questionTime <= 0) { questionTextArea.text = ""; questionTime = 0; questionTimeTxt.text = "Süre: 0"; SolutionIsTrueOrNot(Questions[0], 0); }
         }
@@ -217,10 +217,11 @@ public class GameManager : MonoBehaviour
         }
 
 #elif UNITY_STANDALONE_WIN
-        if (activeCardState != ActiveCardState.USING && !pageopened)
+        if (activeCardState != ActiveCardState.USING && !pageopened&& !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
             if (Input.GetMouseButtonDown(0))
             {
+               
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
                 if (hit.collider != null && hit.collider.CompareTag("Farm"))
@@ -231,7 +232,7 @@ public class GameManager : MonoBehaviour
                     {
                         StartCoroutine(deckPlacing.UseThisCard(farm));
                     }
-                    else if (farm.Id == 0) { farm.HoeImage.SetActive(true); farm.HoeImage.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack); farm.HoeCost.text = HoeCost[HoeCount].ToString("F2"); pageopened = true; }
+                    else if (farm.Id == 0) { farm.HoeImage.SetActive(true); farm.HoeImage.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack); farm.HoeCost.text = HoeCost[HoeCount].ToString("F2"); }
                 }
 
 
@@ -267,9 +268,12 @@ public class GameManager : MonoBehaviour
     {
         switch (money)
         {
+
             case < 1000: moneyText.text = money.ToString("F2"); break;
-            case < 1000000: moneyText.text = (money / 1000).ToString("F2") + "K"; break;
-            case < 1000000000: moneyText.text = (money / 1000000).ToString("F2") + "M"; break;
+            case < 1000000:
+                string MoneyLow=
+                moneyText.text = (money / 1000).ToString("F2") +LanguageManager.instance.TurnToString( new LocalizedString("Translation-1", "Money-Thousand"),null); break;
+            case < 1000000000: moneyText.text = (money / 1000000).ToString("F2") + LanguageManager.instance.TurnToString(new LocalizedString("Translation-1", "Money-Million"), null); break;
         }
     }
     public void HarvestCrop(FarmInfo farm)
@@ -419,7 +423,7 @@ public class GameManager : MonoBehaviour
 
             if (Random.Range(0f, 1f) >= 0.15f)
             {
-                Logger.instance.StartDialougeCondition(2);
+                DialogManager.instance.StartDialougeCondition(2);
             }
         }
 
@@ -428,9 +432,9 @@ public class GameManager : MonoBehaviour
         farm.InitializeSpriteAndEffect();
         float Revenue = baseRev * MultipleRev;
         money += Revenue;
-        if (Revenue < 0 && logger.textingFinished)
+        if (Revenue < 0 && DialogManager.instance.textingFinished)
         {
-            logger.StartDialouge(7);
+            DialogManager.instance.StartDialouge(7);
         }
         MoneyAnimPlay(moneyObjPool.transform.GetChild(0).gameObject, Revenue, farm.gameObject.transform.position, 1);
         InitializeMoneyText();
@@ -447,9 +451,9 @@ public class GameManager : MonoBehaviour
     {
         if (money >= HoeCost[HoeCount])
         {
-            if (!tutorialPlayed && !logger.tutorials[3] && logger.CalculatePlayedDialogTutorial() >= 3 && logger.textingFinished)
+            if (!tutorialPlayed && !DialogManager.instance.tutorials[3] && DialogManager.instance.CalculatePlayedDialogTutorial() >= 3 && DialogManager.instance.textingFinished)
             {
-                logger.StartDialouge(3);
+                DialogManager.instance.StartDialouge(3);
             }
             money -= HoeCost[HoeCount];
             farm.Id = 1;
@@ -459,7 +463,7 @@ public class GameManager : MonoBehaviour
             farm.InitializeSpriteAndEffect();
             if (Random.Range(0f, 1f) <= 0.15f)
             {
-                Logger.instance.StartDialougeCondition(3);
+                    DialogManager.instance.StartDialougeCondition(3);
             }
 
         }
@@ -592,14 +596,14 @@ public class GameManager : MonoBehaviour
                 {
                     if (!explorations[i].isExplored)
                     {
-                        Logger.instance.StartDialougeCondition(7);
+                        DialogManager.instance.StartDialougeCondition(7);
                         IsAllExplored = false;
                         break;
                     }
                 }
                 if (IsAllExplored)
                 {
-                    Logger.instance.StartDialougeCondition(7);
+                    DialogManager.instance.StartDialougeCondition(7);
                     deckPlacing.AddCardToDiscard(deckPlacing.allCardScr[10]);
                 }
                 farmerCount[2]--;
@@ -632,7 +636,7 @@ public class GameManager : MonoBehaviour
                         int randomIndex = Random.Range(0, farmsScr.FarmList.Length);
                         if (farmsScr.frams[randomIndex].Id == 8)
                         {
-                            Logger.instance.StartDialougeCondition(9);
+                            DialogManager.instance.StartDialougeCondition(9);
                             farmsScr.frams[randomIndex].Id = 1;
                             if (!farmsScr.frams[randomIndex].HolyHoed && Random.Range(0f, 1f) <= 0.20f)
                             {
@@ -704,7 +708,7 @@ public class GameManager : MonoBehaviour
             debuffs[i] = false;
         }
         debuffs[DebuffType] = true;
-        logger.StartDialouge(DebuffType + 7);
+        DialogManager.instance.StartDialouge(DebuffType + 7);
     }
 
     public void QuestionStart(ItemScr cardData)
@@ -743,7 +747,7 @@ public class GameManager : MonoBehaviour
         if (question.Solution == questionTextArea.text)
         {
             float rewardmoney = reward * question.moneyMultiple;
-            logger.StartDialougeCondition(6);
+            DialogManager.instance.StartDialougeCondition(6);
             PlaySound(2);
             money += rewardmoney;
             InitializeMoneyText();

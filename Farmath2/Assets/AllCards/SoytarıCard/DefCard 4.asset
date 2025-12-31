@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName:
     m_TableReference:
-      m_TableCollectionName: GUID:d421c73632ec61742b56b4c25364828f
+      m_TableCollectionName: GUID:c4d7dbcda9a15f0448e0433fd383de62
     m_TableEntryReference:
       m_KeyId: 2816108363776
       m_Key: 

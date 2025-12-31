@@ -27,13 +27,13 @@ public class ShopManager : MonoBehaviour
             gameManager.InitializeMoneyText();
             DP.AddCardToDiscard(cardsOnShop[ShopIndex]);
             DeleteCard(ShopIndex);
-            if (!gameManager.tutorialPlayed && !gameManager.logger.tutorials[1] && gameManager.logger.textingFinished)
+            if (!gameManager.tutorialPlayed && !DialogManager.instance.tutorials[1])
             {
-                gameManager.logger.StartDialouge(1);
+                DialogManager.instance.StartDialouge(1);
             }
             else if (gameManager.tutorialPlayed && ShopIndex != 5 && Random.Range(0f, 1f) <= 0.1f)
             {
-                Logger.instance.StartDialougeCondition(0);
+                DialogManager.instance.StartDialougeCondition(0);
             }
         }
         else
@@ -75,7 +75,7 @@ public class ShopManager : MonoBehaviour
         cardCosts.Add(CardCost);
         if (Random.Range(0f, 1f) <= 0.15f)
         {
-            Logger.instance.StartDialougeCondition(4);
+            DialogManager.instance.StartDialougeCondition(4);
         }
 
     }

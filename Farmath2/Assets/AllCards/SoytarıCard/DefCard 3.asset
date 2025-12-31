@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName:
     m_TableReference:
-      m_TableCollectionName: GUID:d421c73632ec61742b56b4c25364828f
+      m_TableCollectionName: GUID:c4d7dbcda9a15f0448e0433fd383de62
     m_TableEntryReference:
-      m_KeyId: 648996446240768
+      m_KeyId: 649077287256064
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Icon: {fileID: -345116089, guid: 8d8f7a764e7b4c14aa5b7bf1c715daa3, type: 3}
+  Icon: {fileID: -1863683375, guid: 88791818f194700419159a52bde41f46, type: 3}
   CardCost: 0
   IsThatBossCard: 1
   IsThatOneUse: 0

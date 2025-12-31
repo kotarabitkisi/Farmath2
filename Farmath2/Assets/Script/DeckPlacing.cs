@@ -9,7 +9,7 @@ using static GameManager;
 
 public class DeckPlacing : MonoBehaviour
 {
-    public TrailRenderer trilRenderer;
+    public TrailRenderer trailRenderer;
     public static DeckPlacing Instance;
     public GameObject OpenedCardCanvas;
     [Header("Audio")]
@@ -335,7 +335,7 @@ public class DeckPlacing : MonoBehaviour
     {
         if (Random.Range(0f, 1f) <= 0.15f)
         {
-            Logger.instance.StartDialougeCondition(7);
+            DialogManager.instance.StartDialougeCondition(7);
         }
         yield return StartCoroutine(DeleteAllOfOpenedCards());
         if (GManager.debuffs[2])
@@ -363,9 +363,9 @@ public class DeckPlacing : MonoBehaviour
     }
     public void TakeCardFromDiscard()
     {
-        if (!GManager.logger.tutorials[2] && GManager.logger.CalculatePlayedDialogTutorial() >= 2)
+        if (!DialogManager.instance.tutorials[2] && DialogManager.instance.CalculatePlayedDialogTutorial() >= 2)
         {
-            GManager.logger.StartDialouge(2);
+            DialogManager.instance.StartDialouge(2);
         }
         if (openedCards.Count >= maxOpenedCardCount)
         {
@@ -473,7 +473,7 @@ public class DeckPlacing : MonoBehaviour
         {
             if(Random.Range(0f, 1f) >= 0.15f)
             {
-                Logger.instance.StartDialougeCondition(5);
+                DialogManager.instance.StartDialougeCondition(5);
             }
             CardScr cardData = ChosenObject.GetComponent<CardData>().Card;
             if (cardData.IsThatBossCard) { BossManager.BossCardUsed(); ChosenObject.GetComponent<CardData>().FadeCard(true); InitializeAllCardsPositions(); }
@@ -674,9 +674,9 @@ public class DeckPlacing : MonoBehaviour
     {
         float cardAnimTime = 0.5f;
         Sequence seq = DOTween.Sequence();
-        trilRenderer.enabled = true;
-        trilRenderer.gameObject.transform.SetParent(chosenCardUsing.transform, false);
-        trilRenderer.transform.localPosition = Vector3.zero;
+        trailRenderer.enabled = true;
+        trailRenderer.gameObject.transform.SetParent(chosenCardUsing.transform, false);
+        trailRenderer.transform.localPosition = Vector3.zero;
         chosenCardUsing.transform.DORotate(new Vector3(0, 0, 720), 0.2f, RotateMode.FastBeyond360);
         chosenCardUsing.transform.DOMoveX(farm.transform.position.x, cardAnimTime).SetEase(Ease.Linear);
         seq.Append(chosenCardUsing.transform.DOMoveY(farm.transform.position.y + 1f, cardAnimTime / 2));
@@ -685,11 +685,11 @@ public class DeckPlacing : MonoBehaviour
     }
     public IEnumerator DisableTrail()
     {
-        trilRenderer.transform.SetParent(null, true);
+        trailRenderer.transform.SetParent(null, true);
 
         yield return new WaitForSecondsRealtime(0.3f);
 
-        trilRenderer.enabled = false;
+        trailRenderer.enabled = false;
     }
 
 }

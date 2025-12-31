@@ -299,6 +299,23 @@ MonoBehaviour:
     m_Localized: "\xC7\u0131k\u0131\u015F"
     m_Metadata:
       m_Items: []
+  - m_Id: 3266049468497920
+    m_Localized: M
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3266124374573056
+    m_Localized: B
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3267303770914816
+    m_Localized: "S\xFCre:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3601294457798656
+    m_Localized: Kart Yok Etmek {0} Paraya Mal Olur
+    m_Metadata:
+      m_Items:
+      - rid: 2582250844481126756
   references:
     version: 2
     RefIds:
@@ -309,3 +326,4 @@ MonoBehaviour:
         m_SharedEntries:
         - id: 997700659281920
         - id: 997817537757184
+        - id: 3601294457798656

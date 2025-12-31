@@ -6,10 +6,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Logger : MonoBehaviour
+public class DialogManager : MonoBehaviour
 {
     public List<Coroutine> coroutines=new List<Coroutine>();
-    public static Logger instance;
+    public static DialogManager instance;
     public GameObject LogObj;
     public GameObject[] Buttons;
     public bool[] tutorials;
@@ -24,16 +24,7 @@ public class Logger : MonoBehaviour
     {
         instance = this;
     }
-    private void Update()
-    {
-
-#if UNITY_STANDALONE_WIN
-        if (dialogQueue != -1 && textingFinished && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.KeypadEnter))) {coroutines.Add( StartCoroutine(SampleDialog(dialogNumber, dialogQueue + 1))); }
-#elif UNITY_ANDROID
-        if (dialogQueue != -1 && textingFinished && Input.touchCount > 0) { coroutines.Add( StartCoroutine(SampleDialog(dialogNumber, dialogQueue + 1))); }
-#endif
-
-    }
+    public void ContinueToDialog() { coroutines.Add(StartCoroutine(SampleDialog(dialogNumber, dialogQueue + 1))); }
     public void ControlAllTutorialPlayed()
     {
         for (int i = 0; i < 6; i++)
@@ -44,7 +35,6 @@ public class Logger : MonoBehaviour
             }
         }
         GameManager.instance.tutorialPlayed = true;
-
         StartDialouge(6);
     }
     public void StartDialougeCondition(int conditionId)//0:buy Crop 1:Boss Coming 2:boss Uses Vines 3:hoe dirt 4:Open Shop 5:Use Card 6:Solve Question 7:take from discard 8:eugene skill 9:sheep skill
@@ -114,32 +104,37 @@ public class Logger : MonoBehaviour
         if (coroutines.Count == 0) { return; }
         foreach(Coroutine coroutine_ in coroutines)
         {
-          StopCoroutine(coroutine_);
+            if (coroutine_ != null)
+            {
+                StopCoroutine(coroutine_);
+
+            }
         }
         coroutines.Clear();
     }
     public IEnumerator SampleDialog(int dialognumber_, int dialogQueue_)
     {
+        
         if (!GameManager.instance.tutorialPlayed && dialogNumber < 6)
         {
             tutorials[dialognumber_] = true;
         }
         if (dialogQueue_ == dialogScr[dialognumber_].dialogs.Length)
         {
+            LogObj.SetActive(false);
             FinishDialog(dialognumber_);
             yield break;
         }
+        dialogText.maxVisibleCharacters = 0;
         DialogScr.Dialog dialog = dialogScr[dialognumber_].dialogs[dialogQueue_];
         textingFinished = false;
         dialogNumber = dialognumber_;
-        dialogText.text = "";
+        dialogText.text = LanguageManager.instance.TurnToString(dialog.text, null);
         dialogQueue = dialogQueue_;
 
         float delay = dialog.dialogDelay;
-        int charnumber = dialog.characterId;
         Sprite beforeImage = logImage.sprite;
-        logImage.sprite = charImages[charnumber];//0:boy 1:girl 2:betty 3:bert 4:eugene 5:sheep 6:soytari
-        string dialogTxt = LanguageManager.instance.TurnToString(dialog.text, null);
+        logImage.sprite = charImages[dialog.characterId];//0:boy 1:girl 2:betty 3:bert 4:eugene 5:sheep 6:soytari
 
         Sequence seq = DOTween.Sequence();
         seq.Append(dialogText.transform.parent.DOScale(Vector3.one * 1.1f, 0.25f));
@@ -153,21 +148,18 @@ public class Logger : MonoBehaviour
         {
             seq.Join(logImage.transform.DOScale(Vector3.one * 1f, 0.25f));
         }
-
-        foreach (char c in dialogTxt)
+        for (int i = 0; i < dialogText.text.Length; i++)
         {
-            dialogText.text += c;
+            dialogText.maxVisibleCharacters++;
             yield return new WaitForSeconds(delay);
         }
-        if (dialog.timeToNextDialouge != -1)
+        if (dialogQueue_ == dialogScr[dialognumber_].dialogs.Length - 1)
         {
-            yield return new WaitForSecondsRealtime(dialog.timeToNextDialouge);
-            StartCoroutine(SampleDialog(dialogNumber, dialogQueue + 1));
+            FinishDialog(dialognumber_);
+            yield break;
         }
-        else
-        {
-            textingFinished = true;
-        }
+        textingFinished = true;
+        
     }
     public void FinishDialog(int dialognumber_)
     {
@@ -191,16 +183,10 @@ public class Logger : MonoBehaviour
                     break;
             }
         }
-        if (dialogScr[dialognumber_].DisableLoggerWhenDialogfinished)
-        {
-            LogObj.SetActive(false);
-        }
         if (!GameManager.instance.tutorialPlayed)
         {
             ControlAllTutorialPlayed();
         }
-
-
     }
     public int CalculatePlayedDialogTutorial()
     {

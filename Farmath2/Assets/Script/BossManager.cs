@@ -58,7 +58,7 @@ public class BossManager : MonoBehaviour
         seq.Join(BossImage.DOAnchorPosX(-1920, 1).SetEase(ease1));
 
         seq.Join(panel.DOFade(0, 3));
-        seq.OnComplete(() => { BossCanvas.SetActive(false); Logger.instance.StartDialougeCondition(1); });
+        seq.OnComplete(() => { BossCanvas.SetActive(false); DialogManager.instance.StartDialougeCondition(1); });
 
         volume.profile.TryGet(out adj);
         Sun.transform.DORotate(new Vector3(0, 0, -30), 3);

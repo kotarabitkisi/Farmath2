@@ -18,7 +18,6 @@ public class MouseAlphaChanger : MonoBehaviour
         Vector2 ObjPosition = RectTransformUtility.WorldToScreenPoint(null, rectTransform.position) + offset;
 
         float distance = Vector2.Distance(mousePos, ObjPosition);
-        print(distance);
         float alpha = Mathf.InverseLerp(minDistance, MaxDistance, distance);
         alpha = Mathf.Clamp(alpha, minAlpha, 1);
         canvasGroup.alpha = alpha;
